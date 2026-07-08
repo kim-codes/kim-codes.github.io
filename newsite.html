@@ -437,8 +437,8 @@ footer{
 
 .impact-grid {
     display:grid;
-    grid-template-columns:repeat(3, 1fr);
-    gap:35px;
+    grid-template-columns:repeat(4, 1fr);
+    gap:25px;
 }
 
 
@@ -457,29 +457,30 @@ footer{
 
 .impact-card img {
     width:100%;
-    height:180px;
+    height:150px;
     object-fit:cover;
 }
 
 
 .impact-card h3 {
-    font-size:1.2rem;
-    padding:20px 20px 10px;
+    font-size:1.05rem;
+    padding:18px 18px 8px;
 }
 
 
 .impact-card p {
     color:#555;
-    line-height:1.6;
-    padding:0 20px;
+     font-size:.9rem;
+    line-height:1.5;
+    padding:0 18px;
 }
 
 
 .impact-card span {
     display:block;
     color:#777;
-    font-size:.9rem;
-    padding:15px 20px 25px;
+    font-size:.85rem;
+    padding:12px 18px 20px;
 }
 
 .impact-card a {
@@ -495,13 +496,22 @@ footer{
 }
 
 
-@media(max-width:900px){
+@media(max-width:1100px){
+
+    .impact-grid {
+        grid-template-columns:repeat(2, 1fr);
+    }
+
+} 
+    @media(max-width:600px){
 
     .impact-grid {
         grid-template-columns:1fr;
     }
 
-} /* end of impact section styling */ 
+}
+    
+    /* end of impact section styling */ 
 </style>
 
 </head>

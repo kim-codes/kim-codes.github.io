@@ -58,12 +58,12 @@ body{
 }
 
 .main-content {
-    flex: 1;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    gap: 10px;
-    padding: 120px 0px 0px 120px
+    flex:1;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    align-items:center;
+    gap:40px;
+    padding:80px clamp(30px, 8vw, 120px);
 }
     
 .left h1{
@@ -145,50 +145,56 @@ footer{
     font-size:.85rem;
 }
 
-@media(max-width:900px){
+/ * stling for mobile */ 
+    @media(max-width:900px){
 
-.content{
-grid-template-columns:1fr;
-text-align:center;
-padding:40px;
-}
+    .main-content {
+        grid-template-columns: 1fr;
+        text-align:center;
+        padding: 100px 25px 50px;
+        gap: 40px;
+    }
 
-.left p{
-margin:auto;
-margin-bottom:30px;
-}
+    .left h1{
+        font-size:3rem;
+    }
 
-.buttons{
-justify-content:center;
-}
+    .left h2{
+        font-size:1.2rem;
+        margin-bottom:25px;
+    }
 
-.placeholder{
-width:280px;
-height:280px;
-font-size:4rem;
-}
+    .left p{
+        max-width:500px;
+        margin:0 auto 30px;
+        line-height:1.7;
+    }
 
-.sidebar{
-display:none;
-}
+    .buttons{
+        justify-content:center;
+    }
 
-.left h1{
-font-size:3rem;
-}
+    .character-illustration-img {
+        height:350px;
+        width:auto;
+    }
 
-}
+    .sidebar{
+        display:none;
+    }
+} /*end of mobile styling */
 
 /* maine character image styling */ 
 .character-illustration-img {
-    height: 850px;
-    width: auto;
-    max-width: 100%;
+    height:min(70vh, 850px);
+    width:auto;
+    max-width:100%;
 }
 
 /* character illustration for mobile */ 
-    @media (max-width: 768px) {
+@media(max-width:768px){
     .character-illustration-img {
-        height: 400px;
+        height:320px;
     }
 }
 

@@ -18,6 +18,10 @@
     font-family:Arial, Helvetica, sans-serif;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body{
     background:#fafafa;
     color:#222;
@@ -60,12 +64,11 @@ body{
     color:#000;
 }
 
-.content{
-    flex:1;
+.main-flex:1;
     display:grid;
     grid-template-columns:1fr 1fr;
     align-items:center;
-    gap:60px;
+    gap:10px;
     padding:60px;
 }
 
@@ -181,21 +184,21 @@ font-size:3rem;
 
 }
 
-    /* maine character image styling */ 
+/* maine character image styling */ 
 .character-illustration-img {
     height: 900px;
     width: auto;
     max-width: 100%;
 }
 
-    /* character illustration for mobile */ 
+/* character illustration for mobile */ 
     @media (max-width: 768px) {
     .character-illustration-img {
         height: 400px;
     }
 }
 
-   /* styling for the header logo */ 
+/* styling for the header logo */ 
     header {
     position: fixed;
     top: 25px;
@@ -205,15 +208,30 @@ font-size:3rem;
     
     .logo {
         font-family: "Dancing Script", cursive;
-        font-size: 2rem;
+        font-size: 1.8rem;
         font-weight: 500;
         text-decoration: none;
         color: #222;
         transition: color 0.3s ease;
     }
 
-.logo:hover {
-    color: #666;
+    .logo:hover {
+        color: #666;
+    }
+
+/* stling find out more button transition to next section */ 
+    .primary-btn {
+    display: inline-block;
+    background: #222;
+    color: white;
+    text-decoration: none;
+    padding: 14px 28px;
+    border-radius: 6px;
+    transition: .3s;
+}
+
+.primary-btn:hover {
+    background: #444;
 }
 </style>
 
@@ -238,7 +256,7 @@ font-size:3rem;
         </div>
     </aside>
 --> 
-    <main class="content">
+    <main class="main-content">
 
         <section class="left">
 
@@ -253,10 +271,14 @@ font-size:3rem;
                 My hope is to help others create their own path, their own opportunities, and their own success with technology.
             </p>
 
+            <a href="#about" class="primary-btn">Find Out More ↓</a>
+
+            <!-- remove buttons for now 
             <div class="buttons">
                 <button class="primary">Projects</button>
                 <button class="secondary">Contact</button>
             </div>
+            -->
 
         </section>
 
@@ -271,6 +293,9 @@ font-size:3rem;
     </main>
 
 </div>
+
+    <section id="about">
+    </section>
 
 <footer>
     © 2026 kimcodes

@@ -181,10 +181,18 @@ font-size:3rem;
 
 }
 
+    /* maine character image styling */ 
 .character-illustration-img {
-    max-width: 430px;
-    width: 100%;
-    height: auto;
+    height: 900px;
+    width: auto;
+    max-width: 100%;
+}
+
+    /* character illustration for mobile */ 
+    @media (max-width: 768px) {
+    .character-illustration-img {
+        height: 400px;
+    }
 }
 
    /* styling for the header logo */ 
@@ -193,16 +201,16 @@ font-size:3rem;
     top: 25px;
     left: 40px;
     z-index: 1000;
-}
-
-.logo {
-    font-family: "Dancing Script", cursive;
-    font-size: 2.4rem;
-    font-weight: 500;
-    text-decoration: none;
-    color: #222;
-    transition: color 0.3s ease;
-}
+    }
+    
+    .logo {
+        font-family: "Dancing Script", cursive;
+        font-size: 2rem;
+        font-weight: 500;
+        text-decoration: none;
+        color: #222;
+        transition: color 0.3s ease;
+    }
 
 .logo:hover {
     color: #666;
@@ -219,6 +227,7 @@ font-size:3rem;
 
 <div class="container">
 
+<!-- socials side bar not working 
     <aside class="sidebar">
 
         <div class="socials">
@@ -228,7 +237,7 @@ font-size:3rem;
             <a href="#">Email</a>
         </div>
     </aside>
-
+--> 
     <main class="content">
 
         <section class="left">

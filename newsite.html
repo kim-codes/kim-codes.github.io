@@ -316,7 +316,99 @@ footer{
         text-align:left;
     }
 
+} /*end of about me styling*/ 
+
+/* career jouney section styling */ 
+    .career-section {
+    min-height:100vh;
+    padding:120px clamp(25px, 8vw, 120px);
+    background:#fafafa;
 }
+
+
+.career-container {
+    max-width:900px;
+    margin:auto;
+}
+
+
+.career-header h2 {
+    font-size:3rem;
+    margin-bottom:25px;
+}
+
+
+.career-header p {
+    max-width:650px;
+    color:#555;
+    line-height:1.8;
+    margin-bottom:70px;
+}
+
+
+.career-timeline {
+    position:relative;
+}
+
+
+.career-item {
+    display:grid;
+    grid-template-columns:80px 1fr;
+    gap:30px;
+    margin-bottom:45px;
+    position:relative;
+}
+
+
+.career-number {
+    font-size:2rem;
+    color:#bbb;
+    font-weight:bold;
+}
+
+
+.career-item h3 {
+    font-size:1.5rem;
+    margin-bottom:12px;
+}
+
+
+.career-item p {
+    color:#555;
+    line-height:1.8;
+    max-width:600px;
+}
+
+
+.career-footer {
+    margin-top:50px;
+    border-top:1px solid #ddd;
+    padding-top:40px;
+}
+
+
+.career-footer p {
+    color:#555;
+    line-height:1.8;
+}
+
+/* mobile career journey section */ 
+@media(max-width:768px){
+    
+    .career-header h2 {
+        font-size:2.3rem;
+    }
+
+    .career-item {
+        grid-template-columns:1fr;
+        gap:10px;
+    }
+
+    .career-number {
+        font-size:1.5rem;
+    }
+
+} /* end of career journey styling */ 
 </style>
 
 </head>

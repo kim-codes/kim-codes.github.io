@@ -318,9 +318,8 @@ footer{
 
 } /*end of about me styling*/ 
 
-/* career jouney section styling */ 
-/* Career Journey Section */
 
+/* Career Journey Section */
 .career-section {
     min-height:100vh;
     padding:120px clamp(25px, 8vw, 120px);
@@ -407,6 +406,102 @@ footer{
     }
 
 }/* end of career journey styling */ 
+
+/* Impact section styling */ 
+.impact-section {
+    min-height:100vh;
+    padding:120px clamp(25px, 8vw, 120px);
+    background:#fff;
+}
+
+
+.impact-container {
+    max-width:1100px;
+    margin:auto;
+}
+
+
+.impact-header h2 {
+    font-size:3rem;
+    margin-bottom:20px;
+}
+
+
+.impact-header p {
+    color:#555;
+    max-width:650px;
+    line-height:1.8;
+    margin-bottom:60px;
+}
+
+
+.impact-grid {
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:35px;
+}
+
+
+.impact-card {
+    background:#fafafa;
+    border-radius:12px;
+    overflow:hidden;
+    transition:.3s ease;
+}
+
+
+.impact-card:hover {
+    transform:translateY(-5px);
+}
+
+
+.impact-card img {
+    width:100%;
+    height:180px;
+    object-fit:cover;
+}
+
+
+.impact-card h3 {
+    font-size:1.2rem;
+    padding:20px 20px 10px;
+}
+
+
+.impact-card p {
+    color:#555;
+    line-height:1.6;
+    padding:0 20px;
+}
+
+
+.impact-card span {
+    display:block;
+    color:#777;
+    font-size:.9rem;
+    padding:15px 20px 25px;
+}
+
+.impact-card a {
+    display:block;
+    padding:0 20px 25px;
+    color:#222;
+    text-decoration:none;
+    font-weight:500;
+}
+
+.impact-card a:hover {
+    color:#666;
+}
+
+
+@media(max-width:900px){
+
+    .impact-grid {
+        grid-template-columns:1fr;
+    }
+
+} /* end of impact section styling */ 
 </style>
 
 </head>
@@ -580,6 +675,185 @@ footer{
     </div>
 
 </section> <!-- end of career journey section --> 
+
+    <!-- Impact Section --> 
+    <section id="impact" class="impact-section">
+
+    <div class="impact-container">
+
+        <div class="impact-header">
+            <h2>Impact</h2>
+            <p>
+                "Success is not measured in the amount of dollars you make,
+                but the amount of lives you impact."
+            </p>
+        </div>
+
+
+        <div class="impact-grid">
+        <!-- cards go here --> 
+
+            
+            <!-- Big Data and AI Toronto -->
+            <article class="impact-card">
+                <img src="assets/img/portfolio/bigdata-img-2023.png" alt="Big Data and AI Toronto">
+            
+                <h3>Big Data and AI Toronto 2022</h3>
+            
+                <p>
+                    The cosmic power of Azure Cosmos DB and Azure IoT telemetry.
+                </p>
+            
+                <span>Co-Speaker</span>
+            </article>
+            
+            
+            <!-- Vue Conf -->
+            <article class="impact-card">
+                <img src="assets/img/portfolio/vueconf.PNG" alt="Vue Conf 2020">
+            
+                <h3>Vue Conf 2020</h3>
+            
+                <p>
+                    Deploy Vue Apps to Azure.
+                </p>
+            
+                <span>Lightning Talk</span>
+            
+                <a href="https://www.youtube.com/watch?v=OWzQqIfXKT8" target="_blank" rel="noopener noreferrer">
+                    View →
+                </a>
+            </article>
+            
+            
+            <!-- Grace Hopper -->
+            <article class="impact-card">
+                <img src="assets/img/portfolio/ghc-kim.jpg" alt="Grace Hopper Conference">
+            
+                <h3>Grace Hopper Conference 2019</h3>
+            
+                <p>
+                    Surviving the Hashtags.
+                </p>
+            
+                <span>Panel Member</span>
+            </article>
+            
+            
+            <!-- Twilio Signal -->
+            <article class="impact-card">
+                <img src="assets/img/portfolio/signal-talk.jpg" alt="Twilio Signal">
+            
+                <h3>Twilio Signal 2019</h3>
+            
+                <p>
+                    Zero to Shero: Creating safe spaces for women to explore technology.
+                </p>
+            
+                <span>Co-Speaker</span>
+            
+                <a href="https://signal.twilio.com/2019/sf/sessions/18745/zero-to-shero-creating-safe-spaces-for-women-to-explore-technology"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    View →
+                </a>
+            </article>
+            
+            
+            <!-- Hello World -->
+            <article class="impact-card">
+                <img src="assets/img/portfolio/hello-world.PNG" alt="Hello World Microsoft Learn TV">
+            
+                <h3>Hello World - Microsoft Learn TV</h3>
+            
+                <p>
+                    Developer conversations and community storytelling.
+                </p>
+            
+                <span>Co-Host</span>
+            
+                <a href="https://docs.microsoft.com/en-us/shows/hello-world/"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    View →
+                </a>
+            </article>
+            
+            
+            <!-- Twitch -->
+            <article class="impact-card">
+                <img src="assets/img/portfolio/twitch-lizzie.jpg" alt="Great Hair Code Share Twitch">
+            
+                <h3>#GreatHairCodeShare Twitch</h3>
+            
+                <p>
+                    Community conversations around technology and learning.
+                </p>
+            
+                <span>Guest Speaker</span>
+            
+                <a href="https://dev.to/kimcodes/hanging-out-with-lizzie-greathaircodeshare-1onc"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    View →
+                </a>
+            </article>
+            
+            
+            <!-- Microsoft Build 2021 -->
+            <article class="impact-card">
+                <img src="assets/img/portfolio/build2021.PNG" alt="Microsoft Build 2021">
+            
+                <h3>Microsoft Build 2021</h3>
+            
+                <p>
+                    Unleash your creative energy - Developer team bonding in a digital landscape.
+                </p>
+            
+                <span>Host</span>
+            
+                <a href="https://docs.microsoft.com/en-us/events/build-may-2021/general/connection-zone/con025/"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    View →
+                </a>
+            </article>
+            
+            
+            <!-- GitHub Constellation -->
+            <article class="impact-card">
+                <img src="assets/img/portfolio/github-constellation.jpg" alt="GitHub Constellation Toronto">
+            
+                <h3>GitHub Constellation Toronto</h3>
+            
+                <p>
+                    Foundations for Developer Communities.
+                </p>
+            
+                <span>Speaker</span>
+            </article>
+            
+            
+            <!-- GitHub Campus Expert -->
+            <article class="impact-card">
+                <img src="assets/img/portfolio/campusexpert-talk.jpg" alt="GitHub Campus Expert Summit">
+            
+                <h3>GitHub Campus Expert Summit</h3>
+            
+                <p>
+                    From Expert to Industry.
+                </p>
+            
+                <span>Speaker</span>
+            </article>
+            
+    <!-- end of cards -- > 
+
+        </div>
+
+    </div>
+
+</section> <!-- end of impact section --> 
 
 <footer>
     © 2026 kimcodes

@@ -186,7 +186,7 @@ footer{
 
 /* maine character image styling */ 
 .character-illustration-img {
-    height:min(70vh, 850px);
+    height:850px;
     width:auto;
     max-width:100%;
 }
@@ -232,6 +232,90 @@ footer{
 
 .primary-btn:hover {
     background: #444;
+}
+/* end of styling buttons */
+
+
+/* stling the about me section */ 
+.about-section {
+    min-height:100vh;
+    padding:120px clamp(25px, 8vw, 120px);
+    display:flex;
+    align-items:center;
+    background:#fff;
+}
+
+.about-container {
+    width:100%;
+    max-width:1100px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:300px 1fr;
+    gap:70px;
+    align-items:start;
+}
+
+.about-image img {
+    width:100%;
+    border-radius:20px;
+    object-fit:cover;
+}
+
+.about-content h2 {
+    font-size:3rem;
+    margin-bottom:25px;
+}
+
+.about-content h3 {
+    font-size:1.5rem;
+    font-weight:500;
+    margin-bottom:25px;
+}
+
+.about-content p {
+    color:#555;
+    line-height:1.8;
+    margin-bottom:25px;
+}
+
+.beliefs h4 {
+    font-size:1.3rem;
+    margin-bottom:15px;
+}
+
+.beliefs ul {
+    list-style:none;
+    padding:0;
+}
+
+.beliefs li {
+    margin-bottom:12px;
+    color:#555;
+}
+
+
+/* mobile */
+@media(max-width:900px){
+
+    .about-section {
+        padding:80px 25px;
+    }
+
+    .about-container {
+        grid-template-columns:1fr;
+        gap:40px;
+        text-align:center;
+    }
+
+    .about-image {
+        max-width:250px;
+        margin:auto;
+    }
+
+    .beliefs ul {
+        text-align:left;
+    }
+
 }
 </style>
 
@@ -294,10 +378,54 @@ footer{
 
 </div>
 
-   <section id="about" style="min-height:100vh; padding:100px;">
-        <h2>About Me</h2>
-        <p>This section is coming soon.</p>
-    </section>
+   <section id="about" class="about-section">
+
+    <div class="about-container">
+
+        <div class="about-image">
+            <img src="assets/img/profile-img.jpg" alt="Kimberly Noel">
+        </div>
+
+        <div class="about-content">
+
+            <h2>Kimberly</h2>
+
+            <h3>Build. Create. Enable. 🛠️</h3>
+
+            <p>
+                Since I was young, I loved disassembling electronics and solving puzzles. 
+                Technology is much more than a passion for me. I have a natural need to create, 
+                imagine, and build. My mission is to enable others to embrace uncertainty since 
+                there is no linear path to success. To create their own path, their own 
+                opportunities, and their own success.
+            </p>
+
+            <p>
+                Over the last decade I've worked across developer relations, engineering, 
+                product marketing, open source strategy, technical enablement, and 
+                go-to-market leadership. Whether building developer communities, supporting 
+                open source ecosystems, or helping field teams adopt AI and cloud technologies, 
+                I've always been drawn to the same challenge:
+                <strong>connecting people, ideas, and execution.</strong>
+            </p>
+
+            <div class="beliefs">
+
+                <h4>Things I Believe</h4>
+
+                <ul>
+                    <li>🏠 Communities create opportunities</li>
+                    <li>🌱 Growth happens when we're exposed to different perspectives</li>
+                    <li>⭐ Great leaders help others create their own success</li>
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
 
 <footer>
     © 2026 kimcodes

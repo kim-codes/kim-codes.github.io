@@ -40,13 +40,6 @@ body{
     align-items:center;
     padding:30px 0;
 }
-
-.logo{
-    font-size:2rem;
-    font-weight:bold;
-    letter-spacing:2px;
-}
-
 .socials{
     display:flex;
     flex-direction:column;
@@ -64,12 +57,13 @@ body{
     color:#000;
 }
 
-.main-flex:1;
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    align-items:center;
-    gap:10px;
-    padding:60px;
+.main-content {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 10px;
+    padding: 60px;
 }
 
 .left h1{
@@ -186,7 +180,7 @@ font-size:3rem;
 
 /* maine character image styling */ 
 .character-illustration-img {
-    height: 900px;
+    height: 850px;
     width: auto;
     max-width: 100%;
 }
@@ -285,7 +279,7 @@ font-size:3rem;
         <section class="right">
 
             <div class="main-character-image">
-                <img src="assets/img/characterkim-img.png" class="character-illustration-img" alt="Profile illustration"">
+                <img src="assets/img/characterkim-img.png" class="character-illustration-img" alt="Profile illustration">
             </div>
 
         </section>
@@ -294,7 +288,9 @@ font-size:3rem;
 
 </div>
 
-    <section id="about">
+   <section id="about" style="min-height:100vh; padding:100px;">
+        <h2>About Me</h2>
+        <p>This section is coming soon.</p>
     </section>
 
 <footer>

@@ -137,14 +137,62 @@ button{
     user-select:none;
 }
 
-footer{
-    position:fixed;
-    bottom:15px;
-    right:25px;
-    color:#999;
-    font-size:.85rem;
+/* footer stlying */
+  
+.footer-section {
+    padding:100px clamp(25px, 8vw, 120px);
+    background:#222;
+    color:white;
 }
 
+
+.footer-container {
+    max-width:900px;
+    margin:auto;
+    text-align:center;
+}
+
+
+.footer-container h2 {
+    font-size:2.5rem;
+    margin-bottom:30px;
+}
+
+
+.footer-container p {
+    color:#ccc;
+    line-height:1.8;
+    margin-bottom:25px;
+}
+
+
+.social-links {
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:25px;
+    margin-top:40px;
+
+}
+
+.social-links a {
+    color:white;
+    text-decoration:none;
+    transition:.2s;
+
+}
+
+.social-links a:hover {
+    color:#aaa;
+}
+
+.copyright {
+    margin-top:50px;
+    font-size:.85rem;
+
+} /* end of footer styling */
+
+    
 / * stling for mobile */ 
     @media(max-width:900px){
 
@@ -1008,8 +1056,70 @@ footer{
 
 </section> <!-- end of impact section --> 
 
-<footer>
-    © 2026 kimcodes
+<!-- footer -->
+<footer id="footer" class="footer-section">
+
+<div class="footer-container">
+
+        <h2>Let's Connect</h2>
+
+        <p>
+            Over the past 10+ years I've helped developers, communities, and
+            organizations adopt technology in meaningful ways. From building
+            developer programs at GitHub and Auth0 to leading Open Source,
+            Cloud, AI, and enablement initiatives at Microsoft, I've been
+            fortunate to work across developer ecosystems, platform strategy,
+            community building, and go-to-market leadership.
+        </p>
+
+        <p>
+            Along the way, I've built communities, created learning experiences,
+            launched programs, influenced strategy, and supported teams at scale —
+            earning 5 Canadian Marketing Association Awards across Innovative
+            Media, Brand Building, Customer Experience, and Business Impact.
+        </p>
+
+
+        <div class="social-links">
+
+            <a href="https://stackoverflow.com/users/6696446/kimcodes"
+               target="_blank">
+                Stack Overflow
+            </a>
+
+            <a href="https://github.com/kim-codes"
+               target="_blank">
+                GitHub
+            </a>
+
+            <a href="https://dev.to/kimcodes"
+               target="_blank">
+                Dev.to
+            </a>
+
+            <a href="https://medium.com/@kimcodes"
+               target="_blank">
+                Medium
+            </a>
+
+            <a href="https://www.instagram.com/kimcodes/"
+               target="_blank">
+                Instagram
+            </a>
+
+            <a href="https://www.linkedin.com/in/kimcodes/"
+               target="_blank">
+                LinkedIn
+            </a>
+
+        </div>
+
+        <p class="copyright">
+            © 2026 kimcodes
+        </p>
+
+    </div>
+
 </footer>
 
 </body>

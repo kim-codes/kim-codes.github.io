@@ -319,12 +319,13 @@ footer{
 } /*end of about me styling*/ 
 
 /* career jouney section styling */ 
-    .career-section {
+/* Career Journey Section */
+
+.career-section {
     min-height:100vh;
     padding:120px clamp(25px, 8vw, 120px);
     background:#fafafa;
 }
-
 
 .career-container {
     max-width:900px;
@@ -342,48 +343,44 @@ footer{
     max-width:650px;
     color:#555;
     line-height:1.8;
-    margin-bottom:70px;
+    margin-bottom:60px;
 }
 
 
-.career-timeline {
-    position:relative;
+.career-path {
+    max-width:700px;
 }
 
 
-.career-item {
-    display:grid;
-    grid-template-columns:80px 1fr;
-    gap:30px;
-    margin-bottom:45px;
-    position:relative;
+.career-step {
+    padding:25px 0;
 }
 
 
-.career-number {
-    font-size:2rem;
-    color:#bbb;
-    font-weight:bold;
-}
-
-
-.career-item h3 {
-    font-size:1.5rem;
+.career-step h3 {
+    font-size:1.6rem;
     margin-bottom:12px;
 }
 
 
-.career-item p {
+.career-step p {
     color:#555;
     line-height:1.8;
     max-width:600px;
 }
 
 
+.career-arrow {
+    font-size:2rem;
+    color:#999;
+    padding:5px 0;
+}
+
+
 .career-footer {
     margin-top:50px;
-    border-top:1px solid #ddd;
     padding-top:40px;
+    border-top:1px solid #ddd;
 }
 
 
@@ -392,23 +389,24 @@ footer{
     line-height:1.8;
 }
 
-/* mobile career journey section */ 
+
+/* Mobile career journey */
+
 @media(max-width:768px){
-    
+
+    .career-section {
+        padding:80px 25px;
+    }
+
     .career-header h2 {
         font-size:2.3rem;
     }
 
-    .career-item {
-        grid-template-columns:1fr;
-        gap:10px;
+    .career-step h3 {
+        font-size:1.4rem;
     }
 
-    .career-number {
-        font-size:1.5rem;
-    }
-
-} /* end of career journey styling */ 
+}/* end of career journey styling */ 
 </style>
 
 </head>
@@ -461,7 +459,7 @@ footer{
         <section class="right">
 
             <div class="main-character-image">
-                <img src="assets/img/characterkim-img.png" class="character-illustration-img" alt="Profile illustration">
+                <img src="assets/img/characterkim-image.png" class="character-illustration-img" alt="Profile illustration">
             </div>
 
         </section>
@@ -533,41 +531,38 @@ footer{
         </div>
 
 
-        <div class="career-timeline">
+        <div class="career-path">
 
-            <div class="career-item">
-                <span class="career-number">01</span>
-                <div>
-                    <h3>Developer Relations</h3>
-                    <p>
-                        Building communities, technical content, and developer
-                        experiences that help people learn, build, and connect.
-                    </p>
-                </div>
+            <div class="career-step">
+                <h3>Developer Relations</h3>
+                <p>
+                    Building communities, technical content, and developer
+                    experiences that help people learn, build, and connect.
+                </p>
             </div>
 
 
-            <div class="career-item">
-                <span class="career-number">02</span>
-                <div>
-                    <h3>Open Source & Platform Strategy</h3>
-                    <p>
-                        Driving technology adoption through Linux, Kubernetes,
-                        and open source ecosystems.
-                    </p>
-                </div>
+            <div class="career-arrow">↓</div>
+
+
+            <div class="career-step">
+                <h3>Open Source & Platform Strategy</h3>
+                <p>
+                    Driving technology adoption through Linux, Kubernetes,
+                    and open source ecosystems.
+                </p>
             </div>
 
 
-            <div class="career-item">
-                <span class="career-number">03</span>
-                <div>
-                    <h3>Enablement & GTM Leadership</h3>
-                    <p>
-                        Building programs, communications, and operating models
-                        that help organizations execute at scale.
-                    </p>
-                </div>
+            <div class="career-arrow">↓</div>
+
+
+            <div class="career-step">
+                <h3>Enablement & GTM Leadership</h3>
+                <p>
+                    Building programs, communications, and operating models
+                    that help organizations execute at scale.
+                </p>
             </div>
 
         </div>

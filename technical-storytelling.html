@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Notes • Explaining Technology</title>
+        <title>Notes • Thinking Through Technology</title>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
       
@@ -19,65 +19,65 @@
 *{margin:0;padding:0;box-sizing:border-box;}
 
 body{
-font-family:Inter,sans-serif;
-background:var(--bg);
-color:var(--text);
-line-height:1.9;
-font-size:18px;
+    font-family:Inter,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.9;
+    font-size:18px;
 }
 
 main{
-max-width:760px;
-margin:90px auto;
-padding:0 30px;
+    max-width:760px;
+    margin:90px auto;
+    padding:0 30px;
 }
 
 .notes{
-font-size:.8rem;
-text-transform:uppercase;
-letter-spacing:.15em;
-color:var(--muted);
-margin-bottom:25px;
+    font-size:.8rem;
+    text-transform:uppercase;
+    letter-spacing:.15em;
+    color:var(--muted);
+    margin-bottom:25px;
 }
 
 h1{
-font-size:4rem;
-line-height:1;
-margin-bottom:25px;
+    font-size:3rem;
+    line-height:1;
+    margin-bottom:25px;
 }
 
 .lead{
-font-size:1.35rem;
-max-width:620px;
-color:#555;
-margin-bottom:80px;
+    font-size:1.2rem;
+    max-width:620px;
+    color:#555;
+    margin-bottom:80px;
 }
 
 hr{
-border:none;
-border-top:1px solid var(--line);
-margin:80px 0;
+    border:none;
+    border-top:1px solid var(--line);
+    margin:80px 0;
 }
 
 .section{
-display:grid;
-grid-template-columns:120px 1fr;
-gap:40px;
-align-items:start;
+    display:grid;
+    grid-template-columns:120px 1fr;
+    gap:40px;
+    align-items:start;
 }
 
 aside{
-font-size:.78rem;
-letter-spacing:.08em;
-text-transform:uppercase;
-color:var(--muted);
-position:sticky;
-top:40px;
-}
+    font-size:.78rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--muted);
+    position:sticky;
+    top:40px;
+    }
 
 article h2{
-font-size:2rem;
-margin-bottom:28px;
+    font-size:1.6rem;
+    margin-bottom:28px;
 }
 
 p{
@@ -86,56 +86,73 @@ max-width:620px;
 }
 
 .question{
-margin:45px 0;
+    margin:70px 0;
 }
 
 .number{
-color:var(--accent);
-font-weight:700;
-margin-bottom:8px;
+    font-size:.9rem;
+    font-weight:600;
+    color:var(--accent);
+    margin-bottom:16px;
+    letter-spacing:.04em;
+}
+    
+.question h3{
+    font-size:2rem;
+    line-height:1.25;
+    font-weight:700;
+    margin-bottom:18px;
+    max-width:620px;
+}
+
+.question p{
+    font-size:1.1rem;
+    color:#444;
+    max-width:620px;
+    line-height:1.9;
 }
 
 .pause{
-font-size:1.6rem;
-font-weight:600;
-line-height:1.5;
-margin:55px 0;
-max-width:560px;
+    font-size:1.6rem;
+    font-weight:600;
+    line-height:1.5;
+    margin:55px 0;
+    max-width:560px;
 }
 
 .observation{
-margin:55px 0;
+    margin:55px 0;
 }
 
 .observation h3{
-font-size:1.2rem;
-margin-bottom:12px;
+    font-size:1.2rem;
+    margin-bottom:12px;
 }
 
 footer{
-margin-top:100px;
-padding-top:50px;
-border-top:1px solid var(--line);
-color:#555;
+    margin-top:100px;
+    padding-top:50px;
+    border-top:1px solid var(--line);
+    color:#555;
 }
 
 @media(max-width:760px){
 
 .section{
-grid-template-columns:1fr;
-gap:15px;
+    grid-template-columns:1fr;
+    gap:15px;
 }
 
 aside{
-position:static;
+    position:static;
 }
 
 h1{
-font-size:2.8rem;
+    font-size:2.8rem;
 }
 
 .lead{
-font-size:1.15rem;
+    font-size:1.15rem;
 }
 
 }
@@ -160,22 +177,49 @@ font-size:1.15rem;
                     <p>
                         Whenever I'm learning something new, I tend to come back to the same four questions.
                     </p>
+                    
                     <div class="question">
-                        <div class="number">01.</div>
-                        <p><strong>What frustrating thing becomes easier?</strong></p>
-                    </div>
-                    <div class="question">
-                        <div class="number">02.</div>
-                        <p><strong>Who feels that frustration the most?</strong></p>
-                    </div>
-                    <div class="question">
-                        <div class="number">03.</div>
-                        <p><strong>What changes after someone adopts it?</strong></p>
-                    </div>
-                    <div class="question">
-                        <div class="number">04.</div>
-                        <p><strong>Can I explain it to someone outside of engineering?</strong></p>
-                    </div>
+    <div class="number">01</div>
+
+    <h3>What frustrating thing becomes easier?</h3>
+
+    <p>
+        I start with the problem, not the feature. People remember the frustration that disappears
+        long before they remember technical terminology.
+    </p>
+</div>
+                        
+                        <div class="question">
+                            <div class="number">02</div>
+                        
+                            <h3>Who feels that frustration the most?</h3>
+                        
+                            <p>
+                                Developers, architects, engineering managers, and executives don't evaluate products the
+                                same way. Good messaging respects those differences.
+                            </p>
+                        </div>
+                        
+                        <div class="question">
+                            <div class="number">03</div>
+                        
+                            <h3>What changes after someone adopts it?</h3>
+                        
+                            <p>
+                                Features describe capabilities. Outcomes describe value. I try to write about the latter.
+                            </p>
+                        </div>
+                        
+                        <div class="question">
+                            <div class="number">04</div>
+                        
+                            <h3>Can I explain it to someone outside of engineering?</h3>
+                        
+                            <p>
+                                If I can't, I probably don't understand it well enough yet.
+                            </p>
+                        </div>
+                    
                 </article>
             </div>
             <hr>

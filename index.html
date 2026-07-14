@@ -338,73 +338,71 @@ button{
 }
 
 /* A Few Things I Keep Coming Back To */
-
-beliefs h3{
-    font-size:1.8rem;   
-    margin-bottom:22px;
-}
-
 .beliefs-section{
-    padding:80px clamp(25px, 8vw, 120px);
-    background: #fafafa;
+    max-width:760px;
+    margin:90px auto;
+    padding:0 25px;
 }
 
-.beliefs-container{
-    max-width:700px;
-    margin:auto;
-}
-
-.beliefs-container h2{
-    font-size:2.4rem;
-    margin-bottom:35px;
-}
-
-.beliefs-container p{
-    font-size:1.35rem;
-    font-weight:500;
-    margin-bottom:22px;
-    color:#222;
-}
-
-.notes{
-    max-width:700px;
-    margin:100px auto;
-}
-
-.notes h2{
+.beliefs-section h2{
     font-size:2.2rem;
-    margin-bottom:10px;
+    margin-bottom:45px;
 }
 
-.notes-intro{
+.belief{
+    margin-bottom:38px;
+}
+
+.belief h3{
+    font-size:1.35rem;
+    font-weight:700;
+    margin-bottom:8px;
+}
+
+.belief p{
     color:#666;
-    margin-bottom:30px;
-    max-width:560px;
+    line-height:1.7;
+    margin:0;
 }
 
-.notes-list{
-    display:flex;
-    flex-direction:column;
-    gap:14px;
-    font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-    font-size:1rem;
+
+.notes-section{
+    max-width:760px;
+    margin:100px auto;
+    padding:0 25px;
 }
 
-.notes-list a{
-    color:#222;
+.notes-section h2{
+    font-size:2.5rem;
+    margin-bottom:28px;
+}
+
+.notes-card{
+    background:#fff;
+    border:1px solid #ececec;
+    border-radius:16px;
+    padding:35px;
+}
+
+.notes-card a,
+.notes-card span{
+    display:block;
+    font-size:1.1rem;
+    color:#333;
     text-decoration:none;
+    margin:18px 0;
     transition:.2s;
 }
 
-.notes-list a:hover{
+.notes-card a:hover{
     padding-left:8px;
-    color:#7E5656; /* your smoky rose */
 }
 
-.notes-list span{
+.notes-card em{
     color:#999;
+    font-style:normal;
 }
-
+    
 /* mobile */
 @media(max-width:900px){
 
@@ -756,43 +754,38 @@ beliefs h3{
 <!-- Beliefs Section --> 
 <section class="beliefs-section">
 
-    <div class="beliefs-container">
+    <h2>A Few Things I Keep Coming Back To</h2>
 
-                <h3>A Few Things I Keep Coming Back To</h3>
+    <div class="belief">
+        <h3>Communities create opportunities.</h3>
+        <p>Some of the best moments in my career started with a conversation.</p>
+    </div>
 
-                <ul>
-                    <li><strong>Communities create opportunities.</strong> Some of the best moments in my career started with a conversation.</li>
-                    <li><strong>Curiosity compounds.</strong> The more I learn, the more interesting problems I get to solve.</li>
-                    <li><strong>Good leaders create more leaders.</strong>Success is even better when you help someone else get there too.</li>
-                </ul>
-        
-   </div>
+    <div class="belief">
+        <h3>Curiosity compounds.</h3>
+        <p>The more I learn, the more interesting problems I get to solve.</p>
+    </div>
+
+    <div class="belief">
+        <h3>Good leaders create more leaders.</h3>
+        <p>Success is even better when you help someone else get there too.</p>
+    </div>
 
 </section>
 
 <!-- Note Section --> 
 
-    <section class="notes">
+<section class="notes">
 
     <h2>Notes</h2>
 
-    <div class="notes-list">
+    <nav>
+        <a href="/approach.html">├── How I Approach My First 90 Days</a>
+        <a href="/technical-storytelling.html">├── How I Think About Technical Storytelling</a>
+        <span>└── Things I've Changed My Mind About <em>(coming soon)</em></span>
+    </nav>
 
-        <a href="/approach.html">
-            ├── How I Approach My First 90 Days
-        </a>
-
-        <a href="/technical-storytelling.html">
-            ├── How I Think About Technical Storytelling
-        </a>
-
-        <a href="#">
-            └── Things I've Changed My Mind About <span>(coming soon)</span>
-        </a>
-
-    </div>
-
-</section> <!-- End of Notes Section --> 
+</section><!-- End of Notes Section --> 
     
 
 <!-- start of career journey section --> 

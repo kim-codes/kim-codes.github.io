@@ -1,115 +1,243 @@
-<!DOCTYPE html>
-html lang="en">
+!DOCTYPE html>
+<html lang="en">
     <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Explaining Technology</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Notes • Explaining Technology</title>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+      
         <style>
-:root{--bg:#fafaf8;--text:#222;--muted:#6b6b6b;--line:#e6e6e2;}
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Inter,sans-serif;background:var(--bg);color:var(--text);line-height:1.85}
-main{max-width:720px;margin:90px auto;padding:0 28px}
-.small{font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:22px}
-h1{font-size:3.7rem;line-height:1.02;margin-bottom:20px;font-weight:700}
-.lead{font-size:1.25rem;color:var(--muted);max-width:620px;margin-bottom:70px}
-h2{font-size:1.7rem;margin:80px 0 24px}
-p{margin:0 0 22px}
-.question{margin:42px 0}
-.num{font-size:.82rem;color:var(--muted);margin-bottom:8px}
-hr{border:none;border-top:1px solid var(--line);margin:70px 0}
-.beforeafter{margin:30px 0}
-.label{font-size:.85rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px}
-footer{margin:90px 0 40px;padding-top:40px;border-top:1px solid var(--line);color:var(--muted)}
-@media(max-width:700px){h1{font-size:2.8rem}main{margin:60px auto}}
+:root{
+--bg:#FAFAF8;
+--text:#242424;
+--muted:#7b7b7b;
+--line:#e8e5e1;
+--accent:#8EA39B;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+font-family:Inter,sans-serif;
+background:var(--bg);
+color:var(--text);
+line-height:1.9;
+font-size:18px;
+}
+
+main{
+max-width:760px;
+margin:90px auto;
+padding:0 30px;
+}
+
+.notes{
+font-size:.8rem;
+text-transform:uppercase;
+letter-spacing:.15em;
+color:var(--muted);
+margin-bottom:25px;
+}
+
+h1{
+font-size:4rem;
+line-height:1;
+margin-bottom:25px;
+}
+
+.lead{
+font-size:1.35rem;
+max-width:620px;
+color:#555;
+margin-bottom:80px;
+}
+
+hr{
+border:none;
+border-top:1px solid var(--line);
+margin:80px 0;
+}
+
+.section{
+display:grid;
+grid-template-columns:120px 1fr;
+gap:40px;
+align-items:start;
+}
+
+aside{
+font-size:.78rem;
+letter-spacing:.08em;
+text-transform:uppercase;
+color:var(--muted);
+position:sticky;
+top:40px;
+}
+
+article h2{
+font-size:2rem;
+margin-bottom:28px;
+}
+
+p{
+margin-bottom:24px;
+max-width:620px;
+}
+
+.question{
+margin:45px 0;
+}
+
+.number{
+color:var(--accent);
+font-weight:700;
+margin-bottom:8px;
+}
+
+.pause{
+font-size:1.6rem;
+font-weight:600;
+line-height:1.5;
+margin:55px 0;
+max-width:560px;
+}
+
+.observation{
+margin:55px 0;
+}
+
+.observation h3{
+font-size:1.2rem;
+margin-bottom:12px;
+}
+
+footer{
+margin-top:100px;
+padding-top:50px;
+border-top:1px solid var(--line);
+color:#555;
+}
+
+@media(max-width:760px){
+
+.section{
+grid-template-columns:1fr;
+gap:15px;
+}
+
+aside{
+position:static;
+}
+
+h1{
+font-size:2.8rem;
+}
+
+.lead{
+font-size:1.15rem;
+}
+
+}
         </style>
     </head>
     <body>
         <main>
-            <div class="small">Notes</div>
+            <div class="notes">Notes</div>
             <h1>Explaining Technology</h1>
             <p class="lead">
                 A feature isn't valuable because it exists. It's valuable because someone understands why it matters.
             </p>
-            <p>Most products don't have a feature problem. They have a communication problem.</p>
-            <p>
-                My job isn't to simplify technology. It's to simplify understanding. The technology should keep all of its depth. My role is helping the right people understand why that depth matters.
-            </p>
             <hr>
-            <h2>The Four Questions</h2>
-            <div class="question">
-                <div class="num">01</div>
-                <p><strong>What frustrating thing becomes easier?</strong></p>
-                <p>
-                    I start with the problem, not the feature. People remember the frustration that disappears long before they remember technical terminology.
-                </p>
-            </div>
-            <div class="question">
-                <div class="num">02</div>
-                <p><strong>Who feels that frustration the most?</strong></p>
-                <p>
-                    Developers, architects, engineering managers, and executives don't evaluate products the same way. Good messaging respects those differences.
-                </p>
-            </div>
-            <div class="question">
-                <div class="num">03</div>
-                <p><strong>What changes after someone adopts it?</strong></p>
-                <p>
-                    Features describe capabilities. Outcomes describe value. I try to write about the latter.
-                </p>
-            </div>
-            <div class="question">
-                <div class="num">04</div>
-                <p><strong>Can I explain it to someone outside of engineering?</strong></p>
-                <p>If I can't, I probably don't understand it well enough yet.</p>
+            <div class="section">
+                <aside>Observation 01</aside>
+                <article>
+                    <h2>My job isn't to simplify technology.</h2>
+                    <div class="pause">It's to simplify understanding.</div>
+                    <p>
+                        Most products don't have a feature problem. They have a communication problem. Technology should keep all of its depth. My role is helping the right people understand why that depth matters.
+                    </p>
+                    <p>
+                        Whenever I'm learning something new, I tend to come back to the same four questions.
+                    </p>
+                    <div class="question">
+                        <div class="number">01.</div>
+                        <p><strong>What frustrating thing becomes easier?</strong></p>
+                    </div>
+                    <div class="question">
+                        <div class="number">02.</div>
+                        <p><strong>Who feels that frustration the most?</strong></p>
+                    </div>
+                    <div class="question">
+                        <div class="number">03.</div>
+                        <p><strong>What changes after someone adopts it?</strong></p>
+                    </div>
+                    <div class="question">
+                        <div class="number">04.</div>
+                        <p><strong>Can I explain it to someone outside of engineering?</strong></p>
+                    </div>
+                </article>
             </div>
             <hr>
-            <h2>Before &amp; After</h2>
-            <div class="beforeafter">
-                <div class="label">Before</div>
-                <p>Distributed cache invalidation using optimistic consistency.</p>
+            <div class="section">
+                <aside>Observation 02</aside>
+                <article>
+                    <h2>From Features to Outcomes</h2>
+                    <p><strong>Before</strong></p>
+                    <p>Distributed cache invalidation using optimistic consistency.</p>
+                    <div class="pause">↓</div>
+                    <p><strong>After</strong></p>
+                    <p>
+                        Teams spend less time wondering whether they're looking at stale data and more time building.
+                    </p>
+                </article>
             </div>
-            <p>↓</p>
-            <div class="beforeafter">
-                <div class="label">After</div>
-                <p>
-                    Teams spend less time wondering whether they're looking at stale data and more time building.
-                </p>
+            <hr>
+            <div class="section">
+                <aside>Observation 03</aside>
+                <article>
+                    <h2>Things I've Learned</h2>
+                    <div class="observation">
+                        <h3>Developers don't buy features.</h3>
+                        <p>They buy confidence.</p>
+                    </div>
+                    <div class="observation">
+                        <h3>Documentation is marketing.</h3>
+                        <p>Every tutorial teaches someone what your product values.</p>
+                    </div>
+                    <div class="observation">
+                        <h3>Good demos tell stories.</h3>
+                        <p>The best demos help someone imagine solving a real problem.</p>
+                    </div>
+                    <div class="observation">
+                        <h3>Customer questions are product feedback.</h3>
+                        <p>
+                            If everyone asks the same question, the messaging deserves another look.
+                        </p>
+                    </div>
+                </article>
             </div>
-            <p>
-                The wording changes depending on the audience, but the goal stays the same: connect the technology to a real problem someone cares about.
-            </p>
             <hr>
-            <h2>Things I've Learned</h2>
-            <p><strong>Developers don't buy features.</strong><br>They buy confidence.</p>
-            <p>
-                <strong>Documentation is marketing.</strong><br>Every tutorial teaches someone what your product values.
-            </p>
-            <p>
-                <strong>Good demos tell stories.</strong><br>The best demos help someone imagine solving a real problem.
-            </p>
-            <p>
-                <strong>Customer questions are product feedback.</strong><br>If everyone asks the same question, the messaging deserves another look.
-            </p>
-            <hr>
-            <h2>Where I'd Start</h2>
-            <p>
-                If I joined a new company tomorrow, I'd spend less time writing and more time listening.
-            </p>
-            <p>
-                I'd want to understand what developers love, what confuses them, what Sales hears every week, and what Product wishes customers understood better.
-            </p>
-            <p>
-                Only then would I start changing the story. Good positioning isn't invented. It's discovered.
-            </p>
+            <div class="section">
+                <aside>Observation 04</aside>
+                <article>
+                    <h2>Where I'd Start</h2>
+                    <p>
+                        If I joined a new company tomorrow, I'd spend less time writing and more time listening.
+                    </p>
+                    <p>
+                        I'd want to understand what developers love, what confuses them, what Sales hears every week, and what Product wishes customers understood better.
+                    </p>
+                    <p class="pause">Good positioning isn't invented. <br> It's discovered.</p>
+                </article>
+            </div>
             <footer>
-                <h2 style="margin-top:0">Still Figuring It Out</h2>
+                <h2 style="margin-bottom:20px;">Still Figuring It Out</h2>
                 <p>
                     I don't think there's a perfect formula for great product marketing. Every product, every team, and every customer is different.
                 </p>
                 <p>
-                    These are simply the principles I keep coming back to because they've served me well across developer relations, open source, technical enablement, and product marketing.
+                    These are simply the ideas I keep coming back to because they've served me well across developer relations, open source, technical enablement, and product marketing.
                 </p>
                 <p>I'm sure they'll continue to evolve. I hope they do.</p>
             </footer>

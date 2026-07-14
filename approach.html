@@ -12,15 +12,18 @@
 <style>
 
 :root{
-    --bg:#F9F8F5;
+    --bg:#FAFAF8;
     --surface:#FFFFFF;
-    --text:#2B2B2B;
-    --muted:#666;
-    --border:#E7E2DE;
+    --text:#222222;
+    --muted:#6F6F6F;
+    --border:#ECECEC;
 
-    --green:#A0C0A6;
-    --sage:#CCDCB9;
-    --brown:#7E5656;
+    /* pulled from  main kimcodes illustration */
+
+    --sage:#AAB8A3;
+    --sand:#C8AE8E;
+    --slate:#8E9EAC;
+    --mauve:#9A7575;
 }
 
 *{
@@ -37,20 +40,23 @@ body{
 }
 
 .container{
-    max-width:780px;
-    margin:80px auto;
-    padding:0 30px;
+    max-width:900px;
+    margin:120px auto;
+    padding:0 40px;
 }
 
 h1{
-    font-size:3rem;
-    margin-bottom:.5rem;
-    color:var(--brown);
+    font-size:4rem;
+    line-height:1;
+    font-weight:700;
+    color:var(--text);
+    margin-bottom:20px;
 }
 
 .subtitle{
+    max-width:620px;
+    font-size:1.25rem;
     color:var(--muted);
-    font-size:1.15rem;
     margin-bottom:70px;
 }
 
@@ -78,11 +84,12 @@ li{
 }
 
 .note{
-    background:var(--surface);
-    border-left:5px solid var(--green);
-    padding:22px;
-    margin:40px 0;
-    border-radius:6px;
+    background:#ffffff;
+    border:1px solid var(--border);
+    border-left:4px solid var(--slate);
+    box-shadow:0 8px 25px rgba(0,0,0,.03);
+    border-radius:10px;
+    padding:24px;
 }
 
 footer{
@@ -120,34 +127,32 @@ section{
 }
 
 .label{
-
-    position:sticky;
-    top:120px;
-
+    width: 150px;
+   /* position:sticky;
+    top:120px;*/
 }
 
 .day{
-
-    font-size:.85rem;
-
-    letter-spacing:2px;
-
+    font-size:.75rem;
+    letter-spacing:3px;
     text-transform:uppercase;
-
-    color:var(--muted);
-
-    margin-bottom:10px;
-
+    color:#888;
+    margin-bottom:12px;
 }
 
 .title{
+    font-size:2rem;
+    line-height:1.1;
+    color: #222;
+}
 
-    font-size:1.8rem;
-
-    font-weight:700;
-
-    line-height:1.2;
-
+    .title::after{
+        content:"";
+        display:block;
+        width:55px;
+        height:3px;
+        margin-top:18px;
+        border-radius:10px;
 }
 
 .green{
@@ -166,10 +171,26 @@ section{
     color:#93B4B0;
 }
 
+
+    .green::after{
+background:var(--sage);
+}
+
+.camel::after{
+background:var(--sand);
+}
+
+.rose::after{
+background:var(--mauve);
+}
+
+.slate::after{
+background:var(--slate);
+
+}
+    
 .entry-content p{
-
     margin-bottom:20px;
-
 }
 
 .entry-content ul{
@@ -179,9 +200,7 @@ section{
 }
 
 .entry-content li{
-
     margin-bottom:10px;
-
 }
 
 @media(max-width:800px){
@@ -204,25 +223,63 @@ position:static;
 
 /* notebook style divider */ 
     section::after{
-
         content:"";
-        
-        display:block;
-        
+        display:block;     
         width:40px;
-        
         height:3px;
-        
         background:#CCC0CB; /* Pale Slate */
-        
         margin-top:50px;
-        
         border-radius:10px;
-        
         opacity:.5;
-        
         }
 
+ul{
+list-style:none;
+padding:0;
+margin-top:25px;
+}
+
+li{
+position:relative;
+padding-left:22px;
+margin-bottom:12px;
+}
+
+    li::before{
+
+content:"";
+
+position:absolute;
+
+left:0;
+
+top:12px;
+
+width:7px;
+
+height:7px;
+
+background:var(--slate);
+
+border-radius:50%;
+
+}
+
+    section{
+padding:70px 0;
+border-top:1px solid #EFEFEF;
+}
+    p{
+font-size:1.05rem;
+max-width:640px;
+
+}
+
+    section:hover .day{
+letter-spacing:4px;
+transition:.3s;
+}
+    
 </style>
 
 </head>
@@ -248,7 +305,7 @@ I don't believe in arriving with all the answers. Ask questions, staying curious
     <div class="label">
     
     <div class="day">
-    30 Days
+    01 · FIRST 30 DAYS
     </div>
     
     <div class="title green">
@@ -292,7 +349,7 @@ I don't believe in arriving with all the answers. Ask questions, staying curious
     <div class="label">
     
     <div class="day">
-    60 Days
+    02 · FIRST 60 DAYS
     </div>
     
     <div class="title camel">
@@ -336,7 +393,7 @@ I don't believe in arriving with all the answers. Ask questions, staying curious
     <div class="label">
     
     <div class="day">
-    90 Days
+        03 · FIRST 90 DAYS
     </div>
     
     <div class="title rose">
@@ -382,7 +439,7 @@ I don't believe in arriving with all the answers. Ask questions, staying curious
     <div class="label">
     
     <div class="day">
-    Looking Ahead
+    04 · LOOKING AHEAD
     </div>
     
     <div class="title slate">

@@ -1,139 +1,118 @@
 <!DOCTYPE html>
-<html lang="en">
+html lang="en">
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width,initial-scale=1">
-        <title>How I Turn Technical Features into Stories</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Explaining Technology</title>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
         <style>
-          body{
-    background:#fafaf8;
-    color:#222;
-    font-family:Inter,sans-serif;
-    line-height:1.9;
-}
-
-.container{
-    max-width:720px;
-    margin:120px auto;
-    padding:0 32px;
-}
-
-h1{
-    font-size:4rem;
-    line-height:1;
-    margin-bottom:18px;
-}
-
-h2{
-    font-size:2rem;
-    margin:90px 0 30px;
-}
-
-p{
-    margin-bottom:24px;
-}
-
-.question{
-    margin:55px 0;
-}
-
-.question-number{
-    color:#999;
-    font-size:.8rem;
-    letter-spacing:2px;
-    margin-bottom:10px;
-}
-
-.divider{
-    width:40px;
-    height:1px;
-    background:#ddd;
-    margin:50px 0;
-}
+:root{--bg:#fafaf8;--text:#222;--muted:#6b6b6b;--line:#e6e6e2;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,sans-serif;background:var(--bg);color:var(--text);line-height:1.85}
+main{max-width:720px;margin:90px auto;padding:0 28px}
+.small{font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:22px}
+h1{font-size:3.7rem;line-height:1.02;margin-bottom:20px;font-weight:700}
+.lead{font-size:1.25rem;color:var(--muted);max-width:620px;margin-bottom:70px}
+h2{font-size:1.7rem;margin:80px 0 24px}
+p{margin:0 0 22px}
+.question{margin:42px 0}
+.num{font-size:.82rem;color:var(--muted);margin-bottom:8px}
+hr{border:none;border-top:1px solid var(--line);margin:70px 0}
+.beforeafter{margin:30px 0}
+.label{font-size:.85rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px}
+footer{margin:90px 0 40px;padding-top:40px;border-top:1px solid var(--line);color:var(--muted)}
+@media(max-width:700px){h1{font-size:2.8rem}main{margin:60px auto}}
         </style>
     </head>
     <body>
-        <div class="container">
-            <h1>How I Turn Technical Features into Stories</h1>
-            <p class="subtitle">
+        <main>
+            <div class="small">Notes</div>
+            <h1>Explaining Technology</h1>
+            <p class="lead">
                 A feature isn't valuable because it exists. It's valuable because someone understands why it matters.
             </p>
-            <section>
-                <div class="label">My Approach</div>
-                <h2>Simplify Understanding</h2>
+            <p>Most products don't have a feature problem. They have a communication problem.</p>
+            <p>
+                My job isn't to simplify technology. It's to simplify understanding. The technology should keep all of its depth. My role is helping the right people understand why that depth matters.
+            </p>
+            <hr>
+            <h2>The Four Questions</h2>
+            <div class="question">
+                <div class="num">01</div>
+                <p><strong>What frustrating thing becomes easier?</strong></p>
                 <p>
-                    Most products don't have a feature problem. They have a communication problem.
+                    I start with the problem, not the feature. People remember the frustration that disappears long before they remember technical terminology.
                 </p>
-                <p>My job isn't to simplify technology. It's to simplify understanding.</p>
-                <p>Whenever I'm learning a new feature, I usually ask:</p>
-                <ol>
-                    <li>What frustrating thing becomes easier?</li>
-                    <li>Who feels that frustration the most?</li>
-                    <li>What changes after someone adopts it?</li>
-                    <li>Can I explain it to someone outside of engineering?</li>
-                </ol>
-            </section>
-            <section>
-                <div class="label">Before → After</div>
-                <h2>From Features to Outcomes</h2>
-                <div class="beforeafter">
-                    <p><strong>Technical</strong></p>
-                    <blockquote>
-                        Distributed cache invalidation using optimistic consistency.
-                    </blockquote>
-                    <p><strong>Human</strong></p>
-                    <blockquote>
-                        Teams spend less time wondering whether they're looking at stale data and more time building.
-                    </blockquote>
-                </div>
+            </div>
+            <div class="question">
+                <div class="num">02</div>
+                <p><strong>Who feels that frustration the most?</strong></p>
                 <p>
-                    The wording changes depending on the audience, but the goal stays the same: connect the technology to a real problem someone cares about.
+                    Developers, architects, engineering managers, and executives don't evaluate products the same way. Good messaging respects those differences.
                 </p>
-            </section>
-            <section>
-                <div class="label">Lessons</div>
-                <h2>Things I've Learned Explaining Technology</h2>
-                <div class="block">
-                    <h3>Developers don't buy features.</h3>
-                    <p>They buy confidence.</p>
-                </div>
-                <div class="block">
-                    <h3>Documentation is marketing.</h3>
-                    <p>
-                        Every tutorial teaches more than syntax—it communicates what your product values.
-                    </p>
-                </div>
-                <div class="block">
-                    <h3>Good demos tell stories.</h3>
-                    <p>The best demos help someone imagine solving a real problem.</p>
-                </div>
-                <div class="block">
-                    <h3>Customer questions are product feedback.</h3>
-                    <p>
-                        If the same question keeps coming up, the messaging probably deserves another look.
-                    </p>
-                </div>
-            </section>
-            <section>
-                <div class="label">Starting Somewhere New</div>
-                <h2>I'd Start by Listening</h2>
-                <p>Before changing messaging I'd want to understand:</p>
-                <ul>
-                    <li>What developers love.</li>
-                    <li>What consistently confuses them.</li>
-                    <li>What Sales hears every week.</li>
-                    <li>What Product wishes customers understood better.</li>
-                </ul>
-                <p>Only then would I start changing the story.</p>
-            </section>
+            </div>
+            <div class="question">
+                <div class="num">03</div>
+                <p><strong>What changes after someone adopts it?</strong></p>
+                <p>
+                    Features describe capabilities. Outcomes describe value. I try to write about the latter.
+                </p>
+            </div>
+            <div class="question">
+                <div class="num">04</div>
+                <p><strong>Can I explain it to someone outside of engineering?</strong></p>
+                <p>If I can't, I probably don't understand it well enough yet.</p>
+            </div>
+            <hr>
+            <h2>Before &amp; After</h2>
+            <div class="beforeafter">
+                <div class="label">Before</div>
+                <p>Distributed cache invalidation using optimistic consistency.</p>
+            </div>
+            <p>↓</p>
+            <div class="beforeafter">
+                <div class="label">After</div>
+                <p>
+                    Teams spend less time wondering whether they're looking at stale data and more time building.
+                </p>
+            </div>
+            <p>
+                The wording changes depending on the audience, but the goal stays the same: connect the technology to a real problem someone cares about.
+            </p>
+            <hr>
+            <h2>Things I've Learned</h2>
+            <p><strong>Developers don't buy features.</strong><br>They buy confidence.</p>
+            <p>
+                <strong>Documentation is marketing.</strong><br>Every tutorial teaches someone what your product values.
+            </p>
+            <p>
+                <strong>Good demos tell stories.</strong><br>The best demos help someone imagine solving a real problem.
+            </p>
+            <p>
+                <strong>Customer questions are product feedback.</strong><br>If everyone asks the same question, the messaging deserves another look.
+            </p>
+            <hr>
+            <h2>Where I'd Start</h2>
+            <p>
+                If I joined a new company tomorrow, I'd spend less time writing and more time listening.
+            </p>
+            <p>
+                I'd want to understand what developers love, what confuses them, what Sales hears every week, and what Product wishes customers understood better.
+            </p>
+            <p>
+                Only then would I start changing the story. Good positioning isn't invented. It's discovered.
+            </p>
             <footer>
-                <p><strong>Still figuring it out.</strong></p>
+                <h2 style="margin-top:0">Still Figuring It Out</h2>
                 <p>
-                    I don't think there's a perfect formula for great product marketing. Every product, every team, and every customer is different. These are simply the principles I keep coming back to because they've served me well across developer relations, open source, enablement, and product marketing.
+                    I don't think there's a perfect formula for great product marketing. Every product, every team, and every customer is different.
                 </p>
+                <p>
+                    These are simply the principles I keep coming back to because they've served me well across developer relations, open source, technical enablement, and product marketing.
+                </p>
+                <p>I'm sure they'll continue to evolve. I hope they do.</p>
             </footer>
-        </div>
+        </main>
     </body>
 </html>

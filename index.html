@@ -337,32 +337,36 @@ button{
     margin-bottom:25px;
 }
 
+/* A Few Things I Keep Coming Back To */
+
 beliefs h3{
     font-size:1.8rem;   
     margin-bottom:22px;
 }
 
-.beliefs ul{
-    list-style:none;
-    padding:0;
-    margin-top:25px;
+.beliefs-section{
+    padding:80px clamp(25px, 8vw, 120px);
+    background: #fafafa;
 }
 
-.beliefs li{
+.beliefs-container{
+    max-width:700px;
+    margin:auto;
+}
+
+.beliefs-container h2{
+    font-size:2.4rem;
+    margin-bottom:35px;
+}
+
+.beliefs-container p{
+    font-size:1.35rem;
+    font-weight:500;
     margin-bottom:22px;
-    line-height:1.8;
-    color:#555;
-}
-
-.beliefs li strong{
-    display:block;
-    font-size:1rem;
-    font-weight:600;
     color:#222;
-    margin-bottom:6px;
 }
 
-    .notes{
+.notes{
     max-width:700px;
     margin:100px auto;
 }
@@ -697,13 +701,6 @@ beliefs h3{
 
             <a href="#about" class="primary-btn">Find Out More ↓</a>
 
-            <!-- remove buttons for now 
-            <div class="buttons">
-                <button class="primary">Projects</button>
-                <button class="secondary">Contact</button>
-            </div>
-            -->
-
         </section>
 
         <section class="right">
@@ -750,7 +747,16 @@ beliefs h3{
                 If I can do the same for someone else, whether that's a teammate, a developer, or someone just starting their career, I think that's time well spent!
             </p>
 
-            <div class="beliefs"> 
+        </div>
+
+    </div>
+
+</section> <!-- end of about me section --> 
+
+<!-- Beliefs Section --> 
+<section class="beliefs-section">
+
+    <div class="beliefs-container">
 
                 <h3>A Few Things I Keep Coming Back To</h3>
 
@@ -759,14 +765,35 @@ beliefs h3{
                     <li><strong>Curiosity compounds.</strong> The more I learn, the more interesting problems I get to solve.</li>
                     <li><strong>Good leaders create more leaders.</strong>Success is even better when you help someone else get there too.</li>
                 </ul>
+        
+   </div>
 
-            </div>
+</section>
 
-        </div>
+<!-- Note Section --> 
+
+    <section class="notes">
+
+    <h2>Notes</h2>
+
+    <div class="notes-list">
+
+        <a href="/approach.html">
+            ├── How I Approach My First 90 Days
+        </a>
+
+        <a href="/technical-storytelling.html">
+            ├── How I Think About Technical Storytelling
+        </a>
+
+        <a href="#">
+            └── Things I've Changed My Mind About <span>(coming soon)</span>
+        </a>
 
     </div>
 
-</section> <!-- end of about me section --> 
+</section> <!-- End of Notes Section --> 
+    
 
 <!-- start of career journey section --> 
 
@@ -842,30 +869,6 @@ Along the way I've had the opportunity to work with teams at <strong>GitHub</str
 
 </section> <!-- end of career journey section --> 
 
-    <!-- Note Section --> 
-
-    <section class="notes">
-
-    <h2>Notes</h2>
-
-    <div class="notes-list">
-
-        <a href="/approach.html">
-            ├── How I Approach My First 90 Days
-        </a>
-
-        <a href="/technical-storytelling.html">
-            ├── How I Think About Technical Storytelling
-        </a>
-
-        <a href="#">
-            └── Things I've Changed My Mind About <span>(coming soon)</span>
-        </a>
-
-    </div>
-
-</section> <!-- End of Notes Section --> 
-    
     <!-- Impact Section --> 
     <section id="impact" class="impact-section">
 

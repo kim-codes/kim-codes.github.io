@@ -137,41 +137,43 @@ footer{
 }
 
 @media(max-width:760px){
-
-.section{
-    grid-template-columns:1fr;
-    gap:15px;
-}
-
-aside{
-    position:static;
-}
-
-h1{
-    font-size:2.8rem;
-}
-
-.lead{
-    font-size:1.15rem;
-}
-
+    .section{
+        grid-template-columns:1fr;
+        gap:15px;
+    }
+    
+    aside{
+        position:static;
+    }
+    
+    h1{
+        font-size:2.8rem;
+    }
+    
+    .lead{
+        font-size:1.15rem;
+    }
 }
             
-.mini-examples{
+.pattern-notes{
     margin-top:2rem;
+    margin-left:.25rem;
 }
 
-.mini-examples p{
-    margin:0 0 1rem;
-    line-height:1.8;
+.note-item{
+    margin-bottom:1.75rem;
 }
 
-.mini-examples strong{
+.feature{
     font-weight:600;
+    color:#222;
+    margin-bottom:.35rem;
 }
 
-.mini-examples span{
-    color:#555;
+.outcome{
+    color:#666;
+    padding-left:1.5rem;
+    line-height:1.7;
 }
             
 </style>
@@ -197,14 +199,14 @@ h1{
                     </p>
                     
                     <div class="question">
-    <div class="number">01</div>
-
-    <h4>What frustrating thing becomes easier?</h4>
-        <p>
-            I start with the problem, not the feature. People remember the frustration that disappears
-            long before they remember technical terminology.
-        </p>
-    </div>
+                        <div class="number">01</div>
+                    
+                        <h4>What frustrating thing becomes easier?</h4>
+                            <p>
+                                I start with the problem, not the feature. People remember the frustration that disappears
+                                long before they remember technical terminology.
+                            </p>
+                        </div>
                         
                         <div class="question">
                             <div class="number">02</div>
@@ -261,26 +263,25 @@ h1{
                     </p
 
                    <h4>The same pattern shows up everywhere.</h4>
-                        
-                        <h4>The same pattern shows up everywhere.</h4>
 
-                        <div class="mini-examples">
-                            <p>
-                                <strong>Automated API key rotation</strong>
-                                <span>→ Better security without another maintenance task.</span>
-                            </p>
-                        
-                            <p>
-                                <strong>Vector search with configurable embeddings</strong>
-                                <span>→ Developers find what they need instead of fighting search.</span>
-                            </p>
-                        
-                            <p>
-                                <strong>Real-time event streaming with automatic retries</strong>
-                                <span>→ Applications stay responsive, even when traffic spikes.</span>
-                            </p>
-                        
+                    <div class="pattern-notes">
+                    
+                        <div class="note-item">
+                            <div class="feature">↳ Automated API key rotation</div>
+                            <div class="outcome">Better security without another maintenance task.</div>
                         </div>
+                    
+                        <div class="note-item">
+                            <div class="feature">↳ Vector search with configurable embeddings</div>
+                            <div class="outcome">Developers find what they need instead of fighting search.</div>
+                        </div>
+                    
+                        <div class="note-item">
+                            <div class="feature">↳ Real-time event streaming with automatic retries</div>
+                            <div class="outcome">Applications stay responsive, even during traffic spikes.</div>
+                        </div>
+                    
+                    </div>
                     
                 </article>
             </div>

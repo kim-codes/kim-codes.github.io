@@ -4,9 +4,12 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Notes • Thinking Through Technology</title>
+           <!-- Add Font Styling -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-      
+        <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap" rel="stylesheet">
+       
         <style>
 :root{
 --bg:#FAFAF8;
@@ -31,6 +34,27 @@ main{
     margin:90px auto;
     padding:0 30px;
 }
+
+/* styling for the header logo */ 
+header {
+    position: fixed;
+    top: 25px;
+    left: 40px;
+    z-index: 1000;
+}
+    
+.logo {
+        font-family: "Dancing Script", cursive;
+        font-size: 1.8rem;
+        font-weight: 500;
+        text-decoration: none;
+        color: #222;
+        transition: color 0.3s ease;
+}
+
+.logo:hover {
+        color: #666;
+    }
 
 .notes{
     font-size:.8rem;
@@ -184,8 +208,12 @@ footer{
 }
             
 </style>
-    </head>
-    <body>
+</head>
+    
+<body>
+<header>
+    <a href="index.html" class="logo">kimcodes</a>
+</header>
         <main>
             <div class="notes">Notes</div>
             <h1>Thinking Through Technology</h1>

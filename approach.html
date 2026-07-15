@@ -40,6 +40,27 @@ body{
     line-height:1.8;
 }
 
+/* styling for the header logo */ 
+header {
+    position: fixed;
+    top: 25px;
+    left: 40px;
+    z-index: 1000;
+}
+    
+.logo {
+        font-family: "Dancing Script", cursive;
+        font-size: 1.8rem;
+        font-weight: 500;
+        text-decoration: none;
+        color: #222;
+        transition: color 0.3s ease;
+}
+
+.logo:hover {
+        color: #666;
+    }
+
 .container{
     max-width:900px;
     margin:120px auto;
@@ -286,6 +307,10 @@ section:hover .day{
 </head>
 
 <body>
+
+<header>
+    <a href="index.html" class="logo">kimcodes</a>
+</header>
 
 <div class="container">
 

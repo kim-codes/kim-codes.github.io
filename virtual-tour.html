@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Bringing a Virtual Tour to Life</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600&family=Caveat:wght@500&family=Dancing+Script:wght@500&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+    --bg:#FCFAF2;
+    --text:#222;
+    --muted:#555;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:var(--bg);
+    font-family:Inter,sans-serif;
+    color:var(--text);
+}
+
+.hero{
+    max-width:1450px;
+    margin:auto;
+
+    padding:55px 70px 80px;
+
+    display:grid;
+    grid-template-columns:420px 1fr;
+    align-items:center;
+    gap:40px;
+}
+
+.top-bar{
+    position:absolute;
+
+    left:70px;
+    right:70px;
+    top:35px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-family:"Dancing Script",cursive;
+    text-decoration:none;
+    color:#222;
+    font-size:2rem;
+}
+
+.back{
+    text-decoration:none;
+    color:#222;
+    font-size:.95rem;
+}
+
+.hero h1{
+    font-family:"Cormorant Garamond",serif;
+    font-size:5.6rem;
+    line-height:.95;
+    font-weight:500;
+    margin-bottom:40px;
+}
+
+.divider{
+    width:70px;
+    height:3px;
+    background:#222;
+    margin-bottom:30px;
+}
+
+.intro{
+    font-size:1.15rem;
+    line-height:1.8;
+    max-width:320px;
+    color:var(--muted);
+    margin-bottom:28px;
+}
+
+.question{
+    font-family:"Caveat",cursive;
+    font-size:2rem;
+    line-height:1.35;
+    max-width:360px;
+}
+
+.hero-image{
+    position:relative;
+}
+
+.hero-image img{
+    width:100%;
+    display:block;
+}
+
+.map{
+    position:absolute;
+    inset:0;
+    opacity:.12;
+    object-fit:contain;
+    z-index:-1;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="top-bar">
+
+<a href="index.html" class="logo">kimcodes</a>
+
+<a href="behind-the-work.html" class="back">
+← Back to Behind the Work
+</a>
+
+</div>
+
+<section class="hero">
+
+<div>
+
+<h1>
+Bringing a<br>
+Virtual Tour<br>
+to Life
+</h1>
+
+<div class="divider"></div>
+
+<p class="intro">
+
+One day we were planning
+in-person meetups across Canada.
+The next, everything went digital.
+
+</p>
+
+<p class="question">
+
+How do you make a virtual meetup feel like an experience people want to show up for? and not just of another video call. 
+
+</p>
+
+</div>
+
+<div class="hero-image">
+
+<img class="map" src="images/canada-outline.png">
+
+<img src="images/virtual-bus.png">
+
+</div>
+
+</section>
+
+</body>
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Behind the Work | Kim.codes</title>
+
+    <!-- Prevent search engines from indexing this page -->
+    <meta name="robots" content="noindex">
+
+    <!-- Add Font Styling -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap" rel="stylesheet">
+
+  <style>
+    
+    :root{
+        --bg:#FCFAF2;
+        --surface:#FFFFFF;
+        --text:#222;
+        --muted:#666;
+        --border:#ECE8E1;
+        --accent:#8E9EAC;
+    }
+    
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+    }
+    
+    body{
+        font-family:Inter,sans-serif;
+        background:var(--bg);
+        color:var(--text);
+        line-height:1.75;
+    }
+    
+    .notes-page{
+        max-width:760px;
+        margin:80px auto;
+        padding:0 28px;
+    }
+    
+    .back-link{
+        display:inline-block;
+        margin-bottom:28px;
+        color:var(--muted);
+        text-decoration:none;
+        font-size:.95rem;
+    }
+    
+    .back-link:hover{
+        color:var(--text);
+    }
+    
+    h1{
+        font-size:3rem;
+        line-height:1.05;
+        margin-bottom:16px;
+    }
+    
+    .page-intro{
+        max-width:620px;
+        color:var(--muted);
+        font-size:1.08rem;
+        margin-bottom:50px;
+    }
+    
+    .story-preview{
+        border-top:1px solid var(--border);
+        padding:26px 0;
+    }
+    
+    .story-preview:first-of-type{
+        border-top:none;
+    }
+    
+    .story-preview h2{
+        font-size:1.45rem;
+        margin-bottom:12px;
+        font-weight:600;
+    }
+    
+    .story-preview p{
+        max-width:620px;
+        color:var(--muted);
+        margin-bottom:16px;
+    }
+    
+    .story-preview a{
+        color:var(--text);
+        text-decoration:none;
+        font-weight:600;
+    }
+    
+    .story-preview a:hover{
+        opacity:.65;
+    }
+    
+    .coming-soon{
+        opacity:.75;
+    }
+    
+    footer{
+        margin-top:70px;
+        padding-top:24px;
+        border-top:1px solid var(--border);
+        color:var(--muted);
+        font-size:.9rem;
+    }
+    
+    @media (max-width:768px){
+    
+        .notes-page{
+            margin:60px auto;
+            padding:0 24px;
+        }
+    
+        h1{
+            font-size:2.4rem;
+        }
+    
+        .story-preview h2{
+            font-size:1.25rem;
+        }
+    
+    }
+    
+    </style>
+</head>
+
+<body>
+
+
+<div class="notes-page">
+
+    <header class="page-header">
+
+        <a href="index.html" class="back-link">← Home</a>
+
+        <h1>Behind the Work</h1>
+
+        <p class="page-intro">
+            Every project has a story. These are a few of the ones that stayed with me.
+          <!-- Some projects are memorable because of what we built. Others because of what they taught me. These are a few of those stories.-->
+        </p>
+
+    </header>
+
+
+    <section class="story-list">
+
+        <article class="story-preview">
+
+            <h2>Bringing a Virtual Tour to Life</h2> <!-- road trip that never left home -->
+
+            <p>
+                How do you stay connected when the world goes digital overnight?
+                Streaming the talks was the easy part.
+                The real challenge was figuring out how to make a virtual meetup feel like something people were genuinely excited to attend.
+            </p>
+
+            <a href="virtual-tour.html">
+                Go behind the work →
+            </a>
+
+        </article>
+
+
+        <article class="story-preview">
+
+            <h2>Celebrating the People Behind the Code</h2>
+
+            <p>
+                How do you recognize the people quietly making everyone around them better? 
+                DevHeroes became an experiment in celebrating developers. Not just for what they built, but for how they helped others build alongside them.
+            </p>
+
+            <a href="devheroes.html">
+                Go behind the work →
+            </a>
+
+        </article>
+
+
+        <article class="story-preview coming-soon">
+
+            <h2>More stories</h2>
+
+            <p>
+                I'm slowly documenting projects I've been fortunate to work on over the
+                years. More to come.
+            </p>
+
+        </article>
+
+    </section>
+
+</div>
+
+</body>
+</html>

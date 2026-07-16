@@ -128,18 +128,38 @@
         }
     
     }
+
+      /* styling for the header logo */ 
+    header {
+    position: fixed;
+    top: 25px;
+    left: 40px;
+    z-index: 1000;
+    }
     
+    .logo {
+        font-family: "Dancing Script", cursive;
+        font-size: 1.8rem;
+        font-weight: 500;
+        text-decoration: none;
+        color: #222;
+        transition: color 0.3s ease;
+    }
+
+    .logo:hover {
+        color: #666;
+    }
+
     </style>
 </head>
 
 <body>
 
-
 <div class="notes-page">
 
     <header class="page-header">
 
-        <a href="index.html" class="back-link">← Home</a>
+        <a href="index.html" class="logo">kimcodes</a>
 
         <h1>Behind the Work</h1>
 

@@ -102,23 +102,101 @@ body{
     line-height: 1.4;
 }
 
-.hero-image{
-    position:relative;
+.hero{
+    display:grid;
+    grid-template-columns:420px 1fr;
+    align-items:center;
+    gap:80px;
+
+    min-height:100vh;
+    padding:80px 70px;
 }
 
-.hero-image img{
-    width:100%;
-    display:block;
+.hero{
+    display:grid;
+    grid-template-columns:420px 1fr;
+    align-items:center;
+    gap:80px;
+
+    min-height:100vh;
+    padding:80px 70px;
 }
 
 .map{
     position:absolute;
-    inset:0;
-    opacity:.12;
-    object-fit:contain;
-    z-index:-1;
+    width:115%;
+    top:20px;
+    left:50%;
+    transform:translateX(-50%);
+    opacity:.08;
+    z-index:1;
 }
 
+.bus{
+    position:relative;
+    width:95%;
+    max-width:720px;
+    z-index:2;
+
+    transform:translate(40px,40px);
+}
+
+.character-section{
+    display:grid;
+    grid-template-columns:1.4fr 1fr 280px;
+    gap:70px;
+    align-items:center;
+    margin:120px 0;
+}
+
+.character img{
+    width:100%;
+}
+
+.field-note{
+
+    background:#FFFBEA;
+    padding:36px;
+
+    transform:rotate(-2deg);
+
+    box-shadow:0 18px 35px rgba(0,0,0,.08);
+
+    position:relative;
+}
+
+.field-note::before{
+
+    content:"";
+
+    width:90px;
+    height:18px;
+
+    background:#D8D2C7;
+
+    position:absolute;
+
+    top:-8px;
+    left:50%;
+
+    transform:translateX(-50%) rotate(-3deg);
+}
+
+.field-note h4{
+
+    letter-spacing:.18em;
+    font-size:.8rem;
+    color:#666;
+    margin-bottom:20px;
+}
+
+.field-note p{
+
+    font-family:"Patrick Hand",cursive;
+    font-size:1.7rem;
+    line-height:1.4;
+}
+    
 </style>
 
 </head>
@@ -163,21 +241,18 @@ body{
         
         </div>
 
-    <div class="hero-image">
-    
-    <img class="map" src="assets/img/canada-outline.png">
-    
-    <img src="assets/img/virtual-bus.svg">
-    
+     <div class="hero-image">
+        <img class="map" src="assets/img/canada-outline.png">
+        <img class="bus" src="assets/img/virtual-bus.svg">
     </div>
 
 </section>
 
 
-    <section class="character-section">
+<section class="character-section">
 
     <div class="character">
-        <img src="assets/img/cloud-mascot.spng" alt="Cloud mascot">
+        <img src="assets/img/cloud-mascot.png" alt="Cloud mascot">
     </div>
 
     <div class="story">

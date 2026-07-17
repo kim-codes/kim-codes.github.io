@@ -120,16 +120,16 @@ body{
 
 .map{
     position:absolute;
-    width:100%;
-    opacity: 0.3;
+    width:95%;
+    opacity: 0.2;;
     z-index: -1;
 }
 
 .bus{
     position: relative;
-    width: 60%;          
+    width: 50%;          
     z-index: 2;
-    margin-top: 140px;    
+    margin-top: 250px;    
 }
 
  /* three column section styling */
@@ -167,6 +167,12 @@ body{
     }
 
 } /* end of 3 column section styling */
+
+ .tour-characters{
+    width:100%;
+    max-width:300px;
+    height:auto;
+}
 
  @media (max-width:900px){
 
@@ -234,18 +240,18 @@ body{
 </head>
 
 <body>
-
-<div class="top-bar">
-
-<a href="index.html" class="logo">kimcodes</a>
-
-<!--<a href="behind-the-work.html" class="back">
-← Back to Behind the Work
-</a>-->
-
-</div>
-
-<section class="hero">
+ 
+ <div class="top-bar">
+ 
+  <a href="index.html" class="logo">kimcodes</a>
+  
+  <!--<a href="behind-the-work.html" class="back">
+  ← Back to Behind the Work
+  </a>-->
+ 
+ </div>
+ 
+ <section class="hero">
 
         <div>
         
@@ -284,24 +290,20 @@ body{
  <section class="three-column-section">
 
     <div class="column">
-        <h2>Column One</h2>
-        <p>
-            Designing the Tour's Personality
-        </p>
-    </div>
-
-    <div class="column">
-        <h2>Column Two</h2>
+        <h2>Designing the Tour's Personality</h2>
         <p>
             One of our earliest decisions was to build around characters instead of people.
         </p>
-     <p>
-      It kept the experience approachable and universal.  While giving us friendly characters we could reuse across videos, social posts, and other campaigns.
-     </p>
+        <p>
+            It kept the experience approachable and universal.  While giving us friendly characters we could reuse across videos, social posts, and other campaigns.
+        </p>
     </div>
 
     <div class="column">
-        <h2>Column Three</h2>
+         <img class="tour-characters" src="assets/img/cloud-mascot.png" alt="Tour Characters">
+    </div>
+
+    <div class="column">
         <p>
             From hockey sticks on the roof to maple leaves throughout the animations, every detail reinforced the feeling that this was a road trip across Canada. 
             Not just another online event.
@@ -310,7 +312,6 @@ body{
 
 </section>
 
-        <!-- <img src="assets/img/cloud-mascot.png" alt="Cloud mascot"> -->
     
 </body>
 </html>

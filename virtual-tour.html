@@ -132,6 +132,42 @@ body{
     margin-top: 140px;    
 }
 
+ /* three column section styling */
+ .three-column-section{
+    max-width:1400px;
+    margin:80px auto;
+    padding:0 70px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:50px;
+}
+
+.column{
+    min-height:250px;
+    padding:20px;
+}
+
+.column h2{
+    font-family:"Cormorant Garamond", serif;
+    font-size:2rem;
+    margin-bottom:16px;
+}
+
+.column p{
+    color:#555;
+    line-height:1.8;
+}
+
+ @media (max-width:900px){
+
+    .three-column-section{
+        grid-template-columns:1fr;
+        padding:0 24px;
+        gap:30px;
+    }
+
+} /* end of 3 column section styling */
+
  @media (max-width:900px){
 
    .top-bar{
@@ -245,18 +281,36 @@ body{
 </section>
 
 
+ <section class="three-column-section">
 
-        <!-- <img src="assets/img/cloud-mascot.png" alt="Cloud mascot"> 
-        Designing the Tour's Personality
+    <div class="column">
+        <h2>Column One</h2>
+        <p>
+            Designing the Tour's Personality
+        </p>
+    </div>
 
-       
-           One of our earliest decisions was to build around characters instead of people.
-        
-            It kept the experience approachable and universal.  While giving us friendly characters we could reuse across videos, social posts, and other campaigns. 
-       
+    <div class="column">
+        <h2>Column Two</h2>
+        <p>
+            One of our earliest decisions was to build around characters instead of people.
+        </p>
+     <p>
+      It kept the experience approachable and universal.  While giving us friendly characters we could reuse across videos, social posts, and other campaigns.
+     </p>
+    </div>
+
+    <div class="column">
+        <h2>Column Three</h2>
+        <p>
             From hockey sticks on the roof to maple leaves throughout the animations, every detail reinforced the feeling that this was a road trip across Canada. 
             Not just another online event.
- -->
+        </p>
+    </div>
+
+</section>
+
+        <!-- <img src="assets/img/cloud-mascot.png" alt="Cloud mascot"> -->
     
 </body>
 </html>

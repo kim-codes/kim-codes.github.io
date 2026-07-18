@@ -240,6 +240,11 @@
 
 .project {
     margin-bottom: 4rem;
+    display: grid;
+    grid-template-columns: 1fr 240px;
+    gap: 2rem;
+    align-items: center;
+    margin-bottom: 4rem;
 }
 
 .project h3 {
@@ -252,9 +257,16 @@
     margin-bottom: 1.5rem;
 }
 
+.project-image img {
+    width: 100%;
+    display: block;
+    border-radius: 12px;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+}
+
 
 /* Right on Craft page  */
-
 .craft-sidebar {
     background: #f9f9f9;
     border-radius: 16px;
@@ -315,4 +327,5 @@
     }
 
 }
-    
+
+/

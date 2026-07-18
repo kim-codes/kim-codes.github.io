@@ -135,7 +135,7 @@ body{
  /* three column section styling */
  .three-column-section{
     max-width:1400px;
-    margin:80px auto;
+    margin:10px auto;
     padding:0 70px;
     display:grid;
     grid-template-columns:repeat(3,1fr);
@@ -166,14 +166,61 @@ body{
         gap:30px;
     }
 
-} /* end of 3 column section styling */
+ } /* end of 3 column section styling */
 
- .tour-characters{
-    width:100%;
-    max-width:300px;
-    height:auto;
-}
+  .tour-characters{
+     width:100%;
+     max-width:300px;
+     height:auto;
+ }
+ 
+  /* two column styling*/ 
+  .two-column-section{
+ 
+     max-width:1400px;
+     margin:80px auto;
+ 
+     padding:0 70px;
+ 
+     display:grid;
+     grid-template-columns:2fr 1fr;
+     gap:50px;
+ }
+ 
+ .main-column,
+ .side-column{
+ 
+     min-height:250px;
+ 
+     /* remove once you add content */
+     border:1px dashed #ddd;
+     padding:20px;
+ }
+ 
+ .main-column h2,
+ .side-column h2{
+ 
+     font-family:"Cormorant Garamond", serif;
+     font-size:2rem;
+     margin-bottom:16px;
+ }
+ 
+ .main-column p,
+ .side-column p{
+ 
+     line-height:1.8;
+     color:#555;
+ }
 
+ @media (max-width:900px){
+     .two-column-section{
+         grid-template-columns:1fr;
+         padding:0 24px;
+         gap:30px;
+     }
+ 
+ }
+ 
  @media (max-width:900px){
 
    .top-bar{
@@ -300,7 +347,7 @@ body{
     </div>
 
     <div class="column">
-         <img class="tour-characters" src="assets/img/cloud-mascot.png" alt="Tour Characters">
+         <img class="tour-characters" src="assets/img/TourCharacters.png" alt="Tour Characters">
     </div>
 
     <div class="column">
@@ -312,6 +359,19 @@ body{
 
 </section>
 
+ <section class="two-column-section">
+
+    <div class="side-column">
+        <img class="cloud-character" src="assets/img/cloud-mascot.png" alt="Cloud Character">
+    </div>
+
+    <div class="main-column">
+        <p>
+            // video or image will go here 
+        </p>
+    </div>
+
+</section>
     
 </body>
 </html>

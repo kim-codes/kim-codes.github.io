@@ -314,4 +314,23 @@
 
 }
 
-/
+    /* --------------------------
+       Reflection Logo
+    -------------------------- */
+    
+.reflection-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.arrow {
+    opacity: 0;
+    transform: translateX(-6px);
+    transition: .2s;
+}
+
+.reflection-item:hover .arrow {
+    opacity: 1;
+    transform: translateX(0);
+}

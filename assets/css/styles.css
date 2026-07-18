@@ -212,4 +212,130 @@
     }
 
 } /*end of about styling*/
+
+/* --------------------------
+   Craft
+-------------------------- */
+
+.craft {
+
+    max-width: 1200px;
+    margin: 5rem auto;
+    padding: 0 1.5rem;
+
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 5rem;
+
+}
+
+
+/* Left */
+
+.section-intro {
+
+    color: #666;
+    margin-bottom: 3rem;
+
+}
+
+.project {
+
+    margin-bottom: 4rem;
+
+}
+
+.project h3 {
+
+    font-size: 1.6rem;
+    margin-bottom: .75rem;
+
+}
+
+.project p {
+
+    color: #555;
+    margin-bottom: 1.5rem;
+
+}
+
+
+/* Right */
+
+.craft-sidebar {
+
+    position: sticky;
+    top: 3rem;
+
+    align-self: start;
+
+}
+
+.craft-sidebar h2 {
+
+    margin-bottom: 2rem;
+
+}
+
+.principle {
+
+    margin-bottom: 3rem;
+
+}
+
+.principle h3 {
+
+    font-size: 1.35rem;
+    margin-bottom: .5rem;
+
+}
+
+.principle p {
+
+    color: #666;
+
+}
+
+
+/* Shared */
+
+.craft h2 {
+
+    font-size: 2.3rem;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+
+}
+
+.more-stories h3 {
+
+    margin-bottom: .5rem;
+
+}
+
+.more-stories p {
+
+    color: #666;
+
+}
+
+
+/* Responsive */
+
+@media (max-width: 900px) {
+
+    .craft {
+
+        grid-template-columns: 1fr;
+        gap: 4rem;
+
+    }
+
+    .craft-sidebar {
+
+        position: static;
+
+    }
+
+}
     

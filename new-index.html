@@ -103,23 +103,58 @@
        Optional Button
     -------------------------- */
     
-    .button {
-        display: inline-block;
-        margin-top: 2.5rem;
-        padding: .9rem 2rem;
-        background: #111;
-        color: white;
-        text-decoration: none;
-        text-transform: uppercase;
-        letter-spacing: .08em;
-        font-size: .8rem;
+   .text-link {
+    display: inline-flex;
+    align-items: center;
+    gap: .4rem;
+
+    margin-top: 2.5rem;
+
+    color: #222;
+    text-decoration: underline;
+    text-underline-offset: 6px;
+    text-decoration-thickness: 1px;
+
+    font-size: .95rem;
+    font-weight: 600;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+
+    transition: gap .2s ease, color .2s ease;
     }
     
-    .button:hover {
-        background: #333;
+    .text-link span {
+        transition: transform .2s ease;
     }
     
+    .text-link:hover {
+        color: #000;
+        gap: .65rem;
+    }
     
+    .text-link:hover span {
+        transform: translateX(3px);
+    }
+
+      /*
+      .text-link {
+    display: inline-block;
+    margin-top: 2.5rem;
+
+    color: #222;
+    text-decoration: underline;
+    text-underline-offset: 5px;
+
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    font-size: .9rem;
+    font-weight: 600;
+}
+
+.text-link:hover {
+    color: #666;
+}*/
+      
     /* --------------------------
        Footer
     -------------------------- */
@@ -166,7 +201,9 @@
               If there's one thing I hope to pass on, it's that there's more than one way to build a meaningful career in tech.
             </p>
 
-            <a class="button" href="#">View My Work</a>
+            <a href="#" class="text-link">
+                Get to know me <span>→</span>
+           </a>
 
         </section>
 

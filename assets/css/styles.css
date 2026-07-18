@@ -221,7 +221,6 @@
     max-width: 1200px;
     margin: 5rem auto;
     padding: 0 1.5rem;
-
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: 5rem;
@@ -239,7 +238,7 @@
 }
 
 .project {
-  margin-bottom: 4rem;
+    margin-bottom: 4rem;
 }
 
 .project h3 {

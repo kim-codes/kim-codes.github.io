@@ -315,22 +315,104 @@
 }
 
     /* --------------------------
-       Reflection Logo
-    -------------------------- */
-    
+      Reflections
+     -------------------------- */
+
+.reflections {
+    max-width: 850px;
+    margin: 5rem auto;
+    padding: 0 1.5rem;
+}
+
+.reflections h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    line-height: 1.1;
+    margin-bottom: 4rem;
+}
+
+
+/* Each Reflection */
+
+.reflection-item {
+    padding: 2rem 0;
+    border-bottom: 1px solid #ececec;
+}
+
+
+/* Title */
+
 .reflection-title {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    text-decoration: none;
+    color: #222;
+    font-size: 1.5rem;
+    font-weight: 600;
+    transition: color .2s ease;
 }
+
+.reflection-title:hover {
+    color: #666;
+}
+
+
+/* Arrow */
 
 .arrow {
     opacity: 0;
-    transform: translateX(-6px);
-    transition: .2s;
+    transform: translateX(-8px);
+    transition: opacity .2s ease, transform .2s ease;
 }
 
 .reflection-item:hover .arrow {
     opacity: 1;
     transform: translateX(0);
+}
+
+
+/* Description */
+
+.reflection-preview {
+    margin-top: .8rem;
+    color: #666;
+    font-size: 1rem;
+    line-height: 1.7;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transform: translateY(-6px);
+    transition:
+        opacity .25s ease,
+        transform .25s ease,
+        max-height .25s ease;
+}
+
+.reflection-item:hover .reflection-preview {
+    opacity: 1;
+    max-height: 80px;
+    transform: translateY(0);
+}
+
+
+/* Mobile */
+
+@media (max-width: 768px) {
+
+    .reflection-title {
+        font-size: 1.25rem;
+    }
+
+    .arrow {
+        opacity: 1;
+        transform: none;
+    }
+
+    .reflection-preview {
+        opacity: 1;
+        max-height: none;
+        transform: none;
+        margin-top: .75rem;
+    }
+
 }

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>kimcodes</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    body {
+        font-family: "Inter", sans-serif;
+        background: #fff;
+        color: #222;
+        line-height: 1.6;
+    }
+    
+    
+    /* --------------------------
+       Header Logo
+    -------------------------- */
+    
+    header {
+        text-align: center;
+        padding: 3rem 1.5rem 2rem;
+    }
+    
+    
+    /* Logo */
+    
+    .logo img {
+        width: 280px;
+        max-width: 90%;
+        height: auto;
+        display: block;
+        margin: 0 auto 2rem;
+    }
+    
+    
+    /* Navigation */
+    
+    nav ul {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        gap: 2.5rem;
+        flex-wrap: wrap;
+    }
+    
+    nav a {
+        text-decoration: none;
+        color: #666;
+        font-size: .9rem;
+        text-transform: uppercase;
+        letter-spacing: .12em;
+        transition: color .2s;
+    }
+    
+    nav a:hover {
+        color: #000;
+    }
+    
+    
+    /* --------------------------
+       Hero
+    -------------------------- */
+    
+    .hero {
+        max-width: 700px;
+        margin: 6rem auto;
+        padding: 0 1.5rem;
+        text-align: center;
+    }
+    
+    .hero h1 {
+        font-size: clamp(2.4rem, 5vw, 4rem);
+        line-height: 1.1;
+        font-weight: 700;
+    
+        margin-bottom: 1.5rem;
+    }
+    
+    .hero p {
+        font-size: 1.15rem;
+        color: #666;
+    
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    
+    
+    /* --------------------------
+       Optional Button
+    -------------------------- */
+    
+    .button {
+        display: inline-block;
+        margin-top: 2.5rem;
+        padding: .9rem 2rem;
+        background: #111;
+        color: white;
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: .08em;
+        font-size: .8rem;
+    }
+    
+    .button:hover {
+        background: #333;
+    }
+    
+    
+    /* --------------------------
+       Footer
+    -------------------------- */
+    
+    footer {
+        text-align: center;
+        padding: 5rem 1rem 2rem;
+        color: #888;
+        font-size: .9rem;
+    }
+    
+</style>
+</head>
+
+<body>
+
+    <header>
+
+        <a href="/" class="logo">
+            <img src="images/logo.svg" alt="kimcodes">
+        </a>
+
+        <nav>
+            <ul> <!-- constants, rabbit holes, connections, reflections, breadcrumbs -->
+                <li><a href="#">About</a></li>
+                <li><a href="#">Constants</a></li>
+                <li><a href="#">Reflections</a></li>
+                <li><a href="#">Breadcrumbs</a></li>
+            </ul>
+        </nav>
+
+    </header>
+
+    <main>
+
+        <section class="hero">
+
+            <h1>Creating things worth understanding.</h1>
+
+            <p>
+              Since I was young, I've loved taking things apart to understand how they work. 
+              That curiosity has taken me across developer communities, engineering teams, product marketing, open source, and go-to-market leadership. 
+              I've been lucky to learn from a lot of different people and communities along the way. 
+              If there's one thing I hope to pass on, it's that there's more than one way to build a meaningful career in tech.
+            </p>
+
+            <a class="button" href="#">View My Work</a>
+
+        </section>
+
+    </main>
+
+    <footer>
+
+        <p>&copy; 2026 Kim Codes</p>
+
+    </footer>
+
+</body>
+</html>

@@ -218,7 +218,6 @@
 -------------------------- */
 
 .craft {
-
     max-width: 1200px;
     margin: 5rem auto;
     padding: 0 1.5rem;
@@ -226,30 +225,26 @@
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: 5rem;
-
 }
 
 
-/* Left */
-
+/* Left on Craft Page*/
 .section-intro {
-
     color: #666;
     margin-bottom: 3rem;
+}
 
+.craft-work h2{
+  font-size: 2.3rem;
 }
 
 .project {
-
     margin-bottom: 4rem;
-
 }
 
 .project h3 {
-
     font-size: 1.6rem;
     margin-bottom: .75rem;
-
 }
 
 .project p {
@@ -258,7 +253,7 @@
 }
 
 
-/* Right */
+/* Right on Craft page  */
 
 .craft-sidebar {
     background: #f9f9f9;
@@ -270,7 +265,7 @@
 }
 
 .craft-sidebar h2 {
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 
 .principle {
@@ -292,9 +287,7 @@
 
 
 /* Shared */
-
 .craft h2 {
-    font-size: 2.3rem;
     line-height: 1.2;
     margin-bottom: 1rem;
 }

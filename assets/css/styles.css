@@ -87,27 +87,27 @@
     
     
     /* --------------------------
-       Optional Button
+       Text Link (originally a button) 
     -------------------------- */
     
    .text-link {
-    display: inline-flex;
-    align-items: center;
-    gap: .4rem;
-
-    margin-top: 2.5rem;
-
-    color: #222;
-    text-decoration: underline;
-    text-underline-offset: 6px;
-    text-decoration-thickness: 1px;
-
-    font-size: .95rem;
-    font-weight: 600;
-    letter-spacing: .06em;
-    text-transform: uppercase;
-
-    transition: gap .2s ease, color .2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+  
+      margin-top: 2.5rem;
+  
+      color: #222;
+      text-decoration: underline;
+      text-underline-offset: 6px;
+      text-decoration-thickness: 1px;
+  
+      font-size: .95rem;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+  
+      transition: gap .2s ease, color .2s ease;
     }
     
     .text-link span {
@@ -223,11 +223,15 @@
     padding: 0 1.5rem;
     display: grid;
     grid-template-columns: 2fr 1fr;
+    grid-template-areas: "main sidebar";
     gap: 5rem;
 }
 
-
 /* Left on Craft Page*/
+.craft-work {
+    grid-area: main;
+}
+
 .section-intro {
     color: #666;
     margin-bottom: 3rem;
@@ -254,12 +258,13 @@
 
 /* Right on Craft page  */
 .craft-sidebar {
+    grid-area: sidebar;
     background: #f9f9f9;
     border-radius: 16px;
     padding: 2rem;
     position: sticky;
     top: 3rem;
-    align-self: start;
+    align-self: start; 
 }
 
 .craft-sidebar h2 {
@@ -305,6 +310,10 @@
 
     .craft {
         grid-template-columns: 1fr;
+        grid-template-areas:
+            "sidebar"
+            "main";
+      
         gap: 4rem;
     }
 
@@ -313,6 +322,7 @@
     }
 
 }
+
 
 
 /* --------------------------
@@ -374,6 +384,40 @@
     line-height: 1.7;
     max-width: 600px;
 }
+
+/* Refelctions link to stories */
+.reflection-text-link {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+  
+      margin-top: 2.5rem;
+  
+      color: #222;
+      text-underline-offset: 6px;
+      text-decoration-thickness: 1px;
+  
+      font-size: .95rem;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+  
+      transition: gap .2s ease, color .2s ease;
+    }
+    
+    .reflection-text-link span {
+        transition: transform .2s ease;
+    }
+    
+    .reflection-text-link:hover {
+        color: #000;
+        gap: .65rem;
+    }
+    
+    .reflection-text-link:hover span {
+        transform: translateX(3px);
+  }
+
 
 
 /* Mobile */

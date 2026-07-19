@@ -395,6 +395,7 @@
       letter-spacing: .06em;
       text-transform: uppercase;
       transition: gap .2s ease, color .2s ease;
+      text-decoration: none;
     }
     
     .reflection-text-link span {

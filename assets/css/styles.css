@@ -602,3 +602,133 @@
 .contact-links a:hover span {
     transform: translateX(4px);
 }
+
+/* ==========================================
+   Cosmos Story Page
+========================================== */
+
+.story-hero {
+    max-width: 850px;
+    margin: 5rem auto 6rem;
+    padding: 0 1.5rem;
+    text-align: center;
+}
+
+.story-tag {
+    font-size: .8rem;
+    text-transform: uppercase;
+    letter-spacing: .15em;
+    color: #777;
+    margin-bottom: 1rem;
+}
+
+.story-hero h1 {
+    font-size: clamp(2.6rem, 5vw, 4.5rem);
+    line-height: 1.05;
+    margin-bottom: 1.75rem;
+}
+
+.story-intro {
+    max-width: 650px;
+    margin: 0 auto;
+    color: #666;
+    font-size: 1.15rem;
+    line-height: 1.8;
+}
+
+
+/* ==========================================
+  Cosmos Story Skills
+========================================== */
+
+.skills {
+    max-width: 850px;
+    margin: 0 auto 6rem;
+    padding: 0 1.5rem;
+}
+
+.skills h2 {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .75rem;
+}
+
+.skills-list span {
+    background: #f6f6f6;
+    padding: .55rem 1rem;
+    border-radius: 999px;
+    font-size: .9rem;
+    color: #555;
+}
+
+
+/* ==========================================
+   Cosmos Story Chapters
+========================================== */
+
+.chapter {
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 4rem 1.5rem;
+    border-top: 1px solid #ececec;
+}
+
+.chapter:first-of-type {
+    border-top: none;
+}
+
+.chapter-number {
+    text-transform: uppercase;
+    letter-spacing: .18em;
+    font-size: .75rem;
+    color: #8a8a8a;
+    margin-bottom: .8rem;
+}
+
+.chapter h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.chapter p {
+    color: #555;
+    line-height: 1.9;
+    max-width: 700px;
+}
+
+.chapter ul {
+    margin-top: 1.5rem;
+    margin-left: 1.2rem;
+}
+
+.chapter li {
+    margin-bottom: .8rem;
+    color: #555;
+}
+
+
+/* ==========================================
+  Cosmos Story Closing
+========================================== */
+
+.story-closing {
+    max-width: 850px;
+    margin: 6rem auto;
+    padding: 0 1.5rem;
+    text-align: center;
+}
+
+.story-closing blockquote {
+    font-size: 1.5rem;
+    line-height: 1.6;
+    font-weight: 500;
+    color: #333;
+
+    max-width: 700px;
+    margin: 0 auto 3rem;
+}

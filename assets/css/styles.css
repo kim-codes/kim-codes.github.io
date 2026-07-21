@@ -614,16 +614,37 @@
     text-align: center;
 }
 
-.story-hero::after {
+/*.story-hero::after {
     content: "✦   ✦        ✦";
     position: absolute;
     top: 30px;
     left: 60px;
-    color: rgba(90,120,255,.25);
+    color: #d9c27a;
     letter-spacing: 120px;
     font-size: .8rem;
     pointer-events: none;
+}*/
+
+.story-hero::after {
+    content: "✦";
+    position: absolute;
+    top: 40px;
+    right: 80px;
+    color: #d9c27a
+    font-size: .8rem;
+    z-index: 2;
 }
+
+.story-hero::before {
+    content: "✦";
+    position: absolute;
+    top: 120px;
+    left: 120px;
+    color: #d9c27a;
+    font-size: .6rem;
+    z-index: 2;
+}
+
 
 .story-tag {
     font-size: .8rem;

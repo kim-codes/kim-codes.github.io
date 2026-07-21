@@ -612,6 +612,7 @@
     margin: 5rem auto 6rem;
     padding: 0 1.5rem;
     text-align: center;
+    position:relative;
 }
 
 /*.story-hero::after {
@@ -630,7 +631,7 @@
     position: absolute;
     top: 40px;
     right: 80px;
-    color: #d9c27a
+    color: #d9c27a;
     font-size: .8rem;
     z-index: 2;
 }

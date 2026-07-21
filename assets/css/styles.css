@@ -614,6 +614,17 @@
     text-align: center;
 }
 
+.story-hero::after {
+    content: "✦   ✦        ✦";
+    position: absolute;
+    top: 30px;
+    left: 60px;
+    color: rgba(90,120,255,.25);
+    letter-spacing: 120px;
+    font-size: .8rem;
+    pointer-events: none;
+}
+
 .story-tag {
     font-size: .8rem;
     text-transform: uppercase;

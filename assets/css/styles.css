@@ -557,14 +557,14 @@
 } */
 
 .contact {
-    max-width: 1100px;
+    max-width: 800px;
     margin: 5rem auto;
     padding: 0 1.5rem;
 }
 
 .contact-content {
     display: grid;
-    grid-template-columns: 1.2fr .8fr;
+    grid-template-columns: 1fr 1fr;
     gap: 5rem;
     align-items: center;
 }
@@ -575,7 +575,7 @@
     margin-bottom: 2rem;
 }
 
-.contact-intro p {
+.contact-intro {
     font-size: 1.15rem;
     color: #555;
     line-height: 1.8;

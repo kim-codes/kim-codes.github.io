@@ -812,6 +812,15 @@
     font-size: 1.5rem;
 }
 
+.enablement-content h3 {
+    margin-top: 3rem;
+    margin-bottom: 1.25rem;
+    font-size: 1.2rem;
+    font-style: italic;
+    font-weight: 500;
+    color: #555;
+}
+
 .enablement-content hr {
     border: none;
     border-top: 1px solid #ececec;

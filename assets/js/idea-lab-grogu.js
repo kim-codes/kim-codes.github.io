@@ -56,6 +56,7 @@ svg.addEventListener("mousemove", (event) => {
 -------------------------- */
 
 function updateDistances() {
+      const distances = [];
       // Convert SVG coordinate strings into numbers for calculations
       const beaconX = Number(beacon.getAttribute("cx")); 
       const beaconY = Number(beacon.getAttribute("cy"));
@@ -70,9 +71,21 @@ function updateDistances() {
    
        const distance = Math.sqrt(dx * dx + dy * dy);
    
-       console.log(node.dataset.name, Math.round(distance));
+       // console.log(node.dataset.name, Math.round(distance));
+       distances.push({
+          name: node.dataset.name,
+          distance: Math.round(distance),
+          element: node
+      });
    
-   });
+   }); // for each node 
+   
+   // sort by the shortest distance 
+   distances.sort((a, b) => a.distance - b.distance);
+
+   // display the top 3, closests 
+   const nearest = distances.slice(0, 3);
+   console.log(nearest);
 }
 
 function updateNearestNeighbors() {

@@ -46,9 +46,11 @@ svg.addEventListener("mousemove", (event) => {
         svg.getScreenCTM().inverse()
     );
 
+   // calculate x and y points 
     beacon.setAttribute("cx", svgPoint.x);
     beacon.setAttribute("cy", svgPoint.y);
 
+    updateDistances();
 });
 
 /* --------------------------
@@ -69,6 +71,14 @@ document.addEventListener("mouseup", () => {
 /* --------------------------
    Functions
 -------------------------- */
+
+function updateDistances() {
+   //ensure change string to Number when calculating coordinates 
+   const beaconX = Number(beacon.getAttribute("cx")); 
+   const beaconY = Number(beacon.getAttribute("cy"));
+
+   console.log(beaconX, beaconY);
+}
 
 function updateNearestNeighbors() {
 

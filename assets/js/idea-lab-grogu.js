@@ -10,6 +10,10 @@ const nodes = document.querySelectorAll(".character");
 
 console.log(beacon); 
 
+beacon.addEventListener("click", () => {
+    console.log("Beacon clicked");
+});
+
 // test - beacon.style.stroke = "#8ccf6e"; 
 
 /* --------------------------

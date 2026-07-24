@@ -85,7 +85,18 @@ function updateDistances() {
 
    // display the top 3, closests 
    const nearest = distances.slice(0, 3);
-   console.log(nearest);
+   
+   // console.log(nearest);
+   
+   // Remove previous top 3
+   nodes.forEach((node) => {
+       node.classList.remove("nearest");
+   });
+   
+   // Highlight nearest neighbors (3)
+   nearest.forEach((match) => {
+       match.element.classList.add("nearest");
+   });
 }
 
 function updateNearestNeighbors() {

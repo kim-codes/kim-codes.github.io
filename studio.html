@@ -102,6 +102,15 @@
             fill: white;
             opacity: 0.6;
         }
+        
+        .star.dim {
+            opacity: 0.3;
+        }
+
+        
+        .star.bright {
+            opacity: 0.9;
+        }
 
         .character {
             fill: white;
@@ -111,6 +120,46 @@
             fill: white;
             font-size: 14px;
             font-family: Inter, sans-serif;
+        }
+
+        /* disable mobile viewing */
+        
+        .mobile-message {
+            display: none;
+        }
+        
+        @media (max-width: 900px) {
+        
+            .explainer-content {
+                display: block;
+            }
+        
+            .explainer-sidebar,
+            .galaxy-map {
+                display: none;
+            }
+        
+            .galaxy-panel {
+                min-height: auto;
+                background: #f8f8f8;
+                padding: 4rem 2rem;
+            }
+        
+            .mobile-message {
+                display: block;
+                text-align: center;
+                max-width: 420px;
+                margin: 0 auto;
+            }
+        
+            .mobile-message h2 {
+                margin-bottom: 1rem;
+            }
+        
+            .mobile-message p {
+                line-height: 1.7;
+                color: #555;
+            }
         }
         
     </style>
@@ -186,15 +235,36 @@
                 <!-- Right Column -->
         
                 <section class="galaxy-panel">
+                    
+                    <!-- design so mobile cannot see -->
+                    <div class="mobile-message">
+                        <h2>Desktop Experience</h2>
+                        <p>
+                            This mini explainer is designed for a larger screen.
+                            Visit on desktop to explore the interactive galaxy.
+                        </p>
+                    </div>
+                    <!-- end of mobile warning -->
+                    
                     <div class="galaxy-placeholder"> <!-- forget why i had the placeholder --> 
                         <svg class="galaxy-map" viewBox="0 0 900 600">
 
                             <!-- Stars -->
                             <circle cx="80" cy="70" r="1.5" class="star" />
-                            <circle cx="220" cy="120" r="2" class="star" />
+                            <circle cx="220" cy="120" r="2" class="star bright" />
                             <circle cx="470" cy="90" r="1.5" class="star" />
-                            <circle cx="650" cy="180" r="2" class="star" />
+                            <circle cx="650" cy="180" r="2" class="star dim" />
                             <circle cx="780" cy="60" r="1.5" class="star" />
+
+                            <circle cx="200" cy="390" r="2" class="star" />
+                            <circle cx="430" cy="420" r="1.4" class="star bright" />
+                            <circle cx="650" cy="380" r="1.2" class="star" />
+                            <circle cx="820" cy="440" r="2.2" class="star dim" />
+                            
+                            <circle cx="90" cy="520" r="1.6" class="star" />
+                            <circle cx="280" cy="560" r="1.2" class="star dim" />
+                            <circle cx="510" cy="590" r="2" class="star bright" />
+                            <circle cx="720" cy="540" r="1.5" class="star" />
                         
                             <!-- Characters -->
                                 <!-- Din Djarin -->

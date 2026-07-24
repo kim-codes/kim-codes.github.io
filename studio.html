@@ -90,6 +90,29 @@
                     max-width: 700px;
                     margin-top: 5rem;
                 }
+
+        
+        .galaxy-map {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        .star {
+            fill: white;
+            opacity: 0.6;
+        }
+
+        .character {
+            fill: white;
+        }
+        
+        .character-label {
+            fill: white;
+            font-size: 14px;
+            font-family: Inter, sans-serif;
+        }
+        
     </style>
     
 </head>
@@ -163,16 +186,30 @@
                 <!-- Right Column -->
         
                 <section class="galaxy-panel">
+                    <div class="galaxy-placeholder"> <!-- forget why i had the placeholder --> 
+                        <svg class="galaxy-map" viewBox="0 0 900 600">
+
+                            <!-- Stars -->
+                            <circle cx="80" cy="70" r="1.5" class="star" />
+                            <circle cx="220" cy="120" r="2" class="star" />
+                            <circle cx="470" cy="90" r="1.5" class="star" />
+                            <circle cx="650" cy="180" r="2" class="star" />
+                            <circle cx="780" cy="60" r="1.5" class="star" />
+                        
+                            <!-- Characters -->
+                                <!-- Din Djarin -->
+                                <circle cx="250"cy="220" r="7"class="character"/>
+                                <text x="250" y="245" class="character-label" text-anchor="middle"> Din Djarin</text>
+                        
+                            <!-- Search Beacon -->
+                        
+                        </svg>
         
-                    <div class="galaxy-placeholder">
+                    </div> <!-- end of placeholder div -->
         
-                        <!-- SVG will go here later -->
+                </section> <!-- end of galaxy panel div --> 
         
-                    </div>
-        
-                </section>
-        
-            </section>
+            </section> <!-- end of full explainer section tag --> 
         
             <section class="takeaway">
         

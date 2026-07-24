@@ -6,7 +6,9 @@ console.log("Idea Lab loaded!");
 const beacon = document.getElementById("search-beacon");
 const nodes = document.querySelectorAll(".character");
 
-console.log("Closest:", "Din Djarin");
+console.log(beacon); 
+
+beacon.style.stroke = "#8ccf6e"; 
 
 /* --------------------------
    State

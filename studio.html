@@ -128,8 +128,14 @@
             fill: #8ccf6e;
         }
 
+        .search-beacon {
+            fill: none;
+            stroke: white;
+            stroke-width: 2;
+            cursor: grab;
+        }
+
         /* disable mobile viewing */
-        
         .mobile-message {
             display: none;
         }
@@ -303,9 +309,11 @@
                                     <circle cx="720" cy="610" r="7" class="character" />
                                     <text x="720" y="635" class="character-label" text-anchor="middle"> Vader</text>
                         
-                            <!-- Search Beacon -->
-                             <circle cx="350" cy="300" r="10" class="grogu" />
-                                        <text x="350" y="328" class="character-label" text-anchor="middle"> Grogu</text>
+                            <!-- Grogu & Search Beacon -->
+                            <circle cx="350" cy="300" r="10" class="grogu" />
+                            <text x="350" y="328" class="character-label" text-anchor="middle"> Grogu</text>
+
+                            <circle id="search-beacon" cx="350" cy="300" r="13" class="search-beacon" />
                         
                         </svg>
         

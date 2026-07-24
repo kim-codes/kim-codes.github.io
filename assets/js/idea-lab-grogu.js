@@ -12,6 +12,7 @@ const nodes = document.querySelectorAll(".character");
    State
 -------------------------- */
 let isDragging = false;
+let embeddingGenerated = false;
 
 /* --------------------------
    Event Listeners
@@ -44,6 +45,11 @@ svg.addEventListener("mousemove", (event) => {
    // Move beacon
     beacon.setAttribute("cx", svgPoint.x);
     beacon.setAttribute("cy", svgPoint.y);
+
+   if (!embeddingGenerated) {
+       updateEmbeddingStatus();
+       embeddingGenerated = true;
+   }
 
    // Search logic
     const distances = updateDistances();
@@ -126,4 +132,18 @@ function updateStatusCard(nearest) {
         .join("<br>");
 }
 
+// Create 'fake' embedding generation 
+function updateEmbeddingStatus() {
 
+    const embeddingStatus = document.getElementById("embedding-status");
+
+    setTimeout(() => {
+        embeddingStatus.innerHTML = `
+            Sector:<br>
+            X: 0.42<br>
+            Y: -0.18<br>
+            Z: 0.76
+        `;
+    }, 1200);
+
+}

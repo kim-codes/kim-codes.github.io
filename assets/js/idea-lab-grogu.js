@@ -1,5 +1,3 @@
-console.log("Idea Lab loaded!");
-
 /* --------------------------
    Elements
 -------------------------- */
@@ -29,7 +27,7 @@ document.addEventListener("mouseup", () => {
     //console.log("Dragging stopped");
 });
 
-// Move the beacon
+
 svg.addEventListener("mousemove", (event) => {
 
     if (!isDragging) return;
@@ -43,11 +41,21 @@ svg.addEventListener("mousemove", (event) => {
         svg.getScreenCTM().inverse()
     );
 
-   // calculate x and y points 
+   // Move beacon
     beacon.setAttribute("cx", svgPoint.x);
     beacon.setAttribute("cy", svgPoint.y);
 
-    updateDistances();
+   // Search logic
+    const distances = updateDistances();
+
+    const nearest = findNearestNeighbors(distances);
+
+    // Visual updates
+    highlightNeighbors(nearest);
+
+    // Update text
+    updateStatusCard(nearest);
+
 });
 
 
@@ -55,9 +63,13 @@ svg.addEventListener("mousemove", (event) => {
    Functions
 -------------------------- */
 
+function moveBeacon() {
+
+}
+
 function updateDistances() {
       const distances = [];
-      // Convert SVG coordinate strings into numbers for calculations
+      // convert SVG coordinate strings into numbers for calculations
       const beaconX = Number(beacon.getAttribute("cx")); 
       const beaconY = Number(beacon.getAttribute("cy"));
    
@@ -71,7 +83,6 @@ function updateDistances() {
    
        const distance = Math.sqrt(dx * dx + dy * dy);
    
-       // console.log(node.dataset.name, Math.round(distance));
        distances.push({
           name: node.dataset.name,
           distance: Math.round(distance),
@@ -79,15 +90,22 @@ function updateDistances() {
       });
    
    }); // for each node 
-   
-   // sort by the shortest distance 
-   distances.sort((a, b) => a.distance - b.distance);
 
-   // display the top 3, closests 
-   const nearest = distances.slice(0, 3);
-   
-   // console.log(nearest);
-   
+   return distances;
+
+}
+
+function findNearestNeighbors(distances) {
+    // sort by the shortest distance 
+    const sorted = [...distances].sort((a, b) => {
+        return a.distance - b.distance;
+    });
+
+    // display the top 3, closests 
+    return sorted.slice(0, 3);
+}
+
+function highlightNeighbors(nearest) {
    // Remove previous top 3
    nodes.forEach((node) => {
        node.classList.remove("nearest");
@@ -99,10 +117,13 @@ function updateDistances() {
    });
 }
 
-function updateNearestNeighbors() {
+function updateStatusCard(nearest) {
+   
+    const neighborsStatus = document.getElementById("neighbors-status");
 
+    neighborsStatus.innerHTML = nearest
+        .map((match) => match.name)
+        .join("<br>");
 }
 
-function moveBeacon() {
 
-}

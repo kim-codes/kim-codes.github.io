@@ -177,15 +177,16 @@ function updateEmbeddingStatus() {
 
 function checkEasterEgg(nearest) {
 
-    const easterEgg = document.getElementById("easter-egg");
+    const babuMessage = document.getElementById("babu-message");
 
-    const babuNearby = nearest.some((match) => match.name === "Babu Frik");
+    const closestCharacter = nearest[0];
 
-    if (babuNearby) {
-        easterEgg.textContent = "Hey heyyyy! 🤖";
-        easterEgg.classList.add("show");
+    if (closestCharacter && closestCharacter.name === "Babu Frik") {
+        babuMessage.textContent = "Hey heyyyy! 🤖";
+        babuMessage.classList.add("show");
     } else {
-        easterEgg.classList.remove("show");
+        babuMessage.textContent = "";
+        babuMessage.classList.remove("show");
     }
 
 }

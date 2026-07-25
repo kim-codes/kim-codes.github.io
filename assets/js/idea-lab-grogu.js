@@ -57,9 +57,12 @@ svg.addEventListener("pointermove", (event) => {
         svg.getScreenCTM().inverse()
     );
 
-   // Move beacon
-    beacon.setAttribute("cx", svgPoint.x);
-    beacon.setAttribute("cy", svgPoint.y);
+   // Move exploration beacon
+      beacon.setAttribute("cx", svgPoint.x);
+      beacon.setAttribute("cy", svgPoint.y);
+      
+      // Update displayed coordinates
+      updateExploreCoordinates();
 
    if (!embeddingGenerated) {
        updateEmbeddingStatus();
@@ -191,5 +194,20 @@ function checkEasterEgg(nearest) {
         babuMessage.classList.remove("show");
     }
 
+}
+
+// Update the exploration beacon as you move through the galaxy
+function updateExploreCoordinates() {
+
+    const coordinates = document.getElementById("explore-coordinates");
+
+    const x = Number(beacon.getAttribute("cx"));
+    const y = Number(beacon.getAttribute("cy"));
+
+    coordinates.innerHTML = `
+        X: ${(x / 1000).toFixed(2)}<br>
+        Y: ${(y / 1000).toFixed(2)}<br>
+        Z: 0.76
+    `;
 }
 

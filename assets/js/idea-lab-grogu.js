@@ -177,6 +177,8 @@ function updateEmbeddingStatus() {
 
 function checkEasterEgg(nearest) {
 
+    console.log("Easter egg check", nearest);
+   
     const babuMessage = document.getElementById("babu-message");
 
     const closestCharacter = nearest[0];

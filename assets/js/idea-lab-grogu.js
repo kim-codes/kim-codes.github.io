@@ -64,7 +64,8 @@ svg.addEventListener("pointermove", (event) => {
 
    if (!hasMovedBeacon) {
        document.getElementById("drag-hint").style.opacity = "0";
-       document.getElementById("explore-beacon-text").style.display = "none";
+       document.getElementById("search-beacon-text").style.display = "none";
+   
        hasMovedBeacon = true;
    }
       

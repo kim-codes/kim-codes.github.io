@@ -77,6 +77,8 @@ svg.addEventListener("pointermove", (event) => {
     // Update text
     updateStatusCard(nearest);
 
+   // Easter Egg 
+   checkEasterEgg(nearest);
 });
 
 
@@ -172,3 +174,19 @@ function updateEmbeddingStatus() {
     }, 1200);
 
 }
+
+function checkEasterEgg(nearest) {
+
+    const easterEgg = document.getElementById("easter-egg");
+
+    const babuNearby = nearest.some((match) => match.name === "Babu Frik");
+
+    if (babuNearby) {
+        easterEgg.textContent = "Hey heyyyy! 🤖";
+        easterEgg.classList.add("show");
+    } else {
+        easterEgg.classList.remove("show");
+    }
+
+}
+

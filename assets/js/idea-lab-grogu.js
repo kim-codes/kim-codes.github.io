@@ -6,6 +6,10 @@ const beacon = document.getElementById("search-beacon");
 const svg = document.querySelector(".galaxy-map");
 const nodes = document.querySelectorAll(".character");
 
+const beaconRadius = 13;
+const svgWidth = 900;
+const svgHeight = 600;
+
 // test - beacon.style.stroke = "#8ccf6e"; 
 
 /* --------------------------
@@ -58,9 +62,19 @@ svg.addEventListener("pointermove", (event) => {
         svg.getScreenCTM().inverse()
     );
 
-   // Move exploration beacon
-   beacon.setAttribute("cx", svgPoint.x);
-   beacon.setAttribute("cy", svgPoint.y);
+   // Move exploration beacon, but also keep inside bounds 
+   const boundedX = Math.max(
+       beaconRadius,
+       Math.min(svgWidth - beaconRadius, svgPoint.x)
+   );
+   
+   const boundedY = Math.max(
+       beaconRadius,
+       Math.min(svgHeight - beaconRadius, svgPoint.y)
+   );
+   
+   beacon.setAttribute("cx", boundedX);
+   beacon.setAttribute("cy", boundedY);
 
    if (!hasMovedBeacon) {
        document.getElementById("drag-hint").style.opacity = "0";

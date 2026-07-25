@@ -78,7 +78,9 @@ svg.addEventListener("pointermove", (event) => {
     updateStatusCard(nearest);
 
    // Easter Egg 
+   console.log("Before easter egg");
    checkEasterEgg(nearest);
+   console.log("After easter egg");
 });
 
 
@@ -177,14 +179,12 @@ function updateEmbeddingStatus() {
 
 function checkEasterEgg(nearest) {
 
-    console.log("Easter egg check", nearest);
-   
     const babuMessage = document.getElementById("babu-message");
 
-    const closestCharacter = nearest[0];
+    const babuNearby = nearest.some((match) => match.name === "Babu Frik");
 
-    if (closestCharacter && closestCharacter.name === "Babu Frik") {
-        babuMessage.textContent = "Hey heyyyy! 🤖";
+    if (babuNearby) {
+        babuMessage.textContent = "Hey heyyyy!";
         babuMessage.classList.add("show");
     } else {
         babuMessage.textContent = "";

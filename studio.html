@@ -181,12 +181,43 @@
             cursor: grab;
             stroke-dasharray: 4;
             pointer-events: all;
+            cursor: grab;
         }
+
+        .search-beacon:active {
+            cursor: grabbing;
+        }
+        
+        
+        .beacon-pulse {
+            fill: none;
+            stroke: white;
+            stroke-width: 2;
+            opacity: 0.5;
+            animation: beaconPulse 2s infinite;
+        }
+        
+        
+        @keyframes beaconPulse {
+        
+            0% {
+                r: 15;
+                opacity: 0.6;
+            }
+        
+            100% {
+                r: 35;
+                opacity: 0;
+            }
+        
+        }
+
                 
         .beacon-label {
             fill: white;
             font-size: 13px;
             font-weight: bold;
+            font
         }
 
         /* add glow to nearest neighbors */
@@ -495,7 +526,9 @@
 
                             <!-- Exploration Beacon (Draggable) -->
                             <circle id="search-beacon" cx="760" cy="120"" r="13" class="search-beacon"/>
-                                        <circle 
+
+                            <!-- Instruction -->
+                            <text id="drag-hint" x="760" y="85" class="beacon-label" text-anchor="middle">✨ Drag me</text>
                         
                         </svg>
         

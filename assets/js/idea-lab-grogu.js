@@ -13,6 +13,7 @@ const nodes = document.querySelectorAll(".character");
 -------------------------- */
 let isDragging = false;
 let embeddingGenerated = false;
+let hasMovedBeacon = false;
 
 /* --------------------------
    Event Listeners
@@ -58,8 +59,13 @@ svg.addEventListener("pointermove", (event) => {
     );
 
    // Move exploration beacon
-      beacon.setAttribute("cx", svgPoint.x);
-      beacon.setAttribute("cy", svgPoint.y);
+   beacon.setAttribute("cx", svgPoint.x);
+   beacon.setAttribute("cy", svgPoint.y);
+
+   if (!hasMovedBeacon) {
+       document.getElementById("drag-hint").style.opacity = "0";
+       hasMovedBeacon = true;
+   }
       
       // Update displayed coordinates
       updateExploreCoordinates();
@@ -167,7 +173,7 @@ function updateStatusCard(nearest) {
 // Create 'fake' embedding generation 
 function updateEmbeddingStatus() {
 
-    const embeddingStatus = document.getElementById("embedding-status");
+    const embeddingStatus = document.getElementById("explore-coordinates");
 
     setTimeout(() => {
         embeddingStatus.innerHTML = `

@@ -416,14 +416,15 @@
                         <h2>Mission</h2>
                         <p>
                           Pinpoint Grogu's Query beacon. Note the nearby signals. <br><br>
-                          Find the Explore Beacon and guide it through the galaxy to see how different locations reveal different nearby signals.
-                        </p> <!-- the beacon = embedding of the query -->
+                          Use the Explore Lens to move through the galaxy to discover how different search beacons reveal different nearby signals.
+                        </p> <!-- the beacon = embedding of the query --> 
                     </div>
 
                     <!-- SEARCH STATUS CARD --> 
+                    
                     <div class="status-card">
 
-                            <h2>Search Status</h2>
+                        <h2>Active Search Beacon</h2>
                         
                             <div class="status-item">
                                 <span class="label">Query</span>
@@ -431,11 +432,11 @@
                                     "Who would help Grogu on his journey?"
                                 </strong>
                             </div>
-                        
+  
                             <div class="status-item">
                                 <span class="label">
-                                    Query Beacon
-                                    <small>(Original Search)</small>
+                                    Last Beacon Location
+                                    <small>(Embedding Coordinates)</small>
                                 </span>
                         
                                 <strong>
@@ -447,7 +448,7 @@
                         
                             <div class="status-item">
                                 <span class="label">
-                                    Explore Beacon
+                                    Curret Explore Lens Location
                                     <small>(Move me to explore)</small>
                                 </span>
                         
@@ -548,7 +549,7 @@
 
                             <!-- Exploration Beacon (Draggable) -->
                             <circle id="search-beacon" cx="760" cy="120"" r="13" class="search-beacon"/>
-                            <text x="760" y="155" id="search-beacon-text" class="beacon-label" text-anchor="middle">Search Beacon</text>
+                            <text x="760" y="155" id="search-beacon-text" class="beacon-label" text-anchor="middle">Explore Lens</text>
 
                             <!-- Instruction -->
                             <text id="drag-hint" x="760" y="85" class="beacon-label" text-anchor="middle">✨ Drag me</text>

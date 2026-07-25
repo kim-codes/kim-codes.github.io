@@ -176,17 +176,15 @@
             filter: drop-shadow(0 0 8px #b7e98a);
         }
 
-        .easter-egg {
-            margin-top: 1rem;
-            font-style: italic;
+       .babu-message {
             opacity: 0;
+            font-size: 14px;
             transition: opacity 0.3s ease;
         }
         
-        .easter-egg.show {
+        .babu-message.show {
             opacity: 1;
         }
-
         /* --------------------------
            Behind the Search
         -------------------------- */
@@ -403,6 +401,7 @@
 
                                     <circle cx="610" cy="430" r="7" class="character" data-name="Babu Frik"/>
                                     <text x="610" y="455" class="character-label" text-anchor="middle"> Babu Frik</text>
+                                    <text id="babu-message" x="620" y="420" class="babu-message" text-anchor="middle"> </text>
 
                                     <!-- Foes -->
                                     <circle cx="280" cy="500" r="7" class="character" data-name="Stormtrooper"/>
@@ -423,9 +422,6 @@
                             <circle id="search-beacon" cx="350" cy="300" r="13" class="search-beacon" />
                         
                         </svg>
-
-                        <!-- Easter Egg -->
-                        <div id="easter-egg" class="easter-egg"></div>
         
                     </div> <!-- end of placeholder div -->
         

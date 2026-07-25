@@ -18,6 +18,8 @@ let embeddingGenerated = false;
    Event Listeners
 -------------------------- */
 
+/** ONLY WORKS FOR MOUSE / DESKTOP - need to change to work on PIAD 
+
 beacon.addEventListener("mousedown", () => {
     isDragging = true;
     //console.log("Dragging started");
@@ -29,7 +31,20 @@ document.addEventListener("mouseup", () => {
 });
 
 
-svg.addEventListener("mousemove", (event) => {
+svg.addEventListener("mousemove", (event) => { */
+
+
+beacon.addEventListener("pointerdown", () => {
+    isDragging = true;
+});
+
+
+document.addEventListener("pointerup", () => {
+    isDragging = false;
+});
+
+
+svg.addEventListener("pointermove", (event) => {
 
     if (!isDragging) return;
 

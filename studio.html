@@ -176,6 +176,17 @@
             filter: drop-shadow(0 0 8px #b7e98a);
         }
 
+        .easter-egg {
+            margin-top: 1rem;
+            font-style: italic;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .easter-egg.show {
+            opacity: 1;
+        }
+
         /* --------------------------
            Behind the Search
         -------------------------- */
@@ -354,6 +365,8 @@
                     
                     <div class="galaxy-placeholder"> <!-- forget why i had the placeholder --> 
                         <svg class="galaxy-map" viewBox="0 0 900 600">
+                            <!-- Easter Egg -->
+                            <div id="easter-egg" class="easter-egg"></div>
 
                             <!-- Stars -->
                             <circle cx="80" cy="70" r="1.5" class="star" />

@@ -163,6 +163,8 @@
 
         .grogu {
             fill: #8ccf6e;
+            stroke: white;
+            stroke-width: 2;
         }
 
         .query-beacon {
@@ -171,17 +173,19 @@
             stroke-width: 2;
             opacity: 0.7;
         }
-        
+
         .search-beacon {
             fill: transparent;
             stroke: white;
-            stroke-width: 2;
+            stroke-width: 3;
             cursor: grab;
+            pointer-events: all;
         }
-        
+                
         .beacon-label {
-            fill: #ffffff;
-            font-size: 12px;
+            fill: white;
+            font-size: 13px;
+            font-weight: bold;
         }
 
         /* add glow to nearest neighbors */
@@ -448,7 +452,7 @@
                         
                             <!-- Characters -->
 
-                                <!-- Friends -->
+                                <!-- Friends, add +25 for y in text -->
                                     <circle cx="250"cy="220" r="7" class="character" data-name="Din Djarin"/>
                                     <text x="250" y="245" class="character-label" text-anchor="middle"> Din Djarin</text>
 
@@ -461,8 +465,8 @@
                                     <circle cx="220" cy="330" r="7" class="character" data-name="The Armorer"/>
                                     <text x="220" y="355" class="character-label" text-anchor="middle"> The Armorer</text>
 
-                                    <circle cx="360" cy="350"" r="7" class="character" data-name="R2-D2"/>
-                                    <text x="360" y="375" class="character-label" text-anchor="middle"> R2-D2</text>
+                                    <circle cx="430" cy="390"" r="7" class="character" data-name="R2-D2"/>
+                                    <text x="430" y="415" class="character-label" text-anchor="middle"> R2-D2</text>
 
                                     <circle cx="610" cy="430" r="7" class="character" data-name="Babu Frik"/>
                                     <text x="610" y="455" class="character-label" text-anchor="middle"> Babu Frik</text>
@@ -480,17 +484,16 @@
                                     <circle cx="720" cy="520" r="7" class="character" data-name="Vader"/>
                                     <text x="720" y="545" class="character-label" text-anchor="middle">Vader</text>
                         
-                            <!-- Grogu & Query Beacon -->
+                            <!-- Grogu  -->
                             <circle cx="350" cy="300" r="10" class="grogu" />
                             <text x="350" y="328" class="character-label" text-anchor="middle"> Grogu</text>
 
                             <!-- Original Query Location -->
-                            <circle id="search-beacon" cx="350" cy="300" r="13" class="query-beacon" />
-                            <text x="350" y="265" class="beacon-label" text-anchor="middle">Query Beacon</text>
+                            <circle id="search-beacon" cx="350" cy="300" r="18" class="query-beacon" />
+                            <text x="350" y="275" class="beacon-label" text-anchor="middle">Query Beacon</text>
 
                             <!-- Exploration Beacon (Draggable) -->
                             <circle id="search-beacon" cx="350" cy="300" r="13" class="search-beacon"/>
-                            <text id="explore-label" x="350" y="350" class="beacon-label" text-anchor="middle"> Explore</text>
                         
                         </svg>
         

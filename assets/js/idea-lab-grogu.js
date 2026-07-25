@@ -145,18 +145,20 @@ function updateStatusCard(nearest) {
 
     const neighborsStatus = document.getElementById("neighbors-status");
 
+    const warnings = ["Vader", "Moff Gideon", "Stormtrooper"];
+
     neighborsStatus.innerHTML = nearest
         .map((match) => {
             
-            if (match.name === "Vader") {
+            if (warnings.includes(match.name)) {
                 return `${match.name} ⚠️`;
             }
-           /* if (match.name === "Babu Frik") {
-                return `${match.name} 🤖`;
-            }*/
+
             return match.name;
+
         })
         .join("<br>");
+
 }
 
 // Create 'fake' embedding generation 

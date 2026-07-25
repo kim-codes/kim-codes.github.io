@@ -122,6 +122,10 @@
                     opacity: 0.6;
                 }
 
+            .takeaways{
+                margin-top: 5rem;
+            }
+
         .galaxy-map {
             width: 100%;
             height: 100%;
@@ -291,7 +295,8 @@
                 <p class="eyebrow">Idea Lab</p>
 
                 <p class="intro">Using Grogu to understand vector search. <br></p>
-                <h1>Help Grogu Find His Clan</h1>
+                <!--<h1>Help Grogu Find His Clan</h1>-->
+                <h1>>Help Grogu Navigate the Galaxy</h1
         
                 <p class="intro">
                     Drag Grogu around the galaxy and watch him discover characters.<br>
@@ -326,7 +331,7 @@
                         </div>
         
                         <div class="status-item">
-                            <span class="label">Allies Located <small>(Nearest Neighbors)</small></span>
+                            <span class="label">Nearby Signals <small>(Nearest Neighbors)</small></span>
                             <div id="neighbors-status">—</div>
                         </div>
         
@@ -395,8 +400,10 @@
                                     <circle cx="430" cy="540" r="7" class="character" data-name="Moff Gideon"/>
                                     <text x="430" y="565" class="character-label" text-anchor="middle"> Moff Gideon</text>
 
-                                    <circle cx="720" cy="610" r="7" class="character" data-name="Vader"/>
-                                    <text x="720" y="635" class="character-label" text-anchor="middle"> Vader</text>
+                                    <!--<circle cx="720" cy="610" r="7" class="character" data-name="Vader"/>
+                                    <text x="720" y="635" class="character-label" text-anchor="middle"> Vader</text>-->
+                                    <circle cx="720" cy="520" r="7" class="character" data-name="Vader"/>
+                                    <text x="720" y="545" class="character-label" text-anchor="middle">Vader</text>
                         
                             <!-- Grogu & Search Beacon -->
                             <circle cx="350" cy="300" r="10" class="grogu" />
@@ -460,39 +467,39 @@
         
         </section>
         
-         <section class="takeaways">
+        <section class="takeaways">
 
-    <h2>Key Takeaways</h2>
-
-    <div class="takeaway-grid">
-
-        <article class="takeaway">
-            <span>01</span>
-            <h3>Search isn't always about words.</h3>
-            <p>
-                Vector search looks beyond exact matches and finds ideas that are close in meaning.
-            </p>
-        </article>
-
-        <article class="takeaway">
-            <span>02</span>
-            <h3>Meaning can become coordinates.</h3>
-            <p>
-                Embeddings transform ideas into numbers that represent their position in a larger space.
-            </p>
-        </article>
-
-        <article class="takeaway">
-            <span>03</span>
-            <h3>Finding answers means finding neighbors.</h3>
-            <p>
-                Vector search finds the concepts closest to the query.
-            </p>
-        </article>
-
-    </div>
-
-</section>
+            <h2>Key Takeaways</h2>
+        
+            <div class="takeaway-grid">
+        
+                <article class="takeaway">
+                    <span>01</span>
+                    <h3>Search isn't always about words.</h3>
+                    <p>
+                        Vector search looks beyond exact matches and finds ideas that are close in meaning.
+                    </p>
+                </article>
+        
+                <article class="takeaway">
+                    <span>02</span>
+                    <h3>Meaning can become coordinates.</h3>
+                    <p>
+                        Embeddings transform ideas into numbers that represent their position in a larger space.
+                    </p>
+                </article>
+        
+                <article class="takeaway">
+                    <span>03</span>
+                    <h3>The galaxy doesn't know friend from foe.</h3>
+                    <p>
+                        Vector search finds similarity, but humans decide what the results mean.
+                    </p>
+                </article>
+        
+            </div>
+        
+        </section>
 
   </main>
   <footer>

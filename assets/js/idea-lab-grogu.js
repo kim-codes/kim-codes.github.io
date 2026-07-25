@@ -77,10 +77,8 @@ svg.addEventListener("pointermove", (event) => {
     // Update text
     updateStatusCard(nearest);
 
-   // Easter Egg 
-   console.log("Before easter egg");
+   // Easter Egg
    checkEasterEgg(nearest);
-   console.log("After easter egg");
 });
 
 

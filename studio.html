@@ -94,7 +94,6 @@
                 }
                 
                 .status-item strong {
-                    white-space: nowrap;
                     font-weight: 600;
                 }
                 
@@ -332,10 +331,10 @@
 
                 <p class="intro">Using Grogu to understand vector search. <br></p>
                 <!--<h1>Help Grogu Find His Clan</h1>-->
-                <h1>>Help Grogu Navigate the Galaxy</h1
+                <h1>Help Grogu Navigate the Galaxy</h1>
         
                 <p class="intro">
-                    Drag Grogu's beacon through the galaxy and see how we discover nearby signals..<br>
+                    Move the query beacon through the galaxy and see how vector search discovers nearby signals.<br>
                 </p> <!-- Follow Grogu's search across the galaxy to see how vector search works -->
             </section>
         
@@ -347,30 +346,49 @@
                     <div class="mission-card">
                         <h2>Mission</h2>
                         <p>
-                           A small experiment in how meaning becomes searchable.<br><br> 
-                          Move the search beacon and watch meaning take shape.
+                          A small experiment in how meaning becomes a map.
+                            Move the query beacon and explore how vector search finds nearby signals.
                         </p> <!-- the beacon = embedding of the query -->
                     </div>
         
-                    <div class="status-card">
-        
-                        <h2>Search Status</h2>
-                        <div class="status-item">
-                            <span class="label">Query </span>
-                            <strong id="query-status">Who would help Grogu on his journey?</strong>
+                    <div class="status-card">          
+                            <h2>Search Status</h2>
+                        
+                            <div class="status-item">
+                                <span class="label">Query</span>
+                                <strong id="query-status">"Who would help Grogu on his journey?"</strong>
+                            </div>
+                        
+                            <div class="status-item">
+                                <span class="label">Grogu's Coordinates 
+                                    <small>(Embedding)</small>
+                                </span>
+                                <strong>
+                                    X: 0.42<br>
+                                    Y: -0.18<br>
+                                    Z: 0.76
+                                </strong>
+                            </div>
+                        
+                            <div class="status-item">
+                                <span class="label">Query Beacon
+                                    <small>(Explore Vector Space)</small>
+                                </span>
+                                <strong id="embedding-status">
+                                    X: 0.42<br>
+                                    Y: -0.18<br>
+                                    Z: 0.76
+                                </strong>
+                            </div>
+                        
+                            <div class="status-item">
+                                <span class="label">Nearby Signals
+                                    <small>(Nearest Neighbors)</small>
+                                </span>
+                                <div id="neighbors-status">—</div>
+                            </div>
+                        
                         </div>
-        
-                        <div class="status-item">
-                            <span class="label">Galaxy Coordinates <small>(Embeddings)</small> </span>
-                            <strong id="embedding-status">Generating...</strong>
-                        </div>
-        
-                        <div class="status-item">
-                            <span class="label">Nearby Signals <small>(Nearest Neighbors)</small></span>
-                            <div id="neighbors-status">—</div>
-                        </div>
-        
-                    </div>
                 </aside>
         
                 <!-- Right Column -->
@@ -441,11 +459,12 @@
                                     <circle cx="720" cy="520" r="7" class="character" data-name="Vader"/>
                                     <text x="720" y="545" class="character-label" text-anchor="middle">Vader</text>
                         
-                            <!-- Grogu & Search Beacon -->
+                            <!-- Grogu & Query Beacon -->
                             <circle cx="350" cy="300" r="10" class="grogu" />
                             <text x="350" y="328" class="character-label" text-anchor="middle"> Grogu</text>
 
                             <circle id="search-beacon" cx="350" cy="300" r="13" class="search-beacon" />
+                            <text x="350" y="275" class="beacon-label" text-anchor="middle">Query Beacon</text>
                         
                         </svg>
         
@@ -480,8 +499,8 @@
                 <div class="journey-step">
                     <span class="step-icon">🌌</span>
                     <h3>Embedding</h3>
-                    <p>The query (idea) becomes galaxy coordinates.</p>
-                    <p>This sect of coordinates represents its meaning.</p> 
+                    <p>The query (idea) transforms into galaxy coordinates. </p>
+                    <p>This set of coordinates represents its meaning.</p> 
                 </div>
         
                 <div class="journey-arrow">→</div>
@@ -490,7 +509,7 @@
                     <span class="step-icon">🔭</span>
                     <h3>Vector Search</h3>
                     <p>The system finds nearby meaning.</p>
-                    <p>It (the system) compares those coordinates against other characters coordinates and finds the closest matches.</p>
+                    <p>It (the system) compares the query coordinates against other characters coordinates (embeddings) and finds the closest matches.</p>
                 </div>
         
                 <div class="journey-arrow">→</div>
@@ -531,7 +550,7 @@
                 <article class="takeaway">
                     <h3>The galaxy doesn't know friend from foe.</h3>
                     <p>
-                        Vector search finds similarity, not relationships. The closest match might be an ally, a rival, or something unexpected.
+                       Vector search finds similarity, not relationships. A nearby signal could be an ally, a rival, or something unexpected.
                     </p>
                 </article>
         

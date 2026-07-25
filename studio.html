@@ -154,7 +154,7 @@
         }
         
         .character-label {
-            fill: white;
+            fill: rgba(255,255,255,0.75);
             font-size: 14px;
             font-family: Inter, sans-serif;
             pointer-events: none;
@@ -165,12 +165,23 @@
             fill: #8ccf6e;
         }
 
+        .query-beacon {
+            fill: none;
+            stroke: #8ccf6e;
+            stroke-width: 2;
+            opacity: 0.7;
+        }
+        
         .search-beacon {
             fill: transparent;
             stroke: white;
             stroke-width: 2;
             cursor: grab;
-            touch-action: none;
+        }
+        
+        .beacon-label {
+            fill: #ffffff;
+            font-size: 12px;
         }
 
         /* add glow to nearest neighbors */
@@ -346,23 +357,29 @@
                     <div class="mission-card">
                         <h2>Mission</h2>
                         <p>
-                          A small experiment in how meaning becomes a map.
-                            Move the query beacon and explore how vector search finds nearby signals.
+                          A small experiment in how meaning becomes a map.<br><br>
+                          Start with Grogu's search, then explore how different locations reveal different connections..
                         </p> <!-- the beacon = embedding of the query -->
                     </div>
-        
-                    <div class="status-card">          
+
+                    <!-- SEARCH STATUS CARD --> 
+                    <div class="status-card">
+
                             <h2>Search Status</h2>
                         
                             <div class="status-item">
                                 <span class="label">Query</span>
-                                <strong id="query-status">"Who would help Grogu on his journey?"</strong>
+                                <strong>
+                                    "Who would help Grogu on his journey?"
+                                </strong>
                             </div>
                         
                             <div class="status-item">
-                                <span class="label">Grogu's Coordinates 
-                                    <small>(Embedding)</small>
+                                <span class="label">
+                                    Query Beacon
+                                    <small>(Original Search)</small>
                                 </span>
+                        
                                 <strong>
                                     X: 0.42<br>
                                     Y: -0.18<br>
@@ -371,9 +388,11 @@
                             </div>
                         
                             <div class="status-item">
-                                <span class="label">Query Beacon
-                                    <small>(Explore Vector Space)</small>
+                                <span class="label">
+                                    Explore Beacon
+                                    <small>(Move Me)</small>
                                 </span>
+                        
                                 <strong id="embedding-status">
                                     X: 0.42<br>
                                     Y: -0.18<br>
@@ -382,9 +401,11 @@
                             </div>
                         
                             <div class="status-item">
-                                <span class="label">Nearby Signals
+                                <span class="label">
+                                    Nearby Signals
                                     <small>(Nearest Neighbors)</small>
                                 </span>
+                        
                                 <div id="neighbors-status">—</div>
                             </div>
                         
@@ -463,8 +484,13 @@
                             <circle cx="350" cy="300" r="10" class="grogu" />
                             <text x="350" y="328" class="character-label" text-anchor="middle"> Grogu</text>
 
-                            <circle id="search-beacon" cx="350" cy="300" r="13" class="search-beacon" />
-                            <text x="350" y="275" class="beacon-label" text-anchor="middle">Query Beacon</text>
+                            <!-- Original Query Location -->
+                            <circle id="search-beacon" cx="350" cy="300" r="13" class="query-beacon" />
+                            <text x="350" y="265" class="beacon-label" text-anchor="middle">Query Beacon</text>
+
+                            <!-- Exploration Beacon (Draggable) -->
+                            <circle id="search-beacon" cx="350" cy="300" r="13" class="search-beacon"/>
+                            <text id="explore-label" x="350" y="350" class="beacon-label" text-anchor="middle"> Explore</text>
                         
                         </svg>
         

@@ -138,12 +138,22 @@ function highlightNeighbors(nearest) {
    });
 }
 
+// Update the Status Card 
 function updateStatusCard(nearest) {
-   
+
     const neighborsStatus = document.getElementById("neighbors-status");
 
     neighborsStatus.innerHTML = nearest
-        .map((match) => match.name)
+        .map((match) => {
+            
+            if (match.name === "Vader") {
+                return `${match.name} ⚠️`;
+            }
+           /* if (match.name === "Babu Frik") {
+                return `${match.name} 🤖`;
+            }*/
+            return match.name;
+        })
         .join("<br>");
 }
 

@@ -291,122 +291,92 @@
             opacity: 1;
         }
         /* --------------------------
-           Behind the Search
+           Lab Explanation Content Section 
         -------------------------- */
         
-        .behind-search {
-            margin-top: 5rem;
-            text-align: center;
-            margin-bottom: 3rem;
-        }
+            .galaxy-explained {
+                display: grid;
+                grid-template-columns: 2fr 1fr;
+                gap: 5rem;
+            
+                max-width: 1100px;
+                margin: 5rem auto;
+                padding: 0 2rem;
+            }
+            
+            .galaxy-main h2 {
+                margin-bottom: 1rem;
+            }
+            
+            .galaxy-main .section-intro {
+                font-size: 1.4rem;
+                color: #666;
+                line-height: 1.8;
+                margin-bottom: 3rem;
+            }
+            
+            .galaxy-main h3 {
+                margin-bottom: 1.5rem;
+            }
+            
+            .galaxy-main p {
+                font-size: 1.1rem;
+                line-height: 1.9;
+                color: #444;
+                margin-bottom: 1.5rem;
+            }
+            
+            .galaxy-sidebar {
+                position: sticky;
+                top: 2rem;
+            
+                align-self: start;
+            
+                background: #f8f8f8;
+                border-radius: 16px;
+            
+                padding: 2rem;
+            }
+            
+            .galaxy-sidebar h3 {
+                margin-bottom: 2rem;
+            }
+            
+            .idea-item {
+                margin-bottom: 2.5rem;
+            }
+            
+            .idea-item h4 {
+                margin-bottom: .6rem;
+                font-size: 1.2rem;
+            }
+            
+            .idea-item p {
+                color: #666;
+                line-height: 1.7;
+            }
+            
+            .idea-item:last-child {
+                margin-bottom: 0;
+            }
 
-         .behind-search span {
-                    font-size: 0.85rem;
-                    opacity: 0.6;
-                }
-        
-        .section-intro {
-            max-width: 650px;
-            margin: 1rem auto 3rem;
-            line-height: 1.6;
-        }
-        
-        
-        .search-journey {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 1.5rem;
-        }
-        
-        
-        .journey-step {
-            max-width: 180px;
-        }
-        
-        /*
-        .step-icon {
-            font-size: 2rem;
-            display: block;
-            margin-bottom: 0.75rem;
-        }*/
-        
-        
-        .journey-step h3 {
-            margin-bottom: 0.5rem;
-        }
-        
-        
-        .journey-step p {
-            font-size: 0.95rem;
-            line-height: 1.5;
-        }
-        
-        
-        .journey-arrow {
-            font-size: 1.8rem;
-            opacity: 0.5;
-        }
-
+               
         /* disable mobile viewing */
         .mobile-message {
             display: none;
         }
 
-        @media (max-width: 768px) {
-
-            .search-journey {
-                flex-direction: column;
-                gap: 1rem;
-            }
-        
-            .journey-arrow {
-                transform: rotate(90deg);
-            }
-        
-        }
-
-        @media (max-width: 768px) {
-        
-            .takeaway-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-        
-        }
-                
         @media (max-width: 900px) {
-        
-            .explainer-content {
-                display: block;
+
+            .galaxy-explained {
+                grid-template-columns: 1fr;
+                gap: 3rem;
             }
         
-            .explainer-sidebar,
-            .galaxy-map {
-                display: none;
+            .galaxy-sidebar {
+                position: static;
             }
         
-            .galaxy-panel {
-                min-height: auto;
-                background: #f8f8f8;
-                padding: 4rem 2rem;
-            }
-        
-            .mobile-message {
-                display: block;
-                text-align: center;
-                max-width: 420px;
-                margin: 0 auto;
-            }
-        
-            .mobile-message h2 {
-                margin-bottom: 1rem;
-            }
-        
-            .mobile-message p {
-                line-height: 1.7;
-                color: #555;
-            }
         }
         
     </style>
@@ -610,123 +580,71 @@
             </section> <!-- end of full explainer section tag --> 
 
 
-            <section class="behind-search">
+           <section class="galaxy-explained">
 
-                <h2>Navigating the Galaxy</h2>
-            
-                <p class="section-intro">
-                    Every idea becomes a location in the galaxy.<br>
-                    Things with similar meaning end up nearby.
-                </p>
-                
-            
-             <div class="search-journey">
-                 <h3>So why this map?</h3>
-                 <p>
-                     It might seem strange that some characters are close together while others are far apart.<br>
-                     That's because there isn't one "correct" map.<br>
-                     It's showing one possible embedding space.<br>
-                     Embedding models organize meaning differently.<br>
-                     A model trained around relationships might place Luke near Vader. 
-                     Another focused on heroes and villains might place them far apart.<br>
-                     This galaxy is just one possible way to organize meaning.<br><br>
-                     <!-- Different embedding models organize meaning differently, so the same characters can end up in different places depending on what the model has learned.-->
-                     
-                 </p>
+    <div class="galaxy-main">
 
-                    The next Idea Lab explores how those maps are created.
-                </p>
+        <h2>Navigating the Galaxy</h2>
 
-                    <!-- <div class="journey-step">
-                        <span class="step-icon">🟢</span> 
-                        <span>01</span>
-                        <h3>Ask a Question</h3>
-                        <h4>Query</h4>
-                        <p>
-                            <em>"Who would help Grogu on his journey?"</em>
-                            A search starts with an idea we want to explore.
-                        </p>
-                    </div>
-            
-            
-                    <div class="journey-arrow">→</div>
-            
-    
-                    <div class="journey-step">
-                        <span>02</span>
-                        <h3>Turn meaning into coordinates</h3>
-                        <h4>Embedding</h4>
-                        <p>
-                            The idea (query) transforms into galaxy coordinates, that represent its meaning.
-                        </p>
-                    </div>
-            
-            
-                    <div class="journey-arrow">→</div>
-            
-            
-                    <div class="journey-step">
-                        <span>03</span>
-                        <h3>Compare locations</h3>
-                        <h4>Vector Search</h4>
-                        <p>
-                            The system compares coordinates (embeddings)
-                            and finds nearby signals (nearby meaning).
-                        </p>
-                    </div>
-            
-                    <div class="journey-arrow">→</div>
-            
-                    <div class="journey-step">
-                        <span>04</span>
-                        <h3>Find Neighbors</h3>
-                        <h4>The closest matches become results. </h4>
-                        <p>
-                            Move the beacon and the neighbors change.
-                        </p>
-                    </div> -->
-            
-            
-                </div> 
-            
-            </section>
-                                
-        <section class="takeaways">
+        <p class="section-intro">
+            Every idea becomes a location in the galaxy.<br>
+            Things with similar meaning end up nearby.
+        </p>
 
-            <h2>A few things to remember:</h2>
+        <h3>Why this map?</h3>
+
+        <p>
+            It might seem strange that some characters are close together while others are far apart.
+        </p>
+
+        <p>
+            That's because there isn't one "correct" embedding space.
+            Different embedding models organize meaning differently depending on what they're trying to capture.
+        </p>
+
+        <p>
+            A model focused on family relationships might place Luke near Vader.
+            Another focused on heroes and villains might place them far apart.
+        </p>
+
+        <p>
+            This galaxy is just one possible way to organize meaning.
+        </p>
+
+    </div>
+
+    <aside class="galaxy-sidebar">
+
+        <h3>The Big Idea</h3>
+
+        <div class="idea-item">
+            <h4>Search begins with meaning.</h4>
             <p>
-                Search begins with meaning, not keywords.<br>
-                Nearby signals often share similar meaning.<br>
-                Different embedding models create different maps.
+                Vector search isn't matching words. It's searching for nearby meaning.
             </p>
-        
-           <!-- <div class="takeaway-grid">
-        
-                <article class="takeaway">
-                    <h3>Search isn't always about words.</h3>
-                    <p>
-                        Vector search looks beyond exact matches and finds ideas that are close in meaning.
-                    </p>
-                </article>
-        
-                <article class="takeaway">
-                    <h3>Meaning can become coordinates.</h3>
-                    <p>
-                        Embeddings transform ideas into numbers that represent their position in a larger space.
-                    </p>
-                </article>
-        
-                <article class="takeaway">
-                    <h3>Similar doesn't mean the same.</h3>
-                    <p>
-                       Vector search finds what is nearby. It takes context to understand why.
-                    </p>
-                </article>
-        
-            </div> -->
-        
-        </section>
+        </div>
 
+        <div class="idea-item">
+            <h4>Nearby doesn't mean identical.</h4>
+            <p>
+                Similar ideas often end up close together, but every model organizes meaning a little differently.
+            </p>
+        </div>
+
+        <div class="idea-item">
+            <h4>There's more to explore.</h4>
+            <p>
+                The next Idea Lab explores how embedding models create these maps.
+            </p>
+
+            <a href="#" class="reflection-text-link">
+                Explore the next lab →
+            </a>
+        </div>
+
+    </aside>
+
+</section>
 
        <a href="craft.html" class="text-link">
             <span>←</span> Back to Behind the Work 

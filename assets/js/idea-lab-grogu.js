@@ -3,6 +3,7 @@
 -------------------------- */
 
 const beacon = document.getElementById("search-beacon");
+const queryBeacon = document.getElementById("query-beacon");
 const svg = document.querySelector(".galaxy-map");
 const nodes = document.querySelectorAll(".character");
 
@@ -115,11 +116,11 @@ function moveBeacon() {
 
 }
 
-function updateDistances() {
+function updateDistances(activeBeacon = beacon) {
       const distances = [];
       // convert SVG coordinate strings into numbers for calculations
-      const beaconX = Number(beacon.getAttribute("cx")); 
-      const beaconY = Number(beacon.getAttribute("cy"));
+      const beaconX = Number(activeBeacon.getAttribute("cx"));
+      const beaconY = Number(activeBeacon.getAttribute("cy"));
    
       nodes.forEach((node) => {
    
@@ -233,3 +234,10 @@ function updateExploreCoordinates() {
     `;
 }
 
+// Initial state to highlight Grogu's 3 nearest neighbors
+const initialDistances = updateDistances(queryBeacon)
+const initialNearest = findNearestNeighbors(initialDistances);
+
+initialNearest.forEach((match) => {
+    match.element.classList.add("initial-nearest");
+});

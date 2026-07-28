@@ -114,6 +114,11 @@
                     position: relative;
                     overflow: hidden;
                 }
+
+                    .galaxy-panel p {
+                        color: #fff;
+                        bottom: 1rem;
+                    }
                 
                 .galaxy-container {
                     width: 100%;
@@ -186,6 +191,13 @@
         .query-beacon {
             fill: none;
             stroke: #8ccf6e;
+            stroke-width: 2;
+            opacity: 0.7;
+        }
+
+        .imperial-beacon {
+            fill: none;
+            stroke: #E6676B;
             stroke-width: 2;
             opacity: 0.7;
         }
@@ -562,9 +574,13 @@
                             <circle cx="350" cy="300" r="10" class="grogu" />
                             <text x="350" y="328" class="character-label" text-anchor="middle"> Grogu</text>
 
-                            <!-- Original Query Location -->
+                            <!-- Grogu Query Beacon Location -->
                             <circle id="query-beacon" cx="350" cy="300" r="18" class="query-beacon" />
                             <text x="350" y="275" class="beacon-label" text-anchor="middle">Query Beacon</text>
+
+                            <!-- Imperial Query Beacon Location -->
+                            <circle id="imperial-beacon" cx="425" cy="505" r="18" class="imperial-beacon" />
+                            <text x="425" y="530" class="beacon-label" text-anchor="middle">Imperial Query Beacon</text>
 
                             <!-- Exploration Beacon (Draggable) -->
                             <circle id="search-beacon" cx="760" cy="120"" r="13" class="search-beacon"/>
@@ -578,7 +594,8 @@
                     </div> <!-- end of galaxycontainer div -->
 
                  <p>
-                     This galaxy is a simplified embedding space built for learning. Different embedding models organize meaning differently.
+                     This galaxy is a simplified embedding space built for learning.<br>
+                     Different embedding models organize meaning differently.
                 </p>
                 </section> <!-- end of galaxy panel div --> 
         

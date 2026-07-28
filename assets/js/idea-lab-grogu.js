@@ -91,6 +91,8 @@ svg.addEventListener("pointermove", (event) => {
       
       // Update displayed coordinates
       updateExploreCoordinates();
+      // Update Query text accordingly 
+      updateActiveBeaconQuery();
 
    if (!embeddingGenerated) {
        updateEmbeddingStatus();
@@ -246,3 +248,31 @@ const initialNearest = findNearestNeighbors(initialDistances);
 initialNearest.forEach((match) => {
     match.element.classList.add("initial-nearest");
 });
+
+
+/** Update card with current query, else blank **/
+function updateActiveBeaconQuery() {
+
+    const queryText = document.getElementById("query-text");
+    const lensX = Number(beacon.getAttribute("cx"));
+    const lensY = Number(beacon.getAttribute("cy"));
+
+    // grogu's query beacon 
+    const groguX = Number(document.getElementById("query-beacon").getAttribute("cx"));
+    const groguY = Number(document.getElementById("query-beacon").getAttribute("cy"));
+    // the imperials's query beacon 
+    const empireX = Number(document.getElementById("empire-beacon").getAttribute("cx"));
+    const empireY = Number(document.getElementById("empire-beacon").getAttribute("cy"));
+
+    const groguDistance = Math.hypot(lensX - groguX, lensY - groguY);
+    const empireDistance = Math.hypot(lensX - empireX, lensY - empireY);
+
+    if (groguDistance < 40) {
+        queryText.textContent = '"Who would help Grogu on his journey?"';
+    } else if (empireDistance < 40) {
+        queryText.textContent = '"Who would help the Empire rule the galaxy?"';
+    } else {
+        queryText.textContent = "";
+    }
+
+}

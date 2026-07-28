@@ -290,29 +290,38 @@
         .babu-message.show {
             opacity: 1;
         }
+        
         /* --------------------------
            Lab Explanation Content Section 
         -------------------------- */
         
-            .galaxy-explained {
-                display: grid;
-                grid-template-columns: 2fr 1fr;
-                gap: 5rem;
-            
+           .galaxy-explained {
                 max-width: 1100px;
-                margin: 5rem auto;
+                margin: 6rem auto;
                 padding: 0 2rem;
             }
             
-            .galaxy-main h2 {
+            .galaxy-intro {
+                margin-bottom: 4rem;
+            }
+            
+            .galaxy-intro h2 {
                 margin-bottom: 1rem;
             }
             
-            .galaxy-main .section-intro {
+            .galaxy-intro .section-intro {
                 font-size: 0.9rem;
                 color: #666;
                 line-height: 1.8;
-                margin-bottom: 3rem;
+                max-width: 650px;
+            }
+            
+            .galaxy-content {
+                display: grid;
+                grid-template-columns: minmax(0, 650px) 320px;
+                justify-content: space-between;
+                align-items: start;
+                gap: 5rem;
             }
             
             .galaxy-main h3 {
@@ -323,19 +332,15 @@
                 font-size: 1rem;
                 line-height: 1.9;
                 color: #444;
-                margin-bottom: 1.5rem;
-                text-align: left;
+                margin-bottom: 1.8rem;
             }
             
             .galaxy-sidebar {
                 position: sticky;
                 top: 2rem;
             
-                align-self: start;
-            
                 background: #f8f8f8;
                 border-radius: 16px;
-            
                 padding: 2rem;
             }
             
@@ -344,21 +349,22 @@
             }
             
             .idea-item {
-                margin-bottom: 2.5rem;
-            }
-            
-            .idea-item h4 {
-                margin-bottom: .5rem;
-                font-size: 1.2rem;
-            }
-            
-            .idea-item p {
-                color: #666;
-                line-height: 1.7;
+                margin-bottom: 2.25rem;
             }
             
             .idea-item:last-child {
                 margin-bottom: 0;
+            }
+            
+            .idea-item p {
+                color: #555;
+                line-height: 1.8;
+                margin: 0;
+            }
+            
+            .idea-item h4 {
+                margin-top: 2rem;
+                margin-bottom: .75rem;
             }
 
                
@@ -368,8 +374,8 @@
         }
 
         @media (max-width: 900px) {
-
-            .galaxy-explained {
+        
+            .galaxy-content {
                 grid-template-columns: 1fr;
                 gap: 3rem;
             }
@@ -426,7 +432,7 @@
                         <h2>Mission</h2>
                         <p>
                           Pinpoint <strong>Grogu's Query beacon</strong>. Note the nearby signals. <br><br>
-                          Use the <strong>Explore Len</strong>s to move through the galaxy to discover how different search beacons reveal different nearby signals.
+                          Use the <strong>Explore Lens</strong> to move through the galaxy to discover how different search beacons reveal different nearby signals.
                         </p> <!-- the beacon = embedding of the query --> 
                     </div>
 
@@ -580,55 +586,71 @@
         
             </section> <!-- end of full explainer section tag --> 
 
-
-           <section class="galaxy-explained">
-
-             <h2>Navigating the Galaxy</h2>
-
-            <p class="section-intro">
-                Every idea becomes a location in the galaxy.<br>
-                 Things with similar meaning end up nearby.
-            </p>
-
-            <div class="galaxy-main">
-        
-                <h3>Why this map?</h3>
-        
-                <p>
-                    It might seem strange that some characters are close together while others are far apart.<br><br>
-                    That's because there isn't one "correct" embedding space.<br>
-                    Different embedding models organize meaning differently.<b>
-                    A model trained around <strong>family relationships</strong> might place Luke near Vader.<br>
-                    Another focused on <strong>heroes and villains</strong> might place them far apart.<br><br>
-                    This galaxy is just one possible way to organize meaning.
-                </p>
-        
-            </div>
-        
-            <aside class="galaxy-sidebar">
-        
-                <h3>The Big Idea</h3>
-        
-                <div class="idea-item">
-                    <p>Search begins with meaning, not keywords.</p>
+            // Galaxy Explained Sections 
+            <section class="galaxy-explained">
+            
+                <div class="galaxy-intro">
+                    <h2>Navigating the Galaxy</h2>
+            
+                    <p class="section-intro">
+                        Every idea becomes a location in the galaxy.<br>
+                        Things with similar meaning end up nearby.
+                    </p>
                 </div>
-        
-                <div class="idea-item">
-                    <p>Nearby signals often share similar meaning.</p>
+            
+                <div class="galaxy-content">
+            
+                    <div class="galaxy-main">
+            
+                        <h3>Why this map?</h3>
+            
+                        <p>
+                            It might seem strange that some characters are close together while others are far apart.
+                        </p>
+            
+                        <p>
+                            That's because there isn't one "correct" embedding space.
+                            Different embedding models organize meaning differently.
+                        </p>
+            
+                        <p>
+                            A model trained around <strong>family relationships</strong> might place Luke near Vader.
+                            Another focused on <strong>heroes and villains</strong> might place them far apart.
+                        </p>
+            
+                        <p>
+                            This galaxy is just one possible way to organize meaning.
+                        </p>
+            
+                    </div>
+            
+                    <aside class="galaxy-sidebar">
+            
+                        <h3>The Big Idea</h3>
+            
+                        <div class="idea-item">
+                            <p>Search begins with meaning, not keywords.</p>
+                        </div>
+            
+                        <div class="idea-item">
+                            <p>Nearby signals often share similar meaning.</p>
+                        </div>
+            
+                        <div class="idea-item">
+                            <p>Different embedding models create different maps.</p>
+            
+                            <h4>Next up</h4>
+            
+                            <a href="#" class="reflection-text-link">
+                                See how embedding models create these maps →
+                            </a>
+                        </div>
+            
+                    </aside>
+            
                 </div>
-        
-                <div class="idea-item">
-                    <p>Different embedding models create different maps./p>
-
-                    <h4>Next up</h4>
-                    <a href="#" class="reflection-text-link">
-                        See how embedding models create these maps →
-                    </a>
-                </div>
-        
-            </aside>
-        
-        </section>
+            
+            </section>
 
        <a href="craft.html" class="text-link">
             <span>←</span> Back to Behind the Work 

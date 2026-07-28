@@ -62,7 +62,20 @@
         color: #000;
     }
     
-    
+    .question{
+      font-family:"Caveat",cursive;
+      font-size:2rem;
+      line-height:1.35;
+      max-width:360px; 
+  }
+
+   @media (max-width:900px){ 
+   .question{
+       font-size:1.7rem;
+       max-width:100%;
+   }
+   }
+
     /* --------------------------
        Hero
     -------------------------- */

@@ -117,7 +117,9 @@
 
                     .galaxy-panel p {
                         color: #fff;
-                        bottom: 1rem;
+                        margin-top: 5rem;
+                        font-weight: 10;
+                        font-size: 12px;
                     }
                 
                 .galaxy-container {
@@ -193,6 +195,12 @@
             stroke: #8ccf6e;
             stroke-width: 2;
             opacity: 0.7;
+        }
+
+        .imperial {
+            fill: #E6676B;
+            stroke: white;
+            stroke-width: 2;
         }
 
         .imperial-beacon {
@@ -446,8 +454,8 @@
                     <div class="mission-card">
                         <h2>Mission</h2>
                         <p>
-                          Pinpoint Grogu's Query beacon. Note the nearby signals. <br><br>
-                          Use the Explore Lens to move through the galaxy to discover how different search beacons reveal different nearby signals.
+                          Pinpoint <strong>Grogu's Query beacon</strong>. Note the nearby signals. <br><br>
+                          Use the <strong>Explore Len</strong>s to move through the galaxy to discover how different search beacons reveal different nearby signals.
                         </p> <!-- the beacon = embedding of the query --> 
                     </div>
 
@@ -464,7 +472,7 @@
                                 </strong>
                             </div>
   
-                            <div class="status-item">
+                           <!-- <div class="status-item">
                                 <span class="label">
                                     Last Beacon Location
                                     <small>(Embedding Coordinates)</small>
@@ -475,12 +483,13 @@
                                     Y: -0.18<br>
                                     Z: 0.76
                                 </strong>
-                            </div>
+                            </div> -->
                         
                             <div class="status-item">
                                 <span class="label">
-                                    Curret Explore Lens Location
-                                    <small>(Move me to explore)</small>
+                                    Current Explore Lens Location
+                                    <small>(Embedding Coordinates)</small>
+                                    <small><strong>Move me to explore!</strong></small>
                                 </span>
                         
                                <strong id="explore-coordinates">
@@ -579,8 +588,9 @@
                             <text x="350" y="275" class="beacon-label" text-anchor="middle">Query Beacon</text>
 
                             <!-- Imperial Query Beacon Location -->
+                            <circle cx="350" cy="300" r="10" class="imperial" />
                             <circle id="imperial-beacon" cx="425" cy="505" r="18" class="imperial-beacon" />
-                            <text x="425" y="530" class="beacon-label" text-anchor="middle">Imperial Query Beacon</text>
+                            <text x="425" y="470" class="beacon-label" text-anchor="middle">Imperial<br> Query Beacon</text>
 
                             <!-- Exploration Beacon (Draggable) -->
                             <circle id="search-beacon" cx="760" cy="120"" r="13" class="search-beacon"/>

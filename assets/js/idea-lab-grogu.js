@@ -261,15 +261,15 @@ function updateActiveBeaconQuery() {
     const groguX = Number(document.getElementById("query-beacon").getAttribute("cx"));
     const groguY = Number(document.getElementById("query-beacon").getAttribute("cy"));
     // the imperials's query beacon 
-    const empireX = Number(document.getElementById("empire-beacon").getAttribute("cx"));
-    const empireY = Number(document.getElementById("empire-beacon").getAttribute("cy"));
+    const imperialX = Number(document.getElementById("imperial-beacon").getAttribute("cx"));
+    const imperialY = Number(document.getElementById("imperial-beacon").getAttribute("cy"));
 
     const groguDistance = Math.hypot(lensX - groguX, lensY - groguY);
-    const empireDistance = Math.hypot(lensX - empireX, lensY - empireY);
+    const imperialDistance = Math.hypot(lensX - imperialX, lensY - imperialY);
 
     if (groguDistance < 40) {
         queryText.textContent = '"Who would help Grogu on his journey?"';
-    } else if (empireDistance < 40) {
+    } else if (imperialDistance < 40) {
         queryText.textContent = '"Who would help the Empire rule the galaxy?"';
     } else {
         queryText.textContent = "";

@@ -264,16 +264,16 @@
   }
 
   /* projects timeline */
-    .project-timeline .project{
-        border-left:none;
-        padding-left:2.5rem;
-        position:relative;
-        margin-bottom:5rem;
-    }
-    
     .project-timeline{
         position:relative;
         margin-top:2rem;
+    }
+
+    .project-timeline .project{
+         position:relative;
+        padding-left:60px;
+        margin-bottom:5rem;
+        border:none;
     }
     
     .project-timeline::before{
@@ -283,22 +283,19 @@
         top:0;
         bottom:0;
         width:1px;
-        background:#e5e5e5;
+        background:#e6e6e6;
     }
 
     .project-timeline .project::before{
         content:"";
-        position:absolute;
-    
-        left:-6px;
-        top:8px;
-    
-        width:14px;
-        height:14px;
-    
-        background:#fff;
-        border:2px solid #bbb;
-        border-radius:50%;
+      position:absolute;
+      left:0;
+      top:10px;
+      width:18px;
+      height:18px;
+      border:3px solid #bbb;
+      border-radius:50%;
+      background:#fff;
     }
   
   /* Right on Craft page  */
@@ -347,6 +344,17 @@
   
   .more-stories p {
       color: #666;
+  }
+
+  .project-timeline .reflection-text-link{
+      display:block;
+      width:fit-content;
+      margin-left:auto;
+      margin-top:2rem;
+  
+      font-size:.85rem;
+      text-transform:uppercase;
+      letter-spacing:.08em;
   }
   
   

@@ -66,7 +66,7 @@
       font-family:"Caveat",cursive;
       font-size:2rem;
       line-height:1.35;
-      max-width:360px; 
+      padding: 1rem;
   }
 
    @media (max-width:900px){ 
@@ -258,7 +258,7 @@
   }
   
   .craft-header p{
-      max-width:620px;
+      max-width:700px;
       color:#666;
       font-size:1.15rem;
   }

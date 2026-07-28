@@ -80,6 +80,11 @@ svg.addEventListener("pointermove", (event) => {
    if (!hasMovedBeacon) {
        document.getElementById("drag-hint").style.opacity = "0";
        document.getElementById("search-beacon-text").style.display = "none";
+
+      /* remove the initial 3 twinklikng */
+      document.querySelectorAll(".initial-nearest").forEach((node) => {
+          node.classList.remove("initial-nearest");
+      });
    
        hasMovedBeacon = true;
    }

@@ -231,7 +231,25 @@
       grid-template-areas: "main sidebar";
       gap: 5rem;
   }
+
+  .craft-header{
+      max-width:1200px;
+      margin:5rem auto 4rem;
+      padding:0 1.5rem;
+  }
   
+  .craft-header h1{
+      font-size:4.25rem;
+      line-height:1;
+      margin-bottom:1rem;
+  }
+  
+  .craft-header p{
+      max-width:620px;
+      color:#666;
+      font-size:1.15rem;
+  }
+
   /* Left on Craft Page*/
   .craft-work {
       grid-area: main;
@@ -243,7 +261,8 @@
   }
   
   .craft-work h2{
-    font-size: 2.3rem;
+    font-size:2rem;
+    margin-bottom:.75rem;
   }
   
   .project {
@@ -266,36 +285,38 @@
   /* projects timeline */
     .project-timeline{
         position:relative;
-        margin-top:2rem;
+        padding-left:3rem;
     }
 
-    .project-timeline .project{
-         position:relative;
-        padding-left:60px;
-        margin-bottom:5rem;
-        border:none;
-    }
     
     .project-timeline::before{
         content:"";
         position:absolute;
-        left:7px;
+        left:12px;
         top:0;
         bottom:0;
         width:1px;
-        background:#e6e6e6;
+        background:#e8e8e8;
+    }
+
+    .project-timeline .project{
+        position:relative;
+        border-left:none;
+        padding-left:2rem;
     }
 
     .project-timeline .project::before{
-        content:"";
+      content:"";
       position:absolute;
-      left:0;
-      top:10px;
+      left:-31px;
+      top:.6rem;
+  
       width:18px;
       height:18px;
+  
+      background:white;
       border:3px solid #bbb;
       border-radius:50%;
-      background:#fff;
     }
   
   /* Right on Craft page  */

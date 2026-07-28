@@ -313,7 +313,6 @@
                 font-size: 0.9rem;
                 color: #666;
                 line-height: 1.8;
-                max-width: 650px;
             }
             
             .galaxy-content {
@@ -326,6 +325,7 @@
             
             .galaxy-main h3 {
                 margin-bottom: 1.5rem;
+                text-align: left;
             }
             
             .galaxy-main p {
@@ -333,6 +333,7 @@
                 line-height: 1.9;
                 color: #444;
                 margin-bottom: 1.8rem;
+                text-align: left;
             }
             
             .galaxy-sidebar {
@@ -366,6 +367,18 @@
                 margin-top: 2rem;
                 margin-bottom: .75rem;
             }
+
+       .next-lab-label {
+            margin-top: 2rem;
+            margin-bottom: 0.5rem;
+        
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        
+            color: #777;
+        }
 
                
         /* disable mobile viewing */
@@ -639,11 +652,12 @@
                         <div class="idea-item">
                             <p>Different embedding models create different maps.</p>
             
-                            <h4>Next up</h4>
+                            <p class="next-lab-label">Next Idea Lab</p>
+
+                                <a href="#" class="reflection-text-link">
+                                    How embedding models create these maps →
+                                </a>
             
-                            <a href="#" class="reflection-text-link">
-                                See how embedding models create these maps →
-                            </a>
                         </div>
             
                     </aside>

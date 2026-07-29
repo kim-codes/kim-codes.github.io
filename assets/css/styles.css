@@ -270,12 +270,12 @@
   
   .section-intro {
       color: #666;
-      margin-bottom: 3rem;
+      margin-bottom: 1rem;
   }
   
-  .craft-work h2{
+  .craft-work h2 {
     font-size:2rem;
-    margin-bottom:.75rem;
+    margin-bottom:.5rem;
   }
   
   .project {

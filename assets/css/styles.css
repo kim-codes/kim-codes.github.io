@@ -758,9 +758,9 @@
 ========================================== */
 
 .story-hero{
-    max-width:1400px;
+    max-width:1200px;
     margin:0 auto;
-    padding:7rem 4rem;
+    padding:6rem 4rem;
 
     display:grid;
     grid-template-columns:430px 1fr;
@@ -777,7 +777,7 @@
 }
 
 .story-hero h1{
-    font-size:5rem;
+    font-size:3.5rem;
     line-height:.92;
     margin-bottom:2.5rem;
 }

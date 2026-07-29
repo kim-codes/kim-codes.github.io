@@ -69,6 +69,12 @@
       padding: 1rem;
   }
 
+  .small-question{
+      font-family:"Caveat",cursive;
+      font-size:1.5rem;
+      line-height: 1 !important;
+  }
+
    @media (max-width:900px){ 
    .question{
        font-size:1.7rem;
@@ -854,6 +860,7 @@
       line-height:1.1;
       margin-top:12px;
       max-width:500px;
+      margin-bottom:0.5rem;
   }
   
   .story-right{

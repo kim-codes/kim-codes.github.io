@@ -839,19 +839,18 @@
   .story-section{
       max-width:1200px;
       margin:0 auto;
-      padding:120px 40px;
+      padding: 2rem 3rem;
   }
   
-  .story-row{
+  .story-row {
       display:grid;
       grid-template-columns:42% 58%;
       gap:90px;
       align-items:start;
-      padding:90px 0;
   }
   
   .story-left h2{
-      font-size:3.2rem;
+      font-size:2.5rem;
       line-height:1.1;
       margin-top:12px;
       max-width:500px;
@@ -862,7 +861,7 @@
   }
   
   .story-right p{
-      font-size:1.2rem;
+      font-size:1rem;
       line-height:1.9;
       color:#555;
       margin-bottom:28px;
@@ -875,14 +874,8 @@
       line-height:1.5 !important;
       margin-bottom:40px !important;
   }
-  
-  .eyebrow{
-      font-size:.8rem;
-      letter-spacing:4px;
-      text-transform:uppercase;
-      color:#777;
-  }*/
-  
+  */ 
+
   hr{
       border:none;
       border-top:1px solid #ececec;

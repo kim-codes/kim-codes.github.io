@@ -742,6 +742,17 @@
 
 }
 
+/*==========================================
+   Essays
+========================================== */
+
+.divider {
+    width: 70px;
+    height: 3px;
+    background: #222;
+    margin-bottom: 30px;
+}
+
 /* ==========================================
    Cosmos Story Page
 ========================================== */
@@ -774,6 +785,7 @@
 .story-intro{
     max-width:340px;
     color:#666;
+    margin-top: 2rem;
     margin-bottom:2rem;
 }
 

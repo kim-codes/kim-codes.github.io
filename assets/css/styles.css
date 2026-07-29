@@ -380,7 +380,7 @@
       color: #666;
   }
 
-  .project-timeline .reflection-text-link{
+  .project-text-link{
       display:block;
       width:fit-content;
       margin-left:auto;
@@ -390,7 +390,16 @@
       text-transform:uppercase;
       letter-spacing:.08em;
   }
-  
+
+    .project-text-link span {
+        transition: transform .2s ease;
+    }
+    
+    .project-text-link:hover {
+        color: #000;
+        gap: .65rem;
+    }
+    
   
   /* Responsive Craft */
   @media (max-width: 900px) {

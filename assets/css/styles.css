@@ -856,7 +856,7 @@
   }
   
   .story-left h2{
-      font-size:2.5rem;
+      font-size:2rem;
       line-height:1.1;
       margin-top:12px;
       max-width:500px;
@@ -1019,7 +1019,7 @@
     height:95px;
     margin:0 auto 28px;
     border-radius:50%;
-    background:#f4efff;
+    background:#ededed;
     display:flex;
     justify-content:center;
     align-items:center;
@@ -1027,7 +1027,7 @@
 }
 
 .framework-item h3{
-    font-size:1.45rem;
+    font-size:1rem;
     margin-bottom:14px;
     line-height:1.3;
 }
@@ -1050,15 +1050,15 @@
     left:0;
     right:0;
     top:50%;
-    border-top:3px dotted #b6a3e6;
+    border-top:3px dotted #c7c7c7;
 }
 
 .framework-divider::after{
     content:"›";
     position:absolute;
     right:-4px;
-    top:calc(50% - 12px);
-    color:#8d6bd8;
+    top:calc(50% - 10px);
+    color:#c7c7c7;
     font-size:1.2rem;
 }
 

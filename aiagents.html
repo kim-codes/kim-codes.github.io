@@ -257,16 +257,8 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            position: relative;
         }
-
-        .layer {
-
-            transition:
-                transform 700ms cubic-bezier(.22, 1, .36, 1),
-                opacity 700ms ease;
-
-        }
-
 
         .agent-icon {
             width: 90px;
@@ -281,12 +273,22 @@
             font-size: 12px;
         }
 
+        .layer-icon {
+            width: 90px;
+            height: 90px;
+            border: 2px solid #222;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 12px;
+        }
+
 
         .dig-site p {
-
             color: #666;
             margin: 1.5rem 0 2rem;
-
         }
 
         #dig-button {
@@ -299,43 +301,12 @@
         }
 
 
-        /* have the layer move up and shrink when the user digs  */
+        /* "fake the arc" have the layer move up and shrink when the user digs  */
         .layer.dug {
-
             transform:
-                translateY(-120px) scale(.75);
+                translate(40px, -60px) scale(.75);
 
             opacity: .65;
-
-        }
-
-        /* 
-        "fake the arc" have the layer move up and shrink when the user digs 
-            and also move to the right a bit to make room for the next layer
-        */
-        .layer.dug {
-            transform:
-                translate(40px, -120px) scale(.75);
-        }
-
-        /* add a tiny bounce when the layer settles into its new position */
-        @keyframes settle {
-
-            0% {
-                transform:
-                    translate(40px, -120px) scale(.75);
-            }
-
-            80% {
-                transform:
-                    translate(40px, -95px) scale(.75);
-            }
-
-            100% {
-                transform:
-                    translate(40px, -100px) scale(.75);
-            }
-
         }
 
         /* keep the layer hidden until the user digs */
@@ -343,6 +314,7 @@
             opacity: 0;
             transform: translateY(40px) scale(.8);
             pointer-events: none;
+            position: absolute;
         }
 
         .layer.reveal {
@@ -431,27 +403,27 @@
             </aside>
 
             <!-- Right Column -->
-            <div class="dig-site">
+            <section class="lab-panel">
+                <div class="dig-site">
 
-                <div class="layer active agent-icon">
-                    AI Agent
+                    <div class="layer active agent-icon">
+                        AI Agent
+                    </div>
+
+                    <div class="layer llm-icon layer-icon hidden">
+                        LLM
+                    </div>
+
+                    <p>How does it act?</p>
+
+                    <button id="dig-button">
+                        ⛏️ Dig deeper ↓
+                    </button>
+
                 </div>
 
-                <div class="layer llm-icon hidden">
-                    LLM
-                </div>
 
-                <p>How does it act?</p>
-
-                <button id="dig-button">
-                    ⛏️ Dig deeper ↓
-                </button>
-
-            </div>
-
-
-        </section>
-
+            </section>
         </section>
 
         <!-- Explanation -->

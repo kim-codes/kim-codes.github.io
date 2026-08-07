@@ -1,7 +1,16 @@
-document.querySelector(".dig-button")
-.addEventListener("click", () => {
+document.addEventListener("DOMContentLoaded", () => {
 
-    document.querySelector(".layer")
-        .classList.add("dug");
+    const button = document.querySelector("#dig-button");
+    const agent = document.querySelector(".agent-icon");
+    const llm = document.querySelector(".llm-icon");
+
+    button.addEventListener("click", () => {
+
+        agent.classList.add("dug");
+
+        llm.classList.remove("hidden");
+        llm.classList.add("reveal");
+
+    });
 
 });

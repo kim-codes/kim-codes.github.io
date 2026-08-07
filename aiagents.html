@@ -249,12 +249,24 @@
 
         }
 
-        .agent-surface {
+        /* --------------------------
+         AI Agent Demo Pieces
+        -------------------------- */
+        .dig-site {
             text-align: center;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
+
+        .layer {
+
+            transition:
+                transform 700ms cubic-bezier(.22, 1, .36, 1),
+                opacity 700ms ease;
+
+        }
+
 
         .agent-icon {
             width: 90px;
@@ -269,13 +281,12 @@
             font-size: 12px;
         }
 
-        .agent-surface h2 {
-            margin-bottom: 0.5rem;
-        }
 
-        .agent-surface p {
+        .dig-site p {
+
             color: #666;
-            margin-bottom: 2rem;
+            margin: 1.5rem 0 2rem;
+
         }
 
         #dig-button {
@@ -285,6 +296,64 @@
             cursor: pointer;
             text-decoration: underline;
             text-underline-offset: 4px;
+        }
+
+
+        /* have the layer move up and shrink when the user digs  */
+        .layer.dug {
+
+            transform:
+                translateY(-120px) scale(.75);
+
+            opacity: .65;
+
+        }
+
+        /* 
+        "fake the arc" have the layer move up and shrink when the user digs 
+            and also move to the right a bit to make room for the next layer
+        */
+        .layer.dug {
+            transform:
+                translate(40px, -120px) scale(.75);
+        }
+
+        /* add a tiny bounce when the layer settles into its new position */
+        @keyframes settle {
+
+            0% {
+                transform:
+                    translate(40px, -120px) scale(.75);
+            }
+
+            80% {
+                transform:
+                    translate(40px, -95px) scale(.75);
+            }
+
+            100% {
+                transform:
+                    translate(40px, -100px) scale(.75);
+            }
+
+        }
+
+        /* keep the layer hidden until the user digs */
+        .hidden {
+            opacity: 0;
+            transform: translateY(40px) scale(.8);
+            pointer-events: none;
+        }
+
+        .layer.reveal {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        .layer {
+            transition:
+                transform 700ms cubic-bezier(.22, 1, .36, 1),
+                opacity 700ms ease;
         }
     </style>
 </head>
@@ -364,10 +433,12 @@
             <!-- Right Column -->
             <div class="dig-site">
 
-                <div class="layer active">
-                    <div class="agent-icon">
-                        AI Agent
-                    </div>
+                <div class="layer active agent-icon">
+                    AI Agent
+                </div>
+
+                <div class="layer llm-icon hidden">
+                    LLM
                 </div>
 
                 <p>How does it act?</p>

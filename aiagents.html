@@ -248,6 +248,44 @@
             }
 
         }
+
+        .agent-surface {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .agent-icon {
+            width: 90px;
+            height: 90px;
+            border: 2px solid #222;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            font-size: 12px;
+        }
+
+        .agent-surface h2 {
+            margin-bottom: 0.5rem;
+        }
+
+        .agent-surface p {
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        #dig-button {
+            border: 0;
+            background: none;
+            font: inherit;
+            cursor: pointer;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+        }
     </style>
 </head>
 
@@ -324,20 +362,32 @@
             </aside>
 
             <!-- Right Column -->
-            <section class="lab-panel">
+            <div class="dig-site">
 
-                This is where the excavation experience will be.
+                <div class="layer active">
+                    <div class="agent-icon">
+                        AI Agent
+                    </div>
+                </div>
 
-            </section>
+                <p>How does it act?</p>
+
+                <button id="dig-button">
+                    ⛏️ Dig deeper ↓
+                </button>
+
+            </div>
+
 
         </section>
 
+        </section>
 
         <!-- Explanation -->
         <section class="lab-explained">
 
             <div class="lab-intro">
-                <h2>What's underneath?</h2>
+                <h2>Discovering AI Agents</h2>
 
                 <p class="section-intro">
                     Workloads in tech continue to evolve. But the need for predictable,
@@ -346,15 +396,15 @@
                 </p>
             </div>
 
-                <div class="lab-content">
+            <div class="lab-content">
 
-            <div class="lab-main">
+                <div class="lab-main">
 
-                <p>
-                    // add explanation here 
-                </p>
+                    <p>
+                        // add explanation here
+                    </p>
 
-            </div>
+                </div>
 
                 <aside class="lab-sidebar">
 
@@ -399,7 +449,7 @@
         <p>&copy; 2026 Kim Codes</p>
 
     </footer>
-
+    <script src="assets/js/aiagents.js"></script>
 </body>
 
 </html>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,239 +10,245 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&amp;family=Inter:wght@400;500;600&amp;family=Caveat:wght@500&amp;family=Dancing+Script:wght@500&amp;display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&amp;family=Inter:wght@400;500;600&amp;family=Caveat:wght@500&amp;family=Dancing+Script:wght@500&amp;display=swap"
+        rel="stylesheet">
 
     <link rel="stylesheet" href="assets/css/styles.css">
     <style>
+        /* =========================================================
+            IDEA LAB — AI AGENTS
+            ========================================================= */
+
 
         /* --------------------------
-           Explainer
+        Explainer
         -------------------------- */
-                
-                .explainer {
-                    max-width: 1200px;
-                    margin: 0 auto;
-                    padding: 5rem 2rem;
-                }
-                
-                .explainer-hero {
-                    max-width: 700px;
-                    margin-left: auto;
-                    margin-right: auto;
-                }
-                
-                .eyebrow {
-                    font-size: 0.8rem;
-                    text-transform: uppercase;
-                    letter-spacing: 0.15em;
-                    color: #777;
-                    margin-bottom: 0.75rem;
-                }
-                
-                .explainer-hero h1 {
-                    margin-bottom: 1rem;
-                    font-size: 1.9rem;
-                }
-                
-                .intro {
-                    color: #555;
-                    line-height: 1.8;
-                }
-                
-                .explainer-content {
-                    display: grid;
-                    grid-template-columns: 1fr 2fr;
-                    gap: 3rem;
-                    align-items: start;
-                }
-                
-                .explainer-sidebar {
-                    display: flex;
-                    flex-direction: column;
-                    gap: 2rem;
-                }
-                
-                .mission-card,
-                .status-card {
-                    background: #f8f8f8;
-                    border-radius: 14px;
-                    padding: 1.5rem;
-                }
 
-                .mission-card p {
-                   text-align: left;
-                    font-size: 1rem;
-                    line-height: 1.5;
-                    margin-bottom: 1.25rem;
-                }
-
-                .mission-card, .status-card h2 {
-                   font-size: 1.5rem;
-                   margin-bottom: 1rem;
-                }
-                
-                .status-item {
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: flex-start;
-                    gap: 1.5rem;
-                    margin-top: 0.8rem;
-                }
-                
-                .status-item .label {
-                    display: flex;
-                    flex-direction: column;
-                    text-align: left;
-                    line-height: 1.4;
-                }
-                
-                .status-item small {
-                    color: #666;
-                    font-size: 0.85rem;
-                    margin-top: 0.15rem;
-                    font-size: 0.85rem;
-                    opacity: 0.7;
-                }
-                
-                .status-item strong {
-                    font-weight: 600;
-                }
-                
-                .galaxy-panel {
-                    background: #09131f;
-                    border-radius: 18px;
-                    min-height: 650px;
-                    position: relative;
-                    overflow: hidden;
-                }
-
-                    .galaxy-panel p {
-                        color: #fff;
-                        margin-top: 5rem;
-                        font-weight: 10;
-                        font-size: 12px;
-                    }
-                
-                .galaxy-container {
-                    width: 100%;
-                    height: 100%;
-                }
-
-                .galaxy-map {
-                    touch-action: none;
-                }
-                
-                .takeaway-grid {
-                    display: grid;
-                    grid-template-columns: repeat(3, 1fr);
-                    gap: 2rem;
-                }
-                
-                .takeaway {
-                    padding: 1.5rem;
-                }
+        .explainer {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
 
 
-            .takeaways{
-                margin-top: 5rem;
-            }
-
-      
         /* --------------------------
-           Lab Explanation Content Section 
+        Hero
         -------------------------- */
-        
-           .galaxy-explained {
-                max-width: 1100px;
-                margin: 6rem auto;
-                padding: 0 2rem;
-            }
-            
-            .galaxy-intro {
-                margin-bottom: 4rem;
-            }
-            
-            .galaxy-intro h2 {
-                margin-bottom: 1rem;
-            }
-            
-            .galaxy-intro .section-intro {
-                font-size: 0.9rem;
-                color: #666;
-                line-height: 1.8;
-            }
-            
-            .galaxy-content {
-                display: grid;
-                grid-template-columns: minmax(0, 650px) 320px;
-                justify-content: space-between;
-                align-items: start;
-                gap: 5rem;
-            }
-            
-            .galaxy-main h3 {
-                margin-bottom: 1.5rem;
-                text-align: left;
-            }
-            
-            .galaxy-main p {
-                font-size: 1rem;
-                line-height: 1.9;
-                color: #444;
-                margin-bottom: 1rem;
-                text-align: left;
-            }
-            
-            .galaxy-sidebar {
-                position: sticky;
-                top: 2rem;
-            
-                background: #f8f8f8;
-                border-radius: 16px;
-                padding: 2rem;
-            }
-            
-            .galaxy-sidebar h3 {
-                margin-bottom: 2rem;
-            }
-            
-            .idea-item {
-                margin-bottom: 1.2rem;
-            }
-            
-            .idea-item:last-child {
-                margin-bottom: 0;
-            }
-            
-            .idea-item p {
-                color: #555;
-                line-height: 1.8;
-                margin: 0;
-            }
-            
-            .idea-item h4 {
-                margin-top: 2rem;
-                margin-bottom: .75rem;
-            }
 
-       .next-lab-label {
+        .explainer-hero {
+            max-width: 700px;
+            margin: 0 auto 4rem;
+            text-align: center;
+        }
+
+        .eyebrow {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: #777;
+            margin-bottom: 0.75rem;
+        }
+
+        .explainer-hero h1 {
+            margin-bottom: 1rem;
+            font-size: 1.9rem;
+        }
+
+        .intro {
+            color: #555;
+            line-height: 1.8;
+        }
+
+
+        /* --------------------------
+        Main Explainer Layout
+        -------------------------- */
+
+        .explainer-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+
+        /* --------------------------
+        Sidebar
+        -------------------------- */
+
+        .explainer-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .mission-card,
+        .status-card {
+            background: #f8f8f8;
+            border-radius: 14px;
+            padding: 1.5rem;
+        }
+
+        .mission-card h2,
+        .status-card h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .mission-card p {
+            text-align: left;
+            font-size: 1rem;
+            line-height: 1.5;
+            margin-bottom: 0;
+        }
+
+        .status-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .status-item .label {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            line-height: 1.4;
+        }
+
+        .status-item small {
+            color: #666;
+            font-size: 0.85rem;
+            margin-top: 0.15rem;
+            opacity: 0.7;
+        }
+
+        .status-item strong {
+            font-weight: 600;
+            text-align: right;
+        }
+
+
+        /* --------------------------
+        Main Interactive Panel
+        -------------------------- */
+
+        .lab-panel {
+            background: #f8f8f8;
+            border-radius: 18px;
+            min-height: 450px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+
+        /* --------------------------
+        Lab Explanation
+        -------------------------- */
+
+        .lab-explained {
+            max-width: 1100px;
+            margin: 6rem auto;
+            padding: 0 2rem;
+            text-align: center;
+        }
+
+        .lab-intro {
+            margin-bottom: 4rem;
+        }
+
+        .lab-intro h2 {
+            margin-bottom: 1rem;
+        }
+
+        .lab-intro .section-intro {
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .lab-content {
+            display: grid;
+            grid-template-columns: minmax(0, 650px) 320px;
+            justify-content: space-between;
+            align-items: start;
+            gap: 5rem;
+        }
+
+
+        /* --------------------------
+        Big Idea Sidebar
+        -------------------------- */
+
+        .lab-sidebar {
+            position: sticky;
+            top: 2rem;
+            background: #f8f8f8;
+            border-radius: 16px;
+            padding: 2rem;
+        }
+
+        .lab-sidebar h3 {
+            margin-bottom: 2rem;
+        }
+
+        .idea-item {
+            margin-bottom: 1.2rem;
+        }
+
+        .idea-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .idea-item p {
+            color: #555;
+            line-height: 1.8;
+            margin: 0;
+        }
+
+
+        /* --------------------------
+            Next Lab
+            -------------------------- */
+
+        .next-lab-label {
             margin-top: 2rem;
             margin-bottom: 0.5rem;
-        
             font-size: 0.85rem;
             font-weight: 600;
             letter-spacing: 0.08em;
             text-transform: uppercase;
-        
             color: #777;
         }
 
- 
-        
+
+        /* --------------------------
+            Mobile
+            -------------------------- */
+
+        @media (max-width: 900px) {
+
+            .explainer-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .lab-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .lab-sidebar {
+                position: static;
+            }
+
+        }
     </style>
-    </style>
-    
-</style>
 </head>
 
 <body>
@@ -251,9 +258,9 @@
         <a href="/" class="logo">
             <img src="assets/img/kimcodes-gummy-twist.webp" alt="kimcodes">
         </a>
-        
+
         <nav>
-            <ul> 
+            <ul>
                 <li><a href="/constants.html">Constants</a></li>
                 <li><a href="/craft.html">Craft</a></li>
                 <li><a href="/reflections.html">Reflections</a></li>
@@ -264,136 +271,135 @@
 
     </header>
 
-      <main>
+    <main class="explainer">
 
-        <main class="explainer">
+        <section class="explainer-hero">
+            <p class="eyebrow">Idea Lab</p>
 
-    <section class="explainer-hero">
-        <p class="eyebrow">Idea Lab</p>
+            <h1>What AI Agents Are Built On</h1>
 
-        <h1>What AI Agents Are Built On</h1>
-
-        <p class="intro">
-            AI might feel like a completely new layer of computing.<br>
-            But the foundations that ran the cloud now run the agent era.
-        </p>
-    </section>
-
-    <section class="explainer-content">
-
-        <!-- Left Column -->
-        <aside class="explainer-sidebar">
-
-            <div class="mission-card">
-                <h2>Mission</h2>
-                <p>
-                    Start at the surface. Dig beneath the AI agent to uncover the underlying mechanics. 
-                </p>
-            </div>
-
-            <div class="status-card">
-                <h2>What You've Dug Up</h2>
-
-                <div class="status-item">
-                    <span class="label">
-                        Current Layer
-                    </span>
-
-                    <strong id="current-layer">
-                        AI Agent
-                    </strong>
-                </div>
-
-                <div class="status-item">
-                    <span class="label">
-                        Layers Remaining
-                    </span>
-
-                    <strong id="layers-remaining">
-                        5
-                    </strong>
-                </div>
-
-            </div>
-
-        </aside>
-
-        <!-- Right Column -->
-        <section class="lab-panel">
-
-            <!-- Main interactive will go here -->
-
+            <p class="intro">
+                AI might feel like a completely new layer of computing.<br>
+                But the foundations that ran the cloud now run the agent era.<br><br>
+            </p>
         </section>
 
-    </section>
+        <section class="explainer-content">
 
+            <!-- Left Column -->
+            <aside class="explainer-sidebar">
 
-    <!-- Explanation -->
-    <section class="lab-explained">
-
-        <div class="lab-intro">
-            <h2>What's underneath?</h2>
-
-            <p class="section-intro">
-                Workloads in tech continue to evolve. But the need for predictable,
-                isolated, reproducible execution remains constant.<br><br>
-                
-                The same principles that made the cloud possible now make AI agents possible.
-            </p>
-        </div>
-
-        <div class="lab-content">
-
-            <div class="lab-main">
-
-                <!-- visualisation to come -->
-
-            </div>
-
-            <aside class="lab-sidebar">
-
-                <h3>The Big Idea</h3>
-
-                <div class="idea-item">
+                <div class="mission-card">
+                    <h2>Mission</h2>
                     <p>
-                        Proper boundaries increase autonomy.
+                        Start at the surface. Dig beneath the AI agent to uncover the underlying mechanics.
                     </p>
                 </div>
 
-                <div class="idea-item">
-                    <p>
-                        The concepts we've trusted for years is still the right foundation.
-                    </p>
-                </div>
+                <div class="status-card">
+                    <h2>What You've Dug Up</h2>
 
-                <div class="idea-item">
-                    <p>
-                         Everyone assumes the challenge is making AI agents smarter.
-                         But the limitation isn't a lac of intelligence. It'sa lack of trust.
-                    </p>
-                </div>
+                    <div class="status-item">
+                        <span class="label">
+                            Current Layer
+                        </span>
 
+                        <strong id="current-layer">
+                            AI Agent
+                        </strong>
+                    </div>
+
+                    <div class="status-item">
+                        <span class="label">
+                            Layers Remaining
+                        </span>
+
+                        <strong id="layers-remaining">
+                            5
+                        </strong>
+                    </div>
+
+                </div>
 
             </aside>
 
-        </div>
+            <!-- Right Column -->
+            <section class="lab-panel">
+
+                This is where the excavation experience will be.
+
+            </section>
+
+        </section>
+
+
+        <!-- Explanation -->
+        <section class="lab-explained">
+
+            <div class="lab-intro">
+                <h2>What's underneath?</h2>
+
+                <p class="section-intro">
+                    Workloads in tech continue to evolve. But the need for predictable,
+                    isolated, reproducible execution remains constant.<br>
+                    The same principles that made the cloud possible now make AI agents possible.
+                </p>
+            </div>
+
+                <div class="lab-content">
+
+            <div class="lab-main">
+
+                <p>
+                    // add explanation here 
+                </p>
+
+            </div>
+
+                <aside class="lab-sidebar">
+
+                    <h3>Key takeaways</h3>
+
+                    <div class="idea-item">
+                        <p>
+                            Proper boundaries increase autonomy.
+                        </p>
+                    </div>
+
+                    <div class="idea-item">
+                        <p>
+                            The concepts we've trusted for years is still the right foundation.
+                        </p>
+                    </div>
+
+                    <div class="idea-item">
+                        <p>
+                            Everyone assumes the challenge is making AI agents smarter.
+                            But the limitation isn't a lac of intelligence. It'sa lack of trust.
+                        </p>
+                    </div>
+
+                </aside>
+            </div>
+
             <!-- Twenty years ago isolation solved dependency problems.
             Today isolation lets autonomous software act safely.-->
-    </section>
+        </section>
 
-    <a href="craft.html" class="text-link">
-        <span>←</span> Back to Behind the Work
-    </a>
+        <a href="craft.html" class="text-link">
+            <span>←</span> Back to Behind the Work
+        </a>
 
-</main>
+    </main>
 
-      </main>
+    </main>
 
-      <footer>
+    <footer>
 
         <p>&copy; 2026 Kim Codes</p>
 
     </footer>
 
 </body>
+
 </html>

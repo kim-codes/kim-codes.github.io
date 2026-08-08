@@ -1,373 +1,375 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>How I'd Approach My First 90 Days</title>
-    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>How I'd Approach My First 90 Days</title>
+
     <!-- Add Font Styling -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap" rel="stylesheet">
-    
-<style>
 
-:root{
-    /*--bg:#FAFAF8; #FCFAF2;*/
-    --bg:#FFFFFF;
-    --surface:#FFFFFF;
-    --text:#222222;
-    --muted:#6F6F6F;
-    --border:#ECECEC;
+    <style>
+        :root {
+            /*--bg:#FAFAF8; #FCFAF2;*/
+            --bg: #FFFFFF;
+            --surface: #FFFFFF;
+            --text: #222222;
+            --muted: #6F6F6F;
+            --border: #ECECEC;
 
-    /* pulled from  main kimcodes illustration */
+            /* pulled from  main kimcodes illustration */
 
-    --sage:#AAB8A3;
-    --sand:#C8AE8E;
-    --slate:#8E9EAC;
-    --mauve:#9A7575;
-}
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-body{
-    font-family:Inter,sans-serif;
-    background:var(--bg);
-    color:var(--text);
-    line-height:1.8;
-}
-
-/* styling for the header logo */ 
-header {
-    position: fixed;
-    top: 25px;
-    left: 40px;
-    z-index: 1000;
-}
-    
-.logo {
-        font-family: "Dancing Script", cursive;
-        font-size: 1.8rem;
-        font-weight: 500;
-        text-decoration: none;
-        color: #222;
-        transition: color 0.3s ease;
-}
-
-.logo:hover {
-        color: #666;
-    }
-
-.container{
-    max-width:900px;
-    margin:120px auto;
-    padding:0 40px;
-}
-
-h1{
-    font-size:4rem;
-    line-height:1;
-    font-weight:700;
-    color:var(--text);
-    margin-bottom:20px;
-}
-
-.subtitle{
-    max-width:620px;
-    font-size:1.1rem;
-    color:var(--muted);
-    margin-bottom:40px;
-}
-
-section{
-    padding:45px 0;
-    border-top:1px solid var(--border);
-}
-
-h2{
-    color:var(--brown);
-    margin-bottom:18px;
-    font-size:1.6rem;
-}
-
-p{
-    margin-bottom:18px;
-}
-
-ul{
-    padding-left:20px;
-}
-
-li{
-    margin-bottom:10px;
-}
-
-.note{
-    background:#ffffff;
-    border:1px solid var(--border);
-    border-left:4px solid var(--slate);
-    box-shadow:0 8px 25px rgba(0,0,0,.03);
-    border-radius:10px;
-    padding:24px;
-    margin-bottom: 30px;
-}
-
-footer{
-    margin-top:70px;
-    padding-top:30px;
-    border-top:1px solid var(--border);
-    color:var(--muted);
-    font-size:.9rem;
-}
-
-
-section{
-    padding:55px 0;
-    border-top:1px solid var(--border);
-}
-
-.entry{
-
-    display:grid;
-
-    grid-template-columns:140px 1fr;
-
-    gap:40px;
-
-    align-items:flex-start;
-
-}
-
-.label{
-    width: 150px;
-   /* position:sticky;
-    top:120px;*/
-}
-
-.day{
-    font-size:.75rem;
-    letter-spacing:3px;
-    text-transform:uppercase;
-    color:#888;
-    margin-bottom:12px;
-}
-
-.title{
-    font-size:2rem;
-    line-height:1.1;
-    color: #222;
-}
-
-    .title::after{
-        content:"";
-        display:block;
-        width:55px;
-        height:3px;
-        margin-top:18px;
-        border-radius:10px;
-}
-
-.green{
-    color:#A0C0A6;
-}
-
-.camel{
-    color:#C59C7A;
-}
-
-.rose{
-    color:#7E5656;
-}
-
-.slate{
-    color:#93B4B0;
-}
-
-
-    .green::after{
-background:var(--sage);
-}
-
-.camel::after{
-background:var(--sand);
-}
-
-.rose::after{
-background:var(--mauve);
-}
-
-.slate::after{
-background:var(--slate);
-
-}
-    
-.entry-content p{
-    margin-bottom:20px;
-}
-
-.entry-content ul{
-    margin-top:15px;
-}
-
-.entry-content li{
-    margin-bottom:10px;
-    font-size: 0.95rem;
-}
-
-@media(max-width:800px){
-
-.entry{
-
-grid-template-columns:1fr;
-
-gap:20px;
-
-}
-
-.label{
-
-position:static;
-
-}
-
-}
-
-/* notebook style divider */ 
-    section::after{
-        content:"";
-        display:block;     
-        width:40px;
-        height:3px;
-        background:#CCC0CB; /* Pale Slate */
-        margin-top:50px;
-        border-radius:10px;
-        opacity:.5;
+            --sage: #AAB8A3;
+            --sand: #C8AE8E;
+            --slate: #8E9EAC;
+            --mauve: #9A7575;
         }
 
-ul{
-list-style:none;
-padding:0;
-margin-top:25px;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-li{
-position:relative;
-padding-left:22px;
-margin-bottom:12px;
-}
+        body {
+            font-family: Inter, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.8;
+        }
 
-    li::before{
+        /* styling for the header logo */
+        header {
+            position: fixed;
+            top: 25px;
+            left: 40px;
+            z-index: 1000;
+        }
 
-content:"";
+        .logo {
+            font-family: "Dancing Script", cursive;
+            font-size: 1.8rem;
+            font-weight: 500;
+            text-decoration: none;
+            color: #222;
+            transition: color 0.3s ease;
+        }
 
-position:absolute;
+        .logo:hover {
+            color: #666;
+        }
 
-left:0;
+        .container {
+            max-width: 900px;
+            margin: 120px auto;
+            padding: 0 40px;
+        }
 
-top:12px;
+        h1 {
+            font-size: 4rem;
+            line-height: 1;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 20px;
+        }
 
-width:7px;
+        .subtitle {
+            max-width: 620px;
+            font-size: 1.1rem;
+            color: var(--muted);
+            margin-bottom: 40px;
+        }
 
-height:7px;
+        section {
+            padding: 45px 0;
+            border-top: 1px solid var(--border);
+        }
 
-background:var(--slate);
+        h2 {
+            color: var(--brown);
+            margin-bottom: 18px;
+            font-size: 1.6rem;
+        }
 
-border-radius:50%;
+        p {
+            margin-bottom: 18px;
+        }
 
-}
+        ul {
+            padding-left: 20px;
+        }
 
-section{
-    padding:70px 0;
-    border-top:1px solid #EFEFEF;
-}
-    
-p{
-    font-size:0.95rem;
-    max-width:640px;
-}
+        li {
+            margin-bottom: 10px;
+        }
 
-section:hover .day{
-    letter-spacing:4px;
-    transition:.3s;
-}
-    
-</style>
+        .note {
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--slate);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, .03);
+            border-radius: 10px;
+            padding: 24px;
+            margin-bottom: 30px;
+        }
+
+        footer {
+            margin-top: 70px;
+            padding-top: 30px;
+            border-top: 1px solid var(--border);
+            color: var(--muted);
+            font-size: .9rem;
+        }
+
+
+        section {
+            padding: 55px 0;
+            border-top: 1px solid var(--border);
+        }
+
+        .entry {
+
+            display: grid;
+
+            grid-template-columns: 140px 1fr;
+
+            gap: 40px;
+
+            align-items: flex-start;
+
+        }
+
+        .label {
+            width: 150px;
+            /* position:sticky;
+    top:120px;*/
+        }
+
+        .day {
+            font-size: .75rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #888;
+            margin-bottom: 12px;
+        }
+
+        .title {
+            font-size: 2rem;
+            line-height: 1.1;
+            color: #222;
+        }
+
+        .title::after {
+            content: "";
+            display: block;
+            width: 55px;
+            height: 3px;
+            margin-top: 18px;
+            border-radius: 10px;
+        }
+
+        .green {
+            color: #A0C0A6;
+        }
+
+        .camel {
+            color: #C59C7A;
+        }
+
+        .rose {
+            color: #7E5656;
+        }
+
+        .slate {
+            color: #93B4B0;
+        }
+
+
+        .green::after {
+            background: var(--sage);
+        }
+
+        .camel::after {
+            background: var(--sand);
+        }
+
+        .rose::after {
+            background: var(--mauve);
+        }
+
+        .slate::after {
+            background: var(--slate);
+
+        }
+
+        .entry-content p {
+            margin-bottom: 20px;
+        }
+
+        .entry-content ul {
+            margin-top: 15px;
+        }
+
+        .entry-content li {
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+
+        @media(max-width:800px) {
+
+            .entry {
+
+                grid-template-columns: 1fr;
+
+                gap: 20px;
+
+            }
+
+            .label {
+
+                position: static;
+
+            }
+
+        }
+
+        /* notebook style divider */
+        section::after {
+            content: "";
+            display: block;
+            width: 40px;
+            height: 3px;
+            background: #CCC0CB;
+            /* Pale Slate */
+            margin-top: 50px;
+            border-radius: 10px;
+            opacity: .5;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 25px;
+        }
+
+        li {
+            position: relative;
+            padding-left: 22px;
+            margin-bottom: 12px;
+        }
+
+        li::before {
+
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+
+            top: 12px;
+
+            width: 7px;
+
+            height: 7px;
+
+            background: var(--slate);
+
+            border-radius: 50%;
+
+        }
+
+        section {
+            padding: 70px 0;
+            border-top: 1px solid #EFEFEF;
+        }
+
+        p {
+            font-size: 0.95rem;
+            max-width: 640px;
+        }
+
+        section:hover .day {
+            letter-spacing: 4px;
+            transition: .3s;
+        }
+    </style>
 
 </head>
 
 <body>
 
-<header>
-    <a href="index.html#notes" class="logo">kimcodes</a>
-</header>
+    <header>
+        <a href="index.html#notes" class="logo">kimcodes</a>
+    </header>
 
-<div class="container">
+    <div class="container">
 
-<h1>The First Few Months</h1>
+        <h1>The First Few Months</h1>
 
-<p class="subtitle">
-Every team has its own culture, challenges, and ways of working. 
-I don't think there's a universal playbook for joining a new team, but over the years I've found myself coming back to the same mindset whenever I start something new.
-</p>
+        <p class="subtitle">
+            Start with curiosity. Build context. Find your place.
+        </p>
 
-<div class="note">
-I don't believe in arriving with all the answers. Ask questions, staying curious, and have fun. 
-</div>
+        <p>
+            Every team has its own culture, challenges, and ways of working.
+            The first few months are a chance to understand how the team works, what matters, and where I can be most
+            useful.
+            <!--I don't expect to have all the answers when I arrive. I expect to have a lot of questions.-->
+        </p>
 
-<p>
-    The first few months aren't about proving what you know. They're about learning how the team works, understanding what matters, and finding where you can be most useful.
-</p>
-    
-<section>
+        <section>
 
-    <div class="entry">
+            <div class="entry">
 
-    <div class="label">
-    
-    <div class="day">
-    01 · FIRST 30 DAYS
-    </div>
-    
-    <div class="title green">
-    Learn<br>& Listen
-    </div>
-    
-    </div>
-    
-    <div class="entry-content">
+                <div class="label">
 
-        <!--
+                    <div class="day">
+                        01 · FIRST 30 DAYS
+                    </div>
+
+                    <div class="title green">
+                        Learn<br>& Listen
+                    </div>
+
+                </div>
+
+                <div class="entry-content">
+
+                    <!--
         My first priority would be understanding how the product creates value for customers. This starts with documentation and learning channels, but also by listening. I'd spend time with fellow PMMs, PMs, Customer Success, and Sales to understand how each team talks about the product and where those perspectives overlap.
         -->
-        
-    <h3>The first few weeks are about building context, not opinions.</h3>
-    <p>  
-        Every team has a different way of talking about the product. 
-        Product experiencies one thing, Sales another, Customer Success another, and customers often see something else entirely. 
-        Before suggesting changes, I'd want to understand where those perspectives overlap—and where they don't.
-    </p>
-    <p>  
-        I'd spend as much time listening as I do reading. Docs, customer calls, demos, internal conversations, launch plans, support tickets... they all tell part of the story.
-    </p>
-    <p>  
-        Only once I understand why things work the way they do would I feel comfortable asking how they could be better.
-    </p>
-    
-    <ul>
-    <p>Things I'd be paying attention to:</p>
-        <li> How customers describe their problems.</li>
-        <li> How different teams talk about the product.</li>
-        <li> What gets asked over and over again.</li>
-        <li>  Where messaging feels clear, and where it doesn't.</li>
-        <li>Why previous decisions were made.</li>
-        
-        <!--
+
+                    <h3>The first few weeks are about building context, not opinions.</h3>
+                    <p>
+                        I want to hear the product described by the people who build it. Then by those who sell it.
+                        Those who support it. And then those who use it.
+                        TThose perspectives won't always line up. The gaps are often where things get interesting.
+                    </p>
+                    <p>
+                        I'd spend as much time listening as I do reading. Docs, launch plans, demos, internal
+                        conversations, support tickets...
+                        they all tell part of the story. And so do the questions that keep coming up.
+                    </p>
+                    <p>
+                        I'm not looking for problems to fix on day one.
+                        I'm trying to build enough context to recognize the right problems when I see them.
+                    </p>
+
+                    <ul>
+                        <p>Things I'd be paying attention to:</p>
+                        <li> How customers describe their struggles.</li>
+                        <li> How different teams talk about the product.</li>
+                        <li> Where people get stuck or confused.</li>
+                        <li> Where messaging feels clear, and where it doesn't.</li>
+                        <li> What has already been tried and why.</li>
+
+
+                        <!--
         <li>Understand the product, roadmap, and competitive landscape.</li>
         
         <li>Build relationships across Sales, Product, Marketing, and Customer Success.</li>
@@ -378,161 +380,177 @@ I don't believe in arriving with all the answers. Ask questions, staying curious
         
         <li>Learn why things work before suggesting how they could change.</li>
     -->
-    </ul>
-    
-    </div>
+                    </ul>
 
-</div>
+                </div>
 
-</section>
+            </div>
 
-<section>
+        </section>
 
-    <div class="entry">
-    
-    <div class="label">
-    
-    <div class="day">
-    02 · FIRST 60 DAYS
-    </div>
-    
-    <div class="title camel">
-    Contribute
-    </div>
-    
-    </div>
-    
-    <div class="entry-content">
+        <section>
 
-        <h3>I've built enough context that I can start creating momentum.</h3>
-        
-    <p>
-    By this point, I'd hope to have enough context to stop observing from the sidelines and start making a meaningful contribution.
-    </p>
-    <p> 
-    I'd still be learning every day, but I'd want my teammates to feel like they could hand me something and know it'll get done. 
-    Whether that's shaping messaging, supporting a launch, writing technical content, or simply helping untangle a complicated problem, I'd want to be someone who's making the work around me a little easier.
-    </p>
-    <p> 
-    Hopefully, people have stopped thinking of me as "the new person." 
-    Not because I know everything, but because I'm contributing, asking good questions, and becoming a dependable teammate.
-    </p>
-    
-    <ul>
-    <p>Things I'd be looking for:</p>
-        <li> Places where technical concepts could be explained more clearly.</li>
-        <li> Opportunities to support launches and messaging.</li>
-        <li> What gets asked over and over again.</li>
-        <li> Where messaging feels clear, and where it doesn't.</li>
-        <li>Ways to contribute while continuing to learn..</li>
-    <!--
+            <div class="entry">
+
+                <div class="label">
+
+                    <div class="day">
+                        02 · FIRST 60 DAYS
+                    </div>
+
+                    <div class="title camel">
+                        Contribute
+                    </div>
+
+                </div>
+
+                <div class="entry-content">
+
+                    <h3>I've built enough context that I can start creating momentum.</h3>
+
+                    <p>
+                        I've listened, learned, and built enough context so that I can now stop observing from the
+                        sidelines and start contributing.
+                    </p>
+                    <p>
+                        I'd still be learning every day, but I'd want my teammates to feel like they could hand me
+                        something and know it'll get done.
+                        Maybe that's shaping messaging, supporting a launch, writing technical content, or helping
+                        untangle a complicated problem.
+                        The specific work will depend on the team. What matters is that people know they can bring me
+                        something and trust me to move it forward.
+                    </p>
+
+                    <p>I'm still learning, but I want to be past the point of being "the new person" and becoming
+                        someone who makes the work around me a little easier.</p>
+
+                    <ul>
+                        <p>Things I'd be looking for:</p>
+                        <li> Places where technical concepts could be explained more clearly.</li>
+                        <li> Opportunities to support launches and messaging.</li>
+                        <li> Questions or problems that come up over and over again.</li>
+                        <li> Ways to contribute while continuing to learn.</li>
+                        <!--
+                    
     <li>Support product launches and messaging initiatives.</li>
     <li>Create content that helps technical audiences understand product value.</li>
     <li>Small improvements that make someone else's job a little easier.</li>
     <li>Become someone teammates know they can rely on.</li>
     -->
-    </ul>
-    
-    </div>
-    
-    </div>
+                    </ul>
 
-</section>
+                </div>
 
-<section>
+            </div>
 
-    <div class="entry">
-    
-    <div class="label">
-    
-    <div class="day">
-        03 · FIRST 90 DAYS
-    </div>
-    
-    <div class="title rose">
-    Find Your<br> Rhythm
-    </div>
-    
-    </div>
-    
-    <div class="entry-content">
-    
-    <p>
-    By this point, I'd still expect to be learning every day, but I'd hope to have found my rhythm.
-    </p>
-    <p> 
-        I'd want to understand how the team works, know where I can add value, and feel comfortable taking on bigger challenges. 
-        The goal isn't to have all the answers. 
-        It's to have enough context to make thoughtful decisions, enough trust to contribute independently, and enough confidence to tackle problems I haven't seen before.
-    </p>
-    <p> 
-    Ideally, teammates are comfortable pulling me into difficult conversations because they know I'll ask good questions, collaborate well, and figure things out.
-    
-    </p>
-    
-    <ul>
-        <p>Things I'd hope to be doing:</p>
-        <li> Becoming someone people naturally pull into important work.</li>
-        <li> Creating resources that continue helping long after they're published.</li>
-        <li> Helping shape messaging for technical audiences.</li>
-        <li> Leading pieces of work from idea to launch.</li>
-    <!--
+        </section>
+
+        <section>
+
+            <div class="entry">
+
+                <div class="label">
+
+                    <div class="day">
+                        03 · FIRST 90 DAYS
+                    </div>
+
+                    <div class="title rose">
+                        Find Your<br> Rhythm
+                    </div>
+
+                </div>
+
+                <div class="entry-content">
+                    <p>
+                        By this point, I want to feel like part of the team and to have found my rhythm.
+                    </p>
+                    <p>
+                        I'd still be learning every day, but I should have a good sense of how the team works, where I
+                        can add value, and when to step in.
+                        I want to be comfortable taking on bigger pieces of work without needing to have every answer
+                        before I start.
+
+                    </p>
+                    <p>
+                        Ideally, teammates feel comfortable pulling me into difficult conversations or messy problems.
+                        Not because I have all the answers, but because they know I'll ask good questions, collaborate
+                        with them, and figure things out.
+                    </p>
+
+                    <ul>
+                        <p>Things in my day to day</p>
+                        <li> Becoming someone people naturally pull into important work.</li>
+                        <li> Creating resources that continue helping long after they're published.</li>
+                        <li> Helping shape messaging for technical audiences.</li>
+                        <li> Leading pieces of work from idea to launch.</li>
+
+                        <!--
         <li>Lead a product marketing initiative from planning through launch.</li>
         <li>Develop messaging that resonates with developers and technical decision-makers.</li>
         <li>Bring customer insights back to Product.</li>
         <li>Create scalable launch assets and technical enablement.</li>
         <li>Become a trusted collaborator across Product, Engineering, and Go-to-Market teams.</li>
     -->
-    </ul>
-    
-    </div>
-    
-    </div>
+                    </ul>
 
-</section>
+                </div>
 
-<section>
-    
-    <div class="entry">
-    
-    <div class="label">
-    
-    <div class="day">
-    04 · LOOKING AHEAD
+            </div>
+
+        </section>
+
+        <div class="note">
+            I don't expect to know everything after 90 days. I do expect to care enough to keep learning.
+        </div>
+
+        <section>
+
+
+            <div class="entry">
+
+                <div class="label">
+
+                    <div class="day">
+                        04 · LOOKING AHEAD
+                    </div>
+
+                    <div class="title slate">
+                        Year One
+                    </div>
+
+                </div>
+
+                <div class="entry-content">
+
+                    <p>
+                        Hopefully, nobody thinks I'm new anymore!
+                    </p>
+
+                    <p>
+                        Success isn't just about what I've shipped. It's about the things I've helped make clearer, the
+                        decisions I've helped move forward, and the ways I've made the team a little better.
+
+                    </p>
+                    <p>
+                        If I've helped tell clearer product stories, brought useful customer insight into conversations,
+                        and
+                        become someone people enjoy working with, I'd consider that a pretty good first year.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <footer>
+            I don't believe in arriving with all the answers. Ask questions, staying curious, and have fun. • 2026
+        </footer>
+
     </div>
-    
-    <div class="title slate">
-    Year One
-    </div>
-    
-    </div>
-    
-    <div class="entry-content">
-    
-        <p> 
-        Hopefully, nobody thinks I'm new anymore.     
-        </p>
-        
-        <p>
-            Success isn't just shipping launches. It's helping people understand the product, making thoughtful decisions, and leaving the team a little better than I found it.
-        </p>
-        <p>
-        If I've helped tell clearer product stories, brought useful customer insights into conversations, and become someone people enjoy working with, I'd consider that a successful first year.
-        </p>
-    
-    </div>
-    
-    </div>
-
-</section>
-
-<footer>
-
-I don't expect to know everything after 90 days. I do expect to care enough to keep learning. • 2026
-
-</footer>
-
-</div>
 
 </body>
+
 </html>

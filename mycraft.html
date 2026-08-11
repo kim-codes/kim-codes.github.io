@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>kimcodes</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <style>
+        .craft-toggle-page {
+            max-width: 620px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        .craft-eyebrow {
+            font-size: 13px;
+            color: #888;
+            letter-spacing: 0.02em;
+            margin: 0 0 4px;
+        }
+
+        .craft-title {
+            font-size: 26px;
+            font-weight: 500;
+            margin: 0 0 8px;
+        }
+
+        .craft-subtitle {
+            font-size: 15px;
+            color: #666;
+            margin: 0 0 2rem;
+        }
+
+        /* Switch */
+        .switch-wrap {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+            margin-bottom: 2.5rem;
+        }
+
+        .switch-label {
+            font-size: 14px;
+            font-weight: 500;
+            color: #999;
+            transition: color 0.25s ease;
+            cursor: pointer;
+        }
+
+        .switch-label--left {
+            color: #27500a;
+        }
+
+        .rocker input {
+            position: absolute;
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .rocker-track {
+            display: block;
+            width: 64px;
+            height: 34px;
+            background: #1a1a1a;
+            border-radius: 17px;
+            position: relative;
+            cursor: pointer;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .rocker-thumb {
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            width: 28px;
+            height: 28px;
+            background: #fff;
+            border-radius: 50%;
+            transition: transform 0.25s ease;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+        }
+
+        .rocker input:checked~.rocker-track .rocker-thumb {
+            transform: translateX(30px);
+        }
+
+        .rocker input:focus-visible~.rocker-track {
+            outline: 2px solid #185fa5;
+            outline-offset: 2px;
+        }
+
+        /* Panels */
+        .mode-panels {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .mode-panel {
+            position: relative;
+            overflow: hidden;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: left;
+            filter: grayscale(100%);
+            opacity: 0.45;
+            transition: filter 0.4s ease, opacity 0.4s ease;
+        }
+
+        .mode-panel.is-active {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+
+        .mode-panel--lab {
+            background: #eaf3de;
+        }
+
+        .mode-panel--work {
+            background: #faeeda;
+        }
+
+        .mode-panel--lab .craft-icon,
+        .mode-panel--lab .mode-title,
+        .mode-panel--lab .mode-link {
+            color: #27500a;
+            stroke: #27500a;
+        }
+
+        .mode-panel--work .craft-icon,
+        .mode-panel--work .mode-title,
+        .mode-panel--work .mode-link {
+            color: #854f0b;
+            stroke: #854f0b;
+        }
+
+        .craft-icon {
+            margin-bottom: 14px;
+        }
+
+        .mode-title {
+            font-size: 19px;
+            font-weight: 500;
+            margin: 0 0 8px;
+        }
+
+        .mode-desc {
+            font-size: 14px;
+            opacity: 0.85;
+            margin: 0 0 16px;
+            line-height: 1.6;
+        }
+
+        .mode-link {
+            font-size: 13px;
+            font-weight: 500;
+            text-decoration: none;
+        }
+
+        /* Flashlight sweep */
+        .flash {
+            position: absolute;
+            top: 0;
+            left: -60%;
+            width: 60%;
+            height: 100%;
+            background: linear-gradient(100deg,
+                    transparent,
+                    rgba(255, 255, 255, 0.85),
+                    transparent);
+            pointer-events: none;
+        }
+
+        .mode-panel.is-flashing .flash {
+            animation: sweep 0.6s ease-out;
+        }
+
+        @keyframes sweep {
+            from {
+                left: -60%;
+            }
+
+            to {
+                left: 130%;
+            }
+        }
+
+        .craft-constants {
+            text-align: center;
+            font-size: 14px;
+            color: #666;
+            line-height: 2;
+            margin: 2.5rem 0 0;
+        }
+
+        .craft-constants span {
+            color: #aaa;
+            margin: 0 10px;
+        }
+
+        @media (max-width: 600px) {
+            .mode-panels {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+
+        <a href="/" class="logo">
+            <img src="assets/img/kimcodes-gummy-twist.webp" alt="kimcodes">
+        </a>
+
+        <nav>
+            <ul>
+                <li><a href="/constants.html">Constants</a></li>
+                <li><a href="/craft.html">Craft</a></li>
+                <li><a href="/reflections.html">Reflections</a></li>
+                <li><a href="/footprints.html">Footprints</a></li>
+                <li><a href="/contact.html">Say Hello</a></li>
+            </ul>
+        </nav>
+
+    </header>
+
+    <main>
+
+        <section class="craft-toggle-page">
+            <p class="craft-eyebrow">craft</p>
+            <h1 class="craft-title"> The two sides of my work.</h1>
+            <p class="craft-subtitle">One side is where I get curious and experiment, by building demos and exploring
+                concepts.
+                The other is where I document what made it out into the world and reflect on what shipped, stuck, and
+                made an impact.
+
+                <br><br>Flip the switch to pick a path.
+            </p>
+
+            <div class="switch-wrap">
+                <span class="switch-label switch-label--left" data-mode="lab">lab mode</span>
+
+                <label class="rocker">
+                    <input type="checkbox" id="mode-toggle">
+                    <span class="rocker-track">
+                        <span class="rocker-thumb"></span>
+                    </span>
+                </label>
+
+                <span class="switch-label switch-label--right" data-mode="work">work mode</span>
+            </div>
+
+            <div class="mode-panels">
+                <div class="mode-panel mode-panel--lab is-active">
+                    <div class="flash"></div>
+                    <svg class="craft-icon" width="34" height="34" viewBox="0 0 40 40" fill="none" stroke-width="1.6"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                            d="M20 6c-6 0-9.5 4.5-9.5 9.2 0 4 2.3 6 3.6 7.6 1 1.2 1.4 2 1.4 3.2h9c0-1.2.4-2 1.4-3.2 1.3-1.6 3.6-3.6 3.6-7.6C29.5 10.5 26 6 20 6z" />
+                        <path d="M15.8 30h8.4" />
+                        <path d="M16.6 33.2h6.8" />
+                    </svg>
+                    <h2 class="mode-title">Idea lab</h2>
+                    <p class="mode-desc">Things I'm curious about.<br><br>Interactive learning with experiments and demo
+                        I build to understand, and make it easyer for someone else to understand too. </p>
+                    <a href="lab.html" class="mode-link">Explore the lab &rarr;</a>
+                </div>
+
+                <div class="mode-panel mode-panel--work">
+                    <div class="flash"></div>
+                    <svg class="craft-icon" width="34" height="34" viewBox="0 0 40 40" fill="none" stroke-width="1.6"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="5" y="14" width="21" height="16" rx="1.5" />
+                        <path d="M26 18.5l8.5-4.5v15l-8.5-4.5" />
+                        <circle cx="15.5" cy="22" r="4" />
+                        <circle cx="15.5" cy="22" r="1.2" />
+                    </svg>
+                    <h2 class="mode-title">Behind the work</h2>
+                    <p class="mode-desc">Things worth documenting.<br><br>Projects I've built in the real world.
+                        Discover the thinking behind them, the creative choices, and what happened next.</p>
+                    <a href="stories.html" class="mode-link">Go behind the scenes &rarr;</a>
+                </div>
+            </div>
+
+            <p class="craft-constants">
+                <span>&middot;</span> curiosity compounds <span>&middot;</span>
+            </p>
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <p>&copy; 2026 Kim Codes</p>
+
+    </footer>
+
+    <script src="assets/js/craft.js"></script>
+
+</body>
+
+</html>

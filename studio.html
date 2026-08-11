@@ -381,18 +381,23 @@
             color: #777;
         }
 
-
         /* disable mobile viewing */
         .mobile-message {
             display: none;
         }
 
-        .mobile-message h2{
+        .mobile-message h2 {
+            color: #FFF;
+        }
+
+        .mobile-message p {
+            font-size: 1rem;
+            line-height: 1.8;
             color: #FFF;
         }
 
         /* Mobile: show the message, hide the demo */
-        @media (max-width: 700px) {
+        @media (max-width: 750px) {
             .mobile-message {
                 display: block;
             }
@@ -400,9 +405,24 @@
             .galaxy-container {
                 display: none;
             }
+
+            .status-card {
+                display: none;
+            }
+
+            .galaxy-panel {
+                min-height: auto;
+                padding: 3rem 2rem;
+            }
         }
 
         @media (max-width: 900px) {
+
+
+            .explainer-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
 
             .galaxy-content {
                 grid-template-columns: 1fr;
@@ -524,6 +544,7 @@
                         <h2>Desktop Experience</h2>
                         <p>
                             A tiny experiment that needs a little more space.
+                            <br>
                             Visit on desktop or larger tablet to explore the galaxy.
                         </p>
                     </div>

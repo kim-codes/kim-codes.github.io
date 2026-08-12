@@ -1,8 +1,8 @@
-const toggle = document.getElementById('mode-toggle');
+const labWord = document.querySelector('.switch-word--lab');
+const workWord = document.querySelector('.switch-word--work');
 const labPanel = document.querySelector('.mode-panel--lab');
 const workPanel = document.querySelector('.mode-panel--work');
-const labLabel = document.querySelector('.switch-label--left');
-const workLabel = document.querySelector('.switch-label--right');
+const clickHint = document.getElementById('click-hint');
 
 function setMode(isWork) {
   const activePanel = isWork ? workPanel : labPanel;
@@ -11,24 +11,18 @@ function setMode(isWork) {
   inactivePanel.classList.remove('is-active');
   activePanel.classList.add('is-active');
 
-  labLabel.style.color = isWork ? '#999' : '#27500a';
-  workLabel.style.color = isWork ? '#854f0b' : '#999';
+  labWord.classList.toggle('switch-word--active', !isWork);
+  workWord.classList.toggle('switch-word--active', isWork);
+
+  labWord.style.color = isWork ? '#b3b3b3' : '#000';
+  workWord.style.color = isWork ? '#000' : '#b3b3b3';
+
+  clickHint.classList.add('is-hidden');
 
   activePanel.classList.remove('is-flashing');
   void activePanel.offsetWidth;
   activePanel.classList.add('is-flashing');
 }
 
-toggle.addEventListener('change', () => {
-  setMode(toggle.checked);
-});
-
-labLabel.addEventListener('click', () => {
-  toggle.checked = false;
-  setMode(false);
-});
-
-workLabel.addEventListener('click', () => {
-  toggle.checked = true;
-  setMode(true);
-});
+labWord.addEventListener('click', () => setMode(false));
+workWord.addEventListener('click', () => setMode(true));

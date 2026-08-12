@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,8 +12,338 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="assets/css/styles.css">
-    
-</style>
+    <style>
+        .craft-toggle-page {
+            max-width: 640px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        .craft-eyebrow {
+            font-size: 13px;
+            color: #888;
+            letter-spacing: 0.02em;
+            margin: 0 0 4px;
+            text-transform: uppercase;
+        }
+
+        .craft-title {
+            font-size: 26px;
+            font-weight: 500;
+            margin: 0 0 12px;
+        }
+
+        .craft-subtitle {
+            font-size: 15px;
+            color: #666;
+            line-height: 1.6;
+            max-width: 460px;
+            margin: 0 auto 2.5rem;
+        }
+
+        .mode-switcher {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 28px;
+            margin-bottom: 0.8rem;
+        }
+
+        .switch-word {
+            position: relative;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+            padding: 6px 4px;
+            font-size: 16px;
+            font-weight: 500;
+            color: #b3b3b3; 
+            transition: color 0.25s ease, font-weight 0.25s ease;
+        }
+
+        .switch-word--active {
+            font-weight: 700;
+        }
+
+        .switch-word--lab.switch-word--active {
+            color: #27500a;
+        }
+
+        .switch-word--work.switch-word--active {
+            color: #854f0b;
+        }
+
+        .circle-mark {
+            position: absolute;
+            top: -8px;
+            left: -10px;
+            width: calc(100% + 20px);
+            height: calc(100% + 16px);
+            pointer-events: none;
+            opacity: 0;
+        }
+
+        .circle-mark path {
+            stroke-width: 2.5;
+            stroke-dasharray: 220;
+            stroke-dashoffset: 220;
+            transition: stroke-dashoffset 0.4s ease, opacity 0.1s ease;
+        }
+
+        .circle-mark--lab path {
+            stroke: #27500a;
+        }
+
+        .circle-mark--work path {
+            stroke: #854f0b;
+        }
+
+        .switch-word--active .circle-mark {
+            opacity: 1;
+        }
+
+        .switch-word--active .circle-mark path {
+            stroke-dashoffset: 0;
+        }
+
+        .slider-label {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+            padding: 0;
+            font-size: 14px;
+            font-weight: 500;
+            color: #b3b3b3;
+            transition: color 0.25s ease, font-weight 0.25s ease;
+        }
+
+        .slider-label--active {
+            font-weight: 700;
+        }
+
+        .slider-label--lab.slider-label--active {
+            color: #27500a;
+        }
+
+        .slider-label--work.slider-label--active {
+            color: #854f0b;
+        }
+
+        .slider-track {
+            position: relative;
+            width: 120px;
+            height: 2px;
+            background: #ccc;
+            cursor: pointer;
+        }
+
+        .slider-dot {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #1a1a1a;
+            box-shadow: 0 0 0 4px #fff;
+            transform: translate(0, -50%);
+            transition: left 0.25s ease, background 0.25s ease;
+        }
+
+        .slider-track.is-work .slider-dot {
+            left: calc(100% - 16px);
+            background: #c49254;
+        }
+
+        .slider-track:not(.is-work) .slider-dot {
+            background: #27500a;
+        }
+
+        .slider-track:focus-visible {
+            outline: 2px solid #333;
+            outline-offset: 6px;
+        }
+
+        /* Panels */
+        .mode-panels {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            padding: 0 8px 20px;
+        }
+
+        .mode-panel {
+            position: relative;
+            overflow: hidden;
+            display: block;
+            text-decoration: none;
+            border-radius: 3px;
+            padding: 1.6rem 1.4rem;
+            text-align: left;
+            transition: background 0.35s ease, color 0.35s ease, opacity 0.35s ease, box-shadow 0.35s ease;
+        }
+
+        .mode-panel--lab {
+            background: #eaf3de;
+            color: #27500a;
+            transform: rotate(-1.8deg);
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+        }
+
+        .mode-panel--work {
+            background: #faeeda;
+            color: #854f0b;
+            transform: rotate(1.6deg);
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.07);
+        }
+
+        .mode-panel:not(.is-active) {
+            background: #fafafa;
+            color: #4a4a4a;
+            opacity: 0.55;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .tape {
+            position: absolute;
+            top: -8px;
+            width: 34px;
+            height: 14px;
+            border-radius: 1px;
+        }
+
+        .tape--lab {
+            left: 16px;
+            background: rgba(255, 255, 255, 0.35);
+            transform: rotate(-4deg);
+        }
+
+        .tape--work {
+            right: 20px;
+            background: rgba(0, 0, 0, 0.06);
+            transform: rotate(3deg);
+        }
+
+        .mode-panel:not(.is-active) .tape {
+            background: rgba(0, 0, 0, 0.04);
+        }
+
+        .mode-kicker {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 700;
+            opacity: 0.65;
+            margin: 0 0 10px;
+        }
+
+        .mode-title-line {
+            font-size: 19px;
+            font-weight: 800;
+            line-height: 1.25;
+            margin: 0 0 2px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .underline {
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 100%;
+            height: 8px;
+        }
+
+        .underline path {
+            stroke-width: 2.5;
+            opacity: 0.55;
+        }
+
+        .underline--lab path {
+            stroke: #27500a;
+        }
+
+        .underline--lab work {
+            stroke: #854f0b;
+        }
+
+        .mode-line {
+            font-size: 13px;
+            line-height: 1.6;
+            opacity: 0.85;
+            margin: 16px 0 12px;
+        }
+
+        .mode-link {
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        /* Flashlight sweep */
+        .flash {
+            position: absolute;
+            top: 0;
+            left: -60%;
+            width: 60%;
+            height: 100%;
+            background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.85), transparent);
+            pointer-events: none;
+        }
+
+        .mode-panel.is-flashing .flash {
+            animation: sweep 0.6s ease-out;
+        }
+
+        @keyframes sweep {
+            from {
+                left: -60%;
+            }
+
+            to {
+                left: 130%;
+            }
+        }
+
+        .craft-constants {
+            text-align: center;
+            font-size: 14px;
+            color: #888;
+            line-height: 2;
+            margin: 2.5rem 0 0;
+        }
+
+        .craft-constants span {
+            color: #ccc;
+            margin: 0 10px;
+        }
+
+        @media (max-width: 600px) {
+            .mode-panels {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .mode-panel--lab,
+            .mode-panel--work {
+                transform: none;
+            }
+        }
+
+        .click-hint {
+            font-size: 11px;
+            color: #000;
+            margin: -14px 0 1rem;
+            transition: opacity 0.3s ease;
+        }
+
+        .click-hint.is-hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+    </style>
 </head>
 
 <body>
@@ -22,9 +353,9 @@
         <a href="/" class="logo">
             <img src="assets/img/kimcodes-gummy-twist.webp" alt="kimcodes">
         </a>
-        
+
         <nav>
-            <ul> 
+            <ul>
                 <li><a href="/constants.html">Constants</a></li>
                 <li><a href="/craft.html">Craft</a></li>
                 <li><a href="/reflections.html">Reflections</a></li>
@@ -35,163 +366,79 @@
 
     </header>
 
-      <main>
+    <main>
+        <section class="craft-toggle-page">
+            <p class="craft-eyebrow">craft</p>
+            <h1 class="craft-title">The two sides of my work.</h1>
+            <p class="craft-subtitle">
+                One side is where I get curious and experiment, by building demos and exploring concepts.
+                The other is where I document what made it out into the world and reflect on what shipped, stuck, and
+                made an impact.
+                <br><br>Click on a side to explore the work that lives there.
+            </p>
 
-        <section class="craft-header">
-
-            <h1>Building Better Experiences</h1>
-        
-        </section>
-    
-        <section class="craft">
-    
-            <!-- Left Column -->
-            <div class="craft-work">
-                
-            <h2>Idea Lab</h2>
-                <p class="section-intro">
-                    Experiments and ideas I'm exploring.
-                </p>
-            
-                <article class="project">
-                    <h3>Using Grogu to Understand Vector Search</h3>     
-                    <p>
-                        An interactive guide to understanding how vector search works.
-                    <a href="/studio.html" class="project-text-link">
-                        Explore the Idea Lab <span>→</span>
-                    </a>
-            
-                </article>
-    
-                <h2>Behind the Work</h2>
-
-                        <p class="section-intro">
-                            Every project has a story. These are a few of the ones that stayed with me.
-                        </p>
-
-                      <div class="project-timeline">
-                        <!-- Article Description = Question → Insight → Outcome -->
-                        
-                        <article class="project">
-            
-                            <h3>Making a Complex Product Memorable</h3>
-            
-                            <p>
-                               How do you create product advocates when everyone's attention is already stretched thin?
-                               The magic is cominbing technical education with storytelling and community to cut through the noise. 
-                               Make a complex database product approachable, memorable, and a little more fun to learn.
-                            </p>
-            
-                            <a href="/intothecosmos.html" class="project-text-link">
-                                Go behind the scenes <span>→</span>
-                            </a>
-            
-                        </article>
-        
-                        
-                        <article class="project">
-            
-                            <h3>Bringing a Virtual Tour to Life</h3>
-            
-                            <p>
-                                How do you stay connected when the world goes digital overnight?
-                                Anyone can host an event online. The real challenge is recreating the connection and energy of an in-person meetup.
-                                Something people are genuiely excited to attend. 
-                            </p>
-            
-                            <a href="/virtual-tour.html" class="project-text-link">
-                                Go behind the scenes <span>→</span>
-                            </a>
-        
-            
-                        </article>
-        
-                        <article class="project">
-            
-                            <h3>Celebrating the People Behind the Code</h3>
-            
-                            <p>
-                                How do you recognize the people quietly making everyone around them better? 
-                                DevHeroes started as an experiment in celebrating developers. 
-                                Not just for what they built, but for how they helped others succeed.
-                            </p>
-            
-                            <a href="/devheroes.html" class="project-text-link">
-                                Go behind the scenes <span>→</span>
-                            </a>
-            
-                        </article>
-                </div> <!-- end of projects timeline  --> 
-    
-                <div class="more-stories">
-    
-                    <h3>More Stories</h3>
-    
-                    <p>
-                        I'm slowly documenting more projects as I find the time.
-                        Check back soon.
-                    </p>
-
-                    <p>
-                         <a href="/reflections.html" class="text-link"> Explore what I've learned <span>→</span> </a>
-                    </p>
-    
-                </div>
-    
+            <div class="mode-switcher">
+                <button type="button" class="switch-word switch-word--lab" data-mode="lab">
+                    lab
+                    <svg class="circle-mark circle-mark--lab" viewBox="0 0 70 40" preserveAspectRatio="none">
+                        <path d="M8,20 C6,8 20,3 35,3 C52,3 64,8 62,20 C64,33 50,37 35,37 C18,37 6,32 8,20 Z"
+                            fill="none" stroke-linecap="round" />
+                    </svg>
+                </button>
+                <button type="button" class="switch-word switch-word--work" data-mode="work">
+                    work
+                    <svg class="circle-mark circle-mark--work" viewBox="0 0 90 40" preserveAspectRatio="none">
+                        <path d="M8,20 C6,8 25,3 45,3 C67,3 84,8 82,20 C84,33 65,37 45,37 C23,37 6,32 8,20 Z"
+                            fill="none" stroke-linecap="round" />
+                    </svg>
+                </button>
             </div>
-    
-    
-            <!-- Right Column -->
-    
-            <aside class="craft-sidebar">
-    
-                <h2>A Few Things I Keep Coming Back To</h2>
-    
-                <div class="principle">
-    
-                    <h3>Communities create opportunities.</h3>
-    
-                    <p>
-                        Some of the best moments in my career started with a conversation.
-                    </p>
-    
-                </div>
-    
-                <div class="principle">
-    
-                    <h3>Curiosity compounds.</h3>
-    
-                    <p>
-                        The more I learn, the more interesting problems I get to solve.
-                    </p>
-    
-                </div>
-    
-                <div class="principle">
-    
-                    <h3>Complexity deserves clarity.</h3>
-    
-                    <p>
-                        The best explanations don't make ideas smaller. They make them easier to understand.
-                    </p>
 
-                    <!-- The best work leaves people better equipped.
-                    Whether it's a product, a talk, or a conversation, I hope people leave with something they can use.-->
-    
-                </div>
-    
-            </aside>
-    
+            <p class="click-hint" id="click-hint"><strong>click a word &uarr;</strong></p>
+
+            <div class="mode-panels">
+                <a href="lab.html" class="mode-panel mode-panel--lab">
+                    <div class="flash"></div>
+                    <span class="tape tape--lab"></span>
+                    <p class="mode-kicker">idea lab</p>
+                    <p class="mode-title-line">
+                        Things I'm curious about.
+                        <svg class="underline underline--lab" viewBox="0 0 190 8" preserveAspectRatio="none">
+                            <path d="M2,5 Q35,1 70,5 T140,4 T188,5" fill="none" stroke-linecap="round" />
+                        </svg>
+                    </p>
+                    <p class="mode-line">Experiments and demos I build to understand things — and make it easier for
+                        someone else to understand too.</p>
+                    <span class="mode-link">enter the lab &rarr;</span>
+                </a>
+
+                <a href="stories.html" class="mode-panel mode-panel--work">
+                    <div class="flash"></div>
+                    <span class="tape tape--work"></span>
+                    <p class="mode-kicker">behind the work</p>
+                    <p class="mode-title-line">Things worth documenting.</p>
+                    <svg class="underline underline--work" viewBox="0 0 190 8" preserveAspectRatio="none">
+                            <path d="M2,5 Q35,1 70,5 T140,4 T188,5" fill="none" stroke-linecap="round" />
+                        </svg>
+                    <p class="mode-line">Projects I've built in the real world — the thinking, the choices, and what
+                        happened next.</p>
+                    <span class="mode-link">go behind the scenes &rarr;</span>
+                </a>
+            </div>
+
         </section>
-    
+
     </main>
 
-  
+
     <footer>
 
         <p>&copy; 2026 Kim Codes</p>
 
     </footer>
 
+    <script src="assets/js/craft.js"></script>
+
 </body>
+
 </html>

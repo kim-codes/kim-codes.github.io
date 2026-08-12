@@ -291,11 +291,11 @@
   /* projects timeline */
     .project-timeline{
         position:relative;
-        padding-left:3rem;
+        padding-left:1rem;
     }
 
     
-    .project-timeline::before{
+    /*.project-timeline::before{
         content:"";
         position:absolute;
         left:12px;
@@ -303,14 +303,14 @@
         bottom:0;
         width:1px;
         background:#e8e8e8;
-    }
+    }*/
 
     .project-timeline .project{
         position:relative;
         border-left:none;
         padding-left:2rem;
     }
-
+/*
     .project-timeline .project::before{
       content:"";
       position:absolute;
@@ -323,7 +323,7 @@
       background:white;
       border:3px solid #bbb;
       border-radius:50%;
-    }
+    }*/
   
   /* Right on Craft page  */
   .craft-sidebar {

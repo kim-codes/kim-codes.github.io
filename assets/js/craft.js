@@ -3,10 +3,12 @@ const workWord = document.querySelector('.switch-word--work');
 const labPanel = document.querySelector('.mode-panel--lab');
 const workPanel = document.querySelector('.mode-panel--work');
 const clickHint = document.getElementById('click-hint');
+const STORAGE_KEY = 'craftMode';
 
-function setMode(isWork) {
+function setMode(isWork, skipSave) {
   const activePanel = isWork ? workPanel : labPanel;
   const inactivePanel = isWork ? labPanel : workPanel;
+
 
   inactivePanel.classList.remove('is-active');
   activePanel.classList.add('is-active');
@@ -22,7 +24,32 @@ function setMode(isWork) {
   activePanel.classList.remove('is-flashing');
   void activePanel.offsetWidth;
   activePanel.classList.add('is-flashing');
+
+  if (!skipSave) {
+    try {
+      localStorage.setItem(STORAGE_KEY, isWork ? 'work' : 'lab');
+    } catch (e) {
+      // localStorage might be unavailable (private browsing, etc) — fail silently
+    }
+  }
 }
 
 labWord.addEventListener('click', () => setMode(false));
 workWord.addEventListener('click', () => setMode(true));
+
+labWord.addEventListener('click', () => setMode(false));
+workWord.addEventListener('click', () => setMode(true));
+
+// On page load, check for a saved mode and restore it without re-triggering the flash/save
+let savedMode = null;
+try {
+  savedMode = localStorage.getItem(STORAGE_KEY);
+} catch (e) {
+  // ignore
+}
+
+if (savedMode === 'work') {
+  setMode(true, true);
+} else {
+  clickHint.classList.remove('is-hidden');
+}

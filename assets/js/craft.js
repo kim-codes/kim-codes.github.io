@@ -2,6 +2,8 @@ const labWord = document.querySelector('.switch-word--lab');
 const workWord = document.querySelector('.switch-word--work');
 const labPanel = document.querySelector('.mode-panel--lab');
 const workPanel = document.querySelector('.mode-panel--work');
+const labLink = document.querySelector('.mode-panel--lab');
+const workLink = document.querySelector('.mode-panel--work');
 const clickHint = document.getElementById('click-hint');
 const STORAGE_KEY = 'craftMode';
 
@@ -15,6 +17,8 @@ function setMode(isWork, skipSave) {
 
   labWord.classList.toggle('switch-word--active', !isWork);
   workWord.classList.toggle('switch-word--active', isWork);
+
+  updateStickyLinks(isWork);
 
   labWord.style.color = isWork ? '#b3b3b3' : '#000';
   workWord.style.color = isWork ? '#000' : '#b3b3b3';
@@ -52,4 +56,15 @@ if (savedMode === 'work') {
   setMode(false, true);
 } else {
   clickHint.classList.remove('is-hidden');
+}
+
+// disable or enable the links based on the current mode
+function updateStickyLinks(isWork) {
+    if (isWork) {
+        labLink.removeAttribute('href');
+        workLink.setAttribute('href', '/stories.html');
+    } else {
+        labLink.setAttribute('href', '/studio.html');
+        workLink.removeAttribute('href');
+    }
 }

@@ -37,11 +37,9 @@ function setMode(isWork, skipSave) {
 labWord.addEventListener('click', () => setMode(false));
 workWord.addEventListener('click', () => setMode(true));
 
-labWord.addEventListener('click', () => setMode(false));
-workWord.addEventListener('click', () => setMode(true));
-
-// On page load, check for a saved mode and restore it without re-triggering the flash/save
+// On page load, restore the saved mode
 let savedMode = null;
+
 try {
   savedMode = localStorage.getItem(STORAGE_KEY);
 } catch (e) {
@@ -50,6 +48,8 @@ try {
 
 if (savedMode === 'work') {
   setMode(true, true);
+} else if (savedMode === 'lab') {
+  setMode(false, true);
 } else {
   clickHint.classList.remove('is-hidden');
 }

@@ -322,7 +322,9 @@
 
         @media (max-width: 600px) {
             .mode-panels {
-                grid-template-columns: 1fr;
+                display: flex;
+                flex-direction: column;
+               /* grid-template-columns: 1fr; removed so can restack based on what user clicks*/
                 gap: 24px;
             }
 
@@ -330,7 +332,17 @@
             .mode-panel--work {
                 transform: none;
             }
+
+            .mode-panel {
+                order: 1;
+            }
+
+            .mode-panel.is-active {
+                order: 0;
+            }
         }
+
+ 
 
         .click-hint {
             font-size: 11px;

@@ -31,7 +31,7 @@ function setMode(isWork, skipSave) {
 
   if (!skipSave) {
     try {
-      localStorage.setItem(STORAGE_KEY, isWork ? 'work' : 'lab');
+      sessionStorage.setItem(STORAGE_KEY, isWork ? 'work' : 'lab');
     } catch (e) {
       // localStorage might be unavailable (private browsing, etc) — fail silently
     }
@@ -45,7 +45,7 @@ workWord.addEventListener('click', () => setMode(true));
 let savedMode = null;
 
 try {
-  savedMode = localStorage.getItem(STORAGE_KEY);
+  savedMode = sessionStorage.getItem(STORAGE_KEY);
 } catch (e) {
   // ignore
 }

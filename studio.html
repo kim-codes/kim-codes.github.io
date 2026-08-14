@@ -203,6 +203,20 @@
             opacity: 0.7;
         }
 
+        .additional-beacon.beacon-hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .additional-beacon.beacon-visible {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .additional-beacon {
+            transition: opacity 0.3s ease;
+        }
+
         .imperial {
             fill: #E6676B;
             stroke: white;
@@ -222,7 +236,7 @@
             stroke-width: 2;
         }
 
-         .c3p0-beacon {
+        .c3p0-beacon {
             fill: none;
             stroke: #D4Af37;
             stroke-width: 2;
@@ -235,7 +249,7 @@
             stroke-width: 2;
         }
 
-         .mandalore-beacon {
+        .mandalore-beacon {
             fill: none;
             stroke: #8A9BA8;
             stroke-width: 2;
@@ -643,19 +657,25 @@
                             <text x="350" y="275" class="beacon-label" text-anchor="middle">Query Beacon</text>
 
                             <!-- Imperial Query Beacon Location -->
-                            <circle cx="425" cy="505" r="10" class="imperial" />
-                            <circle id="imperial-beacon" cx="425" cy="505" r="18" class="imperial-beacon" />
-                            <text x="425" y="470" class="beacon-label" text-anchor="middle">Query Beacon</text>
+                            <g class="additional-beacon beacon-hidden">
+                                <circle cx="425" cy="505" r="10" class="imperial" />
+                                <circle id="imperial-beacon" cx="425" cy="505" r="18" class="imperial-beacon" />
+                                <text x="425" y="470" class="beacon-label" text-anchor="middle">Query Beacon</text>
+                            </g>
 
                             <!-- C3P0 Query Beacon Location -->
-                            <circle cx="643" cy="340" r="10" class="c3p0" />
-                            <circle id="c3p0-beacon" cx="643" cy="340" r="18" class="c3p0-beacon" />
-                            <text x="643" y="305" class="beacon-label" text-anchor="middle">Query Beacon</text>
-
+                            <g class="additional-beacon beacon-hidden">
+                                <circle cx="643" cy="340" r="10" class="c3p0" />
+                                <circle id="c3p0-beacon" cx="643" cy="340" r="18" class="c3p0-beacon beacon-hidden" />
+                                <text x="643" y="305" class="beacon-label" text-anchor="middle">Query Beacon</text>
+                            </g>
                             <!-- Mandalore Query Beacon Location -->
-                            <circle cx="216" cy="125" r="10" class="mandalore" />
-                            <circle id="mandalore-beacon" cx="216" cy="125" r="18" class="mandalore-beacon" />
-                            <text x="216" y="90" class="beacon-label" text-anchor="middle">Query Beacon</text>
+                            <g class="additional-beacon beacon-hidden">
+                                <circle cx="216" cy="125" r="10" class="mandalore" />
+                                <circle id="mandalore-beacon" cx="216" cy="125" r="18"
+                                    class="mandalore-beacon beacon-hidden" />
+                                <text x="216" y="90" class="beacon-label" text-anchor="middle">Query Beacon</text>
+                            </g>
 
                             <!-- Exploration Beacon (Draggable) -->
                             <circle id="search-beacon" cx="760" cy="120" r="13" class="search-beacon" />

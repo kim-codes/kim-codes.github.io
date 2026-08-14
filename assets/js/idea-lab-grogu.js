@@ -63,43 +63,49 @@ svg.addEventListener("pointermove", (event) => {
         svg.getScreenCTM().inverse()
     );
 
-   // Move exploration beacon, but also keep inside bounds 
-   const boundedX = Math.max(
-       beaconRadius,
-       Math.min(svgWidth - beaconRadius, svgPoint.x)
-   );
-   
-   const boundedY = Math.max(
-       beaconRadius,
-       Math.min(svgHeight - beaconRadius, svgPoint.y)
-   );
-   
-   beacon.setAttribute("cx", boundedX);
-   beacon.setAttribute("cy", boundedY);
+    // Move exploration beacon, but also keep inside bounds 
+    const boundedX = Math.max(
+        beaconRadius,
+        Math.min(svgWidth - beaconRadius, svgPoint.x)
+    );
 
-   if (!hasMovedBeacon) {
-       document.getElementById("drag-hint").style.opacity = "0";
-       document.getElementById("search-beacon-text").style.display = "none";
+    const boundedY = Math.max(
+        beaconRadius,
+        Math.min(svgHeight - beaconRadius, svgPoint.y)
+    );
 
-      /* remove the initial 3 twinklikng */
-      document.querySelectorAll(".initial-nearest").forEach((node) => {
-          node.classList.remove("initial-nearest");
-      });
-   
-       hasMovedBeacon = true;
-   }
-      
-      // Update displayed coordinates
-      updateExploreCoordinates();
-      // Update Query text accordingly 
-      updateActiveBeaconQuery();
+    beacon.setAttribute("cx", boundedX);
+    beacon.setAttribute("cy", boundedY);
 
-   if (!embeddingGenerated) {
-       updateEmbeddingStatus();
-       embeddingGenerated = true;
-   }
+    if (!hasMovedBeacon) {
+        document.getElementById("drag-hint").style.opacity = "0";
+        document.getElementById("search-beacon-text").style.display = "none";
 
-   // Search logic
+        /* remove the initial 3 twinklikng */
+        document.querySelectorAll(".initial-nearest").forEach((node) => {
+            node.classList.remove("initial-nearest");
+        });
+
+        hasMovedBeacon = true;
+    }
+
+    // unhide additional beacons 
+    document.querySelectorAll('.additional-beacon').forEach(beacon => {
+        beacon.classList.remove('beacon-hidden');
+        beacon.classList.add('beacon-visible');
+    });
+
+    // Update displayed coordinates
+    updateExploreCoordinates();
+    // Update Query text accordingly 
+    updateActiveBeaconQuery();
+
+    if (!embeddingGenerated) {
+        updateEmbeddingStatus();
+        embeddingGenerated = true;
+    }
+
+    // Search logic
     const distances = updateDistances();
 
     const nearest = findNearestNeighbors(distances);
@@ -110,8 +116,8 @@ svg.addEventListener("pointermove", (event) => {
     // Update text
     updateStatusCard(nearest);
 
-   // Easter Egg
-   checkEasterEgg(nearest);
+    // Easter Egg
+    checkEasterEgg(nearest);
 });
 
 
@@ -124,30 +130,30 @@ function moveBeacon() {
 }
 
 function updateDistances(activeBeacon = beacon) {
-      const distances = [];
-      // convert SVG coordinate strings into numbers for calculations
-      const beaconX = Number(activeBeacon.getAttribute("cx"));
-      const beaconY = Number(activeBeacon.getAttribute("cy"));
-   
-      nodes.forEach((node) => {
-   
-       const nodeX = Number(node.getAttribute("cx"));
-       const nodeY = Number(node.getAttribute("cy"));
-   
-       const dx = beaconX - nodeX;
-       const dy = beaconY - nodeY;
-   
-       const distance = Math.sqrt(dx * dx + dy * dy);
-   
-       distances.push({
-          name: node.dataset.name,
-          distance: Math.round(distance),
-          element: node
-      });
-   
-   }); // for each node 
+    const distances = [];
+    // convert SVG coordinate strings into numbers for calculations
+    const beaconX = Number(activeBeacon.getAttribute("cx"));
+    const beaconY = Number(activeBeacon.getAttribute("cy"));
 
-   return distances;
+    nodes.forEach((node) => {
+
+        const nodeX = Number(node.getAttribute("cx"));
+        const nodeY = Number(node.getAttribute("cy"));
+
+        const dx = beaconX - nodeX;
+        const dy = beaconY - nodeY;
+
+        const distance = Math.sqrt(dx * dx + dy * dy);
+
+        distances.push({
+            name: node.dataset.name,
+            distance: Math.round(distance),
+            element: node
+        });
+
+    }); // for each node 
+
+    return distances;
 
 }
 
@@ -162,15 +168,15 @@ function findNearestNeighbors(distances) {
 }
 
 function highlightNeighbors(nearest) {
-   // Remove previous top 3
-   nodes.forEach((node) => {
-       node.classList.remove("nearest");
-   });
-   
-   // Highlight nearest neighbors (3)
-   nearest.forEach((match) => {
-       match.element.classList.add("nearest");
-   });
+    // Remove previous top 3
+    nodes.forEach((node) => {
+        node.classList.remove("nearest");
+    });
+
+    // Highlight nearest neighbors (3)
+    nearest.forEach((match) => {
+        match.element.classList.add("nearest");
+    });
 }
 
 // Update the Status Card 
@@ -182,7 +188,7 @@ function updateStatusCard(nearest) {
 
     neighborsStatus.innerHTML = nearest
         .map((match) => {
-            
+
             if (warnings.includes(match.name)) {
                 return `${match.name} ⚠️`;
             }

@@ -58,6 +58,17 @@
             margin-bottom: 1rem;
         }
 
+        .lab-choice {
+            text-align: center;
+            margin: 3rem;
+        }
+
+        .lab-choice p {
+            font-size: 15px;
+            color: #6B6F76;
+            margin-bottom: 16px
+        }
+
         .dashboard-frame {
             border: 1px solid #DEDCD3;
             border-radius: 12px;
@@ -103,6 +114,54 @@
         .critical {
             background: #B23A2E;
         }
+
+        /* Style the Buttons */
+        .btn {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            padding: 11px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            border: 1px solid #DEDCD3;
+            background: #fff;
+            color: #1B1D22;
+        }
+
+        .btn:hover {
+            border-color: #7A5CC4;
+        }
+
+        .btn-primary {
+            background: #7A5CC4;
+            color: #fff;
+            border-color: #7A5CC4;
+        }
+
+        .btn-primary:hover {
+            opacity: .9
+        }
+
+        .btn-primary:disabled {
+            opacity: .4;
+            cursor: not-allowed
+        }
+
+        .choice-row {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        #data-cleanup,
+        #dashboard-view {
+            display: none;
+            margin-top: 2rem;
+            padding: 24px;
+            border: 1px solid #DEDCD3;
+            border-radius: 12px;
+        }
     </style>
 
 </head>
@@ -137,10 +196,34 @@
             </svg>
 
             <p class="intro">
-                I wanted to see what happens when AI becomes part of the PM's
+                <!-- I wanted to see what happens when AI becomes part of the PM's
                 toolkit, not just the thing being managed. This is a small prototype for checking a program's
-                health. Turning messy updates into something that can be acted on.
+                health. Turning messy updates into something that can be acted on.-->
+
+                Program updates have a way of multiplying. A milestone here, a risk there, a dozen status updates in
+                between... Eventually everything is scattered and that's when leadership wants an update ASAP.<br><br>
+
+                I built Program Pulse to explore two things: how I would bring those signals together to tell the full
+                story of a program, and how AI could become part of my toolkit along the way.
             </p>
+
+            <div class="lab-choice">
+                <h2>Start Here</h2>
+                <!--<p>Want to see the mess get cleaned up
+                    first, or jump straight to the dashboard?</p>-->
+                <div class="choice-row">
+                    <button class="btn btn-primary" id="btn-walkthrough">Walk me through the mess</button>
+                    <button class="btn" id="btn-skip">Skip to the dashboard</button>
+                </div>
+            </div>
+
+            <div id="data-cleanup">
+                <p>Clean flow goes here</p>
+            </div>
+
+            <div id="dashboard-view">
+                <p>dashboard</p>
+            </div>
 
             <section id="dashboard">
                 <h2>The dashboard</h2>
@@ -173,6 +256,9 @@
             <p>&copy; 2026 Kim Codes</p>
 
         </footer>
+
+        <!-- link javascript file -->
+        <script src="assets/js/dashboard.js"></script>
 </body>
 
 </html>

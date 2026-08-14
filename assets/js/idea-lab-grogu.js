@@ -267,9 +267,14 @@ function updateActiveBeaconQuery() {
     const c3p0X = Number(document.getElementById("c3p0-beacon").getAttribute("cx"));
     const c3p0Y = Number(document.getElementById("c3p0-beacon").getAttribute("cy"));
 
+    // the mandalore's query beacon 
+    const mandaloreX = Number(document.getElementById("mandalore-beacon").getAttribute("cx"));
+    const mandaloreY = Number(document.getElementById("mandalore-beacon").getAttribute("cy"));
+
     const groguDistance = Math.hypot(lensX - groguX, lensY - groguY);
     const imperialDistance = Math.hypot(lensX - imperialX, lensY - imperialY);
     const c3p0Distance = Math.hypot(lensX - c3p0X, lensY - c3p0Y);
+    const mandaloreDistance = Math.hypot(lensX - mandaloreX, lensY - mandaloreY);
 
     if (groguDistance < 40) {
         queryText.textContent = '"Who would help Grogu on his journey?"';
@@ -277,6 +282,8 @@ function updateActiveBeaconQuery() {
         queryText.textContent = '"Who would help the Empire rule the galaxy?"';
     } else if (c3p0Distance < 40) {
         queryText.textContent = '"Who has tinkered with C-3PO?"';
+    } else if (mandaloreDistance < 40) {
+        queryText.textContent = '"Who would fight to reclaim Mandalore?';
     } else {
         queryText.textContent = "";
     }

@@ -65,6 +65,12 @@ document.getElementById('btn-skip').addEventListener('click', function () {
     document.getElementById('dashboard-view').scrollIntoView({ behavior: 'smooth', block: 'start' });
 });
 
+document.getElementById('btn-view-dashboard').addEventListener('click', function () {
+    document.getElementById('data-cleanup').style.display = 'none';
+    document.getElementById('dashboard-view').style.display = 'block';
+    document.getElementById('dashboard-view').scrollIntoView({ behavior: 'smooth', block: 'start' });
+});
+
 // load the sample data file
 sampleDataBtn.addEventListener('click', function () {
 
@@ -147,6 +153,7 @@ function handleFileDropped() {
             document.getElementById('json-heading').style.display = 'block';
             document.getElementById('json-box').style.display = 'block';
             renderJSON(cleaned);
+            document.getElementById('btn-view-dashboard').style.display = 'inline-block';
         }, logAnimationTime);
     }, 1000);
 }

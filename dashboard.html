@@ -404,7 +404,6 @@
             white-space: nowrap;
         }
 
-    
         .dash-table th {
             font-family: 'IBM Plex Mono', monospace;
             font-size: 11px;
@@ -454,6 +453,33 @@
         .gap-ok {
             color: var(--muted);
             font-size: 13px;
+        }
+
+        @media(max-width: 600px) {
+            .dash-metrics {
+                flex-wrap: wrap;
+                gap: 24px;
+            }
+
+            .metric-hero {
+                font-size: 40px;
+            }
+
+            .metric-secondary {
+                font-size: 24px;
+            }
+
+            .dash-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 4px;
+            }
+
+            .dash-table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
         }
     </style>
 

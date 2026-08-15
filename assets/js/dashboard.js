@@ -1,6 +1,7 @@
 // ---------- constants ----------
 const card = document.getElementById('sample-data-file-card');
 const sampleDataBtn = document.getElementById('btn-load-sample');
+let cleanedData = null;
 
 /* ----------------------
      Data Definitions 
@@ -69,6 +70,9 @@ document.getElementById('btn-view-dashboard').addEventListener('click', function
     document.getElementById('data-cleanup').style.display = 'none';
     document.getElementById('dashboard-view').style.display = 'block';
     document.getElementById('dashboard-view').scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    const data = computeDashboard(cleanedData);
+    renderDashboard(data);
 });
 
 // load the sample data file
@@ -137,7 +141,8 @@ function handleFileDropped() {
 
     // parse the CSV data, set the data so you can start to 'clean' it
     const rows = parseCSV(RAW_CSV);
-    const cleaned = cleanRows(rows);
+    //const cleaned = cleanRows(rows);
+    cleanedData = cleanRows(rows);
 
     // set a timeout so the user has time to digest the UI updates
     // first load the raw data then pause then load cleanup logs
@@ -152,7 +157,7 @@ function handleFileDropped() {
         setTimeout(function () {
             document.getElementById('json-heading').style.display = 'block';
             document.getElementById('json-box').style.display = 'block';
-            renderJSON(cleaned);
+            renderJSON(cleanedData);
             document.getElementById('btn-view-dashboard').style.display = 'inline-block';
         }, logAnimationTime);
     }, 1000);
@@ -315,3 +320,45 @@ function renderJSON(cleaned) {
 
     document.getElementById('json-box').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
+
+/*--------------------------------------------------
+        All functions below support handling   
+        creating the dashboard 
+ ------------------------------------------------ */
+function computeDashboard(rows) {
+  const total = rows.length;
+  const totalValue = rows.reduce(function(sum, r) { return sum + r.value; }, 0);
+  const riskValue = rows
+    .filter(function(r) { return r.outcome === "Blocked" || r.outcome === "Needs Attention"; })
+    .reduce(function(sum, r) { return sum + r.value; }, 0);
+
+  return { total, totalValue, riskValue };
+}
+
+function renderDashboard(data) {
+  const today = new Date();
+  const dateStr = String(today.getMonth()+1).padStart(2,'0') + '.' + String(today.getDate()).padStart(2,'0') + '.' + today.getFullYear();
+
+  document.getElementById('dashboard-content').innerHTML = `
+    <div style="display:flex;justify-content:space-between;align-items:baseline;padding-bottom:12px;border-bottom:1px solid var(--line);margin-bottom:32px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase">Program pulse</div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--muted)">As of ${dateStr}</div>
+    </div>
+
+    <div style="display:flex;gap:56px;margin-bottom:48px">
+      <div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:6px">Pipeline value</div>
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:64px;font-weight:700;line-height:1;color:var(--accent)">$${(data.totalValue/1e6).toFixed(2)}m</div>
+      </div>
+      <div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:6px">Nominations</div>
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:32px;font-weight:700">${data.total}</div>
+      </div>
+      <div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:6px">At risk</div>
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:32px;font-weight:700">$${Math.round(data.riskValue/1000)}k</div>
+      </div>
+    </div>
+  `;
+}
+

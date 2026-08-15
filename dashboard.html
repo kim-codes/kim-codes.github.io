@@ -184,6 +184,7 @@
             border: 1px solid #DEDCD3;
             border-radius: 12px;
             min-height: 360px;
+            text-align: left;
         }
 
         .drop-zone {
@@ -303,6 +304,21 @@
             overflow-y: auto;
             text-align: left;
         }
+
+        /*--------------------------------------
+         styling the dashboard below here 
+         --------------------------------------*/
+        @keyframes dashFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(8px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
     </style>
 
 </head>
@@ -379,9 +395,11 @@
 
             </div> <!-- end of data cleanup div -->
 
-            <div id="dashboard-view"">
+            <div id="dashboard-view">
                 <div id="dashboard-content"></div>
             </div>
+
+    
 
 
 

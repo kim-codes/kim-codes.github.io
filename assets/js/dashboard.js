@@ -326,13 +326,23 @@ function renderJSON(cleaned) {
         creating the dashboard 
  ------------------------------------------------ */
 function computeDashboard(rows) {
-  const total = rows.length;
-  const totalValue = rows.reduce(function(sum, r) { return sum + r.value; }, 0);
-  const riskValue = rows
-    .filter(function(r) { return r.outcome === "Blocked" || r.outcome === "Needs Attention"; })
-    .reduce(function(sum, r) { return sum + r.value; }, 0);
+    const total = rows.length;
+    const totalValue = rows.reduce(function (sum, r) { return sum + r.value; }, 0);
+    const riskValue = rows
+        .filter(function (r) { return r.outcome === "Blocked" || r.outcome === "Needs Attention"; })
+        .reduce(function (sum, r) { return sum + r.value; }, 0);
 
-  return { total, totalValue, riskValue };
+    const stages = ["Nominated", "In Review", "Under Deployment", "Live"];
+    const funnel = stages.map(function (stage, i) {
+        const reached = rows.filter(function (r) { return stages.indexOf(r.stage) >= i; });
+        return {
+            stage: stage,
+            count: reached.length,
+            value: reached.reduce(function (s, r) { return s + r.value; }, 0)
+        };
+    });
+
+    return { total, totalValue, riskValue, funnel };
 }
 
 function renderDashboard(data) {
@@ -340,25 +350,55 @@ function renderDashboard(data) {
   const dateStr = String(today.getMonth()+1).padStart(2,'0') + '.' + String(today.getDate()).padStart(2,'0') + '.' + today.getFullYear();
 
   document.getElementById('dashboard-content').innerHTML = `
-    <div style="display:flex;justify-content:space-between;align-items:baseline;padding-bottom:12px;border-bottom:1px solid var(--line);margin-bottom:32px">
-      <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase">Program pulse</div>
-      <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--muted)">As of ${dateStr}</div>
-    </div>
+    <div style="animation: dashFadeIn 0.5s ease forwards">
 
-    <div style="display:flex;gap:56px;margin-bottom:48px">
-      <div>
-        <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:6px">Pipeline value</div>
-        <div style="font-family:'Space Grotesk',sans-serif;font-size:64px;font-weight:700;line-height:1;color:var(--accent)">$${(data.totalValue/1e6).toFixed(2)}m</div>
+      <div style="display:flex;justify-content:space-between;align-items:baseline;padding-bottom:12px;border-bottom:1px solid var(--line);margin-bottom:32px">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase">Program pulse</div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--muted)">As of ${dateStr}</div>
       </div>
-      <div>
-        <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:6px">Nominations</div>
-        <div style="font-family:'Space Grotesk',sans-serif;font-size:32px;font-weight:700">${data.total}</div>
+
+      <div style="display:flex;gap:56px;margin-bottom:48px">
+        <div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:6px">Pipeline value</div>
+          <div style="font-family:'Space Grotesk',sans-serif;font-size:64px;font-weight:700;line-height:1;color:var(--accent)">$${(data.totalValue/1e6).toFixed(2)}m</div>
+        </div>
+        <div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:6px">Nominations</div>
+          <div style="font-family:'Space Grotesk',sans-serif;font-size:32px;font-weight:700">${data.total}</div>
+        </div>
+        <div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:6px">At risk</div>
+          <div style="font-family:'Space Grotesk',sans-serif;font-size:32px;font-weight:700">$${Math.round(data.riskValue/1000)}k</div>
+        </div>
       </div>
-      <div>
-        <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:6px">At risk</div>
-        <div style="font-family:'Space Grotesk',sans-serif;font-size:32px;font-weight:700">$${Math.round(data.riskValue/1000)}k</div>
-      </div>
+
+      ${renderFunnel(data.funnel)}
+
     </div>
   `;
+}
+
+function renderFunnel(funnel) {
+    const maxValue = funnel[0].value;
+    let rows = funnel.map(function (f) {
+        const barWidth = Math.round((f.value / maxValue) * 100);
+        return `
+      <tr>
+        <td style="padding:10px 0;font-size:14px">${f.stage}</td>
+        <td style="padding:10px 24px;font-size:14px;color:var(--muted)">${f.count}</td>
+        <td style="padding:10px 24px;font-size:14px">$${(f.value / 1e6).toFixed(2)}m</td>
+        <td style="padding:10px 0;width:200px">
+          <div style="height:2px;background:var(--accent);width:${barWidth}%"></div>
+        </td>
+      </tr>`;
+    }).join('');
+
+    return `
+    <div style="margin-bottom:48px">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:12px">Pipeline by stage</div>
+      <table style="width:100%;border-collapse:collapse">
+        ${rows}
+      </table>
+    </div>`;
 }
 

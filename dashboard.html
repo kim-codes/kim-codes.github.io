@@ -63,6 +63,12 @@
             margin: 3rem;
         }
 
+        .lab-choice h2 {
+            text-align: center;
+            margin-top: 3rem;
+            margin-bottom: 2rem;
+        }
+
         .lab-choice p {
             font-size: 15px;
             color: #6B6F76;
@@ -132,10 +138,15 @@
             border-color: #7A5CC4;
         }
 
-        .btn-primary {
+        .btn-primary,
+        #btn-load-sample {
             background: #7A5CC4;
             color: #fff;
-            border-color: #7A5CC4;
+            border-color: #DEDCD3;
+        }
+
+        #btn-load-sample{
+            margin:1rem;
         }
 
         .btn-primary:hover {
@@ -161,6 +172,49 @@
             padding: 24px;
             border: 1px solid #DEDCD3;
             border-radius: 12px;
+        }
+
+        .drop-zone {
+            border: 2px dashed #DEDCD3;
+            border-radius: 12px;
+            background: #fff;
+            padding: 40px 24px;
+            text-align: center;
+            color: #6B6F76;
+            font-size: 14px;
+            margin-top: 16px;
+            transition: border-color .15s, background .15s;
+        }
+
+        .drop-zone .dz-icon {
+            font-size: 28px;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .sample-data-file-card {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #fff;
+            border: 1px solid #DEDCD3;
+            border-radius: 8px;
+            padding: 10px 14px;
+            margin-top: 16px;
+            cursor: grab;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 13px;
+        }
+
+        .sample-data-file-card .fc-icon {
+            color: #7A5CC4;
+            font-size: 16px;
+        }
+
+        .sample-data-file-card .fc-hint {
+            color: #6B6F76;
+            font-size: 11px;
+            margin-left: 4px;
         }
     </style>
 
@@ -218,12 +272,20 @@
             </div>
 
             <div id="data-cleanup">
-                <p>Clean flow goes here</p>
+                <button class="btn" id="btn-load-sample">Load sample data</button>
+
+                <div class="drop-zone" id="drop-zone">
+                    <i class="dz-icon">&#8595;</i>
+                    <div>Drag the sample data file here to start the data cleanup</div>
+                </div>
             </div>
 
             <div id="dashboard-view">
                 <p>dashboard</p>
             </div>
+
+
+            <!--
 
             <section id="dashboard">
                 <h2>The dashboard</h2>
@@ -243,7 +305,7 @@
                 <p class="prose">
                     <span class="placeholder"></span>
                 </p>
-            </section>
+            </section> -->
 
 
             <a href="craft.html" class="text-link">

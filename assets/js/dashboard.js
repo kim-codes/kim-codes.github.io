@@ -1,5 +1,53 @@
+// ---------- constants ----------
 const card = document.getElementById('sample-data-file-card');
 const sampleDataBtn = document.getElementById('btn-load-sample');
+
+/* ----------------------
+     Data Definitions 
+---------------------- */
+const REGION_MAP = {
+    amer: "AMER",
+    emea: "EMEA",
+    apj: "APJ",
+    apac: "APJ"
+}
+
+const SEGMENT_MAP = {
+    enterprise: "Enterprise",
+    publicsector: "Public Sector",
+    pubsector: "Public Sector",
+    smb: "SMB"
+};
+
+const INDUSTRY_MAP = {
+    financialservices: "Financial Services",
+    healthcare: "Healthcare",
+    retail: "Retail",
+    manufacturing: "Manufacturing",
+    technology: "Technology"
+};
+
+const PRODUCT_MAP = {
+    platforma: "Platform A",
+    platformb: "Platform B",
+    platformc: "Platform C"
+};
+
+const STAGE_MAP = {
+    nominated: "Nominated",
+    inreview: "In Review",
+    underdeployment: "Under Deployment",
+    live: "Live"
+};
+
+const OUTCOME_MAP = {
+    ontrack: "On Track",
+    needsattention: "Needs Attention",
+    blocked: "Blocked",
+    live: "Live",
+    lost: "Lost"
+};
+
 
 // *--------------------------------- 
 //              EVENTS  
@@ -60,8 +108,169 @@ dz.addEventListener('drop', function (e) {
     handleFileDropped();
 });
 
+// handle the file dropping and adding the sample data to appear 
 function handleFileDropped() {
-  document.getElementById('drop-zone').style.display = 'none';
-  document.getElementById('btn-load-sample').style.display = 'none';
-  document.getElementById('cleanup-steps').style.display = 'block';
+    // hide all the elements and display to start the cleanup steps 
+    document.getElementById('drop-zone').style.display = 'none';
+    document.getElementById('btn-load-sample').style.display = 'none';
+    document.getElementById('sample-data-file-card').style.display = 'none';
+    document.getElementById('cleanup-steps').style.display = 'block';
+
+    // format the raw data for visuals 
+    const rawData = window.sampleData;
+    const lines = rawData.trim().split('\n');
+    document.getElementById('raw-preview').textContent = lines.slice(0, 8).join('\n');
+
+    // parse the CSV data, set the data so you can start to 'clean' it
+    const rows = parseCSV(RAW_CSV);
+
+    // where the cleanup logs get built and rendered to the UI
+    const log = buildCleanLog(rows);
+    renderCleanLog(log);
+}
+
+/*-------------------------------------------------------
+         All functions below support handling dropping  
+         the sample data file and cleaning it 
+ ------------------------------------------------------- */
+function parseCSV(text) {
+    const lines = text.trim().split('\n');
+    const headers = lines[0].split(',');
+
+    return lines.slice(1).map(function (line) {
+        const cells = line.split(',');
+        const row = {};
+        headers.forEach(function (header, i) {
+            row[header.trim()] = (cells[i] || '').trim();
+        });
+        return row;
+    });
+}
+
+// remove all spaces, hyphens, etc to focus so all the data matches plain lowercase 
+function cleanKey(raw) {
+    return raw.trim().toLowerCase().replace(/[^a-z]/g, '');
+}
+
+function normalize(raw, map) {
+    const key = cleanKey(raw);
+    return map[key] || raw.trim();
+}
+
+// make all the dates match
+function normalizeDate(raw) {
+    const s = raw.trim();
+
+    // format: 2026-06-07
+    let m = s.match(/^(\d{4})-(\d{1,2})-(\d{1,2})$/);
+    if (m) return new Date(m[1], m[2] - 1, m[3]);
+
+    // format: 6/6/2026 or 6/6/26
+    m = s.match(/^(\d{1,2})\/(\d{1,2})\/(\d{2,4})$/);
+    if (m) {
+        let year = parseInt(m[3], 10);
+        if (year < 100) year += 2000;
+        return new Date(year, m[1] - 1, m[2]);
+    }
+
+    // format: 13-May-2026
+    m = s.match(/^(\d{1,2})-([A-Za-z]{3,})-(\d{4})$/);
+    if (m) return new Date(`${m[2]} ${m[1]}, ${m[3]}`);
+
+    return null; // nothing matched
+} // end of normalizeData function  
+
+function toISO(date) {
+    if (!date) return null;
+    return date.toISOString().slice(0, 10);
+}
+
+// take messy data and return array of 'clean' objects 
+function cleanRows(rawRows) {
+    return rawRows.map(function (row) {
+        return {
+            id: row["Nomination ID"],
+            region: normalize(row["Region"], REGION_MAP),
+            segment: normalize(row["Segment"], SEGMENT_MAP),
+            industry: normalize(row["Industry"], INDUSTRY_MAP),
+            product: normalize(row["Product"], PRODUCT_MAP),
+            stage: normalize(row["Stage"], STAGE_MAP),
+            outcome: normalize(row["Outcome"], OUTCOME_MAP),
+            value: parseInt(row["Value"], 10) || 0,
+            owner: row["Owner"].trim() ? row["Owner"].trim() : "Unassigned",
+            dateNominated: toISO(normalizeDate(row["Date Nominated"])),
+            reason: row["Reason"].trim()
+        };
+    });
+} // end of cleanRows function 
+
+// create the cleaning logs that will be used to display in the UI 
+function buildCleanLog(rawRows) {
+    let counts = { region: 0, segment: 0, industry: 0, product: 0, stage: 0, outcome: 0, owner: 0, date: 0 };
+    let examples = {};
+
+    rawRows.forEach(function (row) {
+        const cleanRegion = normalize(row["Region"], REGION_MAP);
+        if (cleanRegion !== row["Region"].trim()) {
+            counts.region++;
+            if (!examples.region) examples.region = `"${row["Region"].trim()}" → "${cleanRegion}"`;
+        }
+        const cleanSegment = normalize(row["Segment"], SEGMENT_MAP);
+        if (cleanSegment !== row["Segment"].trim()) {
+            counts.segment++;
+            if (!examples.segment) examples.segment = `"${row["Segment"].trim()}" → "${cleanSegment}"`;
+        }
+        const cleanIndustry = normalize(row["Industry"], INDUSTRY_MAP);
+        if (cleanIndustry !== row["Industry"].trim()) {
+            counts.industry++;
+            if (!examples.industry) examples.industry = `"${row["Industry"].trim()}" → "${cleanIndustry}"`;
+        }
+        const cleanProduct = normalize(row["Product"], PRODUCT_MAP);
+        if (cleanProduct !== row["Product"].trim()) {
+            counts.product++;
+            if (!examples.product) examples.product = `"${row["Product"].trim()}" → "${cleanProduct}"`;
+        }
+        const cleanStage = normalize(row["Stage"], STAGE_MAP);
+        if (cleanStage !== row["Stage"].trim()) {
+            counts.stage++;
+            if (!examples.stage) examples.stage = `"${row["Stage"].trim()}" → "${cleanStage}"`;
+        }
+        const cleanOutcome = normalize(row["Outcome"], OUTCOME_MAP);
+        if (cleanOutcome !== row["Outcome"].trim()) {
+            counts.outcome++;
+            if (!examples.outcome) examples.outcome = `"${row["Outcome"].trim()}" → "${cleanOutcome}"`;
+        }
+        if (!row["Owner"].trim()) {
+            counts.owner++;
+            examples.owner = `→ "Unassigned"`;
+        }
+        if (!/^\d{4}-\d{2}-\d{2}$/.test(row["Date Nominated"].trim())) {
+            counts.date++;
+            if (!examples.date) examples.date = `"${row["Date Nominated"].trim()}" → "${toISO(normalizeDate(row["Date Nominated"]))}"`;
+        }
+    });
+
+    return [
+        { label: "Standardized region labels", count: counts.region, example: examples.region },
+        { label: "Fixed segment casing", count: counts.segment, example: examples.segment },
+        { label: "Normalized industry names", count: counts.industry, example: examples.industry },
+        { label: "Standardized product names", count: counts.product, example: examples.product },
+        { label: "Fixed stage casing", count: counts.stage, example: examples.stage },
+        { label: "Normalized outcome values", count: counts.outcome, example: examples.outcome },
+        { label: "Flagged missing owners", count: counts.owner, example: examples.owner },
+        { label: "Reformatted dates to ISO", count: counts.date, example: examples.date }
+    ].filter(function (item) { return item.count > 0; });
+}
+
+// update UI with the data cleaning steps 
+function renderCleanLog(log) {
+    const ul = document.getElementById('clean-log');
+    ul.innerHTML = '';
+    log.forEach(function (item, i) {
+        const li = document.createElement('li');
+        li.style.animationDelay = (i * 0.3) + 's';
+        li.innerHTML = '<span class="ok">&#10003;</span>' + item.label + ' — ' + item.count + ' rows' +
+            '<span class="example">(' + item.example + ')</span>';
+        ul.appendChild(li);
+    });
 }

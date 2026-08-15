@@ -226,6 +226,50 @@
         #cleanup-steps {
             display: none;
         }
+
+        .raw-preview {
+            background: #1B1D22;
+            color: #D9D8D3;
+            border-radius: 8px;
+            padding: 16px;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 12px;
+            line-height: 1.7;
+            white-space: pre;
+            overflow-x: auto;
+        }
+
+        .clean-log {
+            list-style: none;
+            margin: 16px 0;
+            padding: 0;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 13px;
+            text-align: left;
+        }
+
+        .clean-log li {
+            padding: 8px 0;
+            border-bottom: 1px solid #DEDCD3;
+            opacity: 0;
+            animation: fadein 0.4s forwards;
+        }
+
+        .clean-log li .ok {
+            color: #2F7D5B;
+            margin-right: 8px;
+        }
+
+        .clean-log li .example {
+            color: #6B6F76;
+            margin-left: 6px;
+        }
+
+        @keyframes fadein {
+            to {
+                opacity: 1;
+            }
+        }
     </style>
 
 </head>
@@ -288,11 +332,16 @@
                     <i class="dz-icon">&#8595;</i>
                     <div>Drag the sample data file here to start the data cleanup</div>
                 </div>
-            </div>
 
-            <div id="cleanup-steps">
-                <p>The cleanup steps go here</p>
-            </div>
+                <div id="cleanup-steps">
+                    <h3>Raw file</h3>
+                    <div class="raw-preview" id="raw-preview"></div>
+                </div>
+
+                <h3>Cleaning log</h3>
+                <ul class="clean-log" id="clean-log"></ul>
+
+            </div> <!-- end of data cleanup div -->
 
             <div id="dashboard-view">
                 <p>dashboard</p>
@@ -300,7 +349,6 @@
 
 
             <!--
-
             <section id="dashboard">
                 <h2>The dashboard</h2>
                 <div class="dashboard-frame">
@@ -313,13 +361,13 @@
                 </div>
             </section>
 
-
             <section id="why">
                 <h2>Design Desicions</h2>
                 <p class="prose">
                     <span class="placeholder"></span>
                 </p>
-            </section> -->
+            </section> 
+            -->
 
 
             <a href="craft.html" class="text-link">
@@ -334,6 +382,7 @@
         </footer>
 
         <!-- link javascript file -->
+        <script src="assets/js/sample-data.js"></script>
         <script src="assets/js/dashboard.js"></script>
 </body>
 

@@ -14,6 +14,17 @@
     <!-- link css -->
     <link rel="stylesheet" href="assets/css/styles.css">
     <style>
+        :root {
+            --paper: #F5F5F1;
+            --ink: #1B1D22;
+            --muted: #6B6F76;
+            --line: #DEDCD3;
+            --accent: #7A5CC4;
+            --healthy: #2F7D5B;
+            --attention: #C98A2A;
+            --critical: #B23A2E;
+        }
+
         main {
             max-width: 920px;
             margin: 0 auto;
@@ -319,6 +330,124 @@
                 transform: translateY(0);
             }
         }
+
+        .dash-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--line);
+            margin-bottom: 32px;
+        }
+
+        .dash-title {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 12px;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+        }
+
+        .dash-date {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 12px;
+            color: var(--muted);
+        }
+
+        .dash-metrics {
+            display: flex;
+            gap: 56px;
+            margin-bottom: 48px;
+        }
+
+        .metric-label {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11px;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 6px;
+        }
+
+        .metric-hero {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 64px;
+            font-weight: 700;
+            line-height: 1;
+            color: var(--accent);
+        }
+
+        .metric-secondary {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 32px;
+            font-weight: 700;
+        }
+
+        .dash-section-label {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11px;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 12px;
+        }
+
+        .dash-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .dash-table td {
+            padding: 16px 24px 16px 0;
+            font-size: 14px;
+            border-bottom: 1px solid var(--line);
+            vertical-align: middle;
+            white-space: nowrap;
+        }
+
+        .dash-table th {
+            padding: 0 24px 12px 0;
+        }
+
+        /*
+        .dash-table th {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11px;
+            text-transform: uppercase;
+            color: var(--muted);
+            letter-spacing: .05em;
+            text-align: left;
+            font-weight: 400;
+            padding: 0 24px 8px 0;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .dash-table td {
+            padding: 10px 24px 10px 0;
+            font-size: 14px;
+        }*/
+
+        .dash-table .muted {
+            color: var(--muted);
+        }
+
+        .bar-track {
+            width: 160px;
+        }
+
+        .bar-fill {
+            height: 2px;
+            background: var(--accent);
+        }
+
+        .below-target {
+            display: inline-block;
+            background: #FBEAE8;
+            color: #B23A2E;
+            font-size: 11px;
+            padding: 3px 10px;
+            border-radius: 20px;
+            white-space: nowrap;
+        }
     </style>
 
 </head>
@@ -399,7 +528,7 @@
                 <div id="dashboard-content"></div>
             </div>
 
-    
+
 
 
 

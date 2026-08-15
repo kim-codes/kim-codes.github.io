@@ -1,5 +1,5 @@
 const card = document.getElementById('sample-data-file-card');
-
+const sampleDataBtn = document.getElementById('btn-load-sample');
 
 // *--------------------------------- 
 //              EVENTS  
@@ -15,7 +15,7 @@ document.getElementById('btn-skip').addEventListener('click', function () {
 });
 
 // load the sample dashboard programs data 
-document.getElementById('btn-load-sample').addEventListener('click', function () {
+sampleDataBtn.addEventListener('click', function () {
     // if its already loaded, don't do anything just return
     if (document.getElementById('sample-data-file-card')) return;
 
@@ -30,15 +30,18 @@ document.getElementById('btn-load-sample').addEventListener('click', function ()
     <span class="fc-hint"><em>drag or click to drop in</em></span>
   `;
 
-    document.getElementById('btn-load-sample').insertAdjacentElement('afterend', card);
+    sampleDataBtn.insertAdjacentElement('afterend', card);
+    sampleDataBtn.textContent = "sample data loaded"
 
     // now that the file "card" is loaded, make it draggable
     card.addEventListener('dragstart', function (e) {
         e.dataTransfer.setData('text/plain', 'sample');
     });
+
+    card.addEventListener('click', handleFileDropped);
 });
 
-// setup the 3 listeners to be able to drag, move, and drop the sample data 
+// setup the 3 listeners to be able to drag and move the sample data 
 const dz = document.getElementById('drop-zone');
 
 dz.addEventListener('dragover', function (e) {
@@ -54,4 +57,11 @@ dz.addEventListener('drop', function (e) {
     e.preventDefault();
     dz.classList.remove('dragover');
     console.log('dropped!');
+    handleFileDropped();
 });
+
+function handleFileDropped() {
+  document.getElementById('drop-zone').style.display = 'none';
+  document.getElementById('btn-load-sample').style.display = 'none';
+  document.getElementById('steps').style.display = 'block';
+}

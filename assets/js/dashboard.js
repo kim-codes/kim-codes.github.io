@@ -55,11 +55,14 @@ const OUTCOME_MAP = {
 document.getElementById('btn-walkthrough').addEventListener('click', function () {
     document.querySelector('.lab-choice').style.display = 'none';
     document.getElementById('data-cleanup').style.display = 'block';
+    document.getElementById('data-cleanup').scrollIntoView({ behavior: 'smooth', block: 'start' });
+
 });
 
 document.getElementById('btn-skip').addEventListener('click', function () {
     document.querySelector('.lab-choice').style.display = 'none';
     document.getElementById('dashboard-view').style.display = 'block';
+    document.getElementById('dashboard-view').scrollIntoView({ behavior: 'smooth', block: 'start' });
 });
 
 // load the sample dashboard programs data 
@@ -123,10 +126,15 @@ function handleFileDropped() {
 
     // parse the CSV data, set the data so you can start to 'clean' it
     const rows = parseCSV(RAW_CSV);
+    const cleaned = cleanRows(rows);
 
-    // where the cleanup logs get built and rendered to the UI
-    const log = buildCleanLog(rows);
-    renderCleanLog(log);
+    // set a timeout so the user has time to digest the UI updates
+    // first load the raw data then pause then load cleanup logs
+    setTimeout(function () {
+        // where the cleanup logs get built and rendered to the UI
+        const log = buildCleanLog(rows);
+        renderCleanLog(log);
+    }, 1000);
 }
 
 /*-------------------------------------------------------
@@ -273,4 +281,6 @@ function renderCleanLog(log) {
             '<span class="example">(' + item.example + ')</span>';
         ul.appendChild(li);
     });
+
+    document.getElementById('clean-log').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }

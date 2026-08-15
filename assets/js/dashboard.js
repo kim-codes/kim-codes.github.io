@@ -63,5 +63,5 @@ dz.addEventListener('drop', function (e) {
 function handleFileDropped() {
   document.getElementById('drop-zone').style.display = 'none';
   document.getElementById('btn-load-sample').style.display = 'none';
-  document.getElementById('steps').style.display = 'block';
+  document.getElementById('cleanup-steps').style.display = 'block';
 }

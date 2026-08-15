@@ -244,7 +244,7 @@
             line-height: 1.7;
             white-space: pre;
             overflow-x: auto;
-            text-align:left;
+            text-align: left;
         }
 
         .clean-log {
@@ -277,6 +277,26 @@
             to {
                 opacity: 1;
             }
+        }
+
+        .json-heading {
+            display: none;
+        }
+
+        .json-box {
+            display: none;
+            background: #1B1D22;
+            color: #D9D8D3;
+            border-radius: 8px;
+            padding: 16px;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 12px;
+            line-height: 1.6;
+            white-space: pre;
+            overflow-x: auto;
+            max-height: 280px;
+            overflow-y: auto;
+            text-align: left;
         }
     </style>
 
@@ -347,6 +367,8 @@
 
                     <h3>Cleaning log</h3>
                     <ul class="clean-log" id="clean-log"></ul>
+                    <h3 id="json-heading" class="json-heading">Normalized output</h3>
+                    <div class="json-box" id="json-box"></div>
                 </div>
 
             </div> <!-- end of data cleanup div -->

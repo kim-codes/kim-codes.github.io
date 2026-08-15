@@ -139,6 +139,15 @@ function handleFileDropped() {
         // where the cleanup logs get built and rendered to the UI
         const log = buildCleanLog(rows);
         renderCleanLog(log);
+
+        // wait till the clean logs have finished before dispalying the normalized data 
+
+        const logAnimationTime = log.length * 300 + 500;
+        setTimeout(function () {
+            document.getElementById('json-heading').style.display = 'block';
+            document.getElementById('json-box').style.display = 'block';
+            renderJSON(cleaned);
+        }, logAnimationTime);
     }, 1000);
 }
 
@@ -288,4 +297,14 @@ function renderCleanLog(log) {
     });
 
     document.getElementById('clean-log').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+// render the 'normalized' data to display in the UI
+function renderJSON(cleaned) {
+    const preview = cleaned.slice(0, 3);
+    let text = JSON.stringify(preview, null, 2);
+    text += '\n\n… and ' + (cleaned.length - 3) + ' more normalized records';
+    document.getElementById('json-box').textContent = text;
+
+    document.getElementById('json-box').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }

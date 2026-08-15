@@ -335,6 +335,8 @@ function computeDashboard(rows) {
     const stages = ["Nominated", "In Review", "Under Deployment", "Live"];
     const stageTargets = [0.70, 0.65, 0.75]; // conversion target per transition
 
+
+
     const funnel = stages.map(function (stage, i) {
         const reached = rows.filter(function (r) { return stages.indexOf(r.stage) >= i; });
         return {
@@ -348,8 +350,11 @@ function computeDashboard(rows) {
         f.valueRetainedPct = Math.round((f.value / funnel[0].value) * 100);
         if (i > 0) {
             const actualConversion = funnel[i - 1].count ? funnel[i].count / funnel[i - 1].count : 0;
-            f.belowTarget = actualConversion < stageTargets[i - 1] - 0.05;
+            const gapPts = Math.round((actualConversion - stageTargets[i - 1]) * 100);
+            f.gapPts = gapPts;
+            f.belowTarget = gapPts < -5;
         } else {
+            f.gapPts = null;
             f.belowTarget = false;
         }
     });
@@ -391,17 +396,17 @@ function renderDashboard(data) {
 }
 
 function renderFunnel(funnel) {
-    const maxValue = funnel[0].value;
     let rows = funnel.map(function (f) {
-        const barWidth = Math.round((f.value / maxValue) * 100);
+        const gapText = f.gapPts === null ? '' :
+            (f.gapPts >= 0 ? '+' + f.gapPts : f.gapPts) + 'pts vs target';
+        const gapClass = f.belowTarget ? 'gap-below' : 'gap-ok';
         return `
       <tr>
         <td>${f.stage}</td>
         <td class="muted">${f.count}</td>
         <td>$${(f.value / 1e6).toFixed(2)}m</td>
         <td class="muted">${f.valueRetainedPct}%</td>
-        <td class="bar-track"><div class="bar-fill" style="width:${barWidth}%"></div></td>
-        <td>${f.belowTarget ? '<span class="below-target">Below target</span>' : ''}</td>
+        <td class="${gapClass}">${gapText}</td>
       </tr>`;
     }).join('');
 
@@ -413,13 +418,11 @@ function renderFunnel(funnel) {
           <th>Stage</th>
           <th>Count</th>
           <th>Value</th>
-          <th>Retained</th>
-          <th></th>
-          <th></th>
+          <th>Still Active</th>
+          <th>Vs target</th>
         </tr>
         ${rows}
       </table>
     </div>`;
 }
-
 

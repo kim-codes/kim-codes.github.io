@@ -65,8 +65,9 @@ document.getElementById('btn-skip').addEventListener('click', function () {
     document.getElementById('dashboard-view').scrollIntoView({ behavior: 'smooth', block: 'start' });
 });
 
-// load the sample dashboard programs data 
+// load the sample data file
 sampleDataBtn.addEventListener('click', function () {
+
     // if its already loaded, don't do anything just return
     if (document.getElementById('sample-data-file-card')) return;
 
@@ -83,6 +84,8 @@ sampleDataBtn.addEventListener('click', function () {
 
     sampleDataBtn.insertAdjacentElement('afterend', card);
     sampleDataBtn.textContent = "sample data loaded"
+
+    document.getElementById('drop-zone').style.display = 'block';
 
     // now that the file "card" is loaded, make it draggable
     card.addEventListener('dragstart', function (e) {
@@ -122,7 +125,9 @@ function handleFileDropped() {
     // format the raw data for visuals 
     const rawData = window.sampleData;
     const lines = rawData.trim().split('\n');
-    document.getElementById('raw-preview').textContent = lines.slice(0, 8).join('\n');
+    const preview = lines.slice(0, 8).join('\n');
+    const remaining = lines.length - 8;
+    document.getElementById('raw-preview').textContent = preview + '\n… and ' + remaining + ' more rows';
 
     // parse the CSV data, set the data so you can start to 'clean' it
     const rows = parseCSV(RAW_CSV);

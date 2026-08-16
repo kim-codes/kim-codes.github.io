@@ -28,6 +28,14 @@ const INDUSTRY_MAP = {
     technology: "Technology"
 };
 
+const INDUSTRY_BENCHMARK = {
+    "Financial Services": 90000,
+    "Healthcare": 45000,
+    "Retail": 40000,
+    "Manufacturing": 50000,
+    "Technology": 45000
+};
+
 const PRODUCT_MAP = {
     platforma: "Platform A",
     platformb: "Platform B",
@@ -48,7 +56,6 @@ const OUTCOME_MAP = {
     live: "Live",
     lost: "Lost"
 };
-
 
 // *--------------------------------- 
 //              EVENTS  
@@ -158,6 +165,12 @@ document.getElementById('btn-reset').addEventListener('click', function () {
 
     document.querySelector('.lab-choice').style.display = 'block';
     document.querySelector('.lab-choice').scrollIntoView({ behavior: 'smooth', block: 'start' });
+});
+
+document.addEventListener('change', function (e) {
+    if (e.target && e.target.id === 'region-filter') {
+        document.getElementById('industry-table-wrap').innerHTML = renderIndustryTable(cleanedData, e.target.value);
+    }
 });
 
 // handle the file dropping and adding the sample data to appear 
@@ -480,6 +493,9 @@ function renderDashboard(data) {
         </div>
 
     </div>
+
+    ${renderIndustrySection()}
+    
   `;
 
     document.getElementById('btn-reset').style.display = 'inline-block';
@@ -565,5 +581,45 @@ function renderByProduct(byProduct) {
         <tr><th>Product</th><th>Value</th><th>Live rate</th></tr>
         ${rows}
       </table>
+    </div>`;
+}
+
+function computeIndustryTable(rows, region) {
+    const filtered = region === 'All' ? rows : rows.filter(function (r) { return r.region === region; });
+    const map = {};
+    filtered.forEach(function (r) {
+        if (!map[r.industry]) map[r.industry] = { industry: r.industry, count: 0, value: 0 };
+        map[r.industry].count++;
+        map[r.industry].value += r.value;
+    });
+    return Object.values(map).map(function (x) {
+        const avg = Math.round(x.value / x.count);
+        const benchmark = INDUSTRY_BENCHMARK[x.industry];
+        return { industry: x.industry, count: x.count, value: x.value, avg: avg, benchmark: benchmark, status: avg >= benchmark ? "Above" : "Below" };
+    }).sort(function (a, b) { return b.value - a.value; });
+}
+
+function renderIndustryTable(rows, region) {
+    const data = computeIndustryTable(rows, region);
+    let trs = data.map(function (x) {
+        const cls = x.status === "Above" ? "gap-ok" : "gap-below";
+        return `<tr><td>${x.industry}</td><td class="muted">${x.count}</td><td>$${Math.round(x.value / 1000)}k</td><td>$${Math.round(x.avg / 1000)}k</td><td class="${cls}">${x.status} $${Math.round(x.benchmark / 1000)}k</td></tr>`;
+    }).join('');
+    return `<table class="dash-table"><tr><th>Industry</th><th>Noms</th><th>Value</th><th>Avg deal</th><th>Vs benchmark</th></tr>${trs}</table>`;
+}
+
+function renderIndustrySection() {
+    return `
+    <div class="stage-metrics">
+      <div class="dash-section-header">
+        <div class="dash-section-label">By industry</div>
+        <select id="region-filter" class="region-select">
+          <option value="All">All regions</option>
+          <option value="AMER">AMER</option>
+          <option value="EMEA">EMEA</option>
+          <option value="APJ">APJ</option>
+        </select>
+      </div>
+      <div id="industry-table-wrap">${renderIndustryTable(cleanedData, 'All')}</div>
     </div>`;
 }

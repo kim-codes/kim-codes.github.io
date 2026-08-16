@@ -14,6 +14,17 @@
     <!-- link css -->
     <link rel="stylesheet" href="assets/css/styles.css">
     <style>
+        :root {
+            --paper: #F5F5F1;
+            --ink: #1B1D22;
+            --muted: #6B6F76;
+            --line: #DEDCD3;
+            --accent: #7A5CC4;
+            --healthy: #2F7D5B;
+            --attention: #C98A2A;
+            --critical: #B23A2E;
+        }
+
         main {
             max-width: 920px;
             margin: 0 auto;
@@ -164,11 +175,20 @@
             cursor: not-allowed
         }
 
+        .btn-reset {
+            display: none;
+        }
+
         .choice-row {
             display: flex;
             gap: 12px;
             flex-wrap: wrap;
             justify-content: center;
+        }
+
+        #btn-view-dashboard {
+            display: none;
+            margin: 1rem;
         }
 
         #data-cleanup,
@@ -179,6 +199,7 @@
             border: 1px solid #DEDCD3;
             border-radius: 12px;
             min-height: 360px;
+            text-align: left;
         }
 
         .drop-zone {
@@ -298,6 +319,260 @@
             overflow-y: auto;
             text-align: left;
         }
+
+        /*--------------------------------------
+         styling the dashboard below here 
+         --------------------------------------*/
+        @keyframes dashFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(8px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .dash-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--line);
+            margin-bottom: 32px;
+        }
+
+        .dash-title {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 12px;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+        }
+
+        .dash-date {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 12px;
+            color: var(--muted);
+        }
+
+        .dash-metrics {
+            display: flex;
+            gap: 56px;
+            margin-bottom: 48px;
+        }
+
+        .metric-label {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11px;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        .metric-hero {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 64px;
+            font-weight: 700;
+            line-height: 1;
+            color: var(--accent);
+        }
+
+        .metric-secondary {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 32px;
+            font-weight: 700;
+        }
+
+        .dash-section-label {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11px;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 12px;
+        }
+
+        .dash-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .dash-table td {
+            padding: 16px 24px 16px 0;
+            font-size: 14px;
+            border-bottom: 1px solid var(--line);
+            vertical-align: middle;
+            white-space: nowrap;
+        }
+
+        .dash-table th {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11px;
+            text-transform: uppercase;
+            color: var(--muted);
+            letter-spacing: .05em;
+            text-align: left;
+            font-weight: 400;
+            padding: 0 24px 8px 0;
+            border-bottom: 1px solid var(--line);
+        }
+
+        /*
+        .dash-table td {
+            padding: 10px 24px 10px 0;
+            font-size: 14px;
+        }*/
+
+        .dash-table .muted {
+            color: var(--muted);
+        }
+
+        .bar-track {
+            width: 160px;
+        }
+
+        .bar-fill {
+            height: 2px;
+            background: var(--accent);
+        }
+
+        .below-target {
+            display: inline-block;
+            background: #FBEAE8;
+            color: #B23A2E;
+            font-size: 11px;
+            padding: 3px 10px;
+            border-radius: 20px;
+            white-space: nowrap;
+        }
+
+        .gap-below {
+            color: #B23A2E;
+            font-size: 13px;
+        }
+
+        .gap-ok {
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        @media(max-width: 700px) {
+            .dash-metrics {
+                flex-wrap: wrap;
+                gap: 24px;
+            }
+
+            .metric-hero {
+                font-size: 40px;
+            }
+
+            .metric-secondary {
+                font-size: 24px;
+            }
+
+            .dash-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 4px;
+            }
+
+            .dash-table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+
+            .secondary-grid {
+                gap: 1rem 3rem;
+            }
+        }
+
+        .dash-metrics {
+            display: flex;
+            gap: 56px;
+            align-items: flex-start;
+            margin-bottom: 48px;
+        }
+
+        .secondary-grid {
+            display: grid;
+            grid-template-columns: repeat(2, auto);
+            gap: 1rem 5rem;
+        }
+
+        .stage-metrics {
+            margin-bottom: 48px;
+        }
+
+        .risk-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .dash-two-col {
+            display: grid;
+            grid-template-columns: 1.3fr 1fr;
+            gap: 5rem;
+        }
+
+        .risk-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .risk-name {
+            font-size: 13px;
+        }
+
+        .risk-reason {
+            font-size: 11px;
+            color: var(--muted);
+            margin-top: 2px;
+        }
+
+        .risk-side {
+            text-align: right;
+        }
+
+        .risk-blocked {
+            color: #B23A2E;
+            font-weight: 600;
+            font-size: 13px;
+        }
+
+        .risk-attention {
+            color: #C98A2A;
+            font-weight: 600;
+            font-size: 13px;
+        }
+
+        .risk-tag {
+            font-weight: 400;
+            font-size: 11px;
+            margin-top: 2px;
+        }
+
+        .dash-section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .region-select {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 12px;
+            border: 1px solid var(--line);
+            border-radius: 6px;
+            padding: 4px 8px;
+            background: #fff;
+        }
     </style>
 
 </head>
@@ -369,14 +644,15 @@
                     <ul class="clean-log" id="clean-log"></ul>
                     <h3 id="json-heading" class="json-heading">Normalized output</h3>
                     <div class="json-box" id="json-box"></div>
+                    <button class="btn btn-primary" id="btn-view-dashboard">Dashboard</button>
                 </div>
 
             </div> <!-- end of data cleanup div -->
 
             <div id="dashboard-view">
-                <p>dashboard</p>
+                <div id="dashboard-content"></div>
+                <button class="btn" id="btn-reset">Reset demo</button>
             </div>
-
 
             <!--
             <section id="dashboard">
@@ -398,7 +674,6 @@
                 </p>
             </section> 
             -->
-
 
             <a href="craft.html" class="text-link">
                 <span>←</span> Back to the Lab

@@ -124,16 +124,40 @@ dz.addEventListener('drop', function (e) {
     handleFileDropped();
 });
 
-document.getElementById('btn-skip').addEventListener('click', function() {
-  const rows = parseCSV(RAW_CSV);
-  cleanedData = cleanRows(rows);
+document.getElementById('btn-skip').addEventListener('click', function () {
+    const rows = parseCSV(RAW_CSV);
+    cleanedData = cleanRows(rows);
 
-  const data = computeDashboard(cleanedData);
-  renderDashboard(data);
+    const data = computeDashboard(cleanedData);
+    renderDashboard(data);
 
-  document.querySelector('.lab-choice').style.display = 'none';
-  document.getElementById('dashboard-view').style.display = 'block';
-  document.getElementById('dashboard-view').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    document.querySelector('.lab-choice').style.display = 'none';
+    document.getElementById('dashboard-view').style.display = 'block';
+    document.getElementById('dashboard-view').scrollIntoView({ behavior: 'smooth', block: 'start' });
+});
+
+document.getElementById('btn-reset').addEventListener('click', function () {
+    document.getElementById('dashboard-view').style.display = 'none';
+    document.getElementById('dashboard-content').innerHTML = '';
+    document.getElementById('btn-reset').style.display = 'none';
+
+    document.getElementById('data-cleanup').style.display = 'none';
+    document.getElementById('cleanup-steps').style.display = 'none';
+    document.getElementById('raw-preview').textContent = '';
+    document.getElementById('clean-log').innerHTML = '';
+    document.getElementById('json-box').textContent = '';
+    document.getElementById('json-heading').style.display = 'none';
+    document.getElementById('json-box').style.display = 'none';
+    document.getElementById('btn-view-dashboard').style.display = 'none';
+
+    const card = document.getElementById('sample-data-file-card');
+    if (card) card.remove();
+
+    document.getElementById('drop-zone').style.display = 'none';
+    document.getElementById('btn-load-sample').style.display = 'inline-block';
+
+    document.querySelector('.lab-choice').style.display = 'block';
+    document.querySelector('.lab-choice').scrollIntoView({ behavior: 'smooth', block: 'start' });
 });
 
 // handle the file dropping and adding the sample data to appear 
@@ -457,6 +481,8 @@ function renderDashboard(data) {
 
     </div>
   `;
+
+    document.getElementById('btn-reset').style.display = 'inline-block';
 }
 
 function renderFunnel(funnel) {
@@ -529,10 +555,10 @@ function renderByRegion(byRegion) {
 }
 
 function renderByProduct(byProduct) {
-  let rows = byProduct.map(function(r) {
-    return `<tr><td>${r.product}</td><td>$${Math.round(r.value/1000)}k</td><td>${r.liveRate}%</td></tr>`;
-  }).join('');
-  return `
+    let rows = byProduct.map(function (r) {
+        return `<tr><td>${r.product}</td><td>$${Math.round(r.value / 1000)}k</td><td>${r.liveRate}%</td></tr>`;
+    }).join('');
+    return `
     <div class="stage-metrics">
       <div class="dash-section-label">By product</div>
       <table class="dash-table">

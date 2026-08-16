@@ -458,37 +458,6 @@
             font-size: 13px;
         }
 
-        @media(max-width: 700px) {
-            .dash-metrics {
-                flex-wrap: wrap;
-                gap: 24px;
-            }
-
-            .metric-hero {
-                font-size: 40px;
-            }
-
-            .metric-secondary {
-                font-size: 24px;
-            }
-
-            .dash-header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 4px;
-            }
-
-            .dash-table {
-                display: block;
-                overflow-x: auto;
-                white-space: nowrap;
-            }
-
-            .secondary-grid {
-                gap: 1rem 3rem;
-            }
-        }
-
         .dash-metrics {
             display: flex;
             gap: 56px;
@@ -540,22 +509,32 @@
             text-align: right;
         }
 
+
         .risk-blocked {
-            color: #B23A2E;
+            color: #B0554A;
             font-weight: 600;
             font-size: 13px;
+            background: #FCEDEB;
+            padding: 2px 8px;
+            border-radius: 6px;
         }
 
         .risk-attention {
             color: #C98A2A;
             font-weight: 600;
             font-size: 13px;
+            background: #FBF2E4;
+            padding: 2px 8px;
+            border-radius: 6px;
         }
 
         .risk-tag {
             font-weight: 400;
             font-size: 11px;
             margin-top: 2px;
+            display: inline-block;
+            min-width: 100px;
+            text-align: right;
         }
 
         .dash-section-header {
@@ -592,8 +571,43 @@
         }
 
         .bench-below {
-            background: red !important;
-            color: white !important;
+            background: #FCEDEB;
+            color: #B0554A;
+        }
+
+        @media(max-width: 700px) {
+            .dash-metrics {
+                flex-wrap: wrap;
+                gap: 24px;
+            }
+
+            .metric-hero {
+                font-size: 40px;
+            }
+
+            .metric-secondary {
+                font-size: 24px;
+            }
+
+            .dash-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 4px;
+            }
+
+            .dash-table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+
+            .secondary-grid {
+                gap: 1rem 3rem;
+            }
+
+            .dash-two-col {
+                display: none;
+            }
         }
     </style>
 

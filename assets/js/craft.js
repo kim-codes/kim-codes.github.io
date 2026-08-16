@@ -64,7 +64,7 @@ function updateStickyLinks(isWork) {
         labLink.removeAttribute('href');
         workLink.setAttribute('href', '/stories.html');
     } else {
-        labLink.setAttribute('href', '/studio.html');
+        labLink.setAttribute('href', '/lab.html');
         workLink.removeAttribute('href');
     }
 }

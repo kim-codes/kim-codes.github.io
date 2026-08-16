@@ -168,6 +168,7 @@
         }
 
         /* Panels */
+        /*
         .mode-panels {
             display: grid;
             grid-template-columns: 2fr 2fr;
@@ -184,20 +185,44 @@
             padding: 1.6rem 1.4rem;
             text-align: left;
             transition: background 0.35s ease, color 0.35s ease, opacity 0.35s ease, box-shadow 0.35s ease;
+        } */
+        .mode-panels {
+            display: grid;
+            grid-template-columns: repeat(2, 280px);
+            justify-content: center;
+            gap: 4rem;
+            padding: 0 8px 20px;
+        }
+
+        .mode-panel {
+            position: relative;
+            overflow: hidden;
+            display: block;
+            aspect-ratio: 1 / 1;
+            text-decoration: none;
+            border-radius: 2px;
+            padding: 1.6rem 1.5rem;
+            text-align: left;
+            transition:
+                background 0.35s ease,
+                color 0.35s ease,
+                opacity 0.35s ease,
+                box-shadow 0.35s ease,
+                transform 0.25s ease;
         }
 
         .mode-panel--lab {
             background: #eaf3de;
             color: #27500a;
-            transform: rotate(-1.8deg);
-            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+            transform: rotate(-2deg);
+            box-shadow: 2px 7px 15px rgba(0, 0, 0, 0.10);
         }
 
         .mode-panel--work {
             background: #faeeda;
             color: #854f0b;
-            transform: rotate(1.6deg);
-            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.07);
+            transform: rotate(1.8deg);
+            box-shadow: 2px 7px 15px rgba(0, 0, 0, 0.08);
         }
 
         .mode-panel:not(.is-active) {
@@ -420,7 +445,7 @@
                     <p class="mode-line">I take things apart to see how they work: little experiments, demos, whatever
                         helps it click, then help you see it too.</p>
                     <span class="mode-link">enter the lab &rarr;</span>
-                    </a>
+                </a>
 
                 <a class="mode-panel mode-panel--work">
                     <div class="flash"></div>

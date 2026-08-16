@@ -124,6 +124,18 @@ dz.addEventListener('drop', function (e) {
     handleFileDropped();
 });
 
+document.getElementById('btn-skip').addEventListener('click', function() {
+  const rows = parseCSV(RAW_CSV);
+  cleanedData = cleanRows(rows);
+
+  const data = computeDashboard(cleanedData);
+  renderDashboard(data);
+
+  document.querySelector('.lab-choice').style.display = 'none';
+  document.getElementById('dashboard-view').style.display = 'block';
+  document.getElementById('dashboard-view').scrollIntoView({ behavior: 'smooth', block: 'start' });
+});
+
 // handle the file dropping and adding the sample data to appear 
 function handleFileDropped() {
     // hide all the elements and display to start the cleanup steps 

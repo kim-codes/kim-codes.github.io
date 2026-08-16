@@ -351,6 +351,11 @@ function computeDashboard(rows) {
         };
     });
 
+    const riskList = rows
+        .filter(function (r) { return r.outcome === "Blocked" || r.outcome === "Needs Attention"; })
+        .sort(function (a, b) { return b.value - a.value; })
+        .slice(0, 6);
+
     funnel.forEach(function (f, i) {
         f.valueRetainedPct = Math.round((f.value / funnel[0].value) * 100);
         if (i > 0) {
@@ -364,7 +369,31 @@ function computeDashboard(rows) {
         }
     });
 
-    return { total, totalValue, riskValue, lostValue, avgDealSize, activeSegments, funnel };
+
+    const regionMap = {};
+    rows.forEach(function (r) {
+        if (!regionMap[r.region]) regionMap[r.region] = { region: r.region, value: 0, live: 0, count: 0 };
+        regionMap[r.region].value += r.value;
+        regionMap[r.region].count++;
+        if (r.outcome === "Live") regionMap[r.region].live++;
+    });
+    const byRegion = Object.values(regionMap).map(function (x) {
+        return { region: x.region, value: x.value, liveRate: Math.round(x.live / x.count * 100) };
+    }).sort(function (a, b) { return b.value - a.value; });
+
+
+    const productMap = {};
+    rows.forEach(function (r) {
+        if (!productMap[r.product]) productMap[r.product] = { product: r.product, value: 0, live: 0, count: 0 };
+        productMap[r.product].value += r.value;
+        productMap[r.product].count++;
+        if (r.outcome === "Live") productMap[r.product].live++;
+    });
+    const byProduct = Object.values(productMap).map(function (x) {
+        return { product: x.product, value: x.value, liveRate: Math.round(x.live / x.count * 100) };
+    }).sort(function (a, b) { return b.value - a.value; });
+
+    return { total, totalValue, riskValue, lostValue, avgDealSize, activeSegments, funnel, riskList, byRegion, byProduct };
 }
 
 function renderDashboard(data) {
@@ -404,7 +433,15 @@ function renderDashboard(data) {
         </div>
       </div>
 
-      ${renderFunnel(data.funnel)}
+      ${renderFunnel(data.funnel)} 
+
+     <div class="dash-two-col">
+        <div>${renderRiskList(data.riskList)}</div>
+        <div>
+            ${renderByProduct(data.byProduct)}
+            ${renderByRegion(data.byRegion)}
+        </div>
+        </div>
 
     </div>
   `;
@@ -441,3 +478,54 @@ function renderFunnel(funnel) {
     </div > `;
 }
 
+
+function renderRiskList(riskList) {
+    let cards = riskList.map(function (r) {
+        const colorClass = r.outcome === "Blocked" ? "risk-blocked" : "risk-attention";
+        return `
+      <div class="risk-row">
+        <div>
+          <div class="risk-name">${r.region} · ${r.segment} · ${r.id}</div>
+          <div class="risk-reason">${r.reason}</div>
+        </div>
+        <div class="risk-side">
+          <div class="${colorClass}">$${Math.round(r.value / 1000)}k</div>
+          <div class="${colorClass} risk-tag">${r.outcome}</div>
+        </div>
+      </div>`;
+    }).join('');
+
+    return `
+    <div class="stage-metrics">
+      <div class="dash-section-label">Blocked and needs attention</div>
+      ${cards}
+    </div>`;
+}
+
+function renderByRegion(byRegion) {
+    let rows = byRegion.map(function (r) {
+        return `<tr><td>${r.region}</td><td>$${Math.round(r.value / 1000)}k</td><td>${r.liveRate}%</td></tr>`;
+    }).join('');
+    return `
+    <div class="stage-metrics">
+      <div class="dash-section-label">By region</div>
+      <table class="dash-table">
+        <tr><th>Region</th><th>Value</th><th>Live rate</th></tr>
+        ${rows}
+      </table>
+    </div>`;
+}
+
+function renderByProduct(byProduct) {
+  let rows = byProduct.map(function(r) {
+    return `<tr><td>${r.product}</td><td>$${Math.round(r.value/1000)}k</td><td>${r.liveRate}%</td></tr>`;
+  }).join('');
+  return `
+    <div class="stage-metrics">
+      <div class="dash-section-label">By product</div>
+      <table class="dash-table">
+        <tr><th>Product</th><th>Value</th><th>Live rate</th></tr>
+        ${rows}
+      </table>
+    </div>`;
+}

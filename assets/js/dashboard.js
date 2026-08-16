@@ -30,10 +30,10 @@ const INDUSTRY_MAP = {
 
 const INDUSTRY_BENCHMARK = {
     "Financial Services": 90000,
-    "Healthcare": 45000,
+    "Healthcare": 80000,
     "Retail": 40000,
     "Manufacturing": 50000,
-    "Technology": 45000
+    "Technology": 65000
 };
 
 const PRODUCT_MAP = {
@@ -65,12 +65,6 @@ document.getElementById('btn-walkthrough').addEventListener('click', function ()
     document.getElementById('data-cleanup').style.display = 'block';
     document.getElementById('data-cleanup').scrollIntoView({ behavior: 'smooth', block: 'start' });
 
-});
-
-document.getElementById('btn-skip').addEventListener('click', function () {
-    document.querySelector('.lab-choice').style.display = 'none';
-    document.getElementById('dashboard-view').style.display = 'block';
-    document.getElementById('dashboard-view').scrollIntoView({ behavior: 'smooth', block: 'start' });
 });
 
 document.getElementById('btn-view-dashboard').addEventListener('click', function () {
@@ -492,9 +486,9 @@ function renderDashboard(data) {
         </div>
         </div>
 
-    </div>
+            ${renderIndustrySection()}
 
-    ${renderIndustrySection()}
+    </div>
     
   `;
 
@@ -585,25 +579,60 @@ function renderByProduct(byProduct) {
 }
 
 function computeIndustryTable(rows, region) {
-    const filtered = region === 'All' ? rows : rows.filter(function (r) { return r.region === region; });
+    const filtered = region === 'All'
+        ? rows
+        : rows.filter(function (r) {
+            return r.region === region;
+        });
+
     const map = {};
+
     filtered.forEach(function (r) {
-        if (!map[r.industry]) map[r.industry] = { industry: r.industry, count: 0, value: 0 };
+        if (!map[r.industry]) {
+            map[r.industry] = {
+                industry: r.industry,
+                count: 0,
+                value: 0
+            };
+        }
+
         map[r.industry].count++;
         map[r.industry].value += r.value;
     });
+
     return Object.values(map).map(function (x) {
         const avg = Math.round(x.value / x.count);
         const benchmark = INDUSTRY_BENCHMARK[x.industry];
-        return { industry: x.industry, count: x.count, value: x.value, avg: avg, benchmark: benchmark, status: avg >= benchmark ? "Above" : "Below" };
-    }).sort(function (a, b) { return b.value - a.value; });
+        const ratio = avg / benchmark;
+
+        let status;
+
+        if (ratio >= 1) {
+            status = "Above";
+        } else if (ratio >= 0.85) {
+            status = "Near";
+        } else {
+            status = "Below";
+        }
+
+        return {
+            industry: x.industry,
+            count: x.count,
+            value: x.value,
+            avg: avg,
+            benchmark: benchmark,
+            status: status
+        };
+    }).sort(function (a, b) {
+        return b.value - a.value;
+    });
 }
 
 function renderIndustryTable(rows, region) {
     const data = computeIndustryTable(rows, region);
     let trs = data.map(function (x) {
-        const cls = x.status === "Above" ? "gap-ok" : "gap-below";
-        return `<tr><td>${x.industry}</td><td class="muted">${x.count}</td><td>$${Math.round(x.value / 1000)}k</td><td>$${Math.round(x.avg / 1000)}k</td><td class="${cls}">${x.status} $${Math.round(x.benchmark / 1000)}k</td></tr>`;
+        const tagClass = x.status === "Above" ? "bench-above" : x.status === "Near" ? "bench-near" : "bench-below";
+        return `<tr><td>${x.industry}</td><td class="muted">${x.count}</td><td>$${Math.round(x.value / 1000)}k</td><td>$${Math.round(x.avg / 1000)}k</td><td><span class="bench-tag ${tagClass}">${x.status} $${Math.round(x.benchmark / 1000)}k</span></td></tr>`;
     }).join('');
     return `<table class="dash-table"><tr><th>Industry</th><th>Noms</th><th>Value</th><th>Avg deal</th><th>Vs benchmark</th></tr>${trs}</table>`;
 }

@@ -331,11 +331,16 @@ function computeDashboard(rows) {
     const riskValue = rows
         .filter(function (r) { return r.outcome === "Blocked" || r.outcome === "Needs Attention"; })
         .reduce(function (sum, r) { return sum + r.value; }, 0);
+    const lostValue = rows
+        .filter(function (r) { return r.outcome === "Lost"; })
+        .reduce(function (sum, r) { return sum + r.value; }, 0);
+    const avgDealSize = total ? Math.round(totalValue / total) : 0;
+
+    const segmentCombos = new Set(rows.map(function (r) { return r.region + '|' + r.segment; }));
+    const activeSegments = segmentCombos.size;
 
     const stages = ["Nominated", "In Review", "Under Deployment", "Live"];
-    const stageTargets = [0.70, 0.65, 0.75]; // conversion target per transition
-
-
+    const stageTargets = [0.70, 0.65, 0.75];
 
     const funnel = stages.map(function (stage, i) {
         const reached = rows.filter(function (r) { return stages.indexOf(r.stage) >= i; });
@@ -359,7 +364,7 @@ function computeDashboard(rows) {
         }
     });
 
-    return { total, totalValue, riskValue, funnel };
+    return { total, totalValue, riskValue, lostValue, avgDealSize, activeSegments, funnel };
 }
 
 function renderDashboard(data) {
@@ -379,13 +384,23 @@ function renderDashboard(data) {
           <div class="metric-label">Pipeline value</div>
           <div class="metric-hero">$${(data.totalValue / 1e6).toFixed(2)}m</div>
         </div>
-        <div>
-          <div class="metric-label">Nominations</div>
-          <div class="metric-secondary">${data.total}</div>
-        </div>
-        <div>
-          <div class="metric-label">At risk</div>
-          <div class="metric-secondary">$${Math.round(data.riskValue / 1000)}k</div>
+        <div class="secondary-grid">
+          <div>
+            <div class="metric-label">Active segments</div>
+            <div class="metric-secondary">${data.activeSegments} of 9</div>
+          </div>
+          <div>
+            <div class="metric-label">Avg deal size</div>
+            <div class="metric-secondary">$${Math.round(data.avgDealSize / 1000)}k</div>
+          </div>
+          <div>
+            <div class="metric-label">At risk</div>
+            <div class="metric-secondary">$${Math.round(data.riskValue / 1000)}k</div>
+          </div>
+          <div>
+            <div class="metric-label">Lost</div>
+            <div class="metric-secondary">$${Math.round(data.lostValue / 1000)}k</div>
+          </div>
         </div>
       </div>
 
@@ -401,28 +416,28 @@ function renderFunnel(funnel) {
             (f.gapPts >= 0 ? '+' + f.gapPts : f.gapPts) + 'pts vs target';
         const gapClass = f.belowTarget ? 'gap-below' : 'gap-ok';
         return `
-      <tr>
+    <tr>
         <td>${f.stage}</td>
         <td class="muted">${f.count}</td>
         <td>$${(f.value / 1e6).toFixed(2)}m</td>
         <td class="muted">${f.valueRetainedPct}%</td>
         <td class="${gapClass}">${gapText}</td>
-      </tr>`;
+      </tr> `;
     }).join('');
 
     return `
-    <div style="margin-bottom:48px">
+    <div class="stage-metrics">
       <div class="dash-section-label">Pipeline by stage</div>
-      <table class="dash-table">
-        <tr>
-          <th>Stage</th>
-          <th>Count</th>
-          <th>Value</th>
-          <th>Still Active</th>
-          <th>Vs target</th>
-        </tr>
-        ${rows}
-      </table>
-    </div>`;
+        <table class="dash-table">
+         <tr>
+            <th>Stage</th>
+            <th>Count</th>
+            <th>Value</th>
+            <th>Retained</th>
+            <th>Vs target</th>
+         </tr>
+         ${rows}
+        </table>
+    </div > `;
 }
 

@@ -365,7 +365,6 @@
             letter-spacing: .08em;
             text-transform: uppercase;
             color: var(--muted);
-            margin-bottom: 6px;
         }
 
         .metric-hero {
@@ -455,7 +454,7 @@
             font-size: 13px;
         }
 
-        @media(max-width: 600px) {
+        @media(max-width: 700px) {
             .dash-metrics {
                 flex-wrap: wrap;
                 gap: 24px;
@@ -480,6 +479,27 @@
                 overflow-x: auto;
                 white-space: nowrap;
             }
+
+            .secondary-grid {
+                gap: 1rem 3rem;
+            }
+        }
+
+        .dash-metrics {
+            display: flex;
+            gap: 56px;
+            align-items: flex-start;
+            margin-bottom: 48px;
+        }
+
+        .secondary-grid {
+            display: grid;
+            grid-template-columns: repeat(2, auto);
+            gap: 1rem 5rem;
+        }
+
+        .stage-metrics {
+            margin-bottom: 48px;
         }
     </style>
 

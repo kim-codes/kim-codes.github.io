@@ -13,6 +13,108 @@
 
     <link rel="stylesheet" href="assets/css/styles.css">
 
+    <style>
+        main {
+            max-width: 920px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .lab-hero {
+            max-width: 700px;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
+            text-align: center;
+        }
+
+        .lab-hero h2 {
+            font-size: 2rem;
+        }
+
+        .lab-list {
+            max-width: 600px;
+            border-top: 1px solid var(--line);
+            margin-bottom: 56px;
+        }
+
+        .lab-item {
+            display: grid;
+            grid-template-columns: 40px 1fr 24px;
+            gap: 20px;
+            align-items: center;
+
+            padding: 28px 0;
+
+            border-bottom: 1px solid var(--line);
+
+            color: var(--ink);
+            text-decoration: none;
+        }
+
+        .lab-number {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11px;
+            color: var(--muted);
+        }
+
+        .lab-label {
+            margin-bottom: 5px;
+
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 10px;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        .lab-content h2 {
+            margin: 0 0 4px;
+
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 26px;
+            font-weight: 600;
+        }
+
+        .lab-content p {
+            margin: 0;
+
+            font-size: 15px;
+            color: var(--muted);
+        }
+
+        .lab-arrow {
+            font-size: 20px;
+            color: var(--accent);
+            transition: transform .2s ease;
+        }
+
+        .lab-item:hover .lab-arrow {
+            transform: translateX(4px);
+        }
+
+        @media (max-width: 700px) {
+
+            main {
+                padding: 0 20px;
+            }
+
+            .lab-intro {
+                margin-bottom: 36px;
+            }
+
+            .lab-item {
+                grid-template-columns: 28px 1fr 20px;
+                gap: 14px;
+                padding: 24px 0;
+            }
+
+            .lab-content h2 {
+                font-size: 23px;
+            }
+
+        }
+    </style>
+
 </head>
 
 <body>
@@ -37,43 +139,43 @@
 
     <main>
 
-        <header class="page-header">
-            <h1>Idea Lab</h1>
-            <h2>Experiments and ideas I'm exploring.</h2>
-        </header>
+        <div class="lab-hero">
+            <h2> Idea Lab </h2>
+        </div>
 
-        <section class="about">
+        <div class="lab-list">
 
-            <div class="about-image">
-                <img src="assets/img/vector-search-thumbnail.PNG" alt="vector search thumbnail">
-            </div>
+            <a href="studio.html" class="lab-item">
+                <div class="lab-number">01</div>
 
-            <div class="about-content">
+                <div class="lab-content">
+                    <div class="lab-label">Interactive Lab</div>
+                    <h2>Vector Search</h2>
+                    <p>A small experiment in how meaning becomes searchable..</p>
+                </div>
 
-
-                <p class="section-intro">
-                    Experiments and ideas I'm exploring.
-                </p>
-
-
-                <h3>Using Grogu to Understand Vector Search</h3>
-                <p>
-                    An interactive guide to understanding how vector search works.<br>
-                    <a href="/studio.html" class="text-link">
-                        Navigate the galaxy <span>→</span>
-                    </a>
-
-
-            </div>
-
-        </section>
-
-
-        <section class="story-closing">
-            <a href="craft.html" class="text-link">
-                <span>←</span> Back to my craft
+                <div class="lab-arrow">→</div>
             </a>
-        </section>
+
+            <a href="dashboard.html" class="lab-item">
+                <div class="lab-number">02</div>
+
+                <div class="lab-content">
+                    <div class="lab-label">Interactive lab</div>
+                    <h2>Program Pulse</h2>
+                    <p>Bringing together signals.</p>
+                </div>
+
+                <div class="lab-arrow">→</div>
+            </a>
+
+        </div>
+
+        <a href="craft.html" class="text-link">
+            <span>←</span> Back to Craft
+        </a>
+
+    </main>
 
     </main>
 

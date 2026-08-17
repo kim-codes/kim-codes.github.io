@@ -102,8 +102,13 @@
       font-size: clamp(2.4rem, 5vw, 4rem);
       line-height: 1.1;
       font-weight: 700;
-
       margin-bottom: 1.5rem;
+  }
+
+  h1 .accent {
+      font-family: 'Instrument Serif', serif;
+      font-style: italic;
+      font-weight: 550;
   }
 
   .hero p {
@@ -121,20 +126,22 @@
   .text-link {
       display: inline-flex;
       align-items: center;
-
+      gap: 0.4rem;
       margin-top: 2.5rem;
-
       color: #222;
-      text-decoration: underline;
-      text-underline-offset: 6px;
-      text-decoration-thickness: 1px;
+      text-decoration: none;
+      font-size:1rem;
+      font-weight: 500;
+      letter-spacing: 0;
+      text-transform: none;
 
-      font-size: .95rem;
-      font-weight: 600;
-      letter-spacing: .06em;
-      text-transform: uppercase;
+      padding-bottom: 2px;
+      background-image: linear-gradient(currentColor, currentColor);
+      background-size: 0% 1px;
+      background-position: left bottom;
+      background-repeat: no-repeat;
 
-      transition: gap .2s ease, color .2s ease;
+      transition: background-size .3s ease, color .2s ease, gap .2s ease;
   }
 
   .text-link span {
@@ -144,16 +151,12 @@
   .text-link:hover {
       color: #000;
       gap: .65rem;
+      background-size: 100% 1px;
   }
 
   .text-link:hover span {
       transform: translateX(3px);
   }
-
-  /*
-.text-link:hover {
-    color: #666;
-}*/
 
   /* --------------------------
        Footer
@@ -186,13 +189,6 @@
       display: block;
   }
 
-  .about-image p {
-      font-size: 1rem;
-      color: #555;
-      margin-bottom: 2rem;
-      margin-top: 5rem;
-  }
-
   .about-content h1 {
       font-size: clamp(1rem, 5vw, 2.5rem);
       font-size: clamp(min, preferred, max);
@@ -210,7 +206,6 @@
       width: 100%;
       border-radius: 20px;
       object-fit: cover;
-      margin-top: 2rem;
   }
 
   @media (max-width: 850px) {
@@ -223,20 +218,10 @@
       .about-image {
           max-width: 400px;
           margin: 0 auto;
-          order: 1;
       }
 
       .about-content {
           text-align: center;
-          order: 0;
-      }
-
-      .about-next{
-        order: 3;
-      }
-
-      .about-me-ending{
-        order:2;
       }
 
   }

@@ -382,6 +382,194 @@
             pointer-events: none;
         }
 
+        /* ---------- Patterns trigger ---------- */
+        .patterns-hint {
+            margin: 0 0 1.75rem;
+        }
+
+        .patterns-trigger {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 13px;
+            font-style: italic;
+            color: #999;
+            padding: 2px 4px;
+            transition: color 0.2s ease;
+        }
+
+        .patterns-trigger:hover {
+            color: #5C7E93;
+        }
+
+        /* ---------- Patterns overlay ---------- */
+        .patterns-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(40, 38, 32, 0.45);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1rem;
+            z-index: 1000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.25s ease;
+        }
+
+        .patterns-overlay.is-open {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .patterns-note {
+            background: #C9DCE8;
+            border-radius: 4px;
+            padding: 2.5rem 2.75rem 2.25rem;
+            max-width: 560px;
+            width: 100%;
+            max-height: 85vh;
+            overflow-y: auto;
+            position: relative;
+            transform: rotate(-0.6deg) scale(0.97);
+            box-shadow: 2px 10px 24px rgba(0, 0, 0, 0.18);
+            text-align: left;
+            transition: transform 0.25s ease;
+        }
+
+        .patterns-overlay.is-open .patterns-note {
+            transform: rotate(-0.6deg) scale(1);
+        }
+
+        .patterns-tape {
+            position: absolute;
+            top: -14px;
+            left: 40px;
+            width: 70px;
+            height: 22px;
+            background: rgba(255, 255, 255, 0.5);
+            transform: rotate(-3deg);
+        }
+
+        .patterns-close {
+            position: absolute;
+            top: 18px;
+            right: 18px;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            border: none;
+            background: rgba(0, 0, 0, 0.06);
+            color: #4A6B80;
+            font-size: 15px;
+            line-height: 1;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+        }
+
+        .patterns-close:hover {
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        .patterns-kicker {
+            font-size: 13px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #5C7E93;
+            margin: 0 0 10px;
+            font-weight: 600;
+        }
+
+        .patterns-title {
+            margin: 0 0 8px;
+            font-size: 28px;
+            color: #24404F;
+            font-weight: 700;
+            line-height: 1.15;
+        }
+
+        .patterns-underline {
+            display: block;
+            margin: 0 0 20px;
+        }
+
+        .patterns-underline path {
+            stroke: #5C7E93;
+            stroke-width: 2;
+            fill: none;
+            stroke-linecap: round;
+        }
+
+        .patterns-intro {
+            font-size: 14px;
+            color: #3E5C6E;
+            margin: 0 0 1.75rem;
+            line-height: 1.65;
+        }
+
+        .patterns-list {
+            display: flex;
+            flex-direction: column;
+            gap: 22px;
+        }
+
+        .pattern-item-title {
+            font-size: 16px;
+            font-weight: 700;
+            margin: 0 0 6px;
+            color: #24404F;
+        }
+
+        .pattern-item-body {
+            font-size: 14px;
+            color: #3E5C6E;
+            margin: 0;
+            line-height: 1.65;
+        }
+
+        .patterns-footer {
+            font-size: 13px;
+            color: #5C7E93;
+            margin: 1.75rem 0 0;
+            font-style: italic;
+        }
+
+        @media (max-width: 600px) {
+            .mode-panels {
+                display: flex;
+                flex-direction: column;
+                gap: 24px;
+                align-items: center;
+            }
+
+            .mode-panel {
+                max-width: 350px;
+                min-height: 230px;
+                aspect-ratio: auto;
+            }
+
+            .mode-panel--lab,
+            .mode-panel--work {
+                transform: none;
+            }
+
+            .mode-panel {
+                order: 1;
+            }
+
+            .mode-panel.is-active {
+                order: 0;
+            }
+
+            .patterns-note {
+                padding: 2rem 1.5rem 1.75rem;
+            }
+        }
+
 
         @media (max-width: 600px) {
             .mode-panels {
@@ -463,6 +651,10 @@
 
             <p class="click-hint" id="click-hint"><strong>&uarr; click a word &uarr;</strong></p>
 
+             <p class="patterns-hint">
+                <button type="button" class="patterns-trigger" id="patterns-trigger"><strong>or see how I think first &rarr;</strong></button>
+            </p>
+
             <div class="mode-panels">
                 <!-- lab.html once more idea labs -->
                 <a class="mode-panel mode-panel--lab">
@@ -532,6 +724,39 @@
         </section>
 
     </main>
+
+    <!-- Patterns overlay -->
+    <div class="patterns-overlay" id="patterns-overlay" aria-hidden="true">
+        <div class="patterns-note" role="dialog" aria-modal="true" aria-labelledby="patterns-title">
+            <span class="patterns-tape"></span>
+            <button type="button" class="patterns-close" id="patterns-close" aria-label="Close">&times;</button>
+
+            <p class="patterns-kicker">how i think</p>
+            <h2 class="patterns-title" id="patterns-title">My work patterns.</h2>
+            <svg class="patterns-underline" width="140" height="12" viewBox="0 0 140 12">
+                <path d="M2 6 Q 35 -2, 70 6 T 138 6" />
+            </svg>
+
+            <p class="patterns-intro">I tend to work where technology, people, and the story around them get complicated.</p>
+
+            <div class="patterns-list">
+                <div class="pattern-item">
+                    <p class="pattern-item-title">Making complex technology click</p>
+                    <p class="pattern-item-body">Turning technical ideas into stories and experiences people can understand. Think technical marketing, developer education, and product storytelling.</p>
+                </div>
+                <div class="pattern-item">
+                    <p class="pattern-item-title">Turning information into something usable</p>
+                    <p class="pattern-item-body">Bringing structure to too much information, finding the signal, and building the systems that make it easier to act on. Think dashboards, knowledge systems, and AI-assisted workflows.</p>
+                </div>
+                <div class="pattern-item">
+                    <p class="pattern-item-title">Helping teams get ready for what's next</p>
+                    <p class="pattern-item-body">Building the bridge from "we need to understand this" to "we know how to use this." Think a workshop, a prototype, a lab, or a new way of explaining technology.</p>
+                </div>
+            </div>
+
+            <p class="patterns-footer">now, pick a side &rarr;</p>
+        </div>
+    </div>
 
 
     <footer>

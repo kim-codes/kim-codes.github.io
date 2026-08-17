@@ -60,11 +60,40 @@ if (savedMode === 'work') {
 
 // disable or enable the links based on the current mode
 function updateStickyLinks(isWork) {
-    if (isWork) {
-        labLink.removeAttribute('href');
-        workLink.setAttribute('href', '/stories.html');
-    } else {
-        labLink.setAttribute('href', '/lab.html');
-        workLink.removeAttribute('href');
-    }
+  if (isWork) {
+    labLink.removeAttribute('href');
+    workLink.setAttribute('href', '/stories.html');
+  } else {
+    labLink.setAttribute('href', '/lab.html');
+    workLink.removeAttribute('href');
+  }
 }
+
+// trigger popup
+
+(function () {
+  var overlay = document.getElementById('patterns-overlay');
+  var trigger = document.getElementById('patterns-trigger');
+  var closeBtn = document.getElementById('patterns-close');
+
+  function openOverlay() {
+    overlay.classList.add('is-open');
+    overlay.setAttribute('aria-hidden', 'false');
+  }
+
+  function closeOverlay() {
+    overlay.classList.remove('is-open');
+    overlay.setAttribute('aria-hidden', 'true');
+  }
+
+  trigger.addEventListener('click', openOverlay);
+  closeBtn.addEventListener('click', closeOverlay);
+
+  overlay.addEventListener('click', function (e) {
+    if (e.target === overlay) closeOverlay();
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && overlay.classList.contains('is-open')) closeOverlay();
+  });
+})();

@@ -68,11 +68,11 @@
         }
 
         .switch-word--lab.switch-word--active {
-            color: #27500a;
+            color: #665b18;
         }
 
         .switch-word--work.switch-word--active {
-            color: #854f0b;
+            color: #7a3f4b;
         }
 
         .circle-mark {
@@ -93,11 +93,11 @@
         }
 
         .circle-mark--lab path {
-            stroke: #27500a;
+            stroke: #66591a;
         }
 
         .circle-mark--work path {
-            stroke: #854f0b;
+            stroke: #7a3f4b;
         }
 
         .switch-word--active .circle-mark {
@@ -168,6 +168,7 @@
         }
 
         /* Panels */
+        /*
         .mode-panels {
             display: grid;
             grid-template-columns: 2fr 2fr;
@@ -184,20 +185,44 @@
             padding: 1.6rem 1.4rem;
             text-align: left;
             transition: background 0.35s ease, color 0.35s ease, opacity 0.35s ease, box-shadow 0.35s ease;
+        } */
+        .mode-panels {
+            display: grid;
+            grid-template-columns: repeat(2, 280px);
+            justify-content: center;
+            gap: 4rem;
+            padding: 0 8px 20px;
+        }
+
+        .mode-panel {
+            position: relative;
+            overflow: hidden;
+            display: block;
+            aspect-ratio: 1 / 1;
+            text-decoration: none;
+            border-radius: 2px;
+            padding: 1.6rem 1.5rem;
+            text-align: left;
+            transition:
+                background 0.35s ease,
+                color 0.35s ease,
+                opacity 0.35s ease,
+                box-shadow 0.35s ease,
+                transform 0.25s ease;
         }
 
         .mode-panel--lab {
-            background: #eaf3de;
-            color: #27500a;
-            transform: rotate(-1.8deg);
-            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+            background: #fff6c9;
+            color: #66591a;
+            transform: rotate(-2deg);
+            box-shadow: 2px 7px 15px rgba(0, 0, 0, 0.10);
         }
 
         .mode-panel--work {
-            background: #faeeda;
-            color: #854f0b;
-            transform: rotate(1.6deg);
-            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.07);
+            background: #fbe8eb;
+            color: #7a3f4b;
+            transform: rotate(1.8deg);
+            box-shadow: 2px 7px 15px rgba(0, 0, 0, 0.08);
         }
 
         .mode-panel:not(.is-active) {
@@ -263,11 +288,11 @@
         }
 
         .underline--lab path {
-            stroke: #27500a;
+            stroke: #665b18;
         }
 
         .underline--work path {
-            stroke: #854f0b;
+            stroke: #7a3f4b;
         }
 
         .mode-line {
@@ -275,9 +300,13 @@
             line-height: 1.6;
             opacity: 0.85;
             margin: 16px 0 12px;
+            max-width: 220px;
         }
 
         .mode-link {
+            position: absolute;
+            left: 1.5rem;
+            bottom: 1.4rem;
             font-size: 12px;
             font-weight: 700;
         }
@@ -320,12 +349,53 @@
             margin: 0 10px;
         }
 
+        .note-doodle {
+            position: absolute;
+            right: 1.15rem;
+            bottom: 1rem;
+            width: 62px;
+            height: 62px;
+            opacity: 0.42;
+            pointer-events: none;
+            color: inherit;
+        }
+
+        .note-doodle--lab {
+            transform: rotate(-6deg);
+        }
+
+        .note-doodle--work {
+            width: 68px;
+            height: 60px;
+            transform: rotate(4deg);
+        }
+
+        .click-hint {
+            font-size: 11px;
+            color: #000;
+            margin: -14px 0 1rem;
+            transition: opacity 0.3s ease;
+        }
+
+        .click-hint.is-hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+
         @media (max-width: 600px) {
             .mode-panels {
                 display: flex;
                 flex-direction: column;
                 /* grid-template-columns: 1fr; removed so can restack based on what user clicks*/
                 gap: 24px;
+                align-items: center;
+            }
+
+            .mode-panel {
+                max-width: 350px;
+                min-height: 230px;
+                aspect-ratio: auto;
             }
 
             .mode-panel--lab,
@@ -340,18 +410,6 @@
             .mode-panel.is-active {
                 order: 0;
             }
-        }
-
-        .click-hint {
-            font-size: 11px;
-            color: #000;
-            margin: -14px 0 1rem;
-            transition: opacity 0.3s ease;
-        }
-
-        .click-hint.is-hidden {
-            opacity: 0;
-            pointer-events: none;
         }
     </style>
 </head>
@@ -410,6 +468,21 @@
                 <a class="mode-panel mode-panel--lab">
                     <div class="flash"></div>
                     <span class="tape tape--lab"></span>
+                    <svg class="note-doodle note-doodle--lab" viewBox="0 0 80 80" aria-hidden="true">
+                        <path d="M31 10h18
+             M36 10v24
+             L23 57
+             C21 63 25 69 32 69h16
+             C55 69 59 63 57 57
+             L44 34V10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+
+                        <path d="M26 55
+             C34 52 44 58 56 54" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+
+                        <circle cx="36" cy="48" r="2" fill="currentColor" />
+                        <circle cx="47" cy="44" r="1.5" fill="currentColor" />
+                    </svg>
                     <p class="mode-kicker">idea lab</p>
                     <p class="mode-title-line">
                         Things I'm curious about.
@@ -420,11 +493,29 @@
                     <p class="mode-line">I take things apart to see how they work: little experiments, demos, whatever
                         helps it click, then help you see it too.</p>
                     <span class="mode-link">enter the lab &rarr;</span>
-                    </a>
+                </a>
 
                 <a class="mode-panel mode-panel--work">
                     <div class="flash"></div>
                     <span class="tape tape--work"></span>
+                    <svg class="note-doodle note-doodle--work" viewBox="0 0 90 80" aria-hidden="true">
+                        <path d="M17 27
+             C17 23 20 21 24 21h34
+             c4 0 7 3 7 7v24
+             c0 4-3 7-7 7H24
+             c-4 0-7-3-7-7z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+
+                        <path d="M65 32l14-7v28l-14-7z" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linejoin="round" />
+
+                        <circle cx="37" cy="40" r="8" fill="none" stroke="currentColor" stroke-width="2" />
+
+                        <circle cx="37" cy="40" r="2" fill="currentColor" />
+
+                        <path d="M24 21v-6h12v6" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" />
+                    </svg>
                     <p class="mode-kicker">behind the work</p>
                     <p class="mode-title-line">Things worth documenting.
                         <svg class="underline underline--work" viewBox="0 0 210 8" preserveAspectRatio="none">

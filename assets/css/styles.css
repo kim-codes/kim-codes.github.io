@@ -130,7 +130,7 @@
       margin-top: 2.5rem;
       color: #222;
       text-decoration: none;
-      font-size:1rem;
+      font-size: 1rem;
       font-weight: 500;
       letter-spacing: 0;
       text-transform: none;
@@ -189,6 +189,13 @@
       display: block;
   }
 
+  .about-image p {
+      font-size: 1rem;
+      color: #555;
+      margin-bottom: 2rem;
+      margin-top: 5rem;
+  }
+
   .about-content h1 {
       font-size: clamp(1rem, 5vw, 2.5rem);
       font-size: clamp(min, preferred, max);
@@ -196,7 +203,7 @@
       margin-bottom: 2rem;
   }
 
-  .about-content p {
+  .about p {
       font-size: 1rem;
       color: #555;
       margin-bottom: 2rem;
@@ -206,9 +213,16 @@
       width: 100%;
       border-radius: 20px;
       object-fit: cover;
+      margin-top: 2rem;
   }
 
+
   @media (max-width: 850px) {
+
+      .about-content {
+          text-align: center;
+          order: 1;
+      }
 
       .about {
           grid-template-columns: 1fr;
@@ -218,10 +232,15 @@
       .about-image {
           max-width: 400px;
           margin: 0 auto;
+          order: 2;
       }
 
-      .about-content {
-          text-align: center;
+      .about-next {
+          order: 4;
+      }
+
+      .about-me-ending {
+          order: 3;
       }
 
   }

@@ -11,6 +11,13 @@ const beaconRadius = 13;
 const svgWidth = 900;
 const svgHeight = 600;
 
+// track which beacons have been activated 
+const beaconsReached = {
+    imperial: false,
+    c3p0: false,
+    mandalore: false
+};
+
 // test - beacon.style.stroke = "#8ccf6e"; 
 
 /* --------------------------
@@ -94,7 +101,7 @@ svg.addEventListener("pointermove", (event) => {
         beacon.classList.remove('beacon-hidden');
         beacon.classList.add('beacon-visible');
         // add original twinkle
-        beacon.classList.add('twinkle');
+        activateAdditionalBeacons();
     });
 
     // Update displayed coordinates
@@ -288,12 +295,25 @@ function updateActiveBeaconQuery() {
         queryText.textContent = '"Who would help Grogu on his journey?"';
     } else if (imperialDistance < 40) {
         queryText.textContent = '"Who would help the Empire rule the galaxy?"';
+        beaconsReached.imperial = true;
+        document.querySelector('.imperial').classList.remove('twinkle');
     } else if (c3p0Distance < 40) {
         queryText.textContent = '"Who has tinkered with C-3PO?"';
+        beaconsReached.c3p0 = true;
+        document.querySelector('.c3p0').classList.remove('twinkle');
     } else if (mandaloreDistance < 40) {
         queryText.textContent = '"Who would fight to reclaim Mandalore?';
+        beaconsReached.mandalore = true;
+        document.querySelector('.mandalore').classList.remove('twinkle');
     } else {
         queryText.textContent = "";
     }
 
+}
+
+// add twinkle effect to additional beacons 
+function activateAdditionalBeacons() {
+    if (!beaconsReached.imperial) document.querySelector('.imperial').classList.add('twinkle');
+    if (!beaconsReached.c3p0) document.querySelector('.c3p0').classList.add('twinkle');
+    if (!beaconsReached.mandalore) document.querySelector('.mandalore').classList.add('twinkle');
 }

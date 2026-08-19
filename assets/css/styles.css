@@ -11,12 +11,6 @@
       line-height: 1.6;
   }
 
-  /* 
-      Reminders:
-        font-size: clamp(min, preferred, max);
-    */
-
-
   /* --------------------------
        Header Logo
     -------------------------- */
@@ -26,9 +20,7 @@
       padding: 3rem 1.5rem 2rem;
   }
 
-
   /* Logo */
-
   .logo img {
       width: 280px;
       max-width: 90%;
@@ -39,7 +31,6 @@
 
 
   /* Navigation */
-
   nav ul {
       list-style: none;
       display: flex;
@@ -130,17 +121,15 @@
       margin-top: 2.5rem;
       color: #222;
       text-decoration: none;
-      font-size:1rem;
+      font-size: 1rem;
       font-weight: 500;
       letter-spacing: 0;
       text-transform: none;
-
       padding-bottom: 2px;
       background-image: linear-gradient(currentColor, currentColor);
       background-size: 0% 1px;
       background-position: left bottom;
       background-repeat: no-repeat;
-
       transition: background-size .3s ease, color .2s ease, gap .2s ease;
   }
 
@@ -208,6 +197,7 @@
       object-fit: cover;
   }
 
+  /** Mobile About me ("constants") **/
   @media (max-width: 850px) {
 
       .about {
@@ -298,8 +288,6 @@
       padding-left: 1rem;
   }
 
-
-
   .project-timeline .project {
       position: relative;
       border-left: none;
@@ -307,7 +295,7 @@
   }
 
 
-  /* Right on Craft page  */
+  /* Right hand side on Craft page  */
   .craft-sidebar {
       grid-area: sidebar;
       background: #f9f9f9;
@@ -376,7 +364,7 @@
   }
 
 
-  /* Responsive Craft */
+  /* Mobile - Responsive Craft */
   @media (max-width: 900px) {
 
       .craft {
@@ -411,16 +399,11 @@
       margin-bottom: 4rem;
   }
 
-
-  /* Each Reflection */
-
   .reflection-item {
       padding: 2rem 0;
       border-bottom: 1px solid #ececec;
   }
 
-
-  /* Title */
 
   .reflection-title {
       display: flex;
@@ -445,9 +428,7 @@
       transform: translateX(4px);
   }
 
-
-  /* Description */
-
+  /* Reflections Description */
   .reflection-preview {
       margin-top: .75rem;
       color: #666;
@@ -483,36 +464,21 @@
   }
 
 
-
-  /* Mobile */
-
+  /* Mobile Reflections */
   @media (max-width: 768px) {
-
       .reflection-title {
           font-size: 1.25rem;
       }
-
   }
 
 
   /* Impact section styling */
-  /*.impact-section {
-    min-height:100vh;
-    padding:120px clamp(25px, 8vw, 120px);
-    background:#fff;
-}*/
 
   .impact-section {
       max-width: 1200px;
       margin: 4rem auto;
       padding: 0 1.5rem;
   }
-
-  /*
-.impact-container {
-    max-width:1100px;
-    margin:auto;
-}*/
 
   .impact-container {
       width: 100%;
@@ -536,13 +502,11 @@
       margin-bottom: 60px;
   }
 
-
   .impact-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 25px;
   }
-
 
   .impact-card {
       background: #fafafa;
@@ -551,11 +515,9 @@
       transition: .3s ease;
   }
 
-
   .impact-card:hover {
       transform: translateY(-5px);
   }
-
 
   .impact-card img {
       width: 100%;
@@ -563,12 +525,10 @@
       object-fit: cover;
   }
 
-
   .impact-card h3 {
       font-size: 1.05rem;
       padding: 18px 18px 8px;
   }
-
 
   .impact-card p {
       color: #555;
@@ -576,7 +536,6 @@
       line-height: 1.5;
       padding: 0 18px;
   }
-
 
   .impact-card span {
       display: block;
@@ -599,27 +558,24 @@
 
 
   @media(max-width:1100px) {
-
       .impact-grid {
           grid-template-columns: repeat(2, 1fr);
       }
-
   }
 
+  /* impact styling for mobile */
   @media(max-width:600px) {
-
       .impact-grid {
           grid-template-columns: 1fr;
       }
-
   }
 
   /* end of impact section styling */
 
 
   /* --------------------------
-   Contact
--------------------------- */
+    Contact
+   -------------------------- */
 
   .contact {
       max-width: 800px;

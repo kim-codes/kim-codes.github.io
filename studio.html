@@ -295,7 +295,6 @@
 
         }
 
-
         .beacon-label {
             fill: white;
             font-size: 13px;
@@ -308,8 +307,12 @@
             animation: twinkle 0.6s infinite alternate;
         }
 
-        @keyframes twinkle {
+        /* define twinkle to be accessible by other elements if needed */
+        .twinkle {
+            animation: twinkle 0.6s infinite alternate;
+        }
 
+        @keyframes twinkle {
             from {
                 opacity: 0.45;
             }
@@ -318,7 +321,6 @@
                 opacity: 1;
                 filter: drop-shadow(0 0 6px #b7e98a);
             }
-
         }
 
         /* add glow to nearest neighbors */

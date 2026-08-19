@@ -93,6 +93,8 @@ svg.addEventListener("pointermove", (event) => {
     document.querySelectorAll('.additional-beacon').forEach(beacon => {
         beacon.classList.remove('beacon-hidden');
         beacon.classList.add('beacon-visible');
+        // add original twinkle
+        beacon.classList.add('twinkle');
     });
 
     // Update displayed coordinates

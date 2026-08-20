@@ -173,6 +173,7 @@ function handleFileDropped() {
     document.getElementById('drop-zone').style.display = 'none';
     document.getElementById('btn-load-sample').style.display = 'none';
     document.getElementById('sample-data-file-card').style.display = 'none';
+    document.getElementById('initial-context').style.display = 'none';
     document.getElementById('cleanup-steps').style.display = 'block';
 
     // format the raw data for visuals 
@@ -329,11 +330,11 @@ function buildCleanLog(rawRows) {
 
     return [
         { label: "Standardized region labels", count: counts.region, example: examples.region },
-        { label: "Fixed segment casing", count: counts.segment, example: examples.segment },
-        { label: "Normalized industry names", count: counts.industry, example: examples.industry },
-        { label: "Standardized product names", count: counts.product, example: examples.product },
-        { label: "Fixed stage casing", count: counts.stage, example: examples.stage },
-        { label: "Normalized outcome values", count: counts.outcome, example: examples.outcome },
+        { label: "Fixed inconsistent casing in segments", count: counts.segment, example: examples.segment },
+        { label: "Normalized industry naming", count: counts.industry, example: examples.industry },
+        { label: "Standardized product naming", count: counts.product, example: examples.product },
+        { label: "Fixed deal stage casing", count: counts.stage, example: examples.stage },
+        { label: "Normalized outcome value labels", count: counts.outcome, example: examples.outcome },
         { label: "Flagged missing owners", count: counts.owner, example: examples.owner },
         { label: "Reformatted dates to ISO", count: counts.date, example: examples.date }
     ].filter(function (item) { return item.count > 0; });

@@ -69,11 +69,15 @@ document.getElementById('btn-walkthrough').addEventListener('click', function ()
 
 document.getElementById('btn-view-dashboard').addEventListener('click', function () {
     document.getElementById('data-cleanup').style.display = 'none';
+    document.getElementById('dashboard-context').style.display = 'block';
     document.getElementById('dashboard-view').style.display = 'block';
-    document.getElementById('dashboard-view').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    document.getElementById('dashboard-context').scrollIntoView({ behavior: 'smooth', block: 'start' });
 
     const data = computeDashboard(cleanedData);
     renderDashboard(data);
+
+    // update explanation
+
 });
 
 // load the sample data file
@@ -134,11 +138,13 @@ document.getElementById('btn-skip').addEventListener('click', function () {
 
     document.querySelector('.lab-choice').style.display = 'none';
     document.getElementById('dashboard-view').style.display = 'block';
-    document.getElementById('dashboard-view').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    document.getElementById('dashboard-context').style.display = 'block';
+    document.getElementById('dashboard-context').scrollIntoView({ behavior: 'smooth', block: 'start' });
 });
 
 document.getElementById('btn-reset').addEventListener('click', function () {
     document.getElementById('dashboard-view').style.display = 'none';
+    document.getElementById('dashboard-context').style.display = 'none';
     document.getElementById('dashboard-content').innerHTML = '';
     document.getElementById('btn-reset').style.display = 'none';
 

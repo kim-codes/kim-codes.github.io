@@ -28,7 +28,8 @@
         main {
             max-width: 920px;
             margin: 0 auto;
-            padding: 0 24px
+            padding: 0 24px;
+            text-align: center;
         }
 
         .breadcrumb {
@@ -202,6 +203,19 @@
             text-align: left;
         }
 
+        #data-cleanup p {
+            font-size: 14px;
+        }
+
+        .steps-breadcrumb {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 12px;
+            color: #6B6F76;
+            letter-spacing: .04em;
+            text-transform: uppercase;
+            padding-top: 10px;
+        }
+
         .drop-zone {
             display: none;
             border: 2px dashed #DEDCD3;
@@ -253,6 +267,11 @@
 
         #cleanup-steps {
             display: none;
+        }
+
+        #predashboard-context {
+            display: none;
+            margin-top: 1.5rem;
         }
 
         .raw-preview {
@@ -631,6 +650,8 @@
             </ul>
         </nav>
 
+        </header>
+
         <main>
 
             <p class="breadcrumb">Idea Lab</p>
@@ -665,8 +686,19 @@
             </div>
 
             <div id="data-cleanup">
+                <div id="initial-context">
+                    <p class="steps-breadcrumb">context</p>
+                    <p>
+                        I started with two spreadsheets, each telling a slightly different part of the story.<br>
+                        I brought them together and that created our sample data, <strong>our starting point</strong>.
+                    </p>
+                    <p class="steps-breadcrumb">Next steps</p>
+                    <p>
+                        The data isn't quite ready for a dashboard yet.<br>
+                        All the values and fields need to speak the same language.
+                    </p>
+                </div>
                 <button class="btn" id="btn-load-sample">Load sample data</button>
-
                 <div class="drop-zone" id="drop-zone">
                     <i class="dz-icon">&#8595;</i>
                     <div>Drag the sample data file here to start the data cleanup</div>
@@ -680,6 +712,15 @@
                     <ul class="clean-log" id="clean-log"></ul>
                     <h3 id="json-heading" class="json-heading">Normalized output</h3>
                     <div class="json-box" id="json-box"></div>
+                    <div id="predashboard-context">
+                        <p class="steps-breadcrumb">The idea</p>
+                        <p>
+                            Now that the data has been cleaned we can start designing a view that makes it easy to
+                            understand how the program is performing.
+                            <br><br>That way, at a glance we can readily see what's on track, what's falling
+                            behind, and what needs attention.
+                        </p>
+                    </div>
                     <button class="btn btn-primary" id="btn-view-dashboard">Dashboard</button>
                 </div>
 
@@ -689,27 +730,6 @@
                 <div id="dashboard-content"></div>
                 <button class="btn" id="btn-reset">Reset demo</button>
             </div>
-
-            <!--
-            <section id="dashboard">
-                <h2>The dashboard</h2>
-                <div class="dashboard-frame">
-                    [ interactive dashboard ]
-                </div>
-                <div class="vitals-key">
-                    <div><span class="dot healthy"></span>Healthy</div>
-                    <div><span class="dot attention"></span>Needs attention</div>
-                    <div><span class="dot critical"></span>Critical</div>
-                </div>
-            </section>
-
-            <section id="why">
-                <h2>Design Desicions</h2>
-                <p class="prose">
-                    <span class="placeholder"></span>
-                </p>
-            </section> 
-            -->
 
             <a href="lab.html" class="text-link">
                 <span>←</span> Back to the Lab

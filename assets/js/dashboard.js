@@ -108,6 +108,7 @@ sampleDataBtn.addEventListener('click', function () {
     });
 
     card.addEventListener('click', handleFileDropped);
+    document.getElementById('drop-zone').scrollIntoView({ behavior: 'smooth', block: 'start' });
 });
 
 // setup the 3 listeners to be able to drag and move the sample data 

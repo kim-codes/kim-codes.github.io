@@ -11,6 +11,30 @@
       line-height: 1.6;
   }
 
+  /* Chrome, Edge, Safari */
+  ::-webkit-scrollbar {
+      width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+      background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+      background: #d8d5cd;
+      border-radius: 999px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+      background: #2a3480;
+  }
+
+  /* Firefox */
+  html {
+      scrollbar-width: thin;
+      scrollbar-color: #d8d5cd transparent;
+  }
+
   /* --------------------------
        Header Logo
     -------------------------- */

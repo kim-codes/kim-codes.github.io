@@ -207,13 +207,38 @@
             font-size: 14px;
         }
 
+        #initial-context {
+            max-width: 640px;
+            padding: 24px 28px;
+            margin-bottom: 1.5rem;
+            border-radius: 12px;
+            background: #f6f4fb;
+            border-left: 3px solid #6b5ca5;
+        }
+
+        #initial-context p:not(.steps-breadcrumb) {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin: 0.25rem 0 1.25rem 0;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        #initial-context p:last-child {
+            margin-bottom: 0;
+        }
+
+        #initial-context .steps-breadcrumb {
+            color: #6b5ca5;
+            font-weight: 600;
+        }
+
         .steps-breadcrumb {
             font-family: 'IBM Plex Mono', monospace;
             font-size: 12px;
             color: #6B6F76;
             letter-spacing: .04em;
             text-transform: uppercase;
-            padding-top: 10px;
+            padding-top: 5px;
         }
 
         .drop-zone {
@@ -272,6 +297,24 @@
         #predashboard-context {
             display: none;
             margin-top: 1.5rem;
+            max-width: 640px;
+            padding: 24px 28px;
+            margin-bottom: 1.5rem;
+            border-radius: 12px;
+            background: #f6f4fb;
+            border-left: 3px solid #6b5ca5;
+        }
+
+        #predashboard-context p:not(.steps-breadcrumb) {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin: 0.25rem 0 0 0;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        #predashboard-context .steps-breadcrumb {
+            color: #6b5ca5;
+            font-weight: 600;
         }
 
         .raw-preview {
@@ -342,6 +385,91 @@
         /*--------------------------------------
          styling the dashboard below here 
          --------------------------------------*/
+        #dashboard-context {
+            display: none;
+            max-width: 920px;
+            margin-top: 2rem;
+            padding: 32px 40px;
+            border-radius: 12px;
+            background: #f6f4fb;
+            border-left: 3px solid #6b5ca5;
+            /* swap for your accent teal/slate if you prefer */
+        }
+
+        #dashboard-context .dashboard-breadcrumb {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #6b5ca5;
+            text-align: left;
+            margin-bottom: 0.75rem;
+        }
+
+        #dashboard-context p:not(.dashboard-breadcrumb) {
+            font-size: 1rem;
+            line-height: 1.6;
+            text-align: left;
+            max-width: 640px;
+            padding: 0;
+            margin: 0 0 1.5rem 0;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .dashboard-questions {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 0.9rem 2rem;
+            max-width: 100%;
+            margin: 0;
+            padding-top: 1.25rem;
+            border-top: 1px solid rgba(107, 92, 165, 0.2);
+            list-style: none;
+            color: #555;
+            text-align: left;
+        }
+
+        .dashboard-questions li {
+            position: relative;
+            padding-left: 1.5rem;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .dashboard-questions li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: #6b5ca5;
+        }
+
+        .dashboard-questions li.span-full {
+            grid-column: span 2;
+        }
+
+        @media (max-width: 700px) {
+            #dashboard-context {
+                padding: 24px 20px;
+                margin-top: 1.5rem;
+            }
+
+            #dashboard-context p:not(.steps-breadcrumb) {
+                font-size: 0.95rem;
+                max-width: 100%;
+            }
+
+            .dashboard-questions {
+                grid-template-columns: 1fr;
+                gap: 0.75rem;
+            }
+
+            .dashboard-questions li:last-child {
+                grid-column: span 1;
+                /* reset since there's only 1 column now */
+            }
+        }
+
         @keyframes dashFadeIn {
             from {
                 opacity: 0;
@@ -650,101 +778,120 @@
             </ul>
         </nav>
 
-        </header>
+    </header>
 
-        <main>
+    <main>
 
-            <p class="breadcrumb">Idea Lab</p>
+        <p class="breadcrumb">Idea Lab</p>
 
-            <h1>Program Pulse<br><span>Reading a program's vitals</span></h1>
+        <h1>Program Pulse<br><span>Reading a program's vitals</span></h1>
 
-            <svg class="pulse-divider" viewBox="0 0 400 36" preserveAspectRatio="none">
-                <polyline points="0,18 60,18 80,4 100,32 120,18 260,18 280,8 300,28 320,18 400,18" fill="none"
-                    stroke="#7A5CC4" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" />
-            </svg>
+        <svg class="pulse-divider" viewBox="0 0 400 36" preserveAspectRatio="none">
+            <polyline points="0,18 60,18 80,4 100,32 120,18 260,18 280,8 300,28 320,18 400,18" fill="none"
+                stroke="#7A5CC4" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" />
+        </svg>
 
-            <p class="intro">
-                <!-- I wanted to see what happens when AI becomes part of the PM's
+        <p class="intro">
+            <!-- I wanted to see what happens when AI becomes part of the PM's
                 toolkit, not just the thing being managed. This is a small prototype for checking a program's
                 health. Turning messy updates into something that can be acted on.-->
+            <!-- Program updates have a way of multiplying. A milestone here, a risk there, a dozen status updates in
+            between... Eventually everything is scattered and that's when leadership wants an update ASAP.<br><br> -->
 
-                Program updates have a way of multiplying. A milestone here, a risk there, a dozen status updates in
-                between... Eventually everything is scattered and that's when leadership wants an update ASAP.<br><br>
+            I built Program Pulse to explore how I would turn program data into a clearer view of program health.<br>
+            Bringing together pipeline, progression, risk, and performance signals in one place.
+            <br><br>
 
-                I built Program Pulse to explore two things: how I would bring those signals together to tell the full
-                story of a program, and how AI could become part of my toolkit along the way.
+            Along the way, I used AI as part of the toolkit to help shape the analysis and build the experience.
+        </p>
+
+        <div id="dashboard-context">
+            <p class="dashboard-breadcrumb">What we did</p>
+            <p>
+                The dashboard isn't meant to reproduce the source data.<br>
+                It's organized around the questions a program owner actually needs to answer:
             </p>
 
-            <div class="lab-choice">
-                <h2>Start Here</h2>
-                <!--<p>Want to see the mess get cleaned up
+            <ul class="dashboard-questions">
+                <li>How much pipeline do we have?</li>
+                <li>Where are we above or below expectations?</li>
+                <li>Where is it progressing or getting stuck?</li>
+                <li>What needs attention?</li>
+                <li class="span-full">Which regions, products, or industries are performing differently?</li>
+            </ul>
+        </div>
+
+        <div class="lab-choice">
+            <h2>Start Here</h2>
+            <!--<p>Want to see the mess get cleaned up
                     first, or jump straight to the dashboard?</p>-->
-                <div class="choice-row">
-                    <button class="btn btn-primary" id="btn-walkthrough">Walk me through the mess</button>
-                    <button class="btn" id="btn-skip">Skip to the dashboard</button>
-                </div>
+            <div class="choice-row">
+                <button class="btn btn-primary" id="btn-walkthrough">Walk me through the mess</button>
+                <button class="btn" id="btn-skip">Skip to the dashboard</button>
+            </div>
+        </div>
+
+        <div id="data-cleanup">
+            <div id="initial-context">
+                <p class="steps-breadcrumb">context</p>
+                <p>
+                    I started with two spreadsheets, each telling a slightly different part of the story.<br>
+                    I brought them together and that created our sample data, <strong>our starting point</strong>.
+                </p>
+                <p class="steps-breadcrumb">Next steps</p>
+                <p>
+                    The data isn't quite ready for a dashboard yet.<br>
+                    All the values and fields need to speak the same language.
+                </p>
+            </div>
+            <button class="btn" id="btn-load-sample">Load sample data</button>
+            <div class="drop-zone" id="drop-zone">
+                <i class="dz-icon">&#8595;</i>
+                <div>Drag the sample data file here to start the data cleanup</div>
             </div>
 
-            <div id="data-cleanup">
-                <div id="initial-context">
-                    <p class="steps-breadcrumb">context</p>
+            <div id="cleanup-steps">
+                <h3>Raw file</h3>
+                <div class="raw-preview" id="raw-preview"></div>
+
+                <h3>Cleaning log</h3>
+                <ul class="clean-log" id="clean-log"></ul>
+                <h3 id="json-heading" class="json-heading">Normalized output</h3>
+                <div class="json-box" id="json-box"></div>
+                <div id="predashboard-context">
+                    <p class="steps-breadcrumb">The idea</p>
                     <p>
-                        I started with two spreadsheets, each telling a slightly different part of the story.<br>
-                        I brought them together and that created our sample data, <strong>our starting point</strong>.
-                    </p>
-                    <p class="steps-breadcrumb">Next steps</p>
-                    <p>
-                        The data isn't quite ready for a dashboard yet.<br>
-                        All the values and fields need to speak the same language.
+                        Now that the data has been cleaned we can start designing a view that makes it easy to
+                        understand how the program is performing.
+                        <br><br>That way, at a glance, we can readily see what's on track, what's falling
+                        behind, and what needs attention.
                     </p>
                 </div>
-                <button class="btn" id="btn-load-sample">Load sample data</button>
-                <div class="drop-zone" id="drop-zone">
-                    <i class="dz-icon">&#8595;</i>
-                    <div>Drag the sample data file here to start the data cleanup</div>
-                </div>
-
-                <div id="cleanup-steps">
-                    <h3>Raw file</h3>
-                    <div class="raw-preview" id="raw-preview"></div>
-
-                    <h3>Cleaning log</h3>
-                    <ul class="clean-log" id="clean-log"></ul>
-                    <h3 id="json-heading" class="json-heading">Normalized output</h3>
-                    <div class="json-box" id="json-box"></div>
-                    <div id="predashboard-context">
-                        <p class="steps-breadcrumb">The idea</p>
-                        <p>
-                            Now that the data has been cleaned we can start designing a view that makes it easy to
-                            understand how the program is performing.
-                            <br><br>That way, at a glance we can readily see what's on track, what's falling
-                            behind, and what needs attention.
-                        </p>
-                    </div>
-                    <button class="btn btn-primary" id="btn-view-dashboard">Dashboard</button>
-                </div>
-
-            </div> <!-- end of data cleanup div -->
-
-            <div id="dashboard-view">
-                <div id="dashboard-content"></div>
-                <button class="btn" id="btn-reset">Reset demo</button>
+                <button class="btn btn-primary" id="btn-view-dashboard">Dashboard</button>
             </div>
 
-            <a href="lab.html" class="text-link">
-                <span>←</span> Back to the Lab
-            </a>
+        </div> <!-- end of data cleanup div -->
 
-        </main>
-        <footer>
 
-            <p>&copy; 2026 Kim Codes</p>
+        <div id="dashboard-view">
+            <div id="dashboard-content"></div>
+            <button class="btn" id="btn-reset">Reset demo</button>
+        </div>
 
-        </footer>
+        <a href="lab.html" class="text-link">
+            <span>←</span> Back to the Lab
+        </a>
 
-        <!-- link javascript file -->
-        <script src="assets/js/sample-data.js"></script>
-        <script src="assets/js/dashboard.js"></script>
+    </main>
+    <footer>
+
+        <p>&copy; 2026 Kim Codes</p>
+
+    </footer>
+
+    <!-- link javascript file -->
+    <script src="assets/js/sample-data.js"></script>
+    <script src="assets/js/dashboard.js"></script>
 </body>
 
 </html>

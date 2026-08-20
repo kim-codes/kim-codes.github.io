@@ -203,6 +203,7 @@ function handleFileDropped() {
             document.getElementById('json-box').style.display = 'block';
             renderJSON(cleanedData);
             document.getElementById('btn-view-dashboard').style.display = 'inline-block';
+            document.getElementById('predashboard-context').style.display = 'block';
         }, logAnimationTime);
     }, 1000);
 }

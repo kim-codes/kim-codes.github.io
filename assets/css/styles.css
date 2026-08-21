@@ -251,14 +251,14 @@
       margin: 4rem auto;
       padding: 0 1.5rem;
       display: grid;
-      grid-template-columns: 2fr 1fr;
+      grid-template-columns: 2fr 0.8fr;
       grid-template-areas: "main sidebar";
       gap: 5rem;
   }
 
   .craft-header {
       max-width: 1200px;
-      margin: 3rem auto 4rem;
+      margin: 3rem auto 3rem;
       padding: 0 1.5rem;
   }
 

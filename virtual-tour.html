@@ -1,47 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Bringing a Virtual Tour to Life</title>
+    <title>Bringing a Virtual Tour to Life</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600&family=Caveat:wght@500&family=Dancing+Script:wght@500&display=swap" rel="stylesheet">
- 
-<style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600&family=Caveat:wght@500&family=Dancing+Script:wght@500&display=swap"
+        rel="stylesheet">
 
-:root{
-    --bg:#FFF;
-    --text:#222;
-    --muted:#555;
-}
+    <style>
+        :root {
+            --bg: #FFF;
+            --text: #222;
+            --muted: #555;
+        }
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-body{
-    background:var(--bg);
-    font-family:Inter,sans-serif;
-    color:var(--text);
-}
+        body {
+            background: var(--bg);
+            font-family: Inter, sans-serif;
+            color: var(--text);
+        }
 
-.hero{
-    max-width:1450px;
-    margin:auto;
-    display:grid;
-    grid-template-columns:420px 1fr;
-    align-items:center;
-    gap:80px;
-    min-height:85vh;
-   padding:10px 80px 20px;
-}
+        .hero {
+            max-width: 1450px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 420px 1fr;
+            align-items: center;
+            gap: 80px;
+            min-height: 85vh;
+            padding: 10px 80px 20px;
+        }
 
-/*.top-bar{
+        /*.top-bar{
     position:absolute;
     left:70px;
     right:70px;
@@ -51,330 +53,340 @@ body{
     align-items:center;
 } */
 
- .top-bar{
-    position:relative;
-    display:flex;
-    flex-direction:column;
-    align-items:flex-start;
-    gap:10px;
-    left:0;
-    right:0;
-    top:0;
-    padding:20px 24px;
-}
+        .top-bar {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
+            left: 0;
+            right: 0;
+            top: 0;
+            padding: 20px 24px;
+        }
 
-.logo{
-    font-family:"Dancing Script",cursive;
-    text-decoration:none;
-    color:#222;
-    font-size:2rem;
-}
+        .logo {
+            font-family: "Dancing Script", cursive;
+            text-decoration: none;
+            color: #222;
+            font-size: 2rem;
+        }
 
-/*.back{
+        /*.back{
     text-decoration:none;
     color:#222;
     font-size:.95rem;
 } */
 
-.hero h1{
-    font-family:"Cormorant Garamond",serif;
-    font-size:5.6rem;
-    line-height:.95;
-    font-weight:500;
-    margin-bottom:40px;
-}
+        .hero h1 {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 5.6rem;
+            line-height: .95;
+            font-weight: 500;
+            margin-bottom: 40px;
+        }
 
-.divider{
-    width:70px;
-    height:3px;
-    background:#222;
-    margin-bottom:30px;
-}
+        .divider {
+            width: 70px;
+            height: 3px;
+            background: #222;
+            margin-bottom: 30px;
+        }
 
-.intro{
-    font-size:1.15rem;
-    line-height:1.8;
-    max-width:320px;
-    color:var(--muted);
-    margin-bottom:28px;
-}
+        .intro {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            max-width: 320px;
+            color: var(--muted);
+            margin-bottom: 28px;
+        }
 
-.question{
-    font-family:"Caveat",cursive;
-    font-size:2rem;
-    line-height:1.35;
-    max-width:360px; 
-}
+        .question {
+            font-family: "Caveat", cursive;
+            font-size: 2rem;
+            line-height: 1.35;
+            max-width: 360px;
+        }
 
-.small-question{
-    font-family:"Caveat",cursive;
-    font-size:1.5rem;
-    line-height: 1 !important;
-}
-.hero-image{
-    display:flex;
-    justify-content:center;
-    position:relative;
-}
+        .small-question {
+            font-family: "Caveat", cursive;
+            font-size: 1.5rem;
+            line-height: 1 !important;
+        }
 
-.map{
-    position:absolute;
-    width:95%;
-    opacity: 0.2;;
-    z-index: -1;
-}
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
 
-.bus{
-    position: relative;
-    width: 90%;          
-    z-index: 2;
-    margin-top: 250px;    
-}
+        .map {
+            position: absolute;
+            width: 95%;
+            opacity: 0.2;
+            ;
+            z-index: -1;
+        }
 
- /* three column section styling */
- .three-column-section{
-    max-width:1400px;
-    margin:80px auto;
-    padding:0 70px;
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:50px;
-}
+        .bus {
+            position: relative;
+            width: 90%;
+            z-index: 2;
+            margin-top: 250px;
+        }
 
-.column{
-    min-height:250px;
-    padding:20px;
-}
+        /* three column section styling */
+        .three-column-section {
+            max-width: 1400px;
+            margin: 80px auto;
+            padding: 0 70px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 50px;
+        }
 
-.column h2{
-    font-family:"Cormorant Garamond", serif;
-    font-size:2rem;
-    margin-bottom:16px;
-}
+        .column {
+            min-height: 250px;
+            padding: 20px;
+        }
 
-.column p{
-    color:#555;
-    line-height:1.8;
-}
+        .column h2 {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 2rem;
+            margin-bottom: 16px;
+        }
 
- @media (max-width:900px){
+        .column p {
+            color: #555;
+            line-height: 1.8;
+        }
 
-    .three-column-section{
-        grid-template-columns:1fr;
-        padding:0 24px;
-        gap:30px;
-    }
+        @media (max-width:900px) {
 
- } /* end of 3 column section styling */
+            .three-column-section {
+                grid-template-columns: 1fr;
+                padding: 0 24px;
+                gap: 30px;
+            }
 
-  .tour-characters{
-     width:100%;
-     max-width:300px;
-     height:auto;
- }
- 
-  /* two column styling*/ 
-  .two-column-section{
-     max-width:1400px;
-     margin:10px auto;
-     padding:0 70px;
-     display:grid;
-     grid-template-columns:1fr 2fr;
-     gap:50px;
- }
- 
- .main-column,
- .side-column{
-     min-height:250px;
-     padding:20px;
- }
- 
- .main-column h2,
- .side-column h2{
-     font-family:"Cormorant Garamond", serif;
-     font-size:2rem;
-     margin-bottom:16px;
- }
- 
- .main-column p,
- .side-column p{
-     line-height:1.8;
-     color:#555;
- }
+        }
 
-   .cloud-character{
-     width:100%;
-     max-width:300px;
-     height:auto;
- }
+        /* end of 3 column section styling */
 
- @media (max-width:900px){
-     .two-column-section{
-         grid-template-columns:1fr;
-         padding:0 24px;
-         gap:30px;
-     }
- 
- }
- 
- @media (max-width:900px){
+        .tour-characters {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+        }
 
-   .top-bar{
-       left:20px;
-       right:20px;
-       top:20px;
-   }
-   
-   .logo{
-       font-size:1.6rem;
-   }
-   
-   /*.back{
+        /* two column styling*/
+        .two-column-section {
+            max-width: 1400px;
+            margin: 10px auto;
+            padding: 0 70px;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 50px;
+        }
+
+        .main-column,
+        .side-column {
+            min-height: 250px;
+            padding: 20px;
+        }
+
+        .main-column h2,
+        .side-column h2 {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 2rem;
+            margin-bottom: 16px;
+        }
+
+        .main-column p,
+        .side-column p {
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .cloud-character {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+        }
+
+        @media (max-width:900px) {
+            .two-column-section {
+                grid-template-columns: 1fr;
+                padding: 0 24px;
+                gap: 30px;
+            }
+
+        }
+
+        @media (max-width:900px) {
+
+            .top-bar {
+                left: 20px;
+                right: 20px;
+                top: 20px;
+            }
+
+            .logo {
+                font-size: 1.6rem;
+            }
+
+            /*.back{
        font-size:.82rem;
    }*/
-   
-   .hero{
-       grid-template-columns:1fr;
-       gap:40px;
-       text-align:left;
-       padding:60px 24px 10px;
-       min-height:auto;
-   }
-   
-   .hero-image{
-       order:-1;
-       margin-top:20px;
-   }
-   
-   .hero h1{
-       font-size:clamp(3rem,13vw,4.5rem);
-       margin-bottom:28px;
-   }
-   
-   .divider{
-       margin-bottom:24px;
-   }
-   
-   .intro{
-       font-size:1rem;
-       max-width:100%;
-   }
-   
-   .question{
-       font-size:1.7rem;
-       max-width:100%;
-   }
 
-   .bus{
-       width:90%;
-       max-width:420px;
-   }
-   
- .map{
-     width:520px;
-     max-width:100%;
-     opacity:0.3;
-     min-height:250px;
- }
-}/* end of mobile styling */
-    
-</style>
+            .hero {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: left;
+                padding: 60px 24px 10px;
+                min-height: auto;
+            }
+
+            .hero-image {
+                order: -1;
+                margin-top: 20px;
+            }
+
+            .hero h1 {
+                font-size: clamp(3rem, 13vw, 4.5rem);
+                margin-bottom: 28px;
+            }
+
+            .divider {
+                margin-bottom: 24px;
+            }
+
+            .intro {
+                font-size: 1rem;
+                max-width: 100%;
+            }
+
+            .question {
+                font-size: 1.7rem;
+                max-width: 100%;
+            }
+
+            .bus {
+                width: 90%;
+                max-width: 420px;
+            }
+
+            .map {
+                width: 520px;
+                max-width: 100%;
+                opacity: 0.3;
+                min-height: 250px;
+            }
+        }
+
+        /* end of mobile styling */
+    </style>
 
 </head>
 
 <body>
- 
- <div class="top-bar">
- 
-  <a href="index.html" class="logo">kimcodes</a>
-  
-  <!--<a href="behind-the-work.html" class="back">
+
+    <div class="top-bar">
+
+        <a href="index.html" class="logo">kimcodes</a>
+
+        <!--<a href="behind-the-work.html" class="back">
   ← Back to Behind the Work
   </a>-->
- 
- </div>
- 
- <section class="hero">
+
+    </div>
+
+    <section class="hero">
 
         <div>
-        
-        <h1>
-        Bringing a<br>
-        Virtual Tour<br>
-        to Life
-        </h1>
-        
-        <div class="divider"></div>
-        
-        <p class="intro">
-        
-        One day we were planning
-        in-person meetups across Canada.
-        The next, everything went digital.
-        
-        </p>
-        
-        <p class="question">
-        
-        How do you make a virtual meetup feel like an experience people want to show up for? and not just of another online video. 
-        
-        </p>
-        
+
+            <h1>
+                Bringing a<br>
+                Virtual Tour<br>
+                to Life
+            </h1>
+
+            <div class="divider"></div>
+
+            <p class="intro">
+
+                One day we were planning
+                in-person meetups across Canada.
+                The next, everything went digital.
+
+            </p>
+
+            <p class="question">
+
+                How do you make a virtual meetup feel like an experience people want to show up for? and not just of
+                another online video.
+
+            </p>
+
         </div>
 
-     <div class="hero-image">
-        <img class="map" src="assets/img/canada-outline.png" alt="Outline of Canada">
-        <img class="bus" src="assets/img/tour-drawing.png" alt="Drawing of tour bus with three characters sitting inside">
-    </div>
+        <div class="hero-image">
+            <img class="map" src="assets/img/canada-outline.png" alt="Outline of Canada">
+            <img class="bus" src="assets/img/tour-drawing.png"
+                alt="Drawing of tour bus with three characters sitting inside">
+        </div>
 
-</section>
+    </section>
 
- <section class="two-column-section">
-    <div class="side-column">
-     <h2>The idea</h2>
-     <div class="divider"></div>
-        <p>
-          We kept asking ourselves one question.<br><br>
-        </p>
-        <p class="small-question">
-          What made people excited to come to our events before?<br><br>
-        </p>
-         <p>
-         It wasn't just the content. It was the jokes, the fun. The weird little moments between sessions. I wanted to recreate that feeling. 
-        </p>
-    </div>
+    <section class="two-column-section">
+        <div class="side-column">
+            <h2>The idea</h2>
+            <div class="divider"></div>
+            <p>
+                We kept asking ourselves one question.<br><br>
+            </p>
+            <p class="small-question">
+                What made people excited to come to our events before?<br><br>
+            </p>
+            <p>
+                It wasn't just the content. It was the jokes, the fun. The weird little moments between sessions. I
+                wanted to recreate that feeling.
+            </p>
+        </div>
 
-    <div class="main-column">
-        // video or images goes here 
-     <!--    <img class="cloud-character" src="assets/img/cloud-mascot.png" alt="Cloud Character"> -->
-    </div>
-</section>
+        <div class="main-column">
+            <img class="cloud-character" src="assets/img/GifTour1.gif" alt="Tour gif">
+        </div>
+    </section>
 
- <section class="three-column-section">
+    <section class="three-column-section">
 
-    <div class="column">
-        <h2>Designing the Tour's Personality</h2>
-        <p>
-            One of our earliest decisions was to build around characters instead of people.
-        </p>
-        <p>
-            It kept the experience approachable and universal.  While giving us friendly characters we could reuse across videos, social posts, and other campaigns.
-        </p>
-    </div>
+        <div class="column">
+            <h2>Designing the Tour's Personality</h2>
+            <p>
+                One of our earliest decisions was to build around characters instead of people.
+            </p>
+            <p>
+                It kept the experience approachable and universal. While giving us friendly characters we could reuse
+                across videos, social posts, and other campaigns.
+            </p>
+        </div>
 
-    <div class="column">
-         <img class="tour-characters" src="assets/img/TourCharacters.png" alt="Tour Characters">
-    </div>
+        <div class="column">
+            <img class="tour-characters" src="assets/img/TourCharacters.png" alt="Tour Characters">
+        </div>
 
-    <div class="column">
-        <p>
-            From hockey sticks on the roof to maple leaves throughout the animations, every detail reinforced the feeling that this was a road trip across Canada. 
-            Not just another online event.
-        </p>
-    </div>
+        <div class="column">
+            <p>
+                From hockey sticks on the roof to maple leaves throughout the animations, every detail reinforced the
+                feeling that this was a road trip across Canada.
+                Not just another online event.
+            </p>
+        </div>
 
-</section>
+    </section>
 
-    
+
 </body>
+
 </html>

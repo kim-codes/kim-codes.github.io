@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="assets/css/styles.css">
     <style>
         .craft-toggle-page {
-            max-width: 800px;
+            max-width: 1000px;
             margin: 0 auto;
             padding: 2rem 1rem;
             text-align: center;
@@ -64,7 +64,7 @@
         }
 
         .switch-word--work.switch-word--active {
-            color: #7a3f4b;
+            color: #84A0BE;
         }
 
         .circle-mark {
@@ -85,11 +85,11 @@
         }
 
         .circle-mark--lab path {
-            stroke: #66591a;
+            stroke: #ABB18B;
         }
 
         .circle-mark--work path {
-            stroke: #7a3f4b;
+            stroke: #84A0BE;
         }
 
         .switch-word--active .circle-mark {
@@ -98,269 +98,6 @@
 
         .switch-word--active .circle-mark path {
             stroke-dashoffset: 0;
-        }
-
-        .slider-label {
-            background: none;
-            border: none;
-            cursor: pointer;
-            font-family: inherit;
-            padding: 0;
-            font-size: 14px;
-            font-weight: 500;
-            color: #b3b3b3;
-            transition: color 0.25s ease, font-weight 0.25s ease;
-        }
-
-        .slider-label--active {
-            font-weight: 700;
-        }
-
-        .slider-label--lab.slider-label--active {
-            color: #27500a;
-        }
-
-        .slider-label--work.slider-label--active {
-            color: #854f0b;
-        }
-
-        .slider-track {
-            position: relative;
-            width: 120px;
-            height: 2px;
-            background: #ccc;
-            cursor: pointer;
-        }
-
-        .slider-dot {
-            position: absolute;
-            top: 50%;
-            left: 0;
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            background: #1a1a1a;
-            box-shadow: 0 0 0 4px #fff;
-            transform: translate(0, -50%);
-            transition: left 0.25s ease, background 0.25s ease;
-        }
-
-        .slider-track.is-work .slider-dot {
-            left: calc(100% - 16px);
-            background: #c49254;
-        }
-
-        .slider-track:not(.is-work) .slider-dot {
-            background: #27500a;
-        }
-
-        .slider-track:focus-visible {
-            outline: 2px solid #333;
-            outline-offset: 6px;
-        }
-
-        /* Panels */
-        /*
-        .mode-panels {
-            display: grid;
-            grid-template-columns: 2fr 2fr;
-            gap: 5rem;
-            padding: 0 8px 20px;
-        }
-
-        .mode-panel {
-            position: relative;
-            overflow: hidden;
-            display: block;
-            text-decoration: none;
-            border-radius: 3px;
-            padding: 1.6rem 1.4rem;
-            text-align: left;
-            transition: background 0.35s ease, color 0.35s ease, opacity 0.35s ease, box-shadow 0.35s ease;
-        } */
-        .mode-panels {
-            display: grid;
-            grid-template-columns: repeat(2, 280px);
-            justify-content: center;
-            gap: 4rem;
-            padding: 0 8px 20px;
-        }
-
-        .mode-panel {
-            position: relative;
-            overflow: hidden;
-            display: block;
-            aspect-ratio: 1 / 1;
-            text-decoration: none;
-            border-radius: 2px;
-            padding: 1.6rem 1.5rem;
-            text-align: left;
-            transition:
-                background 0.35s ease,
-                color 0.35s ease,
-                opacity 0.35s ease,
-                box-shadow 0.35s ease,
-                transform 0.25s ease;
-        }
-
-        .mode-panel--lab {
-            background: #fff6c9;
-            color: #66591a;
-            transform: rotate(-2deg);
-            box-shadow: 2px 7px 15px rgba(0, 0, 0, 0.10);
-        }
-
-        .mode-panel--work {
-            background: #fbe8eb;
-            color: #7a3f4b;
-            transform: rotate(1.8deg);
-            box-shadow: 2px 7px 15px rgba(0, 0, 0, 0.08);
-        }
-
-        .mode-panel:not(.is-active) {
-            background: #fafafa;
-            color: #4a4a4a;
-            opacity: 0.55;
-            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
-        }
-
-        .tape {
-            position: absolute;
-            top: -8px;
-            width: 34px;
-            height: 14px;
-            border-radius: 1px;
-        }
-
-        .tape--lab {
-            left: 16px;
-            background: rgba(255, 255, 255, 0.35);
-            transform: rotate(-4deg);
-        }
-
-        .tape--work {
-            right: 20px;
-            background: rgba(0, 0, 0, 0.06);
-            transform: rotate(3deg);
-        }
-
-        .mode-panel:not(.is-active) .tape {
-            background: rgba(0, 0, 0, 0.04);
-        }
-
-        .mode-kicker {
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            font-weight: 700;
-            opacity: 0.65;
-            margin: 0 0 10px;
-            font-family: 'Kalam',"Brush Script MT", sans-serif;
-        }
-
-        .mode-title-line {
-            font-size: 16;
-            font-weight: 800;
-            line-height: 1.25;
-            margin: 0 0 2px;
-            position: relative;
-            display: inline-block;
-        }
-
-        .underline {
-            position: absolute;
-            left: 0;
-            bottom: -5px;
-            width: 100%;
-            height: 5px;
-        }
-
-        .underline path {
-            stroke-width: 2.5;
-            opacity: 0.55;
-        }
-
-        .underline--lab path {
-            stroke: #665b18;
-        }
-
-        .underline--work path {
-            stroke: #7a3f4b;
-        }
-
-        .mode-line {
-            font-size: 13px;
-            line-height: 1.6;
-            opacity: 0.85;
-            margin: 16px 0 12px;
-            max-width: 220px;
-        }
-
-        .mode-link {
-            position: absolute;
-            left: 1.5rem;
-            bottom: 1.4rem;
-            font-size: 12px;
-            font-weight: 700;
-        }
-
-        /* Flashlight sweep */
-        .flash {
-            position: absolute;
-            top: 0;
-            left: -60%;
-            width: 60%;
-            height: 100%;
-            background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.85), transparent);
-            pointer-events: none;
-        }
-
-        .mode-panel.is-flashing .flash {
-            animation: sweep 0.6s ease-out;
-        }
-
-        @keyframes sweep {
-            from {
-                left: -60%;
-            }
-
-            to {
-                left: 130%;
-            }
-        }
-
-        .craft-constants {
-            text-align: center;
-            font-size: 14px;
-            color: #888;
-            line-height: 2;
-            margin: 2.5rem 0 0;
-        }
-
-        .craft-constants span {
-            color: #ccc;
-            margin: 0 10px;
-        }
-
-        .note-doodle {
-            position: absolute;
-            right: 1.15rem;
-            bottom: 1rem;
-            width: 62px;
-            height: 62px;
-            opacity: 0.42;
-            pointer-events: none;
-            color: inherit;
-        }
-
-        .note-doodle--lab {
-            transform: rotate(-6deg);
-        }
-
-        .note-doodle--work {
-            width: 68px;
-            height: 60px;
-            transform: rotate(4deg);
         }
 
         .click-hint {
@@ -375,24 +112,156 @@
             pointer-events: none;
         }
 
-        @media (max-width: 600px) {
+        /* =========================
+        CRAFT PANELS
+        ========================= */
+
+        .mode-panels {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            max-width: 900px;
+            margin: 2rem auto 0;
+        }
+
+        .mode-panel {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .mode-panel:hover {
+            transform: translateY(-4px) rotate(0deg);
+        }
+
+        /* Illustration */
+
+        .mode-illustration {
+            width: 100%;
+            height: 230px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            overflow: hidden;
+            border-radius: 2px;
+            margin-bottom: 0.5rem;
+        }
+
+        .mode-illustration img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .mode-content {
+            padding: 0 0.5rem;
+            text-align: left;
+        }
+
+        .mode-title-line {
+            position: relative;
+            display: inline-block;
+            margin: 0;
+            font-size: 1.15rem;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .underline {
+            position: absolute;
+            left: 0;
+            bottom: -6px;
+            width: 100%;
+            height: 5px;
+        }
+
+        .underline path {
+            stroke-width: 2.5;
+            opacity: 0.55;
+        }
+
+        .underline--lab path {
+            stroke: #ABB18B;
+        }
+
+        .underline--work path {
+            stroke: #84A0BE;
+        }
+
+        .mode-line {
+            max-width: 380px;
+            margin: 1.25rem 0 1rem;
+            font-size: 0.85rem;
+            line-height: 1.6;
+            opacity: 0.85;
+        }
+
+        .mode-link {
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+
+        /* Active / inactive state */
+        .mode-panel:not(.is-active) {
+            opacity: 0.2;
+        }
+
+        .mode-panel.is-active {
+            opacity: 1;
+        }
+
+        /* =========================
+        MOBILE
+        ========================= */
+        @media (max-width: 700px) {
+
             .mode-panels {
                 display: flex;
                 flex-direction: column;
-                /* grid-template-columns: 1fr; removed so can restack based on what user clicks*/
-                gap: 24px;
-                align-items: center;
+                gap: 2rem;
+                padding: 0 0.5rem;
             }
 
             .mode-panel {
-                max-width: 350px;
-                min-height: 230px;
-                aspect-ratio: auto;
+                display: grid;
+                grid-template-columns: 34% 1fr;
+                gap: 1rem;
+                align-items: center;
+                max-width: 500px;
+                width: 100%;
+                margin: 0 auto;
             }
 
-            .mode-panel--lab,
-            .mode-panel--work {
-                transform: none;
+            .mode-illustration {
+                height: 150px;
+                margin: 0;
+            }
+
+            .mode-content {
+                padding: 0;
+                text-align: left;
+            }
+
+            .mode-kicker {
+                font-size: 0.65rem;
+                margin-bottom: 0.35rem;
+            }
+
+            .mode-title-line {
+                font-size: 1rem;
+            }
+
+            .mode-line {
+                margin: 0.9rem 0 0.75rem;
+                font-size: 0.78rem;
+                line-height: 1.5;
+            }
+
+            .mode-link {
+                font-size: 0.75rem;
             }
 
             .mode-panel {
@@ -402,6 +271,7 @@
             .mode-panel.is-active {
                 order: 0;
             }
+
         }
     </style>
 </head>
@@ -454,103 +324,68 @@
 
             <p class="click-hint" id="click-hint"><strong>&uarr; click a word &uarr;</strong></p>
 
+
             <div class="mode-panels">
-                <!-- lab.html once more idea labs -->
-                <a class="mode-panel mode-panel--lab">
-                    <div class="flash"></div>
-                    <span class="tape tape--lab"></span>
-                    <svg class="note-doodle note-doodle--lab" viewBox="0 0 80 80" aria-hidden="true">
-                        <path d="M31 10h18
-             M36 10v24
-             L23 57
-             C21 63 25 69 32 69h16
-             C55 69 59 63 57 57
-             L44 34V10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round" />
 
-                        <path d="M26 55
-             C34 52 44 58 56 54" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                <!-- IDEA LAB -->
+                <a href="/lab.html" class="mode-panel mode-panel--lab">
 
-                        <circle cx="36" cy="48" r="2" fill="currentColor" />
-                        <circle cx="47" cy="44" r="1.5" fill="currentColor" />
-                    </svg>
-                    <p class="mode-kicker">idea lab</p>
-                    <p class="mode-title-line">
-                        Things I'm curious about.
-                        <svg class="underline underline--lab" viewBox="0 0 190 8" preserveAspectRatio="none">
-                            <path d="M2,5 Q35,1 70,5 T140,4 T188,5" fill="none" stroke-linecap="round" />
-                        </svg>
-                    </p>
-                    <p class="mode-line">I take things apart to see how they work: little experiments, demos, whatever
-                        helps it click, then help you see it too.</p>
-                    <span class="mode-link">enter the lab
-                        <svg class="hand-arrow hand-arrow-back" viewBox="0 0 24 12" width="20" height="10">
-                            <path d="M1,10 Q10,8 20,5 M17,2 L21,5 L18,8" fill="none" stroke="currentColor"
-                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                    </span>
+                    <div class="mode-illustration">
+                        <img src="assets/img/kimcodes-experiment.png" alt="Kim experimenting in the idea lab">
+                    </div>
+
+                    <div class="mode-content">
+
+                        <p class="mode-title-line">
+                            Things I'm curious about.
+                            <svg class="underline underline--lab" viewBox="0 0 190 8" preserveAspectRatio="none">
+                                <path d="M2,5 Q35,1 70,5 T140,4 T188,5" fill="none" stroke-linecap="round" />
+                            </svg>
+                        </p>
+
+                        <p class="mode-line">
+                            Come into my idea lab where I take things apart to see how they work:
+                            little experiments, demos, whatever helps it click, then help you see it too.
+                        </p>
+
+                        <span class="mode-link">
+                            enter the lab →
+                        </span>
+                    </div>
+
                 </a>
 
-                <a class="mode-panel mode-panel--work">
-                    <div class="flash"></div>
-                    
-                    <svg class="note-doodle note-doodle--work" viewBox="0 0 90 80" aria-hidden="true">
-                        <!-- camera body, slightly wobbly rectangle instead of a clean rounded rect -->
-                        <path d="M16 26
-             C18 23 21 22 25 22
-             L58 21
-             C62 21 64 24 64 28
-             L65 53
-             C65 57 62 59 58 60
-             L25 60
-             C21 60 18 58 17 54
-             C16 45 15 35 16 26 Z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
-                            stroke-linejoin="round" />
 
-                        <!-- viewfinder flap, slightly uneven trapezoid -->
-                        <path d="M65 33
-             L78 26
-             C79 26 80 27 80 28
-             L79 51
-             C79 52 78 53 77 52
-             L65 47" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"
-                            stroke-linecap="round" />
+                <!-- BEHIND THE WORK -->
+                <a href="/behind-the-work.html" class="mode-panel mode-panel--work">
 
-                        <!-- lens, imperfect circle drawn as two arcs -->
-                        <path d="M40 32
-             C46 31 51 35 51 41
-             C51 47 46 51 40 50
-             C34 50 30 46 30 40
-             C30 35 34 32 40 32 Z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" />
+                    <div class="mode-illustration">
+                        <img src="assets/img/kimcodes-docu.PNG" alt="Kim documenting work at her desk">
+                    </div>
 
-                        <!-- lens center dot -->
-                        <circle cx="40" cy="41" r="2.5" fill="currentColor" />
+                    <div class="mode-content">
 
-                        <!-- small handle/dial on top, hand-drawn squiggle -->
-                        <path d="M27 22
-             C27 19 28 17 31 17
-             C34 17 35 19 35 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                        <p class="mode-title-line">
+                            Things worth documenting.
+                            <svg class="underline underline--work" viewBox="0 0 210 8" preserveAspectRatio="none">
+                                <path d="M2,5 Q40,1 80,5 T160,4 T208,5" fill="none" stroke-linecap="round" />
+                            </svg>
+                        </p>
 
-                        <!-- record light -->
-                        <circle cx="57" cy="30" r="2" fill="currentColor" />
-                    </svg>
+                        <p class="mode-line">
+                            Projects I've built in the real world.
+                            I reflect on what shipped, what stuck,
+                            and what made an impact. What I'd do differently, too.
+                        </p>
 
-                    <p class="mode-kicker">behind the work</p>
-                    <p class="mode-title-line">Things worth documenting.
-                        <svg class="underline underline--work" viewBox="0 0 210 8" preserveAspectRatio="none">
-                            <path d="M2,5 Q40,1 80,5 T160,4 T208,5" fill="none" stroke-linecap="round" />
-                        </svg>
-                    </p>
-                    <p class="mode-line">Projects I've built in the real world. I reflect on what shipped, what stuck,
-                        and what made an impact. What I'd do differently, too.
-                    </p>
-                    <span class="mode-link">go behind the scenes
-                        <svg class="hand-arrow hand-arrow-back" viewBox="0 0 24 12" width="20" height="10">
-                            <path d="M1,10 Q10,8 20,5 M17,2 L21,5 L18,8" fill="none" stroke="currentColor"
-                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                    </span>
+                        <span class="mode-link">
+                            go behind the scenes →
+                        </span>
+                    </div>
+
                 </a>
+
+            </div>
             </div>
 
         </section>

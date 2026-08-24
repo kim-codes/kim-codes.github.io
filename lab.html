@@ -15,18 +15,16 @@
     <link rel="stylesheet" href="assets/css/styles.css">
 
     <style>
-
         /* ---- hero ---- */
         .lab-hero {
             display: grid;
             grid-template-columns: 1.20fr 0.80fr;
             gap: 1rem;
-            align-items: left;
             justify-content: left;
-            padding: 1.5rem 0 2rem;
+            padding: 1.5rem 1rem 2rem;
             position: relative;
             max-width: 1000px;
-            margin: 3rem auto;
+            margin: 3rem auto 0 auto; /* Top, Right, Bottom, Left */
         }
 
         h1.lab-hero-title {
@@ -66,7 +64,7 @@
         .pin-stage {
             position: relative;
             display: flex;
-            justify-content: center;
+            justify-content: right;
         }
 
         .pin-card {
@@ -115,9 +113,9 @@
         }
 
         @media (max-width: 880px) {
-            .hero {
-                grid-template-columns: 1fr;
+            .lab-hero {
                 padding-bottom: 3rem;
+                margin-left: 1rem;
             }
         }
 
@@ -125,6 +123,7 @@
         .experiments-list {
             max-width: 1100px;
             margin: 0 auto;
+            padding: 1.5rem 1rem 2rem;
         }
 
         .section-head {

@@ -602,16 +602,20 @@
    -------------------------- */
 
   .contact {
-      max-width: 800px;
+      max-width: 1000px;
       margin: 4rem auto;
       padding: 0 1.5rem;
   }
 
   .contact-content {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 5rem;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 1rem;
       align-items: center;
+  }
+
+  .contact-text {
+      z-index: 1;
   }
 
   .contact-text h1 {
@@ -629,11 +633,13 @@
 
   .contact-illustration {
       text-align: center;
+      margin-left: -7rem;
+      margin-top: 2rem;
+      z-index: 0;
   }
 
   .contact-illustration img {
-      max-width: 320px;
-      width: 100%;
+      max-width: 700px;
       height: auto;
   }
 
@@ -646,16 +652,12 @@
   .contact-links a {
       display: inline-flex;
       justify-content: space-between;
-
       width: 220px;
-
       color: #222;
       text-decoration: none;
       font-size: 1.05rem;
-
       padding-bottom: .5rem;
       border-bottom: 1px solid #e5e5e5;
-
       transition: color .2s ease;
   }
 
@@ -671,26 +673,20 @@
       transform: translateX(4px);
   }
 
-  @media (max-width: 900px) {
+  @media (max-width: 700px) {
 
       .contact-content {
           grid-template-columns: 1fr;
-          text-align: center;
-      }
-
-      .contact-intro {
-          margin-left: auto;
-          margin-right: auto;
-      }
-
-      .contact-links {
-          align-items: center;
       }
 
       .contact-illustration {
-          margin-top: 3rem;
+          margin-top: 1rem;
+          margin-left: 0;
       }
 
+      .contact-illustration img {
+          max-width: 400px;
+      }
   }
 
   /*==========================================

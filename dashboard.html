@@ -30,7 +30,7 @@
         }
 
         .breadcrumb {
-            font-family: 'Kalam',"Brush Script MT", sans-serif;
+            font-family: 'Kalam', "Brush Script MT", sans-serif;
             font-size: 12px;
             color: #6B6F76;
             letter-spacing: .04em;
@@ -83,19 +83,18 @@
 
         .lab-choice {
             text-align: center;
-            margin: 3rem;
+            margin: 2rem;
         }
 
         .lab-choice h2 {
             text-align: center;
             margin-top: 3rem;
-            margin-bottom: 2rem;
+            margin-bottom: 1rem;
         }
 
         .lab-choice p {
             font-size: 15px;
             color: #6B6F76;
-            margin-bottom: 16px
         }
 
         .dashboard-frame {
@@ -112,7 +111,7 @@
         }
 
         .start-here-label {
-            font-family: 'Kalam',"Brush Script MT", sans-serif;
+            font-family: 'Kalam', "Brush Script MT", sans-serif;
             font-size: 1.5rem;
             color: #2a3480;
             font-weight: 700;
@@ -172,6 +171,7 @@
             line-height: 1.6;
             text-align: center;
             margin: 1.5rem auto 0.5rem;
+            max-width: 700px;
         }
 
         #btn-view-dashboard {
@@ -209,7 +209,7 @@
             font-size: 1rem;
             line-height: 1.6;
             margin: 0.25rem 0 1.25rem 0;
-            font-family: 'Kalam',"Brush Script MT", sans-serif;
+            font-family: 'Kalam', "Brush Script MT", sans-serif;
         }
 
         #initial-context p:last-child {
@@ -222,7 +222,7 @@
         }
 
         .steps-breadcrumb {
-            font-family: 'Kalam',"Brush Script MT", sans-serif;
+            font-family: 'Kalam', "Brush Script MT", sans-serif;
             font-size: 12px;
             color: #2a3480;
             letter-spacing: .04em;
@@ -299,7 +299,7 @@
             font-size: 1rem;
             line-height: 1.6;
             margin: 0.25rem 0 0 0;
-            font-family: 'Kalam',"Brush Script MT", sans-serif;
+            font-family: 'Kalam', "Brush Script MT", sans-serif;
         }
 
         #predashboard-context .steps-breadcrumb {
@@ -403,7 +403,7 @@
             max-width: 640px;
             padding: 0;
             margin: 0 0 1.5rem 0;
-            font-family: 'Kalam',"Brush Script MT", sans-serif;
+            font-family: 'Kalam', "Brush Script MT", sans-serif;
         }
 
         .dashboard-questions {
@@ -712,6 +712,20 @@
             color: #B0554A;
         }
 
+        .dashboard-drawing {
+            height: 300px;
+            margin-top: 2rem;
+        }
+
+        .image-caption {
+            color: #999999;
+            font-size: 12px;
+            font-family: -apple-system, sans-serif;
+            text-align: center;
+            font-style: italic;
+            margin-top: 4px;
+        }
+
         @media(max-width: 700px) {
             .dash-metrics {
                 flex-wrap: wrap;
@@ -772,14 +786,12 @@
 
     <main>
 
-        <p class="breadcrumb">Idea Lab</p>
+        <h1>Program Pulse<!--<br><span>Turning data into a clear read on program health</span>--></h1>
 
-        <h1>Program Pulse<br><span>Turning data into a clear read on program health</span></h1>
-
-        <svg class="pulse-divider" viewBox="0 0 400 36" preserveAspectRatio="none">
+        <!-- <svg class="pulse-divider" viewBox="0 0 400 36" preserveAspectRatio="none">
             <polyline points="0,18 60,18 80,4 100,32 120,18 260,18 280,8 300,28 320,18 400,18" fill="none"
                 stroke="#2a3480" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" />
-        </svg>
+        </svg> -->
 
         <p class="program-intro">
             <!-- I wanted to see what happens when AI becomes part of the PM's
@@ -788,9 +800,15 @@
             <!-- Program updates have a way of multiplying. A milestone here, a risk there, a dozen status updates in
             between... Eventually everything is scattered and that's when leadership wants an update ASAP.<br><br> -->
 
-            I built Program Pulse to explore how I would turn program data into a clearer view of program health.<br>
-            Bringing together pipeline, progression, risk, and performance signals in one place.<br><br>
+            I built Program Pulse to explore how I would turn program data into a clearer view of program health.
+            Bringing together pipeline, progression, risk, and performance signals in one place.
         </p>
+
+        <figure>
+            <img src="assets/img/dashboard-lab.png" alt="mockup drawing of a lab creating a dashboard"
+                class="dashboard-drawing">
+            <figcaption class="image-caption">This image was polished with AI.</figcaption>
+        </figure>
 
         <!--<p class="ai-note">Along the way, I used AI as part of the toolkit to help shape the analysis and build the
             experience.</p>-->

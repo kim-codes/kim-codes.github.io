@@ -42,10 +42,7 @@
 
         .lab-hero {
             position: relative;
-
             padding: 100px 72px 100px 0;
-
-            border-right: 1px solid #ddd;
         }
 
 
@@ -108,10 +105,9 @@
             text-decoration: none;
 
             border: none;
-            border-bottom: 1px solid #d8d8d8;
-
             background: transparent;
         }
+
 
 
         /* first experiment doesn't need extra border above */
@@ -125,14 +121,40 @@
             width: calc(100% - 80px);
         }
 
+        .experiment-card:nth-of-type(3) {
+            grid-template-columns: 1fr;
+            min-height: 350px;
 
-        /* =========================================================
-   COPY
-   ========================================================= */
+            margin-left: 0;
+            width: 100%;
 
-        .experiment-copy {
-            align-self: start;
-            max-width: 430px;
+            padding-top: 40px;
+            padding-bottom: 100px;
+        }
+
+        .experiment-card:nth-of-type(3) .experiment-copy {
+            max-width: 600px;
+        }
+
+        .experiment-card:nth-of-type(3) .experiment-copy h2 {
+            max-width: 520px;
+            font-size: 2.3rem;
+        }
+
+        .experiment-card:nth-of-type(3) .experiment-copy p:not(.experiment-note) {
+            max-width: 500px;
+        }
+
+        .experiment-card:nth-of-type(3) .agent-visual {
+            position: absolute;
+
+            right: 20px;
+            bottom: 55px;
+
+            width: 150px;
+            height: 90px;
+
+            opacity: 0.45;
         }
 
 
@@ -158,9 +180,6 @@
         }
 
 
-        /* =========================================================
-   VISUAL
-   ========================================================= */
 
         .experiment-visual {
             align-self: center;
@@ -172,19 +191,10 @@
         }
 
 
-        /* =========================================================
-   LINK / ARROW
-   ========================================================= */
-
         .experiment-arrow {
-            position: absolute;
-
             left: 0;
-            bottom: 28px;
-
             font-size: 0.9rem;
             color: #0787bd;
-
             transition: transform 160ms ease;
         }
 
@@ -196,6 +206,7 @@
 
         .experiment-card:hover .experiment-arrow {
             transform: translateX(5px);
+            text-decoration: underline;
         }
 
         /* lab footer */
@@ -720,8 +731,8 @@
                 <div class="lab-hero-inner">
 
                     <h1>
-                        Welcome to the
-                        <em>Idea Lab</em>
+                        Welcome to my
+                        Idea Lab
                     </h1>
 
                     <span class="lab-hero-line"></span>
@@ -751,6 +762,7 @@
                             A little experiment in vector search,
                             embeddings, and finding meaning in data.
                         </p>
+
                     </div>
 
                     <div class="experiment-visual vector-visual" aria-hidden="true">

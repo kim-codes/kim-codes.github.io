@@ -11,6 +11,18 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Kalam:wght@300;400;700&family=Patrick+Hand&family=Schoolbell&display=swap"
+        rel="stylesheet">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Kalam:wght@300;400;700&family=Nanum+Pen+Script&family=Patrick+Hand&family=Schoolbell&display=swap"
+        rel="stylesheet">
+
     <!-- link css -->
     <link rel="stylesheet" href="assets/css/styles.css">
 
@@ -40,8 +52,10 @@
         }
 
         .explainer-hero h1 {
+            font-family: "Caveat", cursive;
             margin-bottom: 1rem;
-            font-size: 1.9rem;
+            font-size: 3rem;
+            font-weight: 250;
         }
 
         h1 span {
@@ -505,17 +519,19 @@
 
         <main class="explainer">
 
+            <!-- <p class="intro">Using Grogu to understand vector search. <br></p> -->
+            <!--<h1>Help Grogu Find His Clan</h1>-->
+            <!-- <h1>Help Grogu Navigate the Galaxy</h1>-->
             <section class="explainer-hero">
-                <p class="eyebrow">Idea Lab</p>
 
-                <!-- <p class="intro">Using Grogu to understand vector search. <br></p> -->
-                <!--<h1>Help Grogu Find His Clan</h1>-->
-                <!-- <h1>Help Grogu Navigate the Galaxy</h1>-->
-                <h1>Search Beacons<br> <span>Finding Meaning in the Galaxy</span></h1>
+                <h1>Search Beacons</h1>
 
-                <p class="intro">
-                    A small experiment in how meaning becomes searchable.<br><br>
+                <img src="assets/img/search-beacons-underline.png" class="search-underline" alt="" aria-hidden="true">
+
+                <p class="explainer-subtitle">
+                    Finding Meaning in the Galaxy
                 </p>
+
             </section>
 
             <section class="explainer-content">
@@ -524,12 +540,20 @@
                 <aside class="explainer-sidebar">
 
                     <div class="mission-card">
-                        <h2>Mission</h2>
-                        <p>
-                            Pinpoint <strong>Grogu's Query beacon</strong>. Note the nearby signals. <br><br>
-                            Use the <strong>Explore Lens</strong> to move through the galaxy to discover how different
-                            search beacons reveal different nearby signals.
-                        </p> <!-- the beacon = embedding of the query -->
+
+                        <div class="mission-copy">
+                            <h2>Mission</h2>
+
+                            <p>
+                                Pinpoint <strong>Grogu's Query beacon</strong>. Note the nearby signals. <br><br>
+                                Use the <strong>Explore Lens</strong> to move through the galaxy to discover how
+                                different search beacons reveal different nearby signals.
+                            </p>
+                        </div>
+
+                        <img src="assets/img/telescope.png" class="mission-telescope"
+                            alt="black and white drawing of a telescope" aria-hidden="true">
+
                     </div>
 
                     <!-- SEARCH STATUS CARD -->
@@ -537,6 +561,11 @@
                     <div class="status-card">
 
                         <h2>Active Search Beacon</h2>
+
+                        <span class="status-note" aria-hidden="true">
+                            this updates<br>
+                            as you move! ↓
+                        </span>
 
                         <div class="status-item">
                             <span class="label">Query</span>
@@ -558,16 +587,20 @@
 
                         <div class="status-item">
                             <span class="label">
-                                Current Explore Lens Location
-                                <small>(Embedding Coordinates)</small>
-                                <small><strong>Move me to explore!</strong></small>
-                            </span>
+                                <span class="explore-label">
+                                    <img src="assets/img/target-icon.png" class="target-icon" alt="drawing of target"
+                                        aria-hidden="true">
 
-                            <strong id="explore-coordinates">
-                                X: 0.42<br>
-                                Y: -0.18<br>
-                                Z: 0.76
-                            </strong>
+                                    Explore Lens Location
+                                    <small>(Embedding Coordinates)</small>
+                                    <small><strong>Move me to explore!</strong></small>
+                                </span>
+
+                                <strong id="explore-coordinates">
+                                    X: 0.42<br>
+                                    Y: -0.18<br>
+                                    Z: 0.76
+                                </strong>
                         </div>
 
                         <div class="status-item">

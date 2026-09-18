@@ -52,23 +52,24 @@
         }
 
         .explainer-hero h1 {
-            font-family: "Caveat", cursive;
-            font-size: 3rem;
+            font-family: "Caveat", Georgia, 'Times New Roman', serif;
+            font-size: 4rem;
             font-weight: 250;
         }
 
         .explainer-subtitle {
-            font-family: "Caveat", cursive;
-            font-size: 2.2rem;
+            font-family: "Caveat", Georgia, 'Times New Roman', serif;
+            font-size: 2.5rem;
             font-weight: 400;
             letter-spacing: 0.015em;
             line-height: 1.1;
-            margin-bottom: 2rem;
+            margin-top: 1rem;
+            margin-bottom: 3rem;
         }
 
         .search-underline {
             display: block;
-            width: 300px;
+            width: 400px;
             height: auto;
             margin: -0.3rem auto 0;
         }
@@ -95,18 +96,171 @@
             gap: 2rem;
         }
 
-        .mission-card,
-        .status-card {
-            background: #f8f8f8;
-            border-radius: 14px;
-            padding: 1.5rem;
+        /* --------------------------
+        Sidebar cards
+        -------------------------- */
+
+        .explainer-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+
+        /* --------------------------
+         Mission card
+        -------------------------- */
+
+        .mission-card {
+            position: relative;
+            overflow: hidden;
+
+            background: #fffaf0;
+            border: 1px solid rgba(42, 42, 42, 0.06);
+            border-radius: 3px 8px 5px 4px;
+
+            padding: 1.5rem 1.5rem 1.4rem;
+
+            transform: rotate(-0.5deg);
+            transform-origin: center;
+
+            box-shadow:
+                0 3px 5px rgba(0, 0, 0, 0.055),
+                0 1px 1px rgba(0, 0, 0, 0.025);
+        }
+
+        .mission-card h2 {
+            margin: 0 0 0.75rem;
+            font-size: 1.5rem;
+            font-weight: 600;
         }
 
         .mission-card p {
+            margin: 0;
+            /* padding-right: 3.25rem; - add back if you add icon again to the Mission card*/
+
             text-align: left;
             font-size: 1rem;
-            line-height: 1.5;
-            margin-bottom: 1.25rem;
+            line-height: 1.55;
+        }
+
+
+        /* telescope illustration */
+/*
+        .mission-telescope {
+            position: absolute;
+
+            width: 62px;
+            height: auto;
+
+            right: 0.8rem;
+            bottom: 0.8rem;
+
+            transform: rotate(-7deg);
+
+            opacity: 0.9;
+        }
+*/
+
+        /* tiny folded paper corner */
+
+        .mission-card::after {
+            content: "";
+            position: absolute;
+
+            right: 0;
+            bottom: 0;
+
+            width: 20px;
+            height: 20px;
+
+            background:
+                linear-gradient(135deg,
+                    rgba(0, 0, 0, 0.045) 0%,
+                    rgba(0, 0, 0, 0.015) 48%,
+                    #fff 50%,
+                    #fff 100%);
+
+            border-radius: 2px 0 0 0;
+        }
+
+
+        /* --------------------------
+         Active Search Beacon
+        -------------------------- */
+
+        .status-card {
+            position: relative;
+
+            background: #f3faef;
+            border: 1px solid rgba(47, 125, 91, 0.07);
+            border-radius: 7px 4px 8px 5px;
+
+            padding: 1.5rem;
+
+            transform: rotate(0.25deg);
+            transform-origin: center;
+
+            box-shadow:
+                0 2px 5px rgba(0, 0, 0, 0.035);
+        }
+
+        .status-card h2 {
+            margin: 0 0 1.75rem;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+
+        /* handwritten annotation */
+
+        .status-note {
+            position: absolute;
+            top: 3.5rem;
+            right: 1.1rem;
+            font-family: "Caveat", cursive;
+            font-size: 1.05rem;
+            font-weight: 500;
+            letter-spacing: 0.01em;
+            line-height: 0.95;
+            text-align: center;
+            color: #3d3d3d;
+            transform: rotate(-5deg);
+        }
+
+
+        /* --------------------------
+        Live data rows
+        -------------------------- */
+
+        .status-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+
+            gap: 1.25rem;
+            margin-top: 1.15rem;
+        }
+
+        .status-item .label {
+            display: flex;
+            flex-direction: column;
+
+            text-align: left;
+            line-height: 1.4;
+        }
+
+        .status-item small {
+            margin-top: 0.12rem;
+
+            color: #777;
+            font-size: 0.78rem;
+            opacity: 0.72;
+        }
+
+        .status-item strong {
+            font-weight: 600;
+            line-height: 1.45;
         }
 
         .mission-card,
@@ -566,8 +720,9 @@
                             </p>
                         </div>
 
-                        <img src="assets/img/telescope.png" class="mission-telescope"
+                        <!-- <img src="assets/img/telescope.png" class="mission-telescope"
                             alt="black and white drawing of a telescope" aria-hidden="true">
+                    -->
 
                     </div>
 

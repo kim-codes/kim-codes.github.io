@@ -73,9 +73,7 @@
     .mission-card {
         position: relative;
         overflow: hidden;
-
-        background: #fffaf0;
-        border: 1px solid rgba(42, 42, 42, 0.06);
+        background: #f8f8f8;;
         border-radius: 3px 8px 5px 4px;
 
         padding: 1.5rem;
@@ -245,6 +243,7 @@
 
     .move-hint {
         margin-top: 0.35rem !important;
+        font-style: italic;
     }
 
     .move-hint strong {

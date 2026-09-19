@@ -11,477 +11,21 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Kalam:wght@300;400;700&family=Patrick+Hand&family=Schoolbell&display=swap"
+        rel="stylesheet">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Kalam:wght@300;400;700&family=Nanum+Pen+Script&family=Patrick+Hand&family=Schoolbell&display=swap"
+        rel="stylesheet">
+
     <!-- link css -->
     <link rel="stylesheet" href="assets/css/styles.css">
-
-    <style>
-        /* --------------------------
-           Explainer
-        -------------------------- */
-
-        .explainer {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 5rem 2rem;
-        }
-
-        .explainer-hero {
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .eyebrow {
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            color: #777;
-            margin-bottom: 0.75rem;
-        }
-
-        .explainer-hero h1 {
-            margin-bottom: 1rem;
-            font-size: 1.9rem;
-        }
-
-        h1 span {
-            color: #2F7D5B;
-        }
-
-        .intro {
-            color: #555;
-            line-height: 1.8;
-        }
-
-        .explainer-content {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 3rem;
-            align-items: start;
-        }
-
-        .explainer-sidebar {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
-
-        .mission-card,
-        .status-card {
-            background: #f8f8f8;
-            border-radius: 14px;
-            padding: 1.5rem;
-        }
-
-        .mission-card p {
-            text-align: left;
-            font-size: 1rem;
-            line-height: 1.5;
-            margin-bottom: 1.25rem;
-        }
-
-        .mission-card,
-        .status-card h2 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .status-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            gap: 1.5rem;
-            margin-top: 0.8rem;
-        }
-
-        .status-item .label {
-            display: flex;
-            flex-direction: column;
-            text-align: left;
-            line-height: 1.4;
-        }
-
-        .status-item small {
-            color: #666;
-            font-size: 0.85rem;
-            margin-top: 0.15rem;
-            font-size: 0.85rem;
-            opacity: 0.7;
-        }
-
-        .status-item strong {
-            font-weight: 600;
-        }
-
-        .galaxy-panel {
-            background: #09131f;
-            border-radius: 18px;
-            min-height: 650px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .galaxy-panel p {
-            color: #fff;
-            margin-top: 5rem;
-            font-weight: 10;
-            font-size: 12px;
-        }
-
-        .galaxy-container {
-            width: 100%;
-            height: 100%;
-        }
-
-        .galaxy-map {
-            touch-action: none;
-        }
-
-        .takeaway-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-        }
-
-        .takeaway {
-            padding: 1.5rem;
-        }
-
-        /*
-                .takeaway span {
-                    font-size: 0.85rem;
-                    opacity: 0.6;
-                }
-        */
-
-        .takeaways {
-            margin-top: 5rem;
-        }
-
-        .galaxy-map {
-            width: 100%;
-            height: 100%;
-            display: block;
-        }
-
-        .star {
-            fill: white;
-            opacity: 0.6;
-        }
-
-        .star.dim {
-            opacity: 0.3;
-        }
-
-
-        .star.bright {
-            opacity: 0.9;
-        }
-
-        .character {
-            fill: white;
-        }
-
-        .character-label {
-            fill: rgba(255, 255, 255, 0.75);
-            font-size: 14px;
-            font-family: Inter, sans-serif;
-            pointer-events: none;
-            -webkit-user-select: none;
-            user-select: none;
-        }
-
-        .grogu {
-            fill: #8ccf6e;
-            stroke: white;
-            stroke-width: 2;
-        }
-
-        .query-beacon {
-            fill: none;
-            stroke: #8ccf6e;
-            stroke-width: 2;
-            opacity: 0.7;
-        }
-
-        .additional-beacon.beacon-hidden {
-            opacity: 0;
-            pointer-events: none;
-        }
-
-        .additional-beacon.beacon-visible {
-            opacity: 1;
-            pointer-events: auto;
-        }
-
-        .additional-beacon {
-            transition: opacity 5s ease;
-        }
-
-        .imperial {
-            fill: #E6676B;
-            stroke: white;
-            stroke-width: 2;
-        }
-
-        .imperial-beacon {
-            fill: none;
-            stroke: #E6676B;
-            stroke-width: 2;
-            opacity: 0.7;
-        }
-
-        .c3p0 {
-            fill: #D4Af37;
-            stroke: white;
-            stroke-width: 2;
-        }
-
-        .c3p0-beacon {
-            fill: none;
-            stroke: #D4Af37;
-            stroke-width: 2;
-            opacity: 0.7;
-        }
-
-        .mandalore {
-            fill: #8A9BA8;
-            stroke: white;
-            stroke-width: 2;
-        }
-
-        .mandalore-beacon {
-            fill: none;
-            stroke: #8A9BA8;
-            stroke-width: 2;
-            opacity: 0.7;
-        }
-
-        .search-beacon {
-            fill: transparent;
-            stroke: white;
-            stroke-width: 3;
-            cursor: grab;
-            stroke-dasharray: 4;
-            pointer-events: all;
-            cursor: grab;
-        }
-
-        .search-beacon:active {
-            cursor: grabbing;
-        }
-
-
-        .beacon-pulse {
-            fill: none;
-            stroke: white;
-            stroke-width: 2;
-            opacity: 0.5;
-            animation: beaconPulse 2s infinite;
-        }
-
-
-        @keyframes beaconPulse {
-
-            0% {
-                r: 15;
-                opacity: 0.6;
-            }
-
-            100% {
-                r: 35;
-                opacity: 0;
-            }
-
-        }
-
-        .beacon-label {
-            fill: white;
-            font-size: 13px;
-            font-weight: bold;
-        }
-
-        /* add glow for intial 3 near grogu */
-        .initial-nearest {
-            fill: #00FFFF;
-            animation: twinkle 0.6s infinite alternate;
-        }
-
-        /* define twinkle to be accessible by other elements if needed */
-        .twinkle {
-            animation: twinkle 0.6s infinite alternate;
-        }
-
-        @keyframes twinkle {
-            from {
-                opacity: 0.45;
-            }
-
-            to {
-                opacity: 1;
-                filter: drop-shadow(0 0 6px #b7e98a);
-            }
-        }
-
-        /* add glow to nearest neighbors */
-        .character.nearest {
-            fill: #ffdb58;
-            /*#8ccf6e*/
-            filter: drop-shadow(0 0 8px #b7e98a);
-        }
-
-        .babu-message {
-            opacity: 0;
-            fill: white;
-            font-size: 14px;
-            transition: opacity 0.3s ease;
-        }
-
-        .babu-message.show {
-            opacity: 1;
-        }
-
-        /* --------------------------
-           Lab Explanation Content Section 
-        -------------------------- */
-
-        .galaxy-explained {
-            max-width: 1100px;
-            margin: 6rem auto;
-            padding: 0 2rem;
-        }
-
-        .galaxy-intro {
-            margin-bottom: 4rem;
-        }
-
-        .galaxy-intro h2 {
-            margin-bottom: 1rem;
-        }
-
-        .galaxy-intro .section-intro {
-            font-size: 0.9rem;
-            color: #666;
-            line-height: 1.8;
-        }
-
-        .galaxy-content {
-            display: grid;
-            grid-template-columns: minmax(0, 650px) 320px;
-            justify-content: space-between;
-            align-items: start;
-            gap: 5rem;
-        }
-
-        .galaxy-main h3 {
-            margin-bottom: 1.5rem;
-            text-align: left;
-        }
-
-        .galaxy-main p {
-            font-size: 1rem;
-            line-height: 1.9;
-            color: #444;
-            margin-bottom: 1rem;
-            text-align: left;
-        }
-
-        .galaxy-sidebar {
-            position: sticky;
-            top: 2rem;
-
-            background: #f8f8f8;
-            border-radius: 16px;
-            padding: 2rem;
-        }
-
-        .galaxy-sidebar h3 {
-            margin-bottom: 2rem;
-        }
-
-        .idea-item {
-            margin-bottom: 1.2rem;
-        }
-
-        .idea-item:last-child {
-            margin-bottom: 0;
-        }
-
-        .idea-item p {
-            color: #555;
-            line-height: 1.8;
-            margin: 0;
-        }
-
-        .idea-item h4 {
-            margin-top: 2rem;
-            margin-bottom: .75rem;
-        }
-
-        .next-lab-label {
-            margin-top: 2rem;
-            margin-bottom: 0.5rem;
-            font-size: 0.85rem;
-            font-weight: 600;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            color: #777;
-        }
-
-        /* disable mobile viewing */
-        .mobile-message {
-            display: none;
-        }
-
-        .mobile-message h2 {
-            color: #FFF;
-        }
-
-        .mobile-message p {
-            font-size: 1rem;
-            line-height: 1.8;
-            color: #FFF;
-        }
-
-        /* Mobile: show the message, hide the demo */
-        @media (max-width: 750px) {
-            .mobile-message {
-                display: block;
-            }
-
-            .galaxy-container {
-                display: none;
-            }
-
-            .status-card {
-                display: none;
-            }
-
-            .galaxy-panel {
-                min-height: auto;
-                padding: 3rem 2rem;
-            }
-        }
-
-        @media (max-width: 900px) {
-
-
-            .explainer-content {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-            }
-
-            .galaxy-content {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-            }
-
-            .galaxy-sidebar {
-                position: static;
-            }
-
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/idealab-grogu.css">
 
 </head>
 
@@ -505,17 +49,19 @@
 
         <main class="explainer">
 
+            <!-- <p class="intro">Using Grogu to understand vector search. <br></p> -->
+            <!--<h1>Help Grogu Find His Clan</h1>-->
+            <!-- <h1>Help Grogu Navigate the Galaxy</h1>-->
             <section class="explainer-hero">
-                <p class="eyebrow">Idea Lab</p>
 
-                <!-- <p class="intro">Using Grogu to understand vector search. <br></p> -->
-                <!--<h1>Help Grogu Find His Clan</h1>-->
-                <!-- <h1>Help Grogu Navigate the Galaxy</h1>-->
-                <h1>Search Beacons<br> <span>Finding Meaning in the Galaxy</span></h1>
+                <h1>Search Beacons</h1>
 
-                <p class="intro">
-                    A small experiment in how meaning becomes searchable.<br><br>
+                <img src="assets/img/beacons-underline.png" class="search-underline" alt="" aria-hidden="true">
+
+                <p class="explainer-subtitle">
+                    Finding Meaning in the Galaxy
                 </p>
+
             </section>
 
             <section class="explainer-content">
@@ -524,12 +70,21 @@
                 <aside class="explainer-sidebar">
 
                     <div class="mission-card">
-                        <h2>Mission</h2>
-                        <p>
-                            Pinpoint <strong>Grogu's Query beacon</strong>. Note the nearby signals. <br><br>
-                            Use the <strong>Explore Lens</strong> to move through the galaxy to discover how different
-                            search beacons reveal different nearby signals.
-                        </p> <!-- the beacon = embedding of the query -->
+
+                        <div class="mission-copy">
+                            <h2>Mission</h2>
+
+                            <p>
+                                Pinpoint <strong>Grogu's Query beacon</strong>. Note the nearby signals. <br><br>
+                                Use the <strong>Explore Lens</strong> to move through the galaxy to discover how
+                                different search beacons reveal different nearby signals.
+                            </p>
+                        </div>
+
+                        <!-- <img src="assets/img/telescope.png" class="mission-telescope"
+                            alt="black and white drawing of a telescope" aria-hidden="true">
+                    -->
+
                     </div>
 
                     <!-- SEARCH STATUS CARD -->
@@ -538,29 +93,32 @@
 
                         <h2>Active Search Beacon</h2>
 
+                        <span class="status-note" aria-hidden="true">
+                            this updates<br>
+                            as you move! ↓
+                        </span>
+
+                        <!-- Query -->
                         <div class="status-item">
                             <span class="label">Query</span>
+
                             <strong id="query-text"></strong>
                         </div>
 
-                        <!-- <div class="status-item">
-                                <span class="label">
-                                    Last Beacon Location
-                                    <small>(Embedding Coordinates)</small>
-                                </span>
-                        
-                                <strong>
-                                    X: 0.42<br>
-                                    Y: -0.18<br>
-                                    Z: 0.76
-                                </strong>
-                            </div> -->
-
+                        <!-- Explore Lens -->
                         <div class="status-item">
+
                             <span class="label">
-                                Current Explore Lens Location
-                                <small>(Embedding Coordinates)</small>
-                                <small><strong>Move me to explore!</strong></small>
+                                Explore Lens Location
+
+                                <small class="coordinate-label">
+                                    <img src="assets/img/target-icon.png" class="target-icon" alt="" aria-hidden="true">
+                                    (Embedding Coordinates)
+                                </small>
+
+                                <small class="move-hint">
+                                    <strong>Move me to explore!</strong>
+                                </small>
                             </span>
 
                             <strong id="explore-coordinates">
@@ -568,15 +126,19 @@
                                 Y: -0.18<br>
                                 Z: 0.76
                             </strong>
+
                         </div>
 
+                        <!-- Nearest -->
                         <div class="status-item">
+
                             <span class="label">
                                 Nearby Signals
                                 <small>(Nearest Neighbors)</small>
                             </span>
 
                             <div id="neighbors-status">—</div>
+
                         </div>
 
                     </div>
@@ -637,7 +199,8 @@
 
                             <circle cx="690" cy="455" r="7" class="character" data-name="Babu Frik" />
                             <text x="690" y="480" class="character-label" text-anchor="middle"> Babu Frik</text>
-                            <text id="babu-message" x="630" y="400" class="babu-message" text-anchor="middle"> </text>
+                            <text id="babu-message" x="630" y="400" class="babu-message" text-anchor="middle">
+                            </text>
 
                             <!-- Foes -->
                             <circle cx="280" cy="500" r="7" class="character" data-name="Stormtrooper" />
@@ -741,18 +304,25 @@
 
                     <aside class="galaxy-sidebar">
 
-                        <h3>TLDR</h3>
+                        <h3>Lab Notes</h3>
 
                         <div class="idea-item">
+                            <span class="note-dot"></span>
                             <p>Search begins with meaning, not keywords.</p>
                         </div>
 
                         <div class="idea-item">
+                            <span class="note-dot"></span>
                             <p>Nearby signals often share similar meaning.</p>
                         </div>
 
                         <div class="idea-item">
-                            <p>Different embedding models create different maps.<br><br></p>
+                            <span class="note-dot"></span>
+                            <p>Different embedding models create different maps.</p>
+                        </div>
+
+
+                        <div class="idea-item">
 
                             <p class="next-lab-label">Next Idea Lab</p>
 

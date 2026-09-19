@@ -1,0 +1,875 @@
+    /* --------------------------
+       Explainer
+    -------------------------- */
+
+    .explainer {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 5rem 2rem;
+    }
+
+
+    /* --------------------------
+       Hero
+    -------------------------- */
+
+    .explainer-hero {
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+
+    .explainer-hero h1 {
+        font-family: "Caveat", Georgia, "Times New Roman", serif;
+        font-size: 4rem;
+        font-weight: 400;
+        letter-spacing: 0.01em;
+        line-height: 1;
+        margin: 0;
+    }
+
+    .search-underline {
+        display: block;
+        width: 400px;
+        max-width: 80%;
+        height: auto;
+        margin: -0.3rem auto 0;
+    }
+
+    .explainer-subtitle {
+        font-family: "Caveat", Georgia, "Times New Roman", serif;
+        font-size: 2.5rem;
+        font-weight: 400;
+        letter-spacing: 0.015em;
+        line-height: 1.1;
+        margin-top: 1rem;
+        margin-bottom: 3rem;
+    }
+
+
+    /* --------------------------
+       Main demo layout
+    -------------------------- */
+
+    .explainer-content {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: 3rem;
+        align-items: start;
+    }
+
+    .explainer-sidebar {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+
+    /* --------------------------
+       Mission card
+    -------------------------- */
+
+    .mission-card {
+        position: relative;
+        overflow: hidden;
+        background: #f8f8f8;
+        ;
+        border-radius: 3px 8px 5px 4px;
+
+        padding: 1.5rem;
+
+        transform: rotate(-0.5deg);
+        transform-origin: center;
+
+        box-shadow:
+            0 3px 5px rgba(0, 0, 0, 0.055),
+            0 1px 1px rgba(0, 0, 0, 0.025);
+    }
+
+    .mission-card h2 {
+        margin: 0 0 0.75rem;
+        font-size: 1.5rem;
+        font-weight: 600;
+    }
+
+    .mission-card p {
+        margin: 0;
+        text-align: left;
+        font-size: 1rem;
+        line-height: 1.55;
+    }
+
+
+    /* tiny folded paper corner */
+
+    .mission-card::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        bottom: 0;
+
+        width: 20px;
+        height: 20px;
+
+        background:
+            linear-gradient(135deg,
+                rgba(0, 0, 0, 0.045) 0%,
+                rgba(0, 0, 0, 0.015) 48%,
+                #fff 50%,
+                #fff 100%);
+
+        border-radius: 2px 0 0 0;
+    }
+
+
+    /* --------------------------
+       Active Search Beacon card
+    -------------------------- */
+
+    .status-card {
+        position: relative;
+
+        background: #f3faef;
+        border: 1px solid rgba(47, 125, 91, 0.07);
+        border-radius: 7px 4px 8px 5px;
+
+        padding: 1.5rem;
+
+        transform: rotate(0.25deg);
+        transform-origin: center;
+
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.035);
+    }
+
+    .status-card h2 {
+        margin: 0 0 2.8rem;
+        font-size: 1.5rem;
+        font-weight: 600;
+    }
+
+
+    /* --------------------------
+       Handwritten update note
+    -------------------------- */
+
+    .status-note {
+        position: absolute;
+        top: 3.4rem;
+        right: 1.25rem;
+
+        font-family: "Caveat", cursive;
+        font-size: 1.05rem;
+        font-weight: 500;
+        letter-spacing: 0.01em;
+        line-height: 0.95;
+
+        text-align: center;
+        color: #3d3d3d;
+
+        transform: rotate(-5deg);
+    }
+
+
+    /* --------------------------
+       Status rows
+    -------------------------- */
+
+    .status-item {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 145px;
+        column-gap: 1.25rem;
+        align-items: start;
+
+        margin-top: 1.5rem;
+    }
+
+    .status-item .label {
+        display: flex;
+        flex-direction: column;
+
+        min-width: 0;
+
+        text-align: left;
+        line-height: 1.4;
+    }
+
+    .status-item small {
+        display: block;
+
+        margin-top: 0.2rem;
+
+        color: #777;
+        font-size: 0.8rem;
+        line-height: 1.35;
+        opacity: 0.72;
+    }
+
+    .status-item strong {
+        font-weight: 600;
+        line-height: 1.45;
+    }
+
+
+    /* --------------------------
+       Query result
+    -------------------------- */
+
+    #query-text {
+        width: 145px;
+
+        text-align: right;
+        line-height: 1.4;
+    }
+
+
+    /* --------------------------
+       Explore Lens coordinates
+    -------------------------- */
+
+    .coordinate-label {
+        display: flex !important;
+        flex-direction: row;
+        align-items: center;
+        gap: 0.4rem;
+    }
+
+    .target-icon {
+        width: 20px;
+        height: auto;
+        flex-shrink: 0;
+    }
+
+    .move-hint {
+        margin-top: 0.35rem !important;
+        font-style: italic;
+    }
+
+    .move-hint strong {
+        color: #777;
+        font-weight: 600;
+    }
+
+    #explore-coordinates {
+        width: 145px;
+
+        white-space: nowrap;
+        text-align: right;
+
+        line-height: 1.45;
+    }
+
+
+    /* --------------------------
+       Nearby signals
+    -------------------------- */
+
+    #neighbors-status {
+        width: 145px;
+
+        text-align: right;
+        line-height: 1.55;
+    }
+
+
+    /* --------------------------
+       Galaxy
+    -------------------------- */
+
+    .galaxy-panel {
+        background: #09131f;
+        border-radius: 18px;
+        min-height: 650px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .galaxy-panel p {
+        color: #fff;
+        margin-top: 4rem;
+        font-weight: 10;
+        font-size: 12px;
+    }
+
+    .galaxy-container {
+        width: 100%;
+        height: 100%;
+    }
+
+    .galaxy-map {
+        width: 100%;
+        height: 100%;
+        display: block;
+        touch-action: none;
+    }
+
+    .star {
+        fill: white;
+        opacity: 0.6;
+    }
+
+    .star.dim {
+        opacity: 0.3;
+    }
+
+    .star.bright {
+        opacity: 0.9;
+    }
+
+    .character {
+        fill: white;
+    }
+
+    .character-label {
+        fill: rgba(255, 255, 255, 0.75);
+        font-size: 14px;
+        font-family: Inter, sans-serif;
+        pointer-events: none;
+        -webkit-user-select: none;
+        user-select: none;
+    }
+
+    .grogu {
+        fill: #8ccf6e;
+        stroke: white;
+        stroke-width: 2;
+    }
+
+    .query-beacon {
+        fill: none;
+        stroke: #8ccf6e;
+        stroke-width: 2;
+        opacity: 0.7;
+    }
+
+    .additional-beacon.beacon-hidden {
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    .additional-beacon.beacon-visible {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .additional-beacon {
+        transition: opacity 5s ease;
+    }
+
+    .imperial {
+        fill: #E6676B;
+        stroke: white;
+        stroke-width: 2;
+    }
+
+    .imperial-beacon {
+        fill: none;
+        stroke: #E6676B;
+        stroke-width: 2;
+        opacity: 0.7;
+    }
+
+    .c3p0 {
+        fill: #D4Af37;
+        stroke: white;
+        stroke-width: 2;
+    }
+
+    .c3p0-beacon {
+        fill: none;
+        stroke: #D4Af37;
+        stroke-width: 2;
+        opacity: 0.7;
+    }
+
+    .mandalore {
+        fill: #8A9BA8;
+        stroke: white;
+        stroke-width: 2;
+    }
+
+    .mandalore-beacon {
+        fill: none;
+        stroke: #8A9BA8;
+        stroke-width: 2;
+        opacity: 0.7;
+    }
+
+    .search-beacon {
+        fill: transparent;
+        stroke: white;
+        stroke-width: 3;
+        stroke-dasharray: 4;
+        pointer-events: all;
+        cursor: grab;
+    }
+
+    .search-beacon:active {
+        cursor: grabbing;
+    }
+
+    .beacon-pulse {
+        fill: none;
+        stroke: white;
+        stroke-width: 2;
+        opacity: 0.5;
+        animation: beaconPulse 2s infinite;
+    }
+
+    @keyframes beaconPulse {
+        0% {
+            r: 15;
+            opacity: 0.6;
+        }
+
+        100% {
+            r: 35;
+            opacity: 0;
+        }
+    }
+
+    .beacon-label {
+        fill: white;
+        font-size: 13px;
+        font-weight: bold;
+    }
+
+    .initial-nearest {
+        fill: #00FFFF;
+        animation: twinkle 0.6s infinite alternate;
+    }
+
+    .twinkle {
+        animation: twinkle 0.6s infinite alternate;
+    }
+
+    @keyframes twinkle {
+        from {
+            opacity: 0.45;
+        }
+
+        to {
+            opacity: 1;
+            filter: drop-shadow(0 0 6px #b7e98a);
+        }
+    }
+
+    .character.nearest {
+        fill: #ffdb58;
+        filter: drop-shadow(0 0 8px #b7e98a);
+    }
+
+    .babu-message {
+        opacity: 0;
+        fill: white;
+        font-size: 14px;
+        transition: opacity 0.3s ease;
+    }
+
+    .babu-message.show {
+        opacity: 1;
+    }
+
+
+    /* --------------------------
+       Takeaways
+    -------------------------- */
+
+    .takeaway-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+    }
+
+    .takeaway {
+        padding: 1.5rem;
+    }
+
+    .takeaways {
+        margin-top: 5rem;
+    }
+
+
+    /* --------------------------
+       Lab Explanation Content
+    -------------------------- */
+
+    .galaxy-explained {
+        max-width: 1100px;
+        margin: 6rem auto;
+        padding: 0 2rem;
+    }
+
+    .galaxy-intro {
+        margin-bottom: 4rem;
+    }
+
+    .galaxy-intro h2 {
+        margin-bottom: 1rem;
+    }
+
+    .galaxy-intro .section-intro {
+        font-size: 0.9rem;
+        color: #666;
+        line-height: 1.8;
+    }
+
+    .galaxy-content {
+        display: grid;
+        grid-template-columns: minmax(0, 650px) 320px;
+        justify-content: space-between;
+        align-items: start;
+        gap: 5rem;
+    }
+
+    .galaxy-main h3 {
+        margin-bottom: 1.5rem;
+        text-align: left;
+    }
+
+    .galaxy-main p {
+        font-size: 1rem;
+        line-height: 1.9;
+        color: #444;
+        margin-bottom: 1rem;
+        text-align: left;
+    }
+
+    .galaxy-sidebar {
+        position: sticky;
+        top: 2rem;
+        /* give it a notebook paper look & feel */
+        background-color: #f7f8f7;
+        background-image:
+            repeating-linear-gradient(to bottom,
+                transparent 0,
+                transparent 31px,
+                rgba(47, 125, 91, 0.07) 32px);
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        border-radius: 4px;
+        padding: 2rem 1.75rem 1.75rem 3rem;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.025);
+        transform: rotate(0.2deg);
+    }
+
+    /* notebook margin */
+    .galaxy-sidebar::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 1.6rem;
+        width: 1px;
+        background: rgba(47, 125, 91, 0.25);
+    }
+
+    .galaxy-sidebar h3 {
+        margin: 0 0 1.5rem;
+        font-family: "Caveat", Georgia, "Times New Roman", serif;
+        font-size: 1.8rem;
+        font-weight: 600;
+        text-align: left;
+        transform: rotate(-1deg);
+    }
+
+    .idea-item {
+        display: grid;
+        grid-template-columns: 6px 1fr;
+        gap: 0.8rem;
+        align-items: start;
+        margin-bottom: 1.15rem;
+    }
+
+    .note-dot {
+        width: 6px;
+        height: 6px;
+        margin-top: 0.6rem;
+        background: #2F7D5B;
+        border-radius: 50%;
+    }
+
+    .idea-item p {
+        margin: 0;
+        font-size: 0.95rem;
+        line-height: 1.65;
+        text-align: left;
+        color: #444;
+    }
+
+    .idea-item:last-child {
+        margin-bottom: 0;
+    }
+
+    .idea-item p {
+        color: #555;
+        line-height: 1.8;
+        margin: 0;
+    }
+
+    .idea-item h4 {
+        margin-top: 2rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .next-lab {
+        position: relative;
+        margin-top: 2.75rem;
+        padding-top: 1.5rem;
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .next-lab-label {
+        margin: 0 0 1.2rem;
+        font-size: 0.7rem;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: #777;
+    }
+
+    .next-lab-content {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 1rem;
+        align-items: center;
+    }
+
+    .coming-soon {
+        font-family: "Caveat", Georgia, "Times New Roman", serif;
+        font-size: 1.25rem;
+        font-weight: 500;
+        line-height: 1;
+        white-space: nowrap;
+        transform: rotate(-4deg);
+    }
+
+    .next-lab-title {
+        font-size: 0.82rem;
+        font-weight: 600;
+        line-height: 1.45;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+    }
+
+    /* --------------------------
+       Mobile message
+    -------------------------- */
+
+    .mobile-message {
+        display: none;
+    }
+
+    .mobile-message h2 {
+        color: #fff;
+    }
+
+    .mobile-message p {
+        font-size: 1rem;
+        line-height: 1.8;
+        color: #fff;
+    }
+
+
+    /* --------------------------
+       Responsive
+    -------------------------- */
+
+    @media (min-width: 750px) and (max-width: 900px) {
+
+        .explainer {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        .explainer-content {
+            grid-template-columns: 220px minmax(0, 1fr);
+            gap: 1rem;
+        }
+
+        .explainer-sidebar {
+            gap: 0.75rem;
+        }
+
+        .mission-card {
+            padding: 1rem;
+        }
+
+        .mission-card h2 {
+            font-size: 1.15rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .mission-card p {
+            font-size: 0.8rem;
+            line-height: 1.45;
+        }
+
+        .status-card {
+            padding: 1rem;
+        }
+
+        .status-card h2 {
+            font-size: 1.15rem;
+            margin-bottom: 2.3rem;
+        }
+
+        .status-note {
+            top: 2.8rem;
+            right: 0.75rem;
+
+            font-size: 0.85rem;
+            line-height: 0.9;
+        }
+
+        .status-item {
+            grid-template-columns: minmax(0, 1fr) 78px;
+            column-gap: 0.65rem;
+            margin-top: 1rem;
+        }
+
+        .status-item .label {
+            font-size: 0.8rem;
+            line-height: 1.3;
+        }
+
+        .status-item small {
+            font-size: 0.65rem;
+            line-height: 1.25;
+        }
+
+        .status-item strong {
+            font-size: 0.8rem;
+        }
+
+        .galaxy-panel {
+            min-height: 500px;
+        }
+
+        /* Dynamic values */
+
+        #query-text,
+        #explore-coordinates,
+        #neighbors-status {
+            width: 78px;
+            font-size: 0.8rem;
+        }
+
+        #explore-coordinates {
+            line-height: 1.4;
+        }
+
+        #neighbors-status {
+            line-height: 1.45;
+        }
+
+        .target-icon {
+            width: 15px;
+        }
+    }
+
+
+    /* --------------------------
+   Small desktop
+   901px - 1000px
+-------------------------- */
+
+    @media (min-width: 901px) and (max-width: 1000px) {
+
+        .explainer {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        .explainer-content {
+            grid-template-columns: 280px minmax(0, 1fr);
+            gap: 1.25rem;
+        }
+
+        .mission-card,
+        .status-card {
+            padding: 1.25rem;
+        }
+
+        .mission-card h2,
+        .status-card h2 {
+            font-size: 1.3rem;
+        }
+
+        .mission-card p {
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .status-item {
+            grid-template-columns: minmax(0, 1fr) 90px;
+            column-gap: 0.75rem;
+        }
+
+        #query-text,
+        #explore-coordinates,
+        #neighbors-status {
+            width: 90px;
+        }
+
+        .status-note {
+            right: 0.8rem;
+            font-size: 0.95rem;
+        }
+
+        .move-hint {
+            display: none;
+        }
+    }
+
+    /* Mobile: show message, hide interactive demo */
+
+    @media (max-width: 750px) {
+
+        .explainer {
+            padding: 3rem 1.25rem;
+        }
+
+        .explainer-hero h1 {
+            font-size: 3.2rem;
+        }
+
+        .search-underline {
+            width: 300px;
+        }
+
+        .explainer-subtitle {
+            font-size: 2rem;
+        }
+
+        .mobile-message {
+            display: block;
+        }
+
+        .galaxy-container {
+            display: none;
+        }
+
+        .status-card {
+            display: none;
+        }
+
+        .galaxy-panel {
+            min-height: auto;
+            padding: 3rem 2rem;
+        }
+
+        .mission-card {
+            padding: 1rem;
+        }
+
+        .mission-card h2 {
+            font-size: 1.15rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .mission-card p {
+            font-size: 0.8rem;
+            line-height: 1.45;
+        }
+
+    }

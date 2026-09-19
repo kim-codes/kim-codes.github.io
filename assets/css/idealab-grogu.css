@@ -649,6 +649,7 @@
         line-height: 1.45;
         letter-spacing: 0.04em;
         text-transform: uppercase;
+        text-align: left;
     }
 
     /* --------------------------
@@ -766,12 +767,6 @@
             width: 15px;
         }
     }
-
-
-    /* --------------------------
-   Small desktop
-   901px - 1000px
--------------------------- */
 
     @media (min-width: 901px) and (max-width: 1000px) {
 

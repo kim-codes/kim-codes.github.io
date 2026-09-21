@@ -867,4 +867,22 @@
             line-height: 1.45;
         }
 
+        /* stack the sidebar and galaxy panel vertically on mobile */
+        .explainer-content {
+            grid-template-columns: 1fr;
+        }
+
+        .explainer-sidebar {
+            order: 0;
+        }
+
+        .galaxy-panel {
+            order: 1;
+        }
+
+        .galaxy-content {
+            grid-template-columns: 1fr;
+            padding-top: 0;
+        }
+
     }

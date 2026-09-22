@@ -443,32 +443,65 @@
         }
 
         /* style recommendations section */
+        .program-health,
         .recommendations {
             margin: 32px 0;
         }
 
-        .recommendation-list {
+        .health-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
             margin-top: 16px;
         }
 
-        .recommendation-title {
+        .health-label {
+            font-size: 0.75rem;
             font-weight: 600;
-            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 16px;
         }
 
+        .health-working .health-label {
+            color: #38845f;
+        }
+
+        .health-watch .health-label {
+            color: #c15b4d;
+        }
+
+        .health-item+.health-item {
+            margin-top: 18px;
+        }
+
+        .health-title,
+        .recommendation-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .health-detail,
         .recommendation-detail {
             color: #6b7280;
             font-size: 0.9rem;
             line-height: 1.5;
         }
 
+        .recommendation-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-top: 16px;
+        }
+
+
         @media (max-width: 700px) {
-            #dashboard-context {
-                padding: 24px 20px;
-                margin-top: 1.5rem;
+
+            .health-grid,
+            .recommendation-list {
+                grid-template-columns: 1fr;
+                gap: 20px;
             }
 
             #dashboard-context p:not(.steps-breadcrumb) {

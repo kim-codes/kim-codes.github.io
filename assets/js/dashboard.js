@@ -663,3 +663,49 @@ function renderIndustrySection() {
       <div id="industry-table-wrap">${renderIndustryTable(cleanedData, 'All')}</div>
     </div>`;
 }
+
+function renderRecommendations(data) {
+    const reviewStage = data.funnel.find(function (f) {
+        return f.stage === "In Review";
+    });
+
+    const topRisk = data.riskList[0];
+
+    return `
+        <div class="recommendations">
+            <div class="dash-section-label">Key recommendations</div>
+
+            <div class="recommendation-list">
+
+                <div class="recommendation-item">
+                    <div class="recommendation-title">
+                        Prioritize ${topRisk.region} ${topRisk.segment}
+                    </div>
+                    <div class="recommendation-detail">
+                        $${Math.round(topRisk.value / 1000)}k is currently 
+                        ${topRisk.outcome.toLowerCase()} — ${topRisk.reason.toLowerCase()}.
+                    </div>
+                </div>
+
+                <div class="recommendation-item">
+                    <div class="recommendation-title">
+                        Review the In Review stage
+                    </div>
+                    <div class="recommendation-detail">
+                        Conversion is ${Math.abs(reviewStage.gapPts)}pts below target.
+                    </div>
+                </div>
+
+                <div class="recommendation-item">
+                    <div class="recommendation-title">
+                        Protect the remaining pipeline
+                    </div>
+                    <div class="recommendation-detail">
+                        $${Math.round(data.riskValue / 1000)}k is currently blocked or needs attention.
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    `;
+}

@@ -449,6 +449,8 @@ function computeDashboard(rows) {
 }
 
 function renderDashboard(data) {
+    document.querySelector('.program-intro').style.display = 'none';
+
     const today = new Date();
     const dateStr = String(today.getMonth() + 1).padStart(2, '0') + '.' + String(today.getDate()).padStart(2, '0') + '.' + today.getFullYear();
 

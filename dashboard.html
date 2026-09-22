@@ -1031,16 +1031,29 @@
 
         @media(max-width: 700px) {
             .dash-metrics {
-                flex-wrap: wrap;
-                gap: 24px;
+                display: block;
+                margin-bottom: 40px;
+            }
+
+            .dash-metrics>div:first-child {
+                width: 100%;
             }
 
             .metric-hero {
-                font-size: 40px;
+                font-size: 52px;
+                margin-bottom: 32px;
+            }
+
+            .secondary-grid {
+                width: 100%;
+                margin-left: 0;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 24px 32px;
             }
 
             .metric-secondary {
-                font-size: 24px;
+                font-size: 26px;
             }
 
             .dash-header {
@@ -1055,16 +1068,63 @@
                 white-space: nowrap;
             }
 
-            .secondary-grid {
-                gap: 1rem 3rem;
-            }
-
             .dash-two-col {
                 display: none;
             }
 
             .dashboard-drawing {
                 height: 175px;
+            }
+
+            .pipeline-row {
+                display: grid;
+                grid-template-columns: 1fr auto;
+                gap: 6px 20px;
+                align-items: center;
+                padding: 16px 0;
+            }
+
+            .pipeline-bar-wrap {
+                display: none;
+            }
+
+            .pipeline-stage {
+                min-width: 0;
+            }
+
+            .pipeline-result {
+                display: block;
+                text-align: right;
+            }
+
+            .pipeline-value {
+                font-size: 0.95rem;
+            }
+
+            .pipeline-gap {
+                margin-top: 3px;
+                font-size: 0.75rem;
+            }
+
+            .pipeline-stage-name {
+                font-size: 0.95rem;
+            }
+
+            .pipeline-count {
+                margin-top: 3px;
+                font-size: 0.8rem;
+            }
+
+            #dashboard-view {
+                padding: 20px;
+            }
+
+            .dash-two-col {
+                display: block;
+            }
+
+            .stage-metrics {
+                margin-bottom: 36px;
             }
         }
     </style>

@@ -63,6 +63,7 @@ const OUTCOME_MAP = {
 document.getElementById('btn-walkthrough').addEventListener('click', function () {
     document.querySelector('.lab-choice').style.display = 'none';
     document.getElementById('data-cleanup').style.display = 'block';
+     document.getElementById('initial-context').style.display = 'block';
     document.getElementById('data-cleanup').scrollIntoView({ behavior: 'smooth', block: 'start' });
 
 });
@@ -144,10 +145,13 @@ document.getElementById('btn-skip').addEventListener('click', function () {
 });
 
 document.getElementById('btn-reset').addEventListener('click', function () {
+    document.querySelector('.program-intro').style.display = 'block';
     document.getElementById('dashboard-view').style.display = 'none';
     document.getElementById('dashboard-context').style.display = 'none';
     document.getElementById('dashboard-content').innerHTML = '';
     document.getElementById('btn-reset').style.display = 'none';
+
+    
 
     document.getElementById('data-cleanup').style.display = 'none';
     document.getElementById('cleanup-steps').style.display = 'none';
@@ -157,6 +161,7 @@ document.getElementById('btn-reset').addEventListener('click', function () {
     document.getElementById('json-heading').style.display = 'none';
     document.getElementById('json-box').style.display = 'none';
     document.getElementById('btn-view-dashboard').style.display = 'none';
+    document.getElementById('predashboard-context').style.display = 'none';
 
     const card = document.getElementById('sample-data-file-card');
     if (card) card.remove();
@@ -173,6 +178,33 @@ document.addEventListener('change', function (e) {
         document.getElementById('industry-table-wrap').innerHTML = renderIndustryTable(cleanedData, e.target.value);
     }
 });
+
+
+/* event litsener for tooltip on data points */
+document.addEventListener('click', function (e) {
+    const button = e.target.closest('.info-tip-button');
+
+    // Close any open tips
+    document.querySelectorAll('.info-tip.open').forEach(function (tip) {
+        if (!button || tip !== button.closest('.info-tip')) {
+            tip.classList.remove('open');
+
+            const tipButton = tip.querySelector('.info-tip-button');
+            if (tipButton) {
+                tipButton.setAttribute('aria-expanded', 'false');
+            }
+        }
+    });
+
+    // Nothing else to do if an info button wasn't clicked
+    if (!button) return;
+
+    const tip = button.closest('.info-tip');
+    const isOpen = tip.classList.toggle('open');
+
+    button.setAttribute('aria-expanded', String(isOpen));
+});
+
 
 // handle the file dropping and adding the sample data to appear 
 function handleFileDropped() {
@@ -449,6 +481,8 @@ function computeDashboard(rows) {
 }
 
 function renderDashboard(data) {
+    document.querySelector('.program-intro').style.display = 'none';
+
     const today = new Date();
     const dateStr = String(today.getMonth() + 1).padStart(2, '0') + '.' + String(today.getDate()).padStart(2, '0') + '.' + today.getFullYear();
 
@@ -456,8 +490,8 @@ function renderDashboard(data) {
     <div style="animation: dashFadeIn 0.5s ease forwards">
 
       <div class="dash-header">
-        <div class="dash-title">Program pulse</div>
-        <div class="dash-date">As of ${dateStr}</div>
+        <div class="dash-title"><strong>Program Pulse</strong></div>
+        <div class="dash-date">as of ${dateStr}</div>
       </div>
 
       <div class="dash-metrics">
@@ -467,15 +501,30 @@ function renderDashboard(data) {
         </div>
         <div class="secondary-grid">
           <div>
-            <div class="metric-label">Active segments</div>
+          <div class="metric-label">
+                    Active segments
+                    ${renderInfoTip(
+        'Number of active region × segment combinations. 9 of 9 means the program has coverage across every segment.'
+    )}
+                </div>
             <div class="metric-secondary">${data.activeSegments} of 9</div>
           </div>
           <div>
-            <div class="metric-label">Avg deal size</div>
+                <div class="metric-label">
+                    Avg deal size
+                    ${renderInfoTip(
+        'Average value across all nominations. Use the industry benchmarks below to understand how deal size compares by industry.'
+    )}
+                </div>
             <div class="metric-secondary">$${Math.round(data.avgDealSize / 1000)}k</div>
           </div>
           <div>
-            <div class="metric-label">At risk</div>
+              <div class="metric-label">
+                    At risk
+                    ${renderInfoTip(
+        'Total value of opportunities currently marked Blocked or Needs Attention.'
+    )}
+                </div>
             <div class="metric-secondary">$${Math.round(data.riskValue / 1000)}k</div>
           </div>
           <div>
@@ -485,7 +534,8 @@ function renderDashboard(data) {
         </div>
       </div>
 
-      ${renderFunnel(data.funnel)} 
+        ${renderRecommendations(data)}
+        ${renderFunnel(data.funnel)} 
 
      <div class="dash-two-col">
         <div>${renderRiskList(data.riskList)}</div>
@@ -504,6 +554,7 @@ function renderDashboard(data) {
     document.getElementById('btn-reset').style.display = 'inline-block';
 }
 
+/*
 function renderFunnel(funnel) {
     let rows = funnel.map(function (f) {
         const gapText = f.gapPts === null ? '' :
@@ -533,44 +584,197 @@ function renderFunnel(funnel) {
          ${rows}
         </table>
     </div > `;
+}*/
+
+function renderFunnel(funnel) {
+    const maxValue = funnel[0].value;
+
+    let rows = funnel.map(function (f) {
+
+        const width = Math.round((f.value / maxValue) * 100);
+
+        const gapText = f.gapPts === null
+            ? '100% retained'
+            : (f.gapPts >= 0 ? '+' + f.gapPts : f.gapPts) + 'pt' +
+            (Math.abs(f.gapPts) === 1 ? '' : 's') + ' vs target';
+
+        let gapClass = 'pipeline-neutral';
+
+        if (f.gapPts !== null) {
+            gapClass = f.gapPts >= 0
+                ? 'pipeline-positive'
+                : 'pipeline-negative';
+        }
+
+        return `
+            <div class="pipeline-row">
+
+                <div class="pipeline-stage">
+                    <div class="pipeline-stage-name">${f.stage}</div>
+                    <div class="pipeline-count">${f.count} deals</div>
+                </div>
+
+                <div class="pipeline-bar-wrap">
+                    <div 
+                        class="pipeline-bar"
+                        style="width: ${width}%">
+                    </div>
+                </div>
+
+                <div class="pipeline-result">
+                    <div class="pipeline-value">
+                        $${(f.value / 1e6).toFixed(2)}m
+                    </div>
+
+                    <div class="pipeline-gap ${gapClass}">
+                        ${gapText}
+                    </div>
+                </div>
+
+            </div>
+        `;
+    }).join('');
+
+    return `
+        <div class="pipeline-section">
+
+            <div class="pipeline-heading">
+                <div class="dash-section-label">Pipeline by stage</div>
+
+                <p>
+                    Bar width reflects value retained from the nominated pool.
+                    The gap between bars is where deals are stalling.
+                </p>
+            </div>
+
+            <div class="pipeline-rows">
+                ${rows}
+            </div>
+
+        </div>
+    `;
 }
 
 
 function renderRiskList(riskList) {
+
+    const emeaRiskValue = riskList
+        .filter(function (r) {
+            return r.region === "EMEA";
+        })
+        .reduce(function (sum, r) {
+            return sum + r.value;
+        }, 0);
+
     let cards = riskList.map(function (r) {
-        const colorClass = r.outcome === "Blocked" ? "risk-blocked" : "risk-attention";
+
+        const statusClass =
+            r.outcome === "Blocked"
+                ? "risk-status-blocked"
+                : "risk-status-attention";
+
         return `
-      <div class="risk-row">
-        <div>
-          <div class="risk-name">${r.region} · ${r.segment} · ${r.id}</div>
-          <div class="risk-reason">${r.reason}</div>
+        <div class="risk-row">
+
+            <div class="risk-copy">
+                <div class="risk-name">
+                    ${r.region} · ${r.segment} · ${r.id}
+                </div>
+
+                <div class="risk-reason">
+                    ${r.reason}
+                </div>
+            </div>
+
+            <div class="risk-side">
+                <div class="risk-value">
+                    $${Math.round(r.value / 1000)}k
+                </div>
+
+                <div class="risk-status ${statusClass}">
+                   <strong> ${r.outcome} </strong> 
+                </div>
+            </div>
+
         </div>
-        <div class="risk-side">
-          <div class="${colorClass}">$${Math.round(r.value / 1000)}k</div>
-          <div class="${colorClass} risk-tag">${r.outcome}</div>
-        </div>
-      </div>`;
+    `;
     }).join('');
 
+
     return `
-    <div class="stage-metrics">
-      <div class="dash-section-label">Blocked and needs attention</div>
-      ${cards}
-    </div>`;
+        <div class="stage-metrics">
+
+            <div class="dash-section-label">
+                Blocked and needs attention
+            </div>
+
+            <p class="section-insight">
+                EMEA has the most value needing attention.
+                $${Math.round(emeaRiskValue / 1000)}k of the opportunities shown here are in the region.
+            </p>
+
+            <div class="risk-columns">
+                <span>Opportunity</span>
+                <span>Value &amp; Status</span>
+            </div>
+
+            ${cards}
+
+        </div>
+    `;
 }
 
 function renderByRegion(byRegion) {
+
     let rows = byRegion.map(function (r) {
-        return `<tr><td>${r.region}</td><td>$${Math.round(r.value / 1000)}k</td><td>${r.liveRate}%</td></tr>`;
+        return `
+            <tr>
+                <td>${r.region}</td>
+                <td>$${Math.round(r.value / 1000)}k</td>
+                <td>${r.liveRate}%</td>
+            </tr>
+        `;
     }).join('');
+
+    const highestValueRegion = byRegion.reduce(function (highest, current) {
+        return current.value > highest.value ? current : highest;
+    });
+
+    const liveRates = byRegion.map(function (r) {
+        return r.liveRate;
+    });
+
+    const lowestLiveRate = Math.min(...liveRates);
+    const highestLiveRate = Math.max(...liveRates);
+
     return `
-    <div class="stage-metrics">
-      <div class="dash-section-label">By region</div>
-      <table class="dash-table">
-        <tr><th>Region</th><th>Value</th><th>Live rate</th></tr>
-        ${rows}
-      </table>
-    </div>`;
+        <div class="stage-metrics">
+
+            <div class="dash-section-label">By region</div>
+
+            <p class="section-insight">
+                ${highestValueRegion.region} holds the most pipeline value at
+                $${(highestValueRegion.value / 1e6).toFixed(2)}m.
+                Live rates are relatively close across regions, ranging from
+                ${lowestLiveRate}–${highestLiveRate}%.
+            </p>
+
+            <table class="dash-table">
+                <tr>
+                    <th>Region</th>
+                    <th>Value</th>
+                    <th>
+                        Live rate
+                        ${renderInfoTip(
+        'Percentage of nominations that have reached a Live outcome within this region. Use it to compare performance across regions.'
+    )}
+                    </th>
+                </tr>
+                ${rows}
+            </table>
+
+        </div>
+    `;
 }
 
 function renderByProduct(byProduct) {
@@ -581,7 +785,16 @@ function renderByProduct(byProduct) {
     <div class="stage-metrics">
       <div class="dash-section-label">By product</div>
       <table class="dash-table">
-        <tr><th>Product</th><th>Value</th><th>Live rate</th></tr>
+        <tr>
+            <th>Product</th>
+            <th>Value</th>
+            <th>
+                Live rate
+                ${renderInfoTip(
+        'Percentage of nominations that have reached a Live outcome for this product. Use it to compare performance across products.'
+    )}
+            </th>
+        </tr>
         ${rows}
       </table>
     </div>`;
@@ -638,12 +851,72 @@ function computeIndustryTable(rows, region) {
 }
 
 function renderIndustryTable(rows, region) {
+
     const data = computeIndustryTable(rows, region);
+
+    const aboveCount = data.filter(function (x) {
+        return x.status === "Above";
+    }).length;
+
+    const belowIndustries = data
+        .filter(function (x) {
+            return x.status === "Below";
+        })
+        .map(function (x) {
+            return x.industry;
+        });
+
+    let insight = `
+        ${aboveCount} of ${data.length} industries are above benchmark.
+    `;
+
+    if (belowIndustries.length === 1) {
+        insight += ` ${belowIndustries[0]} is the only industry currently below.`;
+    } else if (belowIndustries.length > 1) {
+        insight += ` ${belowIndustries.join(', ')} are currently below.`;
+    }
+
     let trs = data.map(function (x) {
-        const tagClass = x.status === "Above" ? "bench-above" : x.status === "Near" ? "bench-near" : "bench-below";
-        return `<tr><td>${x.industry}</td><td class="muted">${x.count}</td><td>$${Math.round(x.value / 1000)}k</td><td>$${Math.round(x.avg / 1000)}k</td><td><span class="bench-tag ${tagClass}">${x.status} $${Math.round(x.benchmark / 1000)}k</span></td></tr>`;
+
+        const tagClass =
+            x.status === "Above"
+                ? "bench-above"
+                : x.status === "Near"
+                    ? "bench-near"
+                    : "bench-below";
+
+        return `
+            <tr>
+                <td>${x.industry}</td>
+                <td class="muted">${x.count}</td>
+                <td>$${Math.round(x.value / 1000)}k</td>
+                <td>$${Math.round(x.avg / 1000)}k</td>
+                <td>
+                    <span class="bench-tag ${tagClass}">
+                        <strong>${x.status} $${Math.round(x.benchmark / 1000)}k </strong>
+                    </span>
+                </td>
+            </tr>
+        `;
     }).join('');
-    return `<table class="dash-table"><tr><th>Industry</th><th>Noms</th><th>Value</th><th>Avg deal</th><th>Vs benchmark</th></tr>${trs}</table>`;
+
+    return `
+        <p class="section-insight industry-insight">
+            ${insight}
+        </p>
+
+        <table class="dash-table">
+            <tr>
+                <th>Industry</th>
+                <th>Noms</th>
+                <th>Value</th>
+                <th>Avg deal</th>
+                <th>Vs benchmark</th>
+            </tr>
+
+            ${trs}
+        </table>
+    `;
 }
 
 function renderIndustrySection() {
@@ -660,4 +933,89 @@ function renderIndustrySection() {
       </div>
       <div id="industry-table-wrap">${renderIndustryTable(cleanedData, 'All')}</div>
     </div>`;
+}
+
+function renderRecommendations(data) {
+    const reviewStage = data.funnel.find(function (f) {
+        return f.stage === "In Review";
+    });
+
+    const topRisk = data.riskList[0];
+
+    // calculate how much of the at-risk value is in the top two opportunities
+    const topTwoRiskValue =
+        (data.riskList[0]?.value || 0) +
+        (data.riskList[1]?.value || 0);
+
+    const topTwoRiskPct =
+        Math.round((topTwoRiskValue / data.riskValue) * 100);
+
+    return `
+        <div class="dashboard-readout">
+            <div class="readout-label">Where to look first</div>
+
+            <p>
+                The bigger opportunity right now is getting existing pipeline moving.
+                $${Math.round(data.riskValue / 1000)}k needs attention, with ${topTwoRiskPct}% of that value
+                concentrated in just two opportunities. Security, legal, and technical reviews are the
+                most common blockers.
+            </p>
+        </div>
+
+        <div class="recommendations">
+            <div class="dash-section-label">Key recommendations</div>
+
+            <div class="recommendation-list">
+
+                <div class="recommendation-item">
+                    <div class="recommendation-number">01</div>
+
+                    <div>
+                        <div class="recommendation-title">
+                            Prioritize ${topRisk.region} ${topRisk.segment}
+                        </div>
+
+                        <div class="recommendation-detail">
+                            Unblock the $${Math.round(topRisk.value / 1000)}k opportunity currently
+                            ${topRisk.reason.toLowerCase()}.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="recommendation-item">
+                    <div class="recommendation-number">02</div>
+
+                    <div>
+                        <div class="recommendation-title">
+                            Investigate In Review conversion
+                        </div>
+
+                        <div class="recommendation-detail">
+                            Identify what's driving the ${Math.abs(reviewStage.gapPts)}pt gap to target before more pipeline stalls.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    `;
+}
+
+/* skeleton for tooltip, to be used to give context to the use on the data and how to interpret or leverage it */
+function renderInfoTip(text) {
+    return `
+        <span class="info-tip">
+            <button 
+                type="button" 
+                class="info-tip-button" 
+                aria-label="More information"
+                aria-expanded="false">
+                i
+            </button>
+
+            <span class="info-tip-content" role="tooltip">
+                ${text}
+            </span>
+        </span>
+    `;
 }

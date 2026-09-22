@@ -442,6 +442,29 @@
             grid-column: span 2;
         }
 
+        /* style recommendations section */
+        .recommendations {
+            margin: 32px 0;
+        }
+
+        .recommendation-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 16px;
+        }
+
+        .recommendation-title {
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .recommendation-detail {
+            color: #6b7280;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
         @media (max-width: 700px) {
             #dashboard-context {
                 padding: 24px 20px;
@@ -461,6 +484,11 @@
             .dashboard-questions li:last-child {
                 grid-column: span 1;
                 /* reset since there's only 1 column now */
+            }
+
+            .recommendation-list {
+                grid-template-columns: 1fr;
+                gap: 18px;
             }
         }
 
@@ -812,7 +840,7 @@
             Bringing together pipeline, progression, risk, and performance signals in one place.
         </p>
 
-       <!-- <figure>
+        <!-- <figure>
             <img src="assets/img/program-pulse.png" alt="mockup drawing of a lab creating a dashboard"
                 class="dashboard-drawing">
         </figure>-->

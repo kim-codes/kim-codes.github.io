@@ -487,7 +487,8 @@ function renderDashboard(data) {
         </div>
       </div>
 
-      ${renderFunnel(data.funnel)} 
+        ${renderRecommendations(data)}
+        ${renderFunnel(data.funnel)} 
 
      <div class="dash-two-col">
         <div>${renderRiskList(data.riskList)}</div>

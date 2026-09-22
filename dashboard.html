@@ -495,6 +495,57 @@
             margin-top: 16px;
         }
 
+        .info-tip {
+            position: relative;
+            display: inline-flex;
+            margin-left: 4px;
+            vertical-align: middle;
+        }
+
+        .info-tip-button {
+            width: 17px;
+            height: 17px;
+            padding: 0;
+            border: 1px solid #9ca3af;
+            border-radius: 50%;
+            background: transparent;
+            color: #6b7280;
+            font: inherit;
+            font-size: 10px;
+            line-height: 15px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .info-tip-content {
+            display: none;
+            position: absolute;
+            z-index: 20;
+
+            top: 25px;
+            left: 0;
+
+            width: 240px;
+            padding: 12px 14px;
+
+            background: #fff;
+            border: 1px solid #dedede;
+            border-radius: 8px;
+
+            color: #333;
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 1.5;
+            text-transform: none;
+            letter-spacing: normal;
+
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+        }
+
+        .info-tip.open .info-tip-content {
+            display: block;
+        }
+
 
         @media (max-width: 700px) {
 

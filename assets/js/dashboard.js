@@ -174,6 +174,33 @@ document.addEventListener('change', function (e) {
     }
 });
 
+
+/* event litsener for tooltip on data points */
+document.addEventListener('click', function (e) {
+    const button = e.target.closest('.info-tip-button');
+
+    // Close any open tips
+    document.querySelectorAll('.info-tip.open').forEach(function (tip) {
+        if (!button || tip !== button.closest('.info-tip')) {
+            tip.classList.remove('open');
+
+            const tipButton = tip.querySelector('.info-tip-button');
+            if (tipButton) {
+                tipButton.setAttribute('aria-expanded', 'false');
+            }
+        }
+    });
+
+    // Nothing else to do if an info button wasn't clicked
+    if (!button) return;
+
+    const tip = button.closest('.info-tip');
+    const isOpen = tip.classList.toggle('open');
+
+    button.setAttribute('aria-expanded', String(isOpen));
+});
+
+
 // handle the file dropping and adding the sample data to appear 
 function handleFileDropped() {
     // hide all the elements and display to start the cleanup steps 
@@ -469,15 +496,30 @@ function renderDashboard(data) {
         </div>
         <div class="secondary-grid">
           <div>
-            <div class="metric-label">Active segments</div>
+          <div class="metric-label">
+                    Active segments
+                    ${renderInfoTip(
+        'Number of active region × segment combinations. 9 of 9 means the program has coverage across every segment.'
+    )}
+                </div>
             <div class="metric-secondary">${data.activeSegments} of 9</div>
           </div>
           <div>
-            <div class="metric-label">Avg deal size</div>
+                <div class="metric-label">
+                    Avg deal size
+                    ${renderInfoTip(
+        'Average value across all nominations. Use the industry benchmarks below to understand how deal size compares by industry.'
+    )}
+                </div>
             <div class="metric-secondary">$${Math.round(data.avgDealSize / 1000)}k</div>
           </div>
           <div>
-            <div class="metric-label">At risk</div>
+              <div class="metric-label">
+                    At risk
+                    ${renderInfoTip(
+        'Total value of opportunities currently marked Blocked or Needs Attention.'
+    )}
+                </div>
             <div class="metric-secondary">$${Math.round(data.riskValue / 1000)}k</div>
           </div>
           <div>
@@ -570,7 +612,16 @@ function renderByRegion(byRegion) {
     <div class="stage-metrics">
       <div class="dash-section-label">By region</div>
       <table class="dash-table">
-        <tr><th>Region</th><th>Value</th><th>Live rate</th></tr>
+        <tr>
+            <th>Region</th>
+            <th>Value</th>
+            <th>
+                    Live rate
+                    ${renderInfoTip(
+                        'Percentage of nominations that have reached a Live outcome within this region. Use it to compare performance across regions.'
+                    )}
+            </th>
+        </tr>
         ${rows}
       </table>
     </div>`;
@@ -584,7 +635,16 @@ function renderByProduct(byProduct) {
     <div class="stage-metrics">
       <div class="dash-section-label">By product</div>
       <table class="dash-table">
-        <tr><th>Product</th><th>Value</th><th>Live rate</th></tr>
+        <tr>
+            <th>Product</th>
+            <th>Value</th>
+            <th>
+                Live rate
+                ${renderInfoTip(
+                    'Percentage of nominations that have reached a Live outcome for this product. Use it to compare performance across products.'
+                )}
+            </th>
+        </tr>
         ${rows}
       </table>
     </div>`;
@@ -670,9 +730,57 @@ function renderRecommendations(data) {
         return f.stage === "In Review";
     });
 
+    const deploymentStage = data.funnel.find(function (f) {
+        return f.stage === "Under Deployment";
+    });
+
     const topRisk = data.riskList[0];
 
     return `
+        <div class="program-health">
+            <div class="dash-section-label">Program health</div>
+
+            <div class="health-grid">
+
+                <div class="health-group health-working">
+                    <div class="health-label">Working</div>
+
+                    <div class="health-item">
+                        <div class="health-title">Full segment coverage</div>
+                        <div class="health-detail">
+                            ${data.activeSegments} of 9 region × segment combinations are active.
+                        </div>
+                    </div>
+
+                    <div class="health-item">
+                        <div class="health-title">Deployment is on track</div>
+                        <div class="health-detail">
+                            Conversion is ${deploymentStage.gapPts >= 0 ? '+' : ''}${deploymentStage.gapPts}pt${Math.abs(deploymentStage.gapPts) === 1 ? '' : 's'} vs target.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="health-group health-watch">
+                    <div class="health-label">Watch</div>
+
+                    <div class="health-item">
+                        <div class="health-title">In Review is the pressure point</div>
+                        <div class="health-detail">
+                            Conversion is ${Math.abs(reviewStage.gapPts)}pts below target.
+                        </div>
+                    </div>
+
+                    <div class="health-item">
+                        <div class="health-title">Pipeline needs attention</div>
+                        <div class="health-detail">
+                            $${Math.round(data.riskValue / 1000)}k is currently blocked or needs attention.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
         <div class="recommendations">
             <div class="dash-section-label">Key recommendations</div>
 
@@ -683,30 +791,40 @@ function renderRecommendations(data) {
                         Prioritize ${topRisk.region} ${topRisk.segment}
                     </div>
                     <div class="recommendation-detail">
-                        $${Math.round(topRisk.value / 1000)}k is currently 
-                        ${topRisk.outcome.toLowerCase()} — ${topRisk.reason.toLowerCase()}.
+                        Unblock the $${Math.round(topRisk.value / 1000)}k opportunity currently 
+                        ${topRisk.reason.toLowerCase()}.
                     </div>
                 </div>
 
                 <div class="recommendation-item">
                     <div class="recommendation-title">
-                        Review the In Review stage
+                        Investigate In Review conversion
                     </div>
                     <div class="recommendation-detail">
-                        Conversion is ${Math.abs(reviewStage.gapPts)}pts below target.
-                    </div>
-                </div>
-
-                <div class="recommendation-item">
-                    <div class="recommendation-title">
-                        Protect the remaining pipeline
-                    </div>
-                    <div class="recommendation-detail">
-                        $${Math.round(data.riskValue / 1000)}k is currently blocked or needs attention.
+                        Identify what's driving the ${Math.abs(reviewStage.gapPts)}pt gap to target before more pipeline stalls.
                     </div>
                 </div>
 
             </div>
         </div>
+    `;
+}
+
+/* skeleton for tooltip, to be used to give context to the use on the data and how to interpret or leverage it */
+function renderInfoTip(text) {
+    return `
+        <span class="info-tip">
+            <button 
+                type="button" 
+                class="info-tip-button" 
+                aria-label="More information"
+                aria-expanded="false">
+                i
+            </button>
+
+            <span class="info-tip-content" role="tooltip">
+                ${text}
+            </span>
+        </span>
     `;
 }

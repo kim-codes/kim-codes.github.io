@@ -485,8 +485,8 @@ function renderDashboard(data) {
     <div style="animation: dashFadeIn 0.5s ease forwards">
 
       <div class="dash-header">
-        <div class="dash-title">Program pulse</div>
-        <div class="dash-date">As of ${dateStr}</div>
+        <div class="dash-title"><strong>Program Pulse</strong></div>
+        <div class="dash-date">as of ${dateStr}</div>
       </div>
 
       <div class="dash-metrics">
@@ -549,6 +549,7 @@ function renderDashboard(data) {
     document.getElementById('btn-reset').style.display = 'inline-block';
 }
 
+/*
 function renderFunnel(funnel) {
     let rows = funnel.map(function (f) {
         const gapText = f.gapPts === null ? '' :
@@ -578,6 +579,75 @@ function renderFunnel(funnel) {
          ${rows}
         </table>
     </div > `;
+}*/
+
+function renderFunnel(funnel) {
+    const maxValue = funnel[0].value;
+
+    let rows = funnel.map(function (f) {
+
+        const width = Math.round((f.value / maxValue) * 100);
+
+        const gapText = f.gapPts === null
+            ? '100% retained'
+            : (f.gapPts >= 0 ? '+' + f.gapPts : f.gapPts) + 'pt' +
+            (Math.abs(f.gapPts) === 1 ? '' : 's') + ' vs target';
+
+        let gapClass = 'pipeline-neutral';
+
+        if (f.gapPts !== null) {
+            gapClass = f.gapPts >= 0
+                ? 'pipeline-positive'
+                : 'pipeline-negative';
+        }
+
+        return `
+            <div class="pipeline-row">
+
+                <div class="pipeline-stage">
+                    <div class="pipeline-stage-name">${f.stage}</div>
+                    <div class="pipeline-count">${f.count} deals</div>
+                </div>
+
+                <div class="pipeline-bar-wrap">
+                    <div 
+                        class="pipeline-bar"
+                        style="width: ${width}%">
+                    </div>
+                </div>
+
+                <div class="pipeline-result">
+                    <div class="pipeline-value">
+                        $${(f.value / 1e6).toFixed(2)}m
+                    </div>
+
+                    <div class="pipeline-gap ${gapClass}">
+                        ${gapText}
+                    </div>
+                </div>
+
+            </div>
+        `;
+    }).join('');
+
+    return `
+        <div class="pipeline-section">
+
+            <div class="pipeline-heading">
+                <div class="dash-section-label">Pipeline by stage</div>
+
+                <p>
+                    Bar width reflects value retained from the nominated pool.
+                    The gap between bars is where deals are stalling.
+                </p>
+            </div>
+
+            <div class="pipeline-rows">
+                ${rows}
+            </div>
+
+        </div>
+    `;
 }
 
 
@@ -618,8 +688,8 @@ function renderByRegion(byRegion) {
             <th>
                     Live rate
                     ${renderInfoTip(
-                        'Percentage of nominations that have reached a Live outcome within this region. Use it to compare performance across regions.'
-                    )}
+        'Percentage of nominations that have reached a Live outcome within this region. Use it to compare performance across regions.'
+    )}
             </th>
         </tr>
         ${rows}
@@ -641,8 +711,8 @@ function renderByProduct(byProduct) {
             <th>
                 Live rate
                 ${renderInfoTip(
-                    'Percentage of nominations that have reached a Live outcome for this product. Use it to compare performance across products.'
-                )}
+        'Percentage of nominations that have reached a Live outcome for this product. Use it to compare performance across products.'
+    )}
             </th>
         </tr>
         ${rows}
@@ -730,55 +800,26 @@ function renderRecommendations(data) {
         return f.stage === "In Review";
     });
 
-    const deploymentStage = data.funnel.find(function (f) {
-        return f.stage === "Under Deployment";
-    });
-
     const topRisk = data.riskList[0];
 
+    // calculate how much of the at-risk value is in the top two opportunities
+    const topTwoRiskValue =
+        (data.riskList[0]?.value || 0) +
+        (data.riskList[1]?.value || 0);
+
+    const topTwoRiskPct =
+        Math.round((topTwoRiskValue / data.riskValue) * 100);
+
     return `
-        <div class="program-health">
-            <div class="dash-section-label">Program health</div>
+        <div class="dashboard-readout">
+            <div class="readout-label">Where to look first</div>
 
-            <div class="health-grid">
-
-                <div class="health-group health-working">
-                    <div class="health-label">Working</div>
-
-                    <div class="health-item">
-                        <div class="health-title">Full segment coverage</div>
-                        <div class="health-detail">
-                            ${data.activeSegments} of 9 region × segment combinations are active.
-                        </div>
-                    </div>
-
-                    <div class="health-item">
-                        <div class="health-title">Deployment is on track</div>
-                        <div class="health-detail">
-                            Conversion is ${deploymentStage.gapPts >= 0 ? '+' : ''}${deploymentStage.gapPts}pt${Math.abs(deploymentStage.gapPts) === 1 ? '' : 's'} vs target.
-                        </div>
-                    </div>
-                </div>
-
-                <div class="health-group health-watch">
-                    <div class="health-label">Watch</div>
-
-                    <div class="health-item">
-                        <div class="health-title">In Review is the pressure point</div>
-                        <div class="health-detail">
-                            Conversion is ${Math.abs(reviewStage.gapPts)}pts below target.
-                        </div>
-                    </div>
-
-                    <div class="health-item">
-                        <div class="health-title">Pipeline needs attention</div>
-                        <div class="health-detail">
-                            $${Math.round(data.riskValue / 1000)}k is currently blocked or needs attention.
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+            <p>
+                The bigger opportunity right now is getting existing pipeline moving.
+                $${Math.round(data.riskValue / 1000)}k needs attention, with ${topTwoRiskPct}% of that value
+                concentrated in just two opportunities. Security, legal, and technical reviews are the
+                most common blockers.
+            </p>
         </div>
 
         <div class="recommendations">
@@ -787,21 +828,31 @@ function renderRecommendations(data) {
             <div class="recommendation-list">
 
                 <div class="recommendation-item">
-                    <div class="recommendation-title">
-                        Prioritize ${topRisk.region} ${topRisk.segment}
-                    </div>
-                    <div class="recommendation-detail">
-                        Unblock the $${Math.round(topRisk.value / 1000)}k opportunity currently 
-                        ${topRisk.reason.toLowerCase()}.
+                    <div class="recommendation-number">01</div>
+
+                    <div>
+                        <div class="recommendation-title">
+                            Prioritize ${topRisk.region} ${topRisk.segment}
+                        </div>
+
+                        <div class="recommendation-detail">
+                            Unblock the $${Math.round(topRisk.value / 1000)}k opportunity currently
+                            ${topRisk.reason.toLowerCase()}.
+                        </div>
                     </div>
                 </div>
 
                 <div class="recommendation-item">
-                    <div class="recommendation-title">
-                        Investigate In Review conversion
-                    </div>
-                    <div class="recommendation-detail">
-                        Identify what's driving the ${Math.abs(reviewStage.gapPts)}pt gap to target before more pipeline stalls.
+                    <div class="recommendation-number">02</div>
+
+                    <div>
+                        <div class="recommendation-title">
+                            Investigate In Review conversion
+                        </div>
+
+                        <div class="recommendation-detail">
+                            Identify what's driving the ${Math.abs(reviewStage.gapPts)}pt gap to target before more pipeline stalls.
+                        </div>
                     </div>
                 </div>
 

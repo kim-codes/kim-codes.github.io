@@ -23,7 +23,7 @@
             --ink: #1B1D22;
             --muted: #6B6F76;
             --line: #DEDCD3;
-            --accent: #3d72dd;
+            --accent: #2a3480;
         }
 
         main {
@@ -38,7 +38,6 @@
             font-size: 12px;
             color: #6B6F76;
             letter-spacing: .04em;
-            text-transform: uppercase;
             margin-top: 56px;
         }
 
@@ -204,7 +203,7 @@
             margin-bottom: 1.5rem;
             padding: 24px 28px;
             background: #eef7fa;
-            border: 1.5px dashed #3d72dd;
+            border: 1.5px dashed var(--accent);
             border-radius: 14px 8px 16px 6px;
             transform: rotate(-0.4deg);
         }
@@ -394,7 +393,6 @@
             font-size: 0.75rem;
             font-weight: 600;
             letter-spacing: 0.12em;
-            text-transform: uppercase;
             color: #2a3480;
             text-align: left;
             margin-bottom: 0.75rem;
@@ -443,57 +441,68 @@
         }
 
         /* style recommendations section */
-        .program-health,
         .recommendations {
-            margin: 32px 0;
-        }
-
-        .health-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            margin-top: 16px;
-        }
-
-        .health-label {
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 16px;
-        }
-
-        .health-working .health-label {
-            color: #38845f;
-        }
-
-        .health-watch .health-label {
-            color: #c15b4d;
-        }
-
-        .health-item+.health-item {
-            margin-top: 18px;
-        }
-
-        .health-title,
-        .recommendation-title {
-            font-weight: 600;
-            margin-bottom: 5px;
-        }
-
-        .health-detail,
-        .recommendation-detail {
-            color: #6b7280;
-            font-size: 0.9rem;
-            line-height: 1.5;
+            margin: 3rem 0 3rem;
         }
 
         .recommendation-list {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 40px;
-            margin-top: 16px;
+            grid-template-columns: 1fr 1fr;
+            gap: 34px;
+            margin-top: 14px;
         }
+
+        .recommendation-item {
+            display: grid;
+            grid-template-columns: 52px 1fr;
+            gap: 12px;
+            align-items: start;
+        }
+
+        .recommendation-number {
+            font-size: 1.8rem;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .recommendation-title {
+            margin-bottom: 4px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #222;
+        }
+
+        .recommendation-detail {
+            color: #6b7280;
+            font-size: 0.88rem;
+            line-height: 1.4;
+        }
+
+        .dashboard-readout {
+            max-width: 850px;
+            margin: 42px 0 34px;
+        }
+
+        .readout-label {
+            margin-bottom: 8px;
+            color: var(--ink);
+            font-family: 'Space Grotesk', system-ui, sans-serif;
+            font-weight: 600;
+            font-size: 19px;
+            letter-spacing: .08em;
+        }
+
+        .dashboard-readout p {
+            margin: 0;
+            font-size: 1rem;
+            line-height: 1.55;
+            color: #6b7280;
+        }
+
+        .dashboard-readout strong {
+            font-weight: 650;
+        }
+
 
         .info-tip {
             position: relative;
@@ -549,10 +558,20 @@
 
         @media (max-width: 700px) {
 
-            .health-grid,
-            .recommendation-list {
-                grid-template-columns: 1fr;
-                gap: 20px;
+            @media (max-width: 700px) {
+
+                .recommendation-list {
+                    grid-template-columns: 1fr;
+                    gap: 22px;
+                }
+
+                .recommendation-item {
+                    grid-template-columns: 42px 1fr;
+                }
+
+                .key-insights {
+                    max-width: none;
+                }
             }
 
             #dashboard-context p:not(.steps-breadcrumb) {
@@ -598,34 +617,42 @@
         }
 
         .dash-title {
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 12px;
+            font-family: 'Space Grotesk', system-ui, sans-serif;
+            font-weight: 600;
+            font-size: 22px;
             letter-spacing: .08em;
-            text-transform: uppercase;
         }
 
         .dash-date {
-            font-family: 'IBM Plex Mono', monospace;
+            font-family: 'IBM Plex Mono', ui-monospace, monospace;
             font-size: 12px;
             color: var(--muted);
         }
 
         .dash-metrics {
             display: flex;
-            gap: 56px;
             margin-bottom: 48px;
         }
 
+        .dash-metrics>div:first-child {
+            width: 38%;
+            flex-shrink: 0;
+        }
+
+        .secondary-grid {
+            width: 48%;
+            margin-left: 8%;
+        }
+
         .metric-label {
-            font-family: 'IBM Plex Mono', monospace;
+            font-family: 'Inter', system-ui, sans-serif;
             font-size: 11px;
             letter-spacing: .08em;
-            text-transform: uppercase;
             color: var(--muted);
         }
 
         .metric-hero {
-            font-family: 'Space Grotesk', sans-serif;
+            font-family: 'Inter', system-ui, sans-serif;
             font-size: 64px;
             font-weight: 700;
             line-height: 1;
@@ -639,11 +666,11 @@
         }
 
         .dash-section-label {
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 11px;
+            font-family: 'Space Grotesk', system-ui, sans-serif;
+            font-weight: 600;
+            font-size: 19px;
             letter-spacing: .08em;
-            text-transform: uppercase;
-            color: var(--muted);
+            color: var(--ink);
             margin-bottom: 12px;
         }
 
@@ -663,7 +690,6 @@
         .dash-table th {
             font-family: 'IBM Plex Mono', monospace;
             font-size: 11px;
-            text-transform: uppercase;
             color: var(--muted);
             letter-spacing: .05em;
             text-align: left;
@@ -840,6 +866,99 @@
             text-align: center;
             font-style: italic;
             margin-top: 4px;
+        }
+
+        .pipeline-section {
+            margin: 42px 0;
+        }
+
+        .pipeline-heading {
+            margin-bottom: 22px;
+        }
+
+        .pipeline-heading .dash-section-label {
+            margin-bottom: 5px;
+        }
+
+        .pipeline-heading p {
+            margin: 0;
+            color: #707783;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .pipeline-row {
+            display: grid;
+            grid-template-columns: 160px 300px minmax(150px, 1fr);
+            gap: 28px;
+            align-items: center;
+
+            padding: 15px 0;
+            border-top: 1px solid #e3e0da;
+        }
+
+        .pipeline-row:last-child {
+            border-bottom: 1px solid #e3e0da;
+        }
+
+        .pipeline-stage-name {
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .pipeline-count {
+            margin-top: 2px;
+            color: #747b86;
+            font-size: 0.8rem;
+        }
+
+        .pipeline-bar-wrap {
+            width: 100%;
+            height: 26px;
+            background: #dfe7f2;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .pipeline-bar {
+            height: 100%;
+            background: var(--accent);
+            border-radius: 3px;
+        }
+
+        .pipeline-row:nth-child(even) .pipeline-bar {
+            background: #45423e;
+        }
+
+        .pipeline-result {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .pipeline-value {
+            color: #222;
+            font-size: 1rem;
+            font-weight: 650;
+            white-space: nowrap;
+        }
+
+        .pipeline-gap {
+            font-size: 0.82rem;
+            white-space: nowrap;
+        }
+
+        .pipeline-positive {
+            color: #43805f;
+        }
+
+        .pipeline-negative {
+            color: #b84c37;
+        }
+
+        .pipeline-neutral {
+            color: #747b86;
         }
 
         @media(max-width: 700px) {

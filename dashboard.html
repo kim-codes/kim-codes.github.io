@@ -754,23 +754,45 @@
             margin-bottom: 48px;
         }
 
-        .risk-row {
+
+        /* Risk / attention section */
+
+        .section-insight {
+            max-width: 700px;
+            margin: -4px 0 18px;
+            color: var(--muted);
+            font-size: 0.85rem;
+            line-height: 1.5;
+        }
+
+        .section-insight strong {
+            color: var(--ink);
+            font-weight: 600;
+        }
+
+        .risk-columns {
             display: flex;
             justify-content: space-between;
-            padding: 12px 0;
+            align-items: center;
+            padding-bottom: 8px;
             border-bottom: 1px solid var(--line);
+
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11px;
+            color: var(--muted);
+            letter-spacing: .05em;
         }
 
-        .dash-two-col {
-            display: grid;
-            grid-template-columns: 1.3fr 1fr;
-            gap: 5rem;
+        .risk-columns span:last-child {
+            text-align: right;
         }
 
         .risk-row {
             display: flex;
             justify-content: space-between;
-            padding: 10px 0;
+            gap: 24px;
+            align-items: center;
+            padding: 12px 0;
             border-bottom: 1px solid var(--line);
         }
 
@@ -779,41 +801,80 @@
         }
 
         .risk-reason {
-            font-size: 11px;
-            color: var(--muted);
             margin-top: 2px;
+            color: var(--muted);
+            font-size: 11px;
         }
 
         .risk-side {
+            min-width: 110px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 4px;
             text-align: right;
         }
 
+        .risk-value {
+            color: var(--ink);
+            font-size: 14px;
+            font-weight: 650;
+        }
 
-        .risk-blocked {
+        .risk-status {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 10px;
+            letter-spacing: .04em;
+            text-transform: uppercase;
+        }
+
+        .risk-status-blocked {
             color: #B0554A;
-            font-weight: 600;
-            font-size: 13px;
-            background: #FCEDEB;
-            padding: 2px 8px;
-            border-radius: 6px;
         }
 
-        .risk-attention {
-            color: #C98A2A;
-            font-weight: 600;
-            font-size: 13px;
-            background: #FBF2E4;
-            padding: 2px 8px;
-            border-radius: 6px;
+        .risk-status-attention {
+            color: #B07825;
         }
 
-        .risk-tag {
-            font-weight: 400;
-            font-size: 11px;
-            margin-top: 2px;
-            display: inline-block;
-            min-width: 100px;
+
+        /* Lower dashboard layout */
+
+        .dash-two-col {
+            display: grid;
+            grid-template-columns: 1.3fr 1fr;
+            gap: 5rem;
+        }
+
+        .section-insight strong {
+            color: var(--ink);
+            font-weight: 600;
+        }
+
+        .risk-side {
+            min-width: 105px;
             text-align: right;
+        }
+
+        .risk-value {
+            color: var(--ink);
+            font-size: 14px;
+            font-weight: 650;
+        }
+
+        .risk-status {
+            margin-top: 4px;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 10px;
+            letter-spacing: .04em;
+            text-transform: uppercase;
+        }
+
+        .risk-status-blocked {
+            color: #B0554A;
+        }
+
+        .risk-status-attention {
+            color: #B07825;
         }
 
         .dash-section-header {
@@ -821,6 +882,11 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 12px;
+        }
+
+        .industry-insight {
+            margin-top: 0;
+            margin-bottom: 18px;
         }
 
         .region-select {
@@ -833,24 +899,22 @@
         }
 
         .bench-tag {
-            display: inline-block;
-            padding: 3px 10px;
-            border-radius: 20px;
-            font-size: 12px;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 10px;
+            letter-spacing: .04em;
+            text-transform: uppercase;
+            white-space: nowrap;
         }
 
         .bench-above {
-            background: #E9F3EE;
-            color: #2F7D5B;
+            color: #43805f;
         }
 
         .bench-near {
-            background: #FBF2E4;
-            color: #C98A2A;
+            color: #B07825;
         }
 
         .bench-below {
-            background: #FCEDEB;
             color: #B0554A;
         }
 
@@ -885,6 +949,10 @@
             color: #707783;
             font-size: 0.9rem;
             line-height: 1.4;
+        }
+
+        .pipeline-rows {
+            max-width: 95%
         }
 
         .pipeline-row {
@@ -934,7 +1002,7 @@
             display: flex;
             align-items: baseline;
             justify-content: space-between;
-            gap: 20px;
+            gap: 1rem;
         }
 
         .pipeline-value {

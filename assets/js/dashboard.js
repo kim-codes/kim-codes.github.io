@@ -63,6 +63,7 @@ const OUTCOME_MAP = {
 document.getElementById('btn-walkthrough').addEventListener('click', function () {
     document.querySelector('.lab-choice').style.display = 'none';
     document.getElementById('data-cleanup').style.display = 'block';
+     document.getElementById('initial-context').style.display = 'block';
     document.getElementById('data-cleanup').scrollIntoView({ behavior: 'smooth', block: 'start' });
 
 });
@@ -144,10 +145,13 @@ document.getElementById('btn-skip').addEventListener('click', function () {
 });
 
 document.getElementById('btn-reset').addEventListener('click', function () {
+    document.querySelector('.program-intro').style.display = 'block';
     document.getElementById('dashboard-view').style.display = 'none';
     document.getElementById('dashboard-context').style.display = 'none';
     document.getElementById('dashboard-content').innerHTML = '';
     document.getElementById('btn-reset').style.display = 'none';
+
+    
 
     document.getElementById('data-cleanup').style.display = 'none';
     document.getElementById('cleanup-steps').style.display = 'none';
@@ -157,6 +161,7 @@ document.getElementById('btn-reset').addEventListener('click', function () {
     document.getElementById('json-heading').style.display = 'none';
     document.getElementById('json-box').style.display = 'none';
     document.getElementById('btn-view-dashboard').style.display = 'none';
+    document.getElementById('predashboard-context').style.display = 'none';
 
     const card = document.getElementById('sample-data-file-card');
     if (card) card.remove();
@@ -652,49 +657,124 @@ function renderFunnel(funnel) {
 
 
 function renderRiskList(riskList) {
+
+    const emeaRiskValue = riskList
+        .filter(function (r) {
+            return r.region === "EMEA";
+        })
+        .reduce(function (sum, r) {
+            return sum + r.value;
+        }, 0);
+
     let cards = riskList.map(function (r) {
-        const colorClass = r.outcome === "Blocked" ? "risk-blocked" : "risk-attention";
+
+        const statusClass =
+            r.outcome === "Blocked"
+                ? "risk-status-blocked"
+                : "risk-status-attention";
+
         return `
-      <div class="risk-row">
-        <div>
-          <div class="risk-name">${r.region} · ${r.segment} · ${r.id}</div>
-          <div class="risk-reason">${r.reason}</div>
+        <div class="risk-row">
+
+            <div class="risk-copy">
+                <div class="risk-name">
+                    ${r.region} · ${r.segment} · ${r.id}
+                </div>
+
+                <div class="risk-reason">
+                    ${r.reason}
+                </div>
+            </div>
+
+            <div class="risk-side">
+                <div class="risk-value">
+                    $${Math.round(r.value / 1000)}k
+                </div>
+
+                <div class="risk-status ${statusClass}">
+                   <strong> ${r.outcome} </strong> 
+                </div>
+            </div>
+
         </div>
-        <div class="risk-side">
-          <div class="${colorClass}">$${Math.round(r.value / 1000)}k</div>
-          <div class="${colorClass} risk-tag">${r.outcome}</div>
-        </div>
-      </div>`;
+    `;
     }).join('');
 
+
     return `
-    <div class="stage-metrics">
-      <div class="dash-section-label">Blocked and needs attention</div>
-      ${cards}
-    </div>`;
+        <div class="stage-metrics">
+
+            <div class="dash-section-label">
+                Blocked and needs attention
+            </div>
+
+            <p class="section-insight">
+                EMEA has the most value needing attention.
+                $${Math.round(emeaRiskValue / 1000)}k of the opportunities shown here are in the region.
+            </p>
+
+            <div class="risk-columns">
+                <span>Opportunity</span>
+                <span>Value &amp; Status</span>
+            </div>
+
+            ${cards}
+
+        </div>
+    `;
 }
 
 function renderByRegion(byRegion) {
+
     let rows = byRegion.map(function (r) {
-        return `<tr><td>${r.region}</td><td>$${Math.round(r.value / 1000)}k</td><td>${r.liveRate}%</td></tr>`;
+        return `
+            <tr>
+                <td>${r.region}</td>
+                <td>$${Math.round(r.value / 1000)}k</td>
+                <td>${r.liveRate}%</td>
+            </tr>
+        `;
     }).join('');
+
+    const highestValueRegion = byRegion.reduce(function (highest, current) {
+        return current.value > highest.value ? current : highest;
+    });
+
+    const liveRates = byRegion.map(function (r) {
+        return r.liveRate;
+    });
+
+    const lowestLiveRate = Math.min(...liveRates);
+    const highestLiveRate = Math.max(...liveRates);
+
     return `
-    <div class="stage-metrics">
-      <div class="dash-section-label">By region</div>
-      <table class="dash-table">
-        <tr>
-            <th>Region</th>
-            <th>Value</th>
-            <th>
-                    Live rate
-                    ${renderInfoTip(
+        <div class="stage-metrics">
+
+            <div class="dash-section-label">By region</div>
+
+            <p class="section-insight">
+                ${highestValueRegion.region} holds the most pipeline value at
+                $${(highestValueRegion.value / 1e6).toFixed(2)}m.
+                Live rates are relatively close across regions, ranging from
+                ${lowestLiveRate}–${highestLiveRate}%.
+            </p>
+
+            <table class="dash-table">
+                <tr>
+                    <th>Region</th>
+                    <th>Value</th>
+                    <th>
+                        Live rate
+                        ${renderInfoTip(
         'Percentage of nominations that have reached a Live outcome within this region. Use it to compare performance across regions.'
     )}
-            </th>
-        </tr>
-        ${rows}
-      </table>
-    </div>`;
+                    </th>
+                </tr>
+                ${rows}
+            </table>
+
+        </div>
+    `;
 }
 
 function renderByProduct(byProduct) {
@@ -771,12 +851,72 @@ function computeIndustryTable(rows, region) {
 }
 
 function renderIndustryTable(rows, region) {
+
     const data = computeIndustryTable(rows, region);
+
+    const aboveCount = data.filter(function (x) {
+        return x.status === "Above";
+    }).length;
+
+    const belowIndustries = data
+        .filter(function (x) {
+            return x.status === "Below";
+        })
+        .map(function (x) {
+            return x.industry;
+        });
+
+    let insight = `
+        ${aboveCount} of ${data.length} industries are above benchmark.
+    `;
+
+    if (belowIndustries.length === 1) {
+        insight += ` ${belowIndustries[0]} is the only industry currently below.`;
+    } else if (belowIndustries.length > 1) {
+        insight += ` ${belowIndustries.join(', ')} are currently below.`;
+    }
+
     let trs = data.map(function (x) {
-        const tagClass = x.status === "Above" ? "bench-above" : x.status === "Near" ? "bench-near" : "bench-below";
-        return `<tr><td>${x.industry}</td><td class="muted">${x.count}</td><td>$${Math.round(x.value / 1000)}k</td><td>$${Math.round(x.avg / 1000)}k</td><td><span class="bench-tag ${tagClass}">${x.status} $${Math.round(x.benchmark / 1000)}k</span></td></tr>`;
+
+        const tagClass =
+            x.status === "Above"
+                ? "bench-above"
+                : x.status === "Near"
+                    ? "bench-near"
+                    : "bench-below";
+
+        return `
+            <tr>
+                <td>${x.industry}</td>
+                <td class="muted">${x.count}</td>
+                <td>$${Math.round(x.value / 1000)}k</td>
+                <td>$${Math.round(x.avg / 1000)}k</td>
+                <td>
+                    <span class="bench-tag ${tagClass}">
+                        <strong>${x.status} $${Math.round(x.benchmark / 1000)}k </strong>
+                    </span>
+                </td>
+            </tr>
+        `;
     }).join('');
-    return `<table class="dash-table"><tr><th>Industry</th><th>Noms</th><th>Value</th><th>Avg deal</th><th>Vs benchmark</th></tr>${trs}</table>`;
+
+    return `
+        <p class="section-insight industry-insight">
+            ${insight}
+        </p>
+
+        <table class="dash-table">
+            <tr>
+                <th>Industry</th>
+                <th>Noms</th>
+                <th>Value</th>
+                <th>Avg deal</th>
+                <th>Vs benchmark</th>
+            </tr>
+
+            ${trs}
+        </table>
+    `;
 }
 
 function renderIndustrySection() {

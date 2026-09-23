@@ -1,76 +1,125 @@
-<!DOCTYPE html>
-<html lang="en">
+<<!DOCTYPE html>
+    <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>kimcodes</title>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>kimcodes</title>
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&amp;family=Inter:wght@400;500;600&amp;family=Caveat:wght@500&amp;family=Dancing+Script:wght@500&amp;display=swap"
-        rel="stylesheet">
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&amp;family=Inter:wght@400;500;600&amp;family=Caveat:wght@500&amp;family=Dancing+Script:wght@500&amp;display=swap"
+            rel="stylesheet">
 
-    <link rel="stylesheet" href="assets/css/styles.css">
-    <style>
-        .kim-illustration {
-            max-height: 200px;
-            margin-top: 2rem;
-        }
-    </style>
+        <link rel="stylesheet" href="assets/css/styles.css">
+        <style>
+            .cosmos-question {
+                font-family: "Caveat", Georgia, "Times New Roman", serif;
+                font-size: 1.8rem;
+                line-height: 1.35;
 
-    </style>
-</head>
+            }
 
-<body>
+            .kim-illustration {
+                max-height: 200px;
+                margin-top: 2rem;
+            }
 
-    <header>
+            .cosmos-episodes {
+                margin: 48px 0;
+            }
 
-        <a href="/" class="logo">
-            <img src="assets/img/kimcodes-gummy-twist.webp" alt="kimcodes">
-        </a>
+            .cosmos-episodes img {
+                display: block;
+                width: 100%;
+                height: auto;
+            }
 
-        <nav>
-            <ul>
-                <li><a href="/constants.html">Constants</a></li>
-                <li><a href="/craft.html">Craft</a></li>
-                <li><a href="/reflections.html">Reflections</a></li>
-                <li><a href="/footprints.html">Footprints</a></li>
-                <li><a href="/contact.html">Say Hello</a></li>
-            </ul>
-        </nav>
+            .cosmos-episodes figcaption {
+                margin-top: 8px;
+                text-align: center;
+                font-size: 11px;
+                color: var(--muted);
+                letter-spacing: 0.02em;
+            }
 
-    </header>
+            .episode-key {
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 8px 20px;
+                margin-top: 10px;
+                font-size: 11px;
+                color: var(--muted);
+            }
 
-    <main>
+            .apparently-link {
+                color: inherit;
+                text-decoration: underline;
+                text-decoration-style: dotted;
+                text-decoration-color: #bbb;
+                text-underline-offset: 4px;
+            }
 
-        <section class="story-hero">
+            .apparently-link:hover {
+                text-decoration-color: #222;
+                text-decoration-style: wavy;
+            }
+        </style>
 
-            <div class="story-hero-copy">
+        </style>
+    </head>
 
-                <h1>
-                    Behind the Work
-                </h1>
+    <body>
 
-                <p class="story-intro">
-                    A complex product, a sales team that needed to get up to speed quickly, and little time to do it.
-                </p>
+        <header>
 
-            </div>
+            <a href="/" class="logo">
+                <img src="assets/img/kimcodes-gummy-twist.webp" alt="kimcodes">
+            </a>
 
-            <div class="story-hero-image">
+            <nav>
+                <ul>
+                    <li><a href="/constants.html">Constants</a></li>
+                    <li><a href="/craft.html">Craft</a></li>
+                    <li><a href="/reflections.html">Reflections</a></li>
+                    <li><a href="/footprints.html">Footprints</a></li>
+                    <li><a href="/contact.html">Say Hello</a></li>
+                </ul>
+            </nav>
 
-                <img class="concept-sketch" src="assets/img/cosmossketch.png"
-                    alt="Early concept sketch exploring a space-themed learning experience.">
+        </header>
 
-            </div>
+        <main>
 
-        </section>
+            <section class="story-hero">
 
-        <!--    <section class="skills">
+                <div class="story-hero-copy">
+
+                    <h1>
+                        Behind the Work
+                    </h1>
+
+                    <p class="story-intro">
+                        A complex product, a sales team that needed to get up to speed quickly, and a lot competing for
+                        their attention.
+                    </p>
+
+                </div>
+
+                <div class="story-hero-image">
+
+                    <img class="concept-sketch" src="assets/img/cosmossketch.png"
+                        alt="Early concept sketch exploring a space-themed learning experience.">
+
+                </div>
+
+            </section>
+
+            <!--    <section class="skills">
 
         <h2>Skills in Motion</h2>
 
@@ -87,125 +136,153 @@
 
     </section> -->
 
-        <section class="story-section">
+            <section class="story-section">
 
-            <!-- Mission -->
-            <div class="story-row mission">
-                <!-- left side -->
-                <div class="story-left">
-                    <h2>The Mission</h2>
-                </div>
-                <!-- right side -->
-                <div class="story-right">
+                <!-- Mission -->
+                <div class="story-row mission">
+                    <!-- left side -->
+                    <div class="story-left">
+                        <h2>The Mission</h2>
+                    </div>
+                    <!-- right side -->
+                    <div class="story-right">
 
-                    <p>
-                        A complex product is easy to misuse if nobody understands what it is for.
-                        just how to explain the product, but how to make sure sellers could recognize when it was the
-                        right fit. Because customers were adopting it for the wrong use case, then blaming the product
-                        when it didn't work or that it costed too much.
-                    </p>
-                </div>
+                        <p>
+                            I didn't need my sellers to be technical experts. I needed to help them recognize when this
+                            product was the right fit. And just as importantly, when it wasn't.
+                            <br><br>
+                            Customers were adopting it for the wrong use cases, running into problems, and sometimes
+                            walking away blaming the product or its cost. Sellers needed enough understanding to start the right
+                            conversation before that happened.
+                        </p>
+                    </div>
 
-        </section>
+            </section>
 
-        <section class="story-section">
+            <section class="story-section">
 
-            <!-- Challenge -->
-            <div class="story-row challenge">
-                <!-- left side -->
-                <div class="story-left">
-                    <h2>The Challenge</h2>
-                    <img src="assets/img/kimcodes-cosmos-stacks.png" alt="kimcodes next to a stack of papers"
-                        class="kim-illustration">
-                </div>
-                <!-- right side -->
-                <div class="story-right">
-                    <em>
-                        How do you make one product memorable inside an organization with
-                        hundreds of competing priorities?
-                    </em>
-                    <p>
-                        Sellers were not short on information. There were decks, docs, training modules.
-                        What was missing was something more simple. Knowing when this product was the right call,
-                        and being able to say why in a way a customer would get.
-                        <br>
-                        <br>
-                        That gap was showing up in real deals. Customers were picking it up for the wrong reasons,
-                        running into issues, and walking away thinking it was not very good.
-                    </p>
+                <!-- Challenge -->
+                <div class="story-row challenge">
+                    <!-- left side -->
+                    <div class="story-left">
+                        <h2>The Challenge</h2>
+                        <img src="assets/img/kimcodes-cosmos-stacks.png" alt="kimcodes next to a stack of papers"
+                            class="kim-illustration">
+                    </div>
+                    <!-- right side -->
+                    <div class="story-right">
+                        <p> <em class="cosmos-question">
+                                How do you make one product memorable inside an organization with
+                                hundreds of competing priorities? <br><br>
+                            </em>
+                            Sellers were not short on information. There were decks, docs, training modules.
+                            More content wasn't going to solve the problem.
+                            What was missing was context. A few recognizable scenarios
+                            and a way to explain it in a language a customer would understand.
+                            <br>
+                        </p>
 
-                </div>
+                    </div>
 
-        </section>
+            </section>
 
-        <section class="story-section">
+            <section class="story-section">
 
-            <!-- Blueprint -->
-            <div class="story-row blueprint">
-                <!-- left side -->
-                <div class="story-left">
-                    <h2>Flight Plan</h2>
-                    <p class="lead">Sellers listen to other sellers more than they listen to a slide deck.</p>
-                </div>
+                <!-- Blueprint -->
+                <div class="story-row blueprint">
+                    <!-- left side -->
+                    <div class="story-left">
+                        <h2>Flight Plan</h2>
+                    </div>
 
+                    <!-- right side -->
+                    <div class="story-right">
+                        <p>
+                            <strong>Sellers listen to other sellers more than they listen to a slide
+                                deck.</strong><br><br>
+                            That became the idea I built around.<br><br>
 
-                <!-- right side -->
-                <div class="story-right">
-                    <p>
-                        There was already a lot of good information out there. I did not need sellers to become level
-                        400
-                        experts, but I did need them to hold onto a few key things.<br><br>
+                            Instead of one big training moment, I wanted people to hear how others were talking about
+                            the
+                            product and see where it was working with real customers.<br><br>
 
-                        So instead of one big training moment, I gave people stories they could share, peers who could
-                        talk about what was working, and examples they could bring to their own customers.<br><br>
+                            I needed to give people enough to start the conversation and enough confidence to keep it
+                            going.
+                        </p>
+                    </div>
 
-                        I needed to give people enough to start the conversation, and enough confidence to keep it
-                        going.
-                    </p>
-                </div>
-
-        </section>
+            </section>
 
 
 
-        <section class="story-section">
+            <section class="story-section">
 
-            <!-- Launch -->
-            <div class="story-row launch">
-                <!-- left side -->
-                <div class="story-left">
-                    <h2>The Launch</h2>
-                    <p class="lead">Into the Cosmos: A Coding Odyssey.</p>
-                </div>
+                <!-- Launch -->
+                <div class="story-row launch">
+                    <!-- left side -->
+                    <div class="story-left">
+                        <h2>The Launch</h2>
+                        <p class="lead">Into the Cosmos: A Coding Odyssey.</p>
+                    </div>
 
-                <!-- right side -->
-                <div class="story-right">
-                    <p>
-                        Due to the product name, the space theme felt like a natural way to make the learning memorable
-                        without making the technology less technical.
-                        Inspired by <em>Cosmos: A Spacetime Odyssey</em>, I built <strong>Into the
-                            Cosmos</strong>.<br><br>
+                    <!-- right side -->
+                    <div class="story-right">
+                        <p>
+                            The product name gave me a pretty obvious theme to play with.
 
-                        But this theme was only the vehicle, not the strategy.<br><Br>
+                            Inspired by <em>Cosmos: A Spacetime Odyssey</em>, I created <strong>Into the
+                                Cosmos</strong>.<br><br>
 
-                        Instead of another one-time training event, Into the Cosmos became an ongoing experience built
-                        around episodes. Storytelling, technical education, community, and practical resources gave
-                        people different ways to engage with the product and build confidence over time.<br><br>
+                            It launched as a bite-sized learning series that ran across two quarters. Each
+                            episode approached the product a little differently. I mixed customer stories, technical
+                            deep dives, mythbusting, and practical resources.
+                            <br><br>
+                            Instead of asking people to absorb everything in one sitting, each episode gave them another
+                            way
+                            into the product. Some built the foundation. Some went deeper technically. And some put
+                            sellers
+                            and technical
+                            specialists at the center, sharing what they had learned from actual customers.
+                            <br><br>
 
-                        I knew people were tired of dry enablement. Taking a different approach felt like a risk worth
-                        taking.<br><br>
+                            <strong>Those peer stories became especially important.</strong><br><br>
+
+                            People weren't only hearing what the product could do. They were hearing how someone like
+                            them
+                            had recognized an opportunity, approached the conversation, and put the technology to
+                            work.<br><br>
+
+                            <strong>The space theme made it memorable. The repetition and stories made it stick.
+                            </strong>
+
+                        <figure class="cosmos-episodes">
+                            <img src="assets/img/cosmos-episodes.png"
+                                alt="A hand-drawn star map tracing the episodes of Into the Cosmos."
+                                class="kim-illustration">
+
+                            <figcaption class="episode-key">
+                                <span>✦ Origin</span>
+                                <span>◎ Deep dives</span>
+                                <span>★ Field stories</span>
+                                <span>⊙ Special event</span>
+                                <span>✷ Finale</span>
+                            </figcaption>
+                        </figure>
+
+                        <!--I knew people were tired of dry enablement. Taking a different approach felt like a risk worth
+                        taking.<br><br> -->
 
                         <!-- The goal wasn't to make the technology more simple. It was to make people curious enough to
                         explore it. -->
 
                         <!-- Into the Cosmos launched as a bite-sized internal learning series featuring recurring episodes, 
             customer use-case storytelling, technical explainers, myth-busting, and a champion-style recognition model. -->
-                    </p>
-                </div>
+                        </p>
+                    </div>
 
-        </section>
+            </section>
 
-        <!--   <ul>
+            <!--   <ul>
 
             <li>Messaging framework</li>
 
@@ -219,9 +296,9 @@
 
         </ul> -->
 
-        </section>
+            </section>
 
-        <!--
+            <!--
       <section class="framework-section">
 
             <div class="framework-grid">
@@ -303,110 +380,115 @@
         </section>
       -->
 
-        <section class="story-section">
+            <section class="story-section">
 
-            <!-- Legacy -->
-            <div class="story-row legacy">
-                <!-- left side -->
-                <div class="story-left">
-                    <h2>The Landing</h2>
-                    <p class="lead">Enablement is rarely a content issue. <br> It's a behavior change problem.</p>
-                </div>
+                <!-- Legacy -->
+                <div class="story-row legacy">
+                    <!-- left side -->
+                    <div class="story-left">
+                        <h2>The Landing</h2>
+                    </div>
 
-                <!-- right side -->
-                <div class="story-right">
-                    <p>
-                        <strong> ✓ The conversation shifted.</strong> Sales had clearer scenarios and stories to
-                        bring into their conversations.<br><br>
-                        <strong> ✓ Confidence replaced hesitation. </strong> Each episode reinforced the same core ideas
-                        in a different way. Over time, the field became more familiar with the product without having to
-                        absorb everything at once.<br><br>
-                        <strong> ✓ The community carried it forward. </strong> People began contributing ideas,
-                        volunteering for episodes, and sharing their own customer stories.
-                        What started as an enablement initiative became something the community helped shape.<br><br>
-                        <!-- program gained momentum -->
+                    <!-- right side -->
+                    <div class="story-right">
+                        <p>
+                            Something shifted as the series went on. The field stopped being just the audience. <br><br>
+                            <strong> ✓ The conversation changed.</strong> Sellers had clearer scenarios and stories to
+                            bring into their conversations.
+                            <br><br>
+                            <strong> ✓ Familiarity built confidence. </strong> Each episode reinforced the same core
+                            ideas
+                            in a different way. Over time, the field became more familiar with the product without
+                            having to
+                            absorb everything at once.
+                            <br><br>
+                            <strong> ✓ The community started contributing. </strong> People began bringing ideas,
+                            volunteering for episodes, and sharing their own customer stories.
+                            <br><br>
+                            What started as something I was building for the field became something the field helped
+                            shape.
+                            <!-- program gained momentum -->
 
-                        <!-- <p>
+                            <!-- <p>
               <strong> ✓ The audience grew.</strong> Recurring cadence created anticipation, similar to a show. People were asking when the next episode was coming.<br><br>
               <strong> ✓ People wanted to contribute.</strong> Teams asked for follow-up content and deeper technical episodes. Others wanted to participate in epiosodes.<br><br>
               <strong> ✓ Champions grew organically.</strong> <br>
               <!-- <em>what surprised me?</em> How much a fun theme lowered the barrier to engaging with a complex topic. -->
 
-                    </p>
+                        </p>
+                    </div>
                 </div>
-            </div>
 
-        </section>
+            </section>
 
-        <section class="story-section">
+            <section class="story-section">
 
-            <!-- Mission Debrief -->
-            <div class="story-row debrief">
-                <!-- left side -->
-                <div class="story-left">
-                    <h2>Mission Debrief</h2>
-                    <p>
-                        Lessons from building confidence.
-                        </h2>
+                <!-- Mission Debrief -->
+                <div class="story-row debrief">
+                    <!-- left side -->
+                    <div class="story-left">
+                        <h2>Mission Debrief</h2>
+                    </div>
+                    <!-- right side -->
+                    <div class="story-right">
+                        <p><strong>What I took with me</strong><Br><br>
+                            I went into this thinking about how to build better technical enablement.
+                            <br><br>
+                            I came out of it thinking much more about behavior.
+                            <br><br>
+                            I learned that people don't adopt products because they've completed training.
+                            They adopt them when they understand where they fit and feel confident enough to talk about
+                            them.
+                        </p>
+
+                        <p>
+                            <!-- <strong>What I underestimated</strong><br><br>
+                         This project changed how I think about enablement.<br><br>
+                        I assumed that if we built great technical content, people would naturally find it. <br><br>-->
+
+                            That changed the question I was asking.
+                            <br><br>
+                            Instead of: <em>What content do we need?</em>
+                            <br><br>
+                            I started asking: <em><strong>What do we need people to do differently?</strong></em>
+                            <br><br>
+                            Sometimes the answer is training. Sometimes it's a recognizable customer scenario. Sometimes
+                            it's hearing a peer explain what worked for them.
+                            <br><br>
+                            And occasionally, <a href="https://www.youtube.com/watch?v=rz5TGN7eUcM&t=4s"
+                                class="apparently-link">apparently</a>, it's a trip through space.
+
+                        </p>
+
+
+                    </div>
                 </div>
-                <!-- right side -->
-                <div class="story-right">
-                    <p><strong>Key takeaway</strong><Br><br>
-                        One thing I learned is that people don't adopt products because they've completed training.
-                        They adopt products because they feel confident talking about them.
-                    </p>
 
-                    <p>
-                        <strong>What I underestimated</strong><br><br>
-
-                        This project changed how I think about enablement.<br><br>
-
-                        I assumed that if we built great technical content, people would naturally find it.
-                        They didn't.<br><br>
-
-                        The problem wasn't a lack of information. What sellers lacked was the context to recognize when
-                        the product was relevant to a customer, and the confidence to articulate it.<br><br>
-
-                        That changed how I approached the work. Instead of asking, <em>What content do we need?</em> I
-                        started asking, <em>What do we need people to do differently?</em><br><br>
-
-                        That meant giving sellers recognizable use cases, stories they could remember, and
-                        multiple opportunities to hear and use the same ideas.
-
-                        Training was only <strong>one</strong> part of it. What mattered was what happened after the
-                        training.
-
-                    </p>
+            </section>
 
 
-                </div>
-            </div>
+            <section class="story-closing">
 
-        </section>
+                <div class="final-thought">
+                    The goal isn't to create more content.<br>
+                    <span class="emphasis">It's changing what people do with what they know.</span><br>
+                    Content is just <em>one</em> of the tools.
+                </div><br>
 
+                <a href="stories.html" class="text-link">
+                    <span>←</span> Back to Behind the Work
+                </a>
 
-        <section class="story-closing">
+            </section>
 
-            <div class="final-thought">
-                The goal isn't to create more content.
-                <span class="emphasis">It's changing what people do with what they know.</span>
-                Content is just <em>one</em> of the tools.
-            </div><br>
+        </main>
 
-            <a href="stories.html" class="text-link">
-                <span>←</span> Back to Behind the Work
-            </a>
+        <footer>
 
-        </section>
+            <p>&copy; 2026 Kim Codes</p>
 
-    </main>
+        </footer>
 
-    <footer>
+    </body>
 
-        <p>&copy; 2026 Kim Codes</p>
-
-    </footer>
-
-</body>
-
-</html>
+    </html>>

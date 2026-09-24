@@ -35,6 +35,7 @@
         .cosmos-episodes img {
             display: block;
             width: 100%;
+            max-height: none;
             height: auto;
         }
 
@@ -68,8 +69,86 @@
             text-decoration-color: #222;
             text-decoration-style: wavy;
         }
-    </style>
 
+        @media (max-width: 700px) {
+
+            /* HERO */
+            .story-hero {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .story-hero-image {
+                display: none;
+            }
+            /*
+            .story-hero-copy,
+            .story-hero-image {
+                width: 100%;
+            }
+            
+            .story-hero-image {
+                display: flex;
+                justify-content: center;
+            }
+
+            .concept-sketch {
+                width: 100%;
+                max-width: 420px;
+                height: auto;
+            }*/
+
+
+            /* STORY SECTIONS */
+            .story-row {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .story-left,
+            .story-right {
+                width: 100%;
+            }
+
+            .story-left h2 {
+                margin-bottom: 0;
+            }
+
+
+            /* CHALLENGE ILLUSTRATION */
+            .kim-illustration {
+                max-width: 100%;
+                height: auto;
+            }
+
+            .challenge .kim-illustration {
+                max-width: 160px;
+                margin-top: 20px;
+            }
+
+
+            /* EPISODE STAR MAP */
+            .cosmos-episodes {
+                margin: 36px 0;
+            }
+
+            .cosmos-episodes img {
+                width: 100%;
+                max-width: 100%;
+                height: auto;
+            }
+
+            .episode-key {
+                gap: 8px 14px;
+                font-size: 10px;
+            }
+
+
+            /* CLOSING */
+            .final-thought br {
+                display: none;
+            }
+        }
     </style>
 </head>
 

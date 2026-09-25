@@ -323,6 +323,12 @@
     z-index: 2;
 }
 
+.journey-start img {
+    width: 100px;
+    height: auto;
+
+}
+
 
 /* =========================================================
    POND + BRIDGE

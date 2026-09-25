@@ -1,0 +1,295 @@
+/* =========================================================
+   CAREER PAGE
+   ========================================================= */
+
+.career-page {
+    --career-ink: #242220;
+    --career-muted: #77716b;
+    --career-pink: #d9a69a;
+    --career-purple: #aaa2df;
+    --career-orange: #e9a17d;
+    --career-blue: #86c7df;
+
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 90px 40px 140px;
+    color: var(--career-ink);
+}
+
+
+/* INTRO */
+
+.career-intro {
+    max-width: 480px;
+    position: relative;
+    z-index: 2;
+}
+
+.career-intro h1 {
+    display: inline-block;
+    position: relative;
+
+    margin: 0 0 28px;
+
+    font-family: Georgia, 'Times New Roman', Times, serif cursive;
+    font-size: clamp(52px, 6vw, 76px);
+    font-weight: 500;
+    line-height: .95;
+}
+
+.career-intro-copy {
+    max-width: 450px;
+    margin: 0;
+
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 1.65;
+}
+
+
+/* =========================================================
+   JOURNEY
+   ========================================================= */
+
+.career-journey {
+    position: relative;
+    min-height: 1300px;
+    margin-top: -120px;
+}
+
+
+/* THE ROAD */
+
+.career-path {
+    position: absolute;
+
+    inset: 0;
+    width: 100%;
+    height: 100%;
+
+    overflow: visible;
+
+    pointer-events: none;
+    z-index: 0;
+}
+
+.career-path-main,
+.career-path-detour {
+    fill: none;
+    stroke: var(--career-ink);
+    stroke-width: 2;
+    vector-effect: non-scaling-stroke;
+}
+
+.career-path-detour {
+    stroke-dasharray: 7 9;
+}
+
+
+/* =========================================================
+   CAREER STOPS
+   ========================================================= */
+
+.career-stop {
+    position: absolute;
+
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+
+    z-index: 2;
+}
+
+.career-stop-copy {
+    padding-top: 2rem;
+    width: 100px;
+}
+
+.career-years {
+    margin: 0 0 4px;
+
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: var(--career-muted);
+}
+
+.career-stop h2 {
+    margin: 0 0 8px;
+
+    font-family: 'Inter', sans-serif;
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: -.04em;
+}
+
+.career-stop-copy>p:last-of-type {
+    margin: 0;
+
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--career-muted);
+}
+
+
+/* positions */
+
+.career-stop-hackathons {
+    top: 116px;
+    left: 80%;
+}
+
+.career-stop-github {
+    top: 188px;
+    left: 33%;
+}
+
+.career-stop-auth0 {
+    top: 378px;
+    left: 70%;
+}
+
+.career-stop-microsoft {
+    top: 694px;
+    left: 38%;
+}
+
+
+/* markers */
+
+.career-marker {
+    position: absolute;
+
+    width: 18px;
+    height: 18px;
+
+    border: 2px solid var(--career-ink);
+    border-radius: 50%;
+
+    left: -42px;
+    top: 16px;
+
+    background: white;
+}
+
+.marker-github {
+    background: var(--career-purple);
+}
+
+.marker-auth0 {
+    background: var(--career-orange);
+}
+
+.marker-microsoft {
+    background: var(--career-blue);
+}
+
+
+
+/* =========================================================
+   ART
+   ========================================================= */
+
+.career-stop-art {
+    width: 260px;
+}
+
+
+/*
+ Temporary placeholders.
+ Delete these once we have the real PNGs.
+*/
+
+.image-placeholder {
+    display: grid;
+    place-items: center;
+
+    width: 260px;
+    height: 150px;
+
+    border: 1px dashed #bbb;
+    border-radius: 12px;
+
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: #999;
+}
+
+.image-placeholder.small {
+    width: 130px;
+    height: 100px;
+}
+
+.image-placeholder.landscape {
+    width: 300px;
+    height: 170px;
+}
+
+
+/* =========================================================
+   LITTLE SCENES
+   ========================================================= */
+
+.journey-start {
+    position: absolute;
+    left: 48%;
+    display: flex;
+    align-items: flex-end;
+    gap: 20px;
+    z-index: 2;
+}
+
+
+.pond-scene {
+    position: absolute;
+    top: 500px;
+    left: 8%;
+    z-index: 1;
+}
+
+
+.bench-scene {
+    position: absolute;
+    top: 800px;
+    left: 86%;
+    z-index: 2;
+}
+
+
+/* =========================================================
+   DETOUR
+   ========================================================= */
+
+.career-detour-copy {
+    position: absolute;
+    top: 400px;
+    left: 10%;
+    font-family: Georgia, 'Times New Roman', Times, serif, cursive;
+    font-size: 0.8rem;
+    line-height: 1.15;
+
+    transform: rotate(-3deg);
+
+    z-index: 2;
+}
+
+
+/* =========================================================
+   END OF PATH
+   ========================================================= */
+
+.career-next {
+    position: absolute;
+    right: 35%;
+    bottom: 20px;
+    display: flex;
+    align-items: flex-end;
+    gap: 18px;
+    z-index: 2;
+}
+
+.career-next p {
+    margin: 0 0 5px;
+    font-family: Georgia, 'Times New Roman', Times, serif cursive;
+    font-size: 22px;
+    line-height: 1.1;
+}

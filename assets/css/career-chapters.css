@@ -375,8 +375,8 @@
 
 .bench-scene {
     position: absolute;
-    top: 800px;
-    left: 82%;
+    top: 720px;
+    left: 75%;
     z-index: 2;
 }
 
@@ -432,6 +432,33 @@
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 22px;
     line-height: 1.1;
+}
+
+.career-back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    margin-top: 30px;
+
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--career-ink);
+
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.career-back-link:hover {
+    color: var(--career-ink);
+}
+
+.career-back-link .hand-arrow {
+    transition: transform 0.2s ease;
+}
+
+.career-back-link:hover .hand-arrow {
+    transform: translateX(-4px);
 }
 
 /* MOBILE */

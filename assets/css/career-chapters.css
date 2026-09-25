@@ -427,3 +427,120 @@
     font-size: 22px;
     line-height: 1.1;
 }
+
+/* MOBILE */
+@media (max-width: 700px) {
+
+    .career-page {
+        padding: 60px 28px 100px;
+    }
+
+    .career-intro {
+        max-width: none;
+    }
+
+    .career-intro h1 {
+        font-size: clamp(54px, 16vw, 72px);
+    }
+
+    .career-intro-copy {
+        font-size: 16px;
+        line-height: 1.65;
+    }
+
+
+    /* ---------------------------------
+       TURN JOURNEY INTO VERTICAL TIMELINE
+       --------------------------------- */
+
+    .career-journey {
+        position: relative;
+        min-height: auto;
+        margin-top: 60px;
+        padding: 10px 0 80px 64px;
+    }
+
+    /* Hide desktop winding road */
+    .career-path {
+        display: none;
+    }
+
+    /* New simple mobile road */
+    .career-journey::before {
+        content: "";
+        position: absolute;
+
+        left: 18px;
+        top: 20px;
+        bottom: 70px;
+
+        width: 2px;
+        background: var(--career-ink);
+    }
+
+
+    /* ---------------------------------
+       STOPS
+       --------------------------------- */
+
+    .career-stop,
+    .career-stop-hackathons,
+    .career-stop-github,
+    .career-stop-auth0,
+    .career-stop-microsoft {
+        position: relative;
+
+        top: auto;
+        left: auto;
+        right: auto;
+
+        display: block;
+
+        margin: 0 0 70px;
+    }
+
+    .career-stop-copy,
+    .career-stop-auth0 .career-stop-copy,
+    .career-stop-microsoft .career-stop-copy,
+    .career-stop-hackathons .career-stop-copy {
+        width: auto;
+        padding: 0;
+    }
+
+    .career-marker {
+        left: -55px;
+        top: 4px;
+
+        width: 16px;
+        height: 16px;
+
+        background: white;
+    }
+
+
+    /* ---------------------------------
+       TYPOGRAPHY
+       --------------------------------- */
+
+    .career-years {
+        margin-bottom: 6px;
+    }
+
+    .career-stop h2 {
+        margin-bottom: 8px;
+        font-size: 27px;
+    }
+
+    .career-stop-copy>p:last-of-type {
+        max-width: 230px;
+        font-size: 14px;
+    }
+
+    .career-stop-art,
+    .journey-start,
+    .pond-scene,
+    .bench-scene,
+    .career-detour-copy {
+        display: none;
+    }
+}

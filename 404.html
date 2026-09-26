@@ -179,7 +179,7 @@
                 There are plenty of other things to discover.
             </p>
 
-            <a href="/" class="error-home-link">
+            <a href="/" class="error-home-link" id="error-back-link">
 
                 <svg class="hand-arrow hand-arrow-back" viewBox="0 0 40 20" width="32" height="16" aria-hidden="true">
 
@@ -202,6 +202,29 @@
         <p>&copy; 2026 Kim Codes</p>
 
     </footer>
+
+    <script>
+        const backLink = document.getElementById('error-back-link');
+        const backText = backLink.querySelector('span');
+
+        // Check whether the visitor came from another page on the sire
+        if (document.referrer) {
+            try {
+                const previousPage = new URL(document.referrer);
+
+                if (previousPage.origin === window.location.origin) {
+                    backText.textContent = 'go back';
+
+                    backLink.addEventListener('click', function (event) {
+                        event.preventDefault();
+                        history.back();
+                    });
+                }
+            } catch (error) {
+                // else keep the default "back to home" link
+            }
+        }
+    </script>
 
 </body>
 

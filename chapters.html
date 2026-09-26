@@ -51,13 +51,12 @@
             <p class="career-intro-copy">
                 Discover my path shaped by community and a love for building, learning and helping others.
                 Different chapters, same curiosity. Lots of learning. More to come.
-
+            </p>
             <p class="career-linkedin">
                 For titles, dates &amp; the usual stuff →
                 <a href="https://linkedin.com/in/kimcodes" target="_blank" rel="noopener noreferrer">
                     LinkedIn
                 </a>
-            </p>
             </p>
         </section>
 
@@ -65,10 +64,7 @@
         <!-- CAREER JOURNEY -->
         <section class="career-journey">
 
-            <!--
-            The SVG is ONLY the road.
-            All text, images and interactions remain HTML.
-        -->
+            <!-- SVG of the career path as a single black line -->
             <svg class="career-path" viewBox="0 0 1000 1800" preserveAspectRatio="none" aria-hidden="true">
 
                 <path class="career-path-main" d="
@@ -117,7 +113,7 @@
             </article>
 
             <!-- GITHUB -->
-            <article class="career-stop career-stop-github">
+            <article class="career-stop career-stop-github" data-career="github" tabindex="0" role="button">
 
                 <span class="career-marker marker-github"></span>
 
@@ -148,7 +144,7 @@
 
 
             <!-- AUTH0 -->
-            <article class="career-stop career-stop-auth0">
+            <article class="career-stop career-stop-auth0" data-career="auth0" tabindex="0" role="button">
 
                 <span class="career-marker marker-auth0"></span>
 
@@ -179,8 +175,7 @@
 
 
             <!-- MICROSOFT -->
-            <article class="career-stop career-stop-microsoft">
-
+            <article class="career-stop career-stop-microsoft" data-career="microsoft" tabindex="0" role="button">
                 <span class="career-marker marker-microsoft"></span>
 
                 <div class="career-stop-copy">
@@ -188,15 +183,15 @@
                     <h2>Microsoft</h2>
 
                     <p>
-                        Product & Audience Marketing, GTM, Programs.
+                        Product & Audience<br>
+                        Marketing, GTM,<br>
+                        Programs.
                     </p>
-
                 </div>
 
                 <div class="career-stop-art ms-art">
                     <img src="/assets/img/ms-illustration.png" alt="Microsoft chapter illustration">
                 </div>
-
             </article>
 
 
@@ -234,13 +229,61 @@
         </a>
     </main>
 
+    <div class="career-modal" id="career-modal" aria-hidden="true">
+
+        <div class="career-modal-backdrop" data-close-modal></div>
+
+        <div class="career-modal-panel" role="dialog" aria-modal="true" aria-labelledby="career-modal-title">
+
+            <button class="career-modal-close" type="button" aria-label="Close" data-close-modal>
+                ×
+            </button>
+
+            <div class="career-modal-layout">
+
+                <div class="career-modal-content">
+
+                    <p class="career-modal-years" id="career-modal-years"></p>
+
+                    <h2 id="career-modal-title"></h2>
+
+                    <p class="career-modal-subtitle" id="career-modal-subtitle"></p>
+
+                    <div class="career-modal-art career-modal-art-mobile">
+                        <img id="career-modal-image-mobile" src="" alt="">
+                    </div>
+
+                    <p class="career-modal-description" id="career-modal-description"></p>
+
+                    <section class="career-modal-projects">
+
+                        <h3>Stories from this chapter</h3>
+
+                        <div class="career-project-track" id="career-project-track">
+                        </div>
+
+                    </section>
+
+                </div>
+
+                <div class="career-modal-art career-modal-art-desktop">
+                    <img id="career-modal-image" src="" alt="">
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
     <footer>
 
         <p>&copy; 2026 Kim Codes</p>
 
     </footer>
 
+    <script src="assets/js/career.js"></script>
 </body>
 
 </html>
-</body>

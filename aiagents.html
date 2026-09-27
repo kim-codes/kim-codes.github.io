@@ -94,7 +94,7 @@
                         <span class="label">Layers Remaining</span>
 
                         <strong id="layers-remaining">
-                            5
+                            4
                         </strong>
                     </div>
 
@@ -110,6 +110,10 @@
 
                     <div class="dig-site">
 
+                        <p class="dig-instruction">
+                            <em>Dig to see what's underneath.</em>
+                        </p>
+
                         <div class="layer active agent-rock">
 
                             <img src="assets/img/ai-agent-rock.png" alt="" class="agent-rock-img">
@@ -118,17 +122,36 @@
 
                         </div>
 
-                        <div class="layer runtime-icon layer-icon hidden">
-                            Agent Runtime
+                        <!-- First layer underneath -->
+                        <div class="layer excavation-layer runtime-layer hidden">
+                            <strong>Agent Runtime</strong>
+                            <span>Coordinates how the agent works</span>
                         </div>
 
-                        <p class="dig-instruction">
-                            <em>Dig to see what's underneath.</em>
-                        </p>
+                        <!-- REMAININ LAYERS -->
 
-                        <button id="dig-button">
-                            🪏 Dig deeper ↓
-                        </button>
+                        <div class="layer excavation-layer llm-layer hidden">
+                            <strong>LLM</strong>
+                            <span>Reasons about what happens next</span>
+                        </div>
+
+                        <div class="layer excavation-layer mcp-layer hidden">
+                            <strong>MCP</strong>
+                            <span>Connects the agent to tools and external context</span>
+                        </div>
+
+                        <div class="layer excavation-layer infra-layer hidden">
+                            <strong>Infrastructure</strong>
+                            <span>Provides the environment where the agent runs</span>
+                        </div>
+
+                        <!-- LAYERS DONE -->
+
+                        <!-- DIG CONTROLS -->
+                        <div class="dig-controls">
+                            <button id="back-button" hidden>← Back</button>
+                            <button id="dig-button">Dig deeper ↓</button>
+                        </div>
 
                     </div>
 

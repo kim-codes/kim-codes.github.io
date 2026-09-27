@@ -1,0 +1,588 @@
+/* =========================================================
+   THINKING THROUGH TECHNOLOGY
+   ========================================================= */
+
+
+/* --------------------------
+   Base
+-------------------------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --paper: #ffffff;
+    --ink: #1c2023;
+    --body: #4b5358;
+    --muted: #8c9296;
+    --line: #e6e7e5;
+    --accent: #2f6a63;
+}
+
+html {
+    scrollbar-width: thin;
+    scrollbar-color: #d8d5cd transparent;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.6;
+}
+
+
+/* --------------------------
+   Scrollbar
+-------------------------- */
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #d8d5cd;
+    border-radius: 999px;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.site-header {
+    text-align: center;
+    padding: 3rem 1.5rem 2rem;
+}
+
+.logo img {
+    display: block;
+    width: 280px;
+    max-width: 90%;
+    height: auto;
+    margin: 0 auto 2rem;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2.5rem;
+    list-style: none;
+}
+
+nav a {
+    color: #666;
+    font-size: .9rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: .12em;
+    transition: color .2s ease;
+}
+
+nav a:hover {
+    color: #000;
+}
+
+
+/* =========================================================
+   PAGE
+   ========================================================= */
+
+.technology-page {
+    width: min(calc(100% - 48px), 700px);
+    margin: 8rem auto 0;
+}
+
+
+/* =========================================================
+   INTRO
+   ========================================================= */
+
+.essay-intro {
+    margin-bottom: 8rem;
+}
+
+.essay-intro h1 {
+    max-width: 620px;
+    margin-bottom: 1.5rem;
+
+    font-family: "Inter", sans-serif;
+    font-weight: 800;
+    font-size: clamp(2.6rem, 6vw, 3.8rem);
+    line-height: 1.1;
+    letter-spacing: -.02em;
+}
+
+.intro-copy {
+    max-width: 560px;
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid var(--line);
+}
+
+.intro-copy p {
+    margin-bottom: 1.4rem;
+    color: var(--body);
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.intro-copy p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* =========================================================
+   GENERAL ESSAY SECTION
+   ========================================================= */
+
+.essay-section {
+    margin-bottom: 6.5rem;
+}
+
+.section-heading {
+    margin-bottom: 2.75rem;
+}
+
+.section-heading h2 {
+    max-width: 600px;
+    margin-bottom: .75rem;
+
+    font-family: "Inter", sans-serif;
+    font-weight: 800;
+    font-size: clamp(1.7rem, 4vw, 2.25rem);
+    line-height: 1.3;
+    letter-spacing: -.015em;
+}
+
+.section-thought {
+    max-width: 520px;
+
+    color: var(--muted);
+    font-size: 1.1rem;
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   SECTION 01
+   ========================================================= */
+
+.section-copy {
+    max-width: 620px;
+}
+
+.section-copy p {
+    margin-bottom: 1.5rem;
+    color: var(--body);
+    font-size: 1.02rem;
+    line-height: 1.85;
+}
+
+.section-copy p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* Four questions */
+
+.questions {
+    max-width: 620px;
+    margin-top: 3.5rem;
+}
+
+.questions-label {
+    margin-bottom: 1.25rem;
+
+    color: var(--muted);
+    font-size: .9rem;
+}
+
+.question-list {
+    border-top: 1px solid var(--line);
+}
+
+.question {
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    gap: 1rem;
+    align-items: baseline;
+    padding: 1.1rem 0;
+    font-size: 1rem;
+}
+
+.question span {
+    color: var(--accent);
+    font-size: .85rem;
+    font-weight: 500;
+}
+
+.question p {
+    font-size: 1.1rem;
+    font-weight: 500;
+    line-height: 1.45;
+    color: var(--ink);
+}
+
+
+/* =========================================================
+   SECTION 02 — FEATURE → OUTCOME
+   ========================================================= */
+
+/* Main transformation */
+
+.transformation {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+
+    max-width: 560px;
+    margin: 0 0 4rem;
+    padding: 2rem 0;
+
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+}
+
+.transformation-label {
+    display: block;
+    margin-bottom: .5rem;
+
+    color: var(--muted);
+    font-size: .85rem;
+    font-weight: 500;
+}
+
+.transformation-side p {
+    max-width: 520px;
+    color: var(--body);
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.transformation-result p {
+    color: var(--ink);
+    font-weight: 500;
+}
+
+.transformation-arrow {
+    color: var(--accent);
+    font-size: 1.2rem;
+}
+
+
+/* Patterns */
+
+.patterns {
+    max-width: 620px;
+}
+
+.patterns h3 {
+    margin-bottom: 2.25rem;
+
+    font-family: "Inter", sans-serif;
+    font-weight: 700;
+    font-size: 1.3rem;
+    letter-spacing: -.01em;
+}
+
+.pattern {
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.pattern:first-child {
+    border-top: 1px solid var(--line);
+}
+
+.pattern-feature {
+    margin-bottom: .6rem;
+
+    color: var(--ink);
+    font-size: 1.02rem;
+    font-weight: 600;
+}
+
+.pattern-note {
+    max-width: 560px;
+    margin-bottom: .6rem;
+
+    color: var(--body);
+    font-size: .96rem;
+    line-height: 1.8;
+}
+
+.pattern-outcome {
+    color: var(--body);
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+.pattern-outcome .arrow {
+    margin-right: .4rem;
+    color: var(--accent);
+}
+
+.pattern-closing {
+    max-width: 560px;
+    margin-top: 3rem;
+
+    color: var(--ink);
+    font-size: 1.05rem;
+    font-weight: 500;
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   SECTION 03 — LESSONS
+   ========================================================= */
+
+.lessons {
+    max-width: 620px;
+}
+
+.lesson {
+    padding: 1.75rem 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.lesson:first-child {
+    border-top: 1px solid var(--line);
+}
+
+.lesson h3 {
+    margin-bottom: .75rem;
+
+    font-family: "Inter", sans-serif;
+    font-weight: 700;
+    font-size: 1.2rem;
+    letter-spacing: -.01em;
+}
+
+.lesson p {
+    max-width: 560px;
+    color: var(--body);
+    font-size: .98rem;
+    line-height: 1.85;
+}
+
+
+/* =========================================================
+   SECTION 04 — LISTENING
+   ========================================================= */
+
+.listening-copy {
+    max-width: 620px;
+}
+
+.listening-copy p {
+    margin-bottom: 1.4rem;
+
+    color: var(--body);
+    font-size: 1.02rem;
+    line-height: 1.85;
+}
+
+.listening-copy p:last-child {
+    margin-bottom: 0;
+}
+
+.listening-copy .large-thought {
+    margin-bottom: 1.75rem;
+
+    color: var(--ink);
+    font-size: 1.15rem;
+    font-weight: 500;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   CLOSING
+   ========================================================= */
+
+.essay-closing {
+    max-width: 600px;
+    margin: 2rem 0 5rem;
+    padding-top: 2.5rem;
+
+    border-top: 1px solid var(--line);
+}
+
+.essay-closing h2 {
+    margin-bottom: 1.5rem;
+
+    font-family: "Inter", sans-serif;
+    font-weight: 800;
+    font-size: 1.5rem;
+    letter-spacing: -.01em;
+}
+
+.essay-closing p {
+    margin-bottom: 1.4rem;
+
+    color: var(--body);
+    font-size: .98rem;
+    line-height: 1.85;
+}
+
+.essay-closing p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* =========================================================
+   BACK LINK
+   ========================================================= */
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: .45rem;
+
+    margin-top: 1rem;
+    padding-bottom: 2px;
+
+    color: var(--ink);
+    font-size: .95rem;
+    font-weight: 500;
+    text-decoration: none;
+
+    background-image: linear-gradient(currentColor, currentColor);
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    background-size: 0 1px;
+
+    transition:
+        gap .2s ease,
+        background-size .3s ease;
+}
+
+.back-link:hover {
+    gap: .7rem;
+    background-size: 100% 1px;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+footer {
+    padding: 7rem 1rem 2rem;
+
+    color: #888;
+    font-size: .9rem;
+    text-align: center;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .technology-page {
+        margin-top: 6rem;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    .site-header {
+        padding: 2rem 1rem 1rem;
+    }
+
+    .logo img {
+        width: 220px;
+        margin-bottom: 1.5rem;
+    }
+
+    nav ul {
+        gap: 1rem 2rem;
+    }
+
+    nav a {
+        font-size: .78rem;
+    }
+
+
+    .technology-page {
+        width: calc(100% - 40px);
+        margin-top: 4.5rem;
+    }
+
+
+    .essay-intro {
+        margin-bottom: 5.5rem;
+    }
+
+    .intro-copy p {
+        font-size: 1rem;
+    }
+
+
+    .essay-section {
+        margin-bottom: 5rem;
+    }
+
+    .section-heading {
+        margin-bottom: 2rem;
+    }
+
+    .section-thought {
+        font-size: 1.15rem;
+    }
+
+
+    .question {
+        grid-template-columns: 32px 1fr;
+    }
+
+    .question p {
+        font-size: 1.02rem;
+    }
+
+
+    .transformation {
+        margin-bottom: 3rem;
+        padding: 1.5rem 0;
+    }
+
+
+    .essay-closing {
+        margin: 1.5rem 0 4rem;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    nav ul {
+        gap: .8rem 1.4rem;
+    }
+
+    .technology-page {
+        width: calc(100% - 32px);
+    }
+
+}

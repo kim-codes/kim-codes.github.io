@@ -1,0 +1,671 @@
+.explainer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 5rem 2rem;
+}
+
+
+/* --------------------------
+   Hero
+   -------------------------- */
+
+.explainer-hero {
+    max-width: 700px;
+    margin: 0 auto 1rem;
+    text-align: center;
+}
+
+.explainer-hero h1 {
+    margin-bottom: 1rem;
+    font-size: 1.9rem;
+}
+
+.intro {
+    color: #555;
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   EXCAVATION EXHIBIT
+   ========================================================= */
+
+
+/* --------------------------
+   Top Cards
+   -------------------------- */
+
+.excavation-cards {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 4rem;
+
+    max-width: 1050px;
+    margin: 0 auto;
+
+    position: relative;
+    z-index: 3;
+
+    /* lets the cards overlap the landscape */
+    transform: translateY(60px);
+}
+
+.excavation-card {
+    padding: 1.75rem 2rem;
+
+    background: #fff;
+    border: 1px solid #d8d3cc;
+    border-radius: 12px;
+}
+
+.excavation-card h2 {
+    margin: 0;
+    font-size: 1.25rem;
+}
+
+.card-heading {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+
+    padding-bottom: 0.8rem;
+    margin-bottom: 1rem;
+
+    border-bottom: 1px solid #e5e1dc;
+}
+
+.card-icon {
+    font-size: 1.25rem;
+}
+
+.excavation-intro p {
+    max-width: 380px;
+    margin: 0;
+
+    font-size: 0.95rem;
+    line-height: 1.7;
+    text-align: left;
+}
+
+
+/* --------------------------
+   Status Card
+   -------------------------- */
+
+.status-card h2 {
+    padding-bottom: 0.8rem;
+    margin-bottom: 0.75rem;
+
+    border-bottom: 1px solid #e5e1dc;
+}
+
+.status-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1.5rem;
+
+    margin-top: 1rem;
+}
+
+.status-item .label {
+    display: flex;
+    flex-direction: column;
+
+    color: #555;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    text-align: left;
+}
+
+.status-item small {
+    margin-top: 0.15rem;
+
+    color: #666;
+    font-size: 0.85rem;
+
+    opacity: 0.7;
+}
+
+.status-item strong {
+    max-width: 65%;
+
+    font-size: 0.9rem;
+    line-height: 1.5;
+    font-weight: 600;
+    text-align: right;
+}
+
+
+/* --------------------------
+   Landscape
+   -------------------------- */
+
+.dig-landscape {
+    width: 100%;
+    height: 390px;
+
+    position: relative;
+    overflow: hidden;
+
+    background-color: #faf8f4;
+    background-image: url("../img/dig-landscape.png");
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: 100% auto;
+
+    border-radius: 50px;
+}
+
+.landscape {
+    width: 100%;
+    height: 100%;
+
+    position: relative;
+}
+
+
+/* --------------------------
+   Dig Site
+   -------------------------- */
+
+.dig-site {
+    width: 100%;
+    height: 100%;
+
+    position: relative;
+    z-index: 2;
+}
+
+
+/* --------------------------
+   Layers
+   -------------------------- */
+
+.layer {
+    position: absolute;
+    left: 50%;
+    bottom: 78px;
+
+    transition:
+        transform 700ms cubic-bezier(.22, 1, .36, 1),
+        opacity 500ms ease;
+}
+
+
+/* AI Agent Rock */
+
+.agent-rock {
+    width: 170px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.agent-rock-img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.agent-rock span {
+    position: absolute;
+    top: 53%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    font-size: 0.9rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+
+/* Excavated Layers */
+
+.excavation-layer {
+    width: 320px;
+    padding: 18px 28px;
+
+    background: rgba(244, 232, 214, 0.62);
+    border-radius: 14px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+
+    text-align: center;
+}
+
+.excavation-layer strong {
+    font-size: 1.05rem;
+    font-weight: 600;
+}
+
+.excavation-layer span {
+    color: #666;
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+
+
+/* --------------------------
+   Dig Instruction
+   -------------------------- */
+
+.dig-instruction {
+    position: absolute;
+    left: 50%;
+    bottom: 185px;
+
+    transform: translateX(-50%);
+
+    width: 100%;
+    height: 3rem;
+    margin: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #555;
+    font-size: 0.95rem;
+    font-style: italic;
+
+    transition: opacity 300ms ease;
+}
+
+.dig-instruction.instruction-hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+
+/* --------------------------
+   Dig Controls
+   -------------------------- */
+
+.dig-controls {
+    position: absolute;
+    left: 50%;
+    bottom: 24px;
+
+    transform: translateX(-50%);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+
+    white-space: nowrap;
+}
+
+#dig-button,
+#back-button {
+    margin: 0;
+    padding: 0.25rem;
+
+    border: 0;
+    background: none;
+
+    font: inherit;
+    font-weight: 500;
+
+    cursor: pointer;
+
+    text-decoration: underline;
+    text-underline-offset: 5px;
+
+    transition: opacity 200ms ease;
+}
+
+#dig-button:hover,
+#back-button:hover {
+    opacity: 0.6;
+}
+
+#dig-button.dig-complete {
+    opacity: 0;
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   LAB EXPLANATION
+   ========================================================= */
+
+.lab-explained {
+    max-width: 1100px;
+    margin: 6rem auto;
+    padding: 0 2rem;
+}
+
+
+/* --------------------------
+   Explanation Intro
+   -------------------------- */
+
+.lab-intro {
+    max-width: 900px;
+    margin: 0 auto 4.5rem;
+
+    text-align: center;
+}
+
+.lab-intro h2 {
+    margin-bottom: 1rem;
+}
+
+.lab-intro .section-intro {
+    margin: 0;
+
+    color: #666;
+    font-size: 0.85rem;
+    line-height: 1.8;
+}
+
+
+/* --------------------------
+   Explanation Layout
+   -------------------------- */
+
+.lab-content {
+    display: grid;
+    grid-template-columns: minmax(0, 650px) 320px;
+    justify-content: space-between;
+    align-items: start;
+    gap: 5rem;
+}
+
+
+/* --------------------------
+   Main Explanation
+   -------------------------- */
+
+.lab-main {
+    text-align: left;
+}
+
+.lab-main h3 {
+    margin: 0 0 1.5rem;
+
+    font-size: 1.2rem;
+    line-height: 1.4;
+}
+
+.lab-main p {
+    margin: 0 0 1.4rem;
+
+    color: #444;
+    font-size: 1rem;
+    line-height: 1.85;
+}
+
+.lab-main p:last-child {
+    margin-bottom: 0;
+}
+
+.lab-main strong {
+    color: #222;
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   LAB NOTES
+   Notebook paper
+   ========================================================= */
+
+.lab-sidebar {
+    position: sticky;
+    top: 2rem;
+
+    padding: 2.5rem 2rem 2.25rem 4.25rem;
+
+    background-color: #fafbf9;
+
+    /* notebook rules */
+    background-image:
+        repeating-linear-gradient(
+            to bottom,
+            transparent 0,
+            transparent 31px,
+            rgba(90, 110, 100, 0.10) 31px,
+            rgba(90, 110, 100, 0.10) 32px
+        );
+
+    border: 1px solid #e1e5e1;
+    border-radius: 4px;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+
+    text-align: left;
+    overflow: hidden;
+}
+
+
+/* Green notebook margin */
+
+.lab-sidebar::before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 2.2rem;
+
+    width: 1px;
+
+    background: rgba(47, 125, 91, 0.25);
+}
+
+
+/* Lab Notes heading */
+
+.lab-sidebar h3 {
+    margin: 0 0 1.75rem;
+
+    font-family: "Caveat", cursive;
+    font-size: 1.8rem;
+    font-weight: 500;
+    line-height: 1;
+
+    color: #222;
+    text-align: left;
+
+    transform: rotate(-2deg);
+}
+
+
+/* --------------------------
+   Individual Notes
+   -------------------------- */
+
+.lab-sidebar .idea-item {
+    display: grid;
+    grid-template-columns: 7px 1fr;
+    gap: 1rem;
+    align-items: start;
+
+    margin: 0 0 1.4rem;
+}
+
+.lab-sidebar .idea-item:last-of-type {
+    margin-bottom: 0;
+}
+
+
+/* Green bullet */
+
+.lab-sidebar .note-dot {
+    width: 6px;
+    height: 6px;
+
+    margin-top: 0.65rem;
+
+    background: #2f8a63;
+    border-radius: 50%;
+}
+
+
+/* Note copy */
+
+.lab-sidebar .idea-item p {
+    margin: 0;
+
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    text-align: left;
+}
+
+
+/* --------------------------
+   Next Lab
+   -------------------------- */
+
+.lab-sidebar .next-lab {
+    margin-top: 2.75rem;
+    padding-top: 1.5rem;
+
+    border-top: 1px solid #dfe3df;
+}
+
+.lab-sidebar .next-lab-label {
+    margin: 0 0 1.5rem;
+
+    color: #777;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.lab-sidebar .next-lab-content {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1rem;
+    align-items: center;
+}
+
+.lab-sidebar .coming-soon {
+    font-family: "Caveat", cursive;
+    font-size: 1.2rem;
+    line-height: 1;
+
+    white-space: nowrap;
+
+    transform: rotate(-4deg);
+}
+
+.lab-sidebar .next-lab-title {
+    color: #222;
+    font-size: 0.8rem;
+    font-weight: 600;
+    line-height: 1.45;
+    letter-spacing: 0.04em;
+
+    text-transform: uppercase;
+    text-align: left;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .explainer {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+
+    .excavation-cards {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .status-item strong {
+        max-width: 60%;
+    }
+
+    .lab-content {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .lab-sidebar {
+        position: static;
+        max-width: 420px;
+        width: 100%;
+        margin: 0 auto;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .explainer {
+        padding: 3rem 1rem;
+    }
+
+    .excavation-cards {
+        transform: translateY(40px);
+    }
+
+    .excavation-card {
+        padding: 1.4rem;
+    }
+
+    .status-item {
+        gap: 1rem;
+    }
+
+    .status-item strong {
+        max-width: 55%;
+    }
+
+    .dig-landscape {
+        height: 390px;
+        border-radius: 30px;
+    }
+
+    .excavation-layer {
+        width: min(280px, calc(100vw - 80px));
+        padding: 16px 20px;
+    }
+
+    .lab-explained {
+        margin: 4rem auto;
+        padding: 0 1rem;
+    }
+
+    .lab-intro {
+        margin-bottom: 3rem;
+    }
+
+    .lab-content {
+        gap: 3rem;
+    }
+
+    .lab-sidebar {
+        padding:
+            2.25rem
+            1.5rem
+            2rem
+            3.75rem;
+    }
+
+    .lab-sidebar::before {
+        left: 1.9rem;
+    }
+
+    .lab-sidebar .next-lab-content {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+}

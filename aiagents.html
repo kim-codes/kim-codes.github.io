@@ -15,319 +15,7 @@
         rel="stylesheet">
 
     <link rel="stylesheet" href="assets/css/styles.css">
-    <style>
-        /* =========================================================
-            IDEA LAB — AI AGENTS
-            ========================================================= */
-
-
-        /* --------------------------
-        Explainer
-        -------------------------- */
-
-        .explainer {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 5rem 2rem;
-        }
-
-
-        /* --------------------------
-        Hero
-        -------------------------- */
-
-        .explainer-hero {
-            max-width: 700px;
-            margin: 0 auto 4rem;
-            text-align: center;
-        }
-
-        .eyebrow {
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            color: #777;
-            margin-bottom: 0.75rem;
-        }
-
-        .explainer-hero h1 {
-            margin-bottom: 1rem;
-            font-size: 1.9rem;
-        }
-
-        .intro {
-            color: #555;
-            line-height: 1.8;
-        }
-
-
-        /* --------------------------
-        Main Explainer Layout
-        -------------------------- */
-
-        .explainer-content {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 3rem;
-            align-items: start;
-        }
-
-
-        /* --------------------------
-        Sidebar
-        -------------------------- */
-
-        .explainer-sidebar {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
-
-        .mission-card,
-        .status-card {
-            background: #f8f8f8;
-            border-radius: 14px;
-            padding: 1.5rem;
-        }
-
-        .mission-card h2,
-        .status-card h2 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .mission-card p {
-            text-align: left;
-            font-size: 1rem;
-            line-height: 1.5;
-            margin-bottom: 0;
-        }
-
-        .status-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            gap: 1.5rem;
-            margin-top: 1rem;
-        }
-
-        .status-item .label {
-            display: flex;
-            flex-direction: column;
-            text-align: left;
-            line-height: 1.4;
-        }
-
-        .status-item small {
-            color: #666;
-            font-size: 0.85rem;
-            margin-top: 0.15rem;
-            opacity: 0.7;
-        }
-
-        .status-item strong {
-            font-weight: 600;
-            text-align: right;
-        }
-
-
-        /* --------------------------
-        Main Interactive Panel
-        -------------------------- */
-
-        .lab-panel {
-            background: #f8f8f8;
-            border-radius: 18px;
-            min-height: 450px;
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-
-        /* --------------------------
-        Lab Explanation
-        -------------------------- */
-
-        .lab-explained {
-            max-width: 1100px;
-            margin: 6rem auto;
-            padding: 0 2rem;
-            text-align: center;
-        }
-
-        .lab-intro {
-            margin-bottom: 4rem;
-        }
-
-        .lab-intro h2 {
-            margin-bottom: 1rem;
-        }
-
-        .lab-intro .section-intro {
-            font-size: 0.9rem;
-            color: #666;
-            line-height: 1.8;
-        }
-
-        .lab-content {
-            display: grid;
-            grid-template-columns: minmax(0, 650px) 320px;
-            justify-content: space-between;
-            align-items: start;
-            gap: 5rem;
-        }
-
-
-        /* --------------------------
-        Big Idea Sidebar
-        -------------------------- */
-
-        .lab-sidebar {
-            position: sticky;
-            top: 2rem;
-            background: #f8f8f8;
-            border-radius: 16px;
-            padding: 2rem;
-        }
-
-        .lab-sidebar h3 {
-            margin-bottom: 2rem;
-        }
-
-        .idea-item {
-            margin-bottom: 1.2rem;
-        }
-
-        .idea-item:last-child {
-            margin-bottom: 0;
-        }
-
-        .idea-item p {
-            color: #555;
-            line-height: 1.8;
-            margin: 0;
-        }
-
-
-        /* --------------------------
-            Next Lab
-            -------------------------- */
-
-        .next-lab-label {
-            margin-top: 2rem;
-            margin-bottom: 0.5rem;
-            font-size: 0.85rem;
-            font-weight: 600;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            color: #777;
-        }
-
-
-        /* --------------------------
-            Mobile
-            -------------------------- */
-
-        @media (max-width: 900px) {
-
-            .explainer-content {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-            }
-
-            .lab-content {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-            }
-
-            .lab-sidebar {
-                position: static;
-            }
-
-        }
-
-        /* --------------------------
-         AI Agent Demo Pieces
-        -------------------------- */
-        .dig-site {
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            position: relative;
-        }
-
-        .agent-icon {
-            width: 90px;
-            height: 90px;
-            border: 2px solid #222;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            font-size: 12px;
-        }
-
-        .layer-icon {
-            width: 90px;
-            height: 90px;
-            border: 2px solid #222;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 600;
-            font-size: 12px;
-        }
-
-
-        .dig-site p {
-            color: #666;
-            margin: 1.5rem 0 2rem;
-        }
-
-        #dig-button {
-            border: 0;
-            background: none;
-            font: inherit;
-            cursor: pointer;
-            text-decoration: underline;
-            text-underline-offset: 4px;
-        }
-
-
-        /* "fake the arc" have the layer move up and shrink when the user digs  */
-        .layer.dug {
-            transform:
-                translate(40px, -60px) scale(.75);
-
-            opacity: .65;
-        }
-
-        /* keep the layer hidden until the user digs */
-        .hidden {
-            opacity: 0;
-            transform: translateY(40px) scale(.8);
-            pointer-events: none;
-            position: absolute;
-        }
-
-        .layer.reveal {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-        }
-
-        .layer {
-            transition:
-                transform 700ms cubic-bezier(.22, 1, .36, 1),
-                opacity 700ms ease;
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/aiagents.css">
 </head>
 
 <body>
@@ -353,35 +41,41 @@
     <main class="explainer">
 
         <section class="explainer-hero">
-            <p class="eyebrow">Idea Lab</p>
 
             <h1>What AI Agents Are Built On</h1>
 
             <p class="intro">
                 AI might feel like a completely new layer of computing.<br>
-                But the foundations that ran the cloud now run the agent era.<br><br>
+                But the foundations that ran the cloud now run the agent era.
             </p>
         </section>
 
-        <section class="explainer-content">
+        <section class="excavation-exhibit">
 
-            <!-- Left Column -->
-            <aside class="explainer-sidebar">
+            <!-- Info cards -->
+            <div class="excavation-cards">
 
-                <div class="mission-card">
-                    <h2>Mission</h2>
+                <div class="excavation-card excavation-intro">
+
+                    <div class="card-heading">
+                        <span class="card-icon">🪏</span>
+                        <h2>The Excavation</h2>
+                    </div>
+
                     <p>
-                        Start at the surface. Dig beneath the AI agent to uncover the underlying mechanics.
+                        Start at the surface. Dig beneath the AI agent
+                        to uncover the underlying mechanics.
                     </p>
+
                 </div>
 
-                <div class="status-card">
-                    <h2>What You've Dug Up</h2>
+
+                <div class="excavation-card status-card">
+
+                    <h2>What You've Uncovered</h2>
 
                     <div class="status-item">
-                        <span class="label">
-                            Current Layer
-                        </span>
+                        <span class="label">Current Layer</span>
 
                         <strong id="current-layer">
                             AI Agent
@@ -389,9 +83,7 @@
                     </div>
 
                     <div class="status-item">
-                        <span class="label">
-                            Layer Responsibilities:
-                        </span>
+                        <span class="label">Layer Responsibilities</span>
 
                         <strong id="layer-responsibilities">
                             Turning a goal into action. Deciding what needs to happen next.
@@ -399,9 +91,7 @@
                     </div>
 
                     <div class="status-item">
-                        <span class="label">
-                            Layers Remaining
-                        </span>
+                        <span class="label">Layers Remaining</span>
 
                         <strong id="layers-remaining">
                             5
@@ -410,30 +100,38 @@
 
                 </div>
 
-            </aside>
+            </div>
 
-            <!-- Right Column -->
+
+            <!-- Interactive landscape -->
             <section class="lab-panel">
-                <div class="dig-site">
 
-                    <div class="layer active agent-icon">
-                        AI Agent
+                <div class="landscape">
+
+                    <div class="dig-site">
+
+                        <div class="layer active agent-icon">
+                            AI Agent
+                        </div>
+
+                        <div class="layer runtime-icon layer-icon hidden">
+                            Agent Runtime
+                        </div>
+
+                        <p class="dig-instruction">
+                            Dig to see what's underneath.
+                        </p>
+
+                        <button id="dig-button">
+                            🪏 Dig deeper ↓
+                        </button>
+
                     </div>
-
-                    <div class="layer runtime-icon layer-icon hidden">
-                        Agent Runtime
-                    </div>
-
-                    <p>How does it act?</p>
-
-                    <button id="dig-button">
-                        ⛏️ Dig deeper ↓
-                    </button>
 
                 </div>
 
-
             </section>
+
         </section>
 
         <!-- Explanation -->
@@ -446,7 +144,7 @@
                     Workloads in tech continue to change and evolve. But the need for predictable,
                     isolated, reproducible execution hasn't changed.<br>
                     The same principles that made the cloud possible now make AI agents possible.
-                    </p>
+                </p>
             </div>
 
             <div class="lab-content">
@@ -492,8 +190,6 @@
         <a href="craft.html" class="text-link">
             <span>←</span> Back to Behind the Work
         </a>
-
-    </main>
 
     </main>
 

@@ -1,0 +1,449 @@
+
+        /* --------------------------
+        Explainer
+        -------------------------- */
+
+        .explainer {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+
+
+        /* --------------------------
+        Hero
+        -------------------------- */
+
+        .explainer-hero {
+            max-width: 700px;
+            margin: 0 auto 1rem;
+            text-align: center;
+        }
+
+        .explainer-hero h1 {
+            margin-bottom: 1rem;
+            font-size: 1.9rem;
+        }
+
+        .intro {
+            color: #555;
+            line-height: 1.8;
+        }
+
+
+
+        /* =========================================================
+        EXCAVATION EXHIBIT
+        ========================================================= */
+
+        /* .excavation-exhibit {
+            margin-top: 1rem;
+        }*/
+
+
+        /* --------------------------
+        Top Cards
+        -------------------------- */
+
+        .excavation-cards {
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            gap: 4rem;
+
+            max-width: 1050px;
+            margin: 0 auto;
+
+            position: relative;
+            z-index: 3;
+
+            /* lets the cards overlap the dig site */
+            transform: translateY(60px);
+        }
+
+        .excavation-card {
+            border: 1px solid #d8d3cc;
+            border-radius: 12px;
+            padding: 1.75rem 2rem;
+            background: #fff;
+        }
+
+        .excavation-card h2 {
+            font-size: 1.25rem;
+            margin: 0;
+        }
+
+        .card-heading {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+
+            padding-bottom: 0.8rem;
+            margin-bottom: 1rem;
+
+            border-bottom: 1px solid #e5e1dc;
+        }
+
+        .card-icon {
+            font-size: 1.25rem;
+        }
+
+        .excavation-intro p {
+            max-width: 380px;
+            margin: 0;
+
+            font-size: 0.95rem;
+            line-height: 1.7;
+            text-align: left;
+        }
+
+
+        /* --------------------------
+        Status
+        -------------------------- */
+
+        .status-card h2 {
+            padding-bottom: 0.8rem;
+            margin-bottom: 0.75rem;
+            border-bottom: 1px solid #e5e1dc;
+        }
+
+        .status-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 0.8rem;
+        }
+
+        .status-item .label {
+            color: #555;
+            font-size: 0.9rem;
+        }
+
+        .status-item strong {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            font-weight: 600;
+            text-align: left;
+        }
+
+
+        /* --------------------------
+            Landscape / Lab
+            -------------------------- */
+        .dig-landscape {
+            width: 100%;
+            min-height: 480px;
+
+            position: relative;
+            overflow: hidden;
+
+            background-color: #faf8f4;
+            background-image: url("../img/dig-landscape.png");
+            background-repeat: no-repeat;
+            background-position: center bottom;
+            background-size: 100% auto;
+
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+
+            padding-top: 70px;
+        }
+
+        .landscape {
+            width: 100%;
+            min-height: 280px;
+
+            position: relative;
+
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+        }
+
+
+
+        /* --------------------------
+        Dig Site
+        -------------------------- */
+
+        .dig-site {
+            position: relative;
+            z-index: 2;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            padding-bottom: 3rem;
+        }
+
+        .agent-icon {
+            width: 150px;
+            height: 150px;
+
+            border: 2px solid #222;
+            border-radius: 50%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: #faf8f4;
+
+            font-size: 1rem;
+            font-weight: 600;
+
+            margin-bottom: 1.5rem;
+        }
+
+        .dig-instruction {
+            color: #555;
+            font-size: 0.95rem;
+            margin: 0 0 0.75rem;
+        }
+
+        #dig-button {
+            border: 0;
+            background: none;
+
+            font: inherit;
+            font-weight: 500;
+
+            cursor: pointer;
+
+            text-decoration: underline;
+            text-underline-offset: 5px;
+
+            padding: 0.25rem;
+        }
+
+        #dig-button:hover {
+            opacity: 0.6;
+        }
+
+
+        .status-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .status-item .label {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            line-height: 1.4;
+        }
+
+        .status-item small {
+            color: #666;
+            font-size: 0.85rem;
+            margin-top: 0.15rem;
+            opacity: 0.7;
+        }
+
+        .status-item strong {
+            font-weight: 600;
+            text-align: right;
+        }
+
+
+        /* --------------------------
+        Main Interactive Panel
+        -------------------------- */
+
+        .dig-landscape {
+            background: #f8f8f8;
+            border-radius: 18px;
+            min-height: 450px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+
+        /* --------------------------
+        Lab Explanation
+        -------------------------- */
+
+        .lab-explained {
+            max-width: 1100px;
+            margin: 6rem auto;
+            padding: 0 2rem;
+            text-align: center;
+        }
+
+        .lab-intro {
+            margin-bottom: 4rem;
+        }
+
+        .lab-intro h2 {
+            margin-bottom: 1rem;
+        }
+
+        .lab-intro .section-intro {
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .lab-content {
+            display: grid;
+            grid-template-columns: minmax(0, 650px) 320px;
+            justify-content: space-between;
+            align-items: start;
+            gap: 5rem;
+        }
+
+
+        /* --------------------------
+        Big Idea Sidebar
+        -------------------------- */
+
+        .lab-sidebar {
+            position: sticky;
+            top: 2rem;
+            background: #f8f8f8;
+            border-radius: 16px;
+            padding: 2rem;
+        }
+
+        .lab-sidebar h3 {
+            margin-bottom: 2rem;
+        }
+
+        .idea-item {
+            margin-bottom: 1.2rem;
+        }
+
+        .idea-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .idea-item p {
+            color: #555;
+            line-height: 1.8;
+            margin: 0;
+        }
+
+
+        /* --------------------------
+            Next Lab
+            -------------------------- */
+
+        .next-lab-label {
+            margin-top: 2rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #777;
+        }
+
+
+        /* --------------------------
+            Mobile
+            -------------------------- */
+
+        @media (max-width: 900px) {
+
+            .explainer-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .lab-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .lab-sidebar {
+                position: static;
+            }
+
+        }
+
+        /* --------------------------
+         AI Agent Demo Pieces
+        -------------------------- */
+        .dig-site {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+
+        .agent-icon {
+            width: 90px;
+            height: 90px;
+            border: 2px solid #222;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            font-size: 12px;
+        }
+
+        .layer-icon {
+            width: 90px;
+            height: 90px;
+            border: 2px solid #222;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 12px;
+        }
+
+
+        .dig-site p {
+            color: #666;
+            margin: 1.5rem 0 2rem;
+        }
+
+        #dig-button {
+            border: 0;
+            background: none;
+            font: inherit;
+            cursor: pointer;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+        }
+
+
+        /* "fake the arc" have the layer move up and shrink when the user digs  */
+        .layer.dug {
+            transform:
+                translate(40px, -60px) scale(.75);
+
+            opacity: .65;
+        }
+
+        /* keep the layer hidden until the user digs */
+        .hidden {
+            opacity: 0;
+            transform: translateY(40px) scale(.8);
+            pointer-events: none;
+            position: absolute;
+        }
+
+        .layer.reveal {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        .layer {
+            transition:
+                transform 700ms cubic-bezier(.22, 1, .36, 1),
+                opacity 700ms ease;
+        }

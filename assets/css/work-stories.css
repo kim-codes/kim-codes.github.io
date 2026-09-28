@@ -179,6 +179,53 @@
             transform: scaleX(-1);
         }
 
+        /* HACKTOBERFEST STYLING */
+
+        .hero-hack {
+            min-height: 0;
+            padding-bottom: 2rem;
+        }
+
+        /** hero img for auth0 hacktoberfest story */
+        .hacktoberfest {
+            position: relative;
+            width: 50%;
+            z-index: 2;
+            margin-top: 200px;
+        }
+
+        /* T-shirt + signpost */
+        .tshirt-img {
+            display: block;
+            width: 100%;
+            max-width: 380px;
+            height: auto;
+            margin: -30px auto 0;
+        }
+
+        /* Getting it off the ground */
+        .ground-img {
+            display: block;
+            width: 100%;
+            max-width: 360px;
+            height: auto;
+            margin: 20px auto 0 0;
+        }
+
+        /* --------------------------
+         Back to work
+        -------------------------- */
+
+        .story-back {
+            max-width: 1400px;
+            margin: 6rem auto 3rem;
+            padding: 0 70px;
+        }
+
+        .story-back .text-link {
+            margin-top: 0;
+        }
+
         @media (max-width: 900px) {
 
             .hero {
@@ -266,6 +313,22 @@
             .cloud-character {
                 max-width: 45%;
                 height: auto;
+            }
+
+            /* back button */
+
+            .story-back {
+                padding: 0 40px;
+            }
+
+            .tshirt-img {
+                max-width: 320px;
+                margin: 0 auto;
+            }
+
+            .ground-img {
+                max-width: 300px;
+                margin: 0 auto;
             }
         }
 
@@ -371,5 +434,23 @@
                 width: 100%;
                 max-width: 320px;
                 margin: 0 auto 20px;
+            }
+
+            /* back link */
+            .story-back {
+                margin: 4rem auto 2rem;
+                padding: 0 24px;
+            }
+
+            .tshirt-img {
+                width: 85%;
+                max-width: 300px;
+                margin: 0 auto;
+            }
+
+            .ground-img {
+                width: 80%;
+                max-width: 280px;
+                margin: 0 auto;
             }
         }

@@ -6,9 +6,9 @@ I wanted to create a small space on the internet to share things like case studi
 
 ## the build
 
-just plain HTML, css, js. no frameworks. this is done intentionally. I wanted to stay close to the fundamentals instead of letting a tool do the thinking for me.
+just plain HTML, css, js. no frameworks. this is done intentionally. I wanted to stay close to the fundamentals instead of letting an anything else do the thinking for me.
 
-The tradeoff is real. Without a framework, there's no shared component system. Things like the nav get copy/pasted and manually aded on every page. That means duplicate code, and occasional drift between pages while I'm iterating. I know... I'm working on it...
+The tradeoff is real. Without a framework, there's no shared component system. Things like the nav get copy/pasted and manually added to every page. resulting in duplicate code, inconsistent look and feel throughout the site. I tend to drift between pages while I'm in the flow . I know... I'm working on it...
 
 ## the site in 2D
 
@@ -17,12 +17,12 @@ The tradeoff is real. Without a framework, there's no shared component system. T
 ## worth noting
 
 #### some negatives 
-- css is all over the place. stylesheets, inline `<style>` tags... and tons of inconsistencies within the shared file itself. the downfall of working on the fly. 
-- things like not having `:root` custom properties, colors and spacing are hardcoded in a bunch of spots instead of centralized
+- css is all over the place. stylesheets, inline `<style>` tags... and tons of inconsistencies within the shared files . the downfall of working on the fly and wanting to get all my ideas out into the world.
+- colors, spacing, and more are hardcoded in a bunch of spots instead of being centralized properties 
 
 #### but also some positives 
 - page transitions run on the native Cross-Document View Transitions API, not js. For a multi-page static site, that's the right tool for the job.
-- my idea lab was/is the most fun. I learn through interaction, I want to stay true that. Most of the labs are based ideas I find fun and interesting. 
+- my idea lab was/is the most fun. I learn through interaction, and I want to stay true that. Most of the labs are based ideas I find fun and interesting. 
 
 #### other 
 - I try my best to keep everything in my words and tone. But sometimes that gets tough, the reality of today's world, when you want to move fast and ship things...

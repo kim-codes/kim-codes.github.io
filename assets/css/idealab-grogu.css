@@ -699,6 +699,7 @@
        Responsive
     -------------------------- */
 
+
     @media (min-width: 751px) and (max-width: 1200px) {
 
         .explainer {
@@ -730,6 +731,10 @@
             width: 100%;
         }
 
+        .galaxy-panel p {
+            margin-top: 7rem;
+            margin-bottom: 1.5rem;
+        }
 
         /* Undo desktop overlap positioning */
 
@@ -1009,6 +1014,11 @@
 
         .galaxy-container {
             display: none;
+        }
+
+        .galaxy-panel {
+            left: auto;
+            min-height: auto;
         }
 
 

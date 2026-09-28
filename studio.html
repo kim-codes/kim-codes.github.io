@@ -56,8 +56,6 @@
 
                 <h1>Search Beacons</h1>
 
-                <img src="assets/img/beacons-underline.png" class="search-underline" alt="" aria-hidden="true">
-
                 <p class="explainer-subtitle">
                     Finding Meaning in the Galaxy
                 </p>
@@ -88,59 +86,58 @@
                     </div>
 
                     <!-- SEARCH STATUS CARD -->
-
-                    <div class="status-card">
-
-                        <h2>Active Search Beacon</h2>
-
-                        <span class="status-note" aria-hidden="true">
+                    <div class="status-wrap">
+                        <span class="status-note">
                             this updates<br>
                             as you move! ↓
                         </span>
 
-                        <!-- Query -->
-                        <div class="status-item">
-                            <span class="label">Query</span>
+                        <div class="status-card">
 
-                            <strong id="query-text"></strong>
+                            <h2>Active Search Beacon</h2>
+
+                            <!-- Query -->
+                            <div class="status-item">
+                                <span class="label">Query</span>
+
+                                <strong id="query-text"></strong>
+                            </div>
+
+                            <!-- Explore Lens -->
+                            <div class="status-item">
+
+                                <span class="label">
+                                    Explore Lens Location
+
+                                    <small class="coordinate-label">
+                                        <img src="assets/img/target-icon.png" class="target-icon" alt=""
+                                            aria-hidden="true">
+                                        (Embedding Coordinates)
+                                    </small>
+
+                                </span>
+
+                                <strong id="explore-coordinates">
+                                    X: 0.42<br>
+                                    Y: -0.18<br>
+                                    Z: 0.76
+                                </strong>
+
+                            </div>
+
+                            <!-- Nearest -->
+                            <div class="status-item">
+
+                                <span class="label">
+                                    Nearby Signals
+                                    <small>(Nearest Neighbors)</small>
+                                </span>
+
+                                <div id="neighbors-status">—</div>
+
+                            </div>
+
                         </div>
-
-                        <!-- Explore Lens -->
-                        <div class="status-item">
-
-                            <span class="label">
-                                Explore Lens Location
-
-                                <small class="coordinate-label">
-                                    <img src="assets/img/target-icon.png" class="target-icon" alt="" aria-hidden="true">
-                                    (Embedding Coordinates)
-                                </small>
-
-                                <small class="move-hint">
-                                    <strong>Move me to explore!</strong>
-                                </small>
-                            </span>
-
-                            <strong id="explore-coordinates">
-                                X: 0.42<br>
-                                Y: -0.18<br>
-                                Z: 0.76
-                            </strong>
-
-                        </div>
-
-                        <!-- Nearest -->
-                        <div class="status-item">
-
-                            <span class="label">
-                                Nearby Signals
-                                <small>(Nearest Neighbors)</small>
-                            </span>
-
-                            <div id="neighbors-status">—</div>
-
-                        </div>
-
                     </div>
                 </aside>
 

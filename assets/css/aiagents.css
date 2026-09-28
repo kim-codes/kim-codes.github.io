@@ -428,13 +428,11 @@
 
     /* notebook rules */
     background-image:
-        repeating-linear-gradient(
-            to bottom,
+        repeating-linear-gradient(to bottom,
             transparent 0,
             transparent 31px,
             rgba(90, 110, 100, 0.10) 31px,
-            rgba(90, 110, 100, 0.10) 32px
-        );
+            rgba(90, 110, 100, 0.10) 32px);
 
     border: 1px solid #e1e5e1;
     border-radius: 4px;
@@ -572,6 +570,9 @@
     text-align: left;
 }
 
+.hand-arrow-back {
+    transform: scaleX(-1);
+}
 
 /* =========================================================
    RESPONSIVE
@@ -654,10 +655,7 @@
 
     .lab-sidebar {
         padding:
-            2.25rem
-            1.5rem
-            2rem
-            3.75rem;
+            2.25rem 1.5rem 2rem 3.75rem;
     }
 
     .lab-sidebar::before {

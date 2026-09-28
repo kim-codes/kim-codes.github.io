@@ -49,20 +49,20 @@
 
 
     /* --------------------------
-       Main demo layout
-    -------------------------- */
+   Main demo layout
+   -------------------------- */
 
     .explainer-content {
-        display: grid;
-        grid-template-columns: 1fr 2fr;
-        gap: 3rem;
-        align-items: start;
+        position: relative;
+
+        max-width: 740px;
+        margin: 0 auto;
+
+        display: block;
     }
 
     .explainer-sidebar {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
+        position: static;
     }
 
 
@@ -71,55 +71,40 @@
     -------------------------- */
 
     .mission-card {
-        position: relative;
-        overflow: hidden;
-        background: #f8f8f8;
-        ;
-        border-radius: 3px 8px 5px 4px;
+        position: absolute;
 
+        left: -180px;
+        top: 20px;
+        z-index: 3;
+
+        width: 320px;
         padding: 1.5rem;
 
-        transform: rotate(-0.5deg);
-        transform-origin: center;
+        background: #dce9d5;
+        border: 1px solid rgba(47, 125, 91, 0.10);
+        border-radius: 10px;
 
         box-shadow:
-            0 3px 5px rgba(0, 0, 0, 0.055),
-            0 1px 1px rgba(0, 0, 0, 0.025);
+            0 4px 12px rgba(0, 0, 0, 0.055),
+            0 1px 2px rgba(0, 0, 0, 0.025);
+
+        transform: rotate(-0.35deg);
+        transform-origin: center;
     }
 
     .mission-card h2 {
         margin: 0 0 0.75rem;
+
         font-size: 1.5rem;
         font-weight: 600;
     }
 
     .mission-card p {
         margin: 0;
+
         text-align: left;
-        font-size: 1rem;
+        font-size: 0.8rem;
         line-height: 1.55;
-    }
-
-
-    /* tiny folded paper corner */
-
-    .mission-card::after {
-        content: "";
-        position: absolute;
-        right: 0;
-        bottom: 0;
-
-        width: 20px;
-        height: 20px;
-
-        background:
-            linear-gradient(135deg,
-                rgba(0, 0, 0, 0.045) 0%,
-                rgba(0, 0, 0, 0.015) 48%,
-                #fff 50%,
-                #fff 100%);
-
-        border-radius: 2px 0 0 0;
     }
 
 
@@ -127,24 +112,46 @@
        Active Search Beacon card
     -------------------------- */
 
+    .status-wrap {
+        position: absolute;
+        left: -180px;
+        right: auto;
+
+        top: 310px;
+        bottom: auto;
+
+        z-index: 3;
+    }
+
     .status-card {
         position: relative;
+        right: auto;
+        bottom: auto;
+        z-index: 3;
 
-        background: #f3faef;
-        border: 1px solid rgba(47, 125, 91, 0.07);
-        border-radius: 7px 4px 8px 5px;
-
+        width: 320px;
         padding: 1.5rem;
+
+        background: #132231;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 10px;
+
+        color: #fff;
+        font-size: 0.9rem;
+
+        box-shadow:
+            0 5px 14px rgba(0, 0, 0, 0.12),
+            0 1px 2px rgba(0, 0, 0, 0.08);
 
         transform: rotate(0.25deg);
         transform-origin: center;
-
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.035);
     }
 
+
     .status-card h2 {
-        margin: 0 0 2.8rem;
-        font-size: 1.5rem;
+
+        color: #fff;
+        font-size: 1.3rem;
         font-weight: 600;
     }
 
@@ -155,20 +162,43 @@
 
     .status-note {
         position: absolute;
-        top: 3.4rem;
-        right: 1.25rem;
 
+        top: -55px;
+        left: 50px;
+
+        color: #383737;
         font-family: "Caveat", cursive;
-        font-size: 1.05rem;
-        font-weight: 500;
-        letter-spacing: 0.01em;
-        line-height: 0.95;
-
+        font-size: 1.3rem;
+        line-height: 1.05;
         text-align: center;
-        color: #3d3d3d;
 
-        transform: rotate(-5deg);
+        transform: rotate(-3deg);
+        white-space: nowrap;
     }
+
+
+    /* text inside the dark card */
+
+    .status-card .status-item .label,
+    .status-card .status-item strong,
+    .status-card #query-text,
+    .status-card #explore-coordinates,
+    .status-card #neighbors-status {
+        color: #fff;
+    }
+
+    .status-card .status-item small {
+        color: rgba(255, 255, 255, 0.58);
+    }
+
+    .status-card .move-hint strong {
+        color: rgba(255, 255, 255, 0.65);
+    }
+
+    .status-card .status-note {
+        color: rgba(255, 255, 255, 0.72);
+    }
+
 
 
     /* --------------------------
@@ -240,15 +270,6 @@
         flex-shrink: 0;
     }
 
-    .move-hint {
-        margin-top: 0.35rem !important;
-        font-style: italic;
-    }
-
-    .move-hint strong {
-        color: #777;
-        font-weight: 600;
-    }
 
     #explore-coordinates {
         width: 145px;
@@ -277,10 +298,13 @@
     -------------------------- */
 
     .galaxy-panel {
+        position: relative;
+        min-height: 650px;
         background: #09131f;
         border-radius: 18px;
-        min-height: 650px;
-        position: relative;
+
+        left: 45px;
+
         overflow: hidden;
     }
 
@@ -370,7 +394,7 @@
     }
 
     .c3p0 {
-        fill: #D4Af37;
+        fill: #C49A32;
         stroke: white;
         stroke-width: 2;
     }
@@ -675,7 +699,7 @@
        Responsive
     -------------------------- */
 
-    @media (min-width: 750px) and (max-width: 900px) {
+    @media (min-width: 751px) and (max-width: 1200px) {
 
         .explainer {
             padding-left: 1rem;
@@ -683,76 +707,127 @@
         }
 
         .explainer-content {
-            grid-template-columns: 220px minmax(0, 1fr);
+            display: grid;
+            grid-template-columns: 240px minmax(0, 1fr);
             gap: 1rem;
+
+            width: 100%;
+            max-width: 900px;
+
+            margin: 0 auto;
+
+            align-items: start;
         }
+
+
+        /* LEFT COLUMN */
 
         .explainer-sidebar {
-            gap: 0.75rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+
+            width: 100%;
         }
 
+
+        /* Undo desktop overlap positioning */
+
+        .mission-copy,
+        .mission-card,
+        .status-card,
+        .beacon-status {
+            position: static;
+
+            top: auto;
+            right: auto;
+            bottom: auto;
+            left: auto;
+
+            transform: none;
+
+            width: 100%;
+            max-width: none;
+
+            margin: 0;
+        }
+
+
+        /* Mission */
+
         .mission-card {
+            box-sizing: border-box;
             padding: 1rem;
         }
 
         .mission-card h2 {
+            margin: 0 0 0.65rem;
+
             font-size: 1.15rem;
-            margin-bottom: 0.5rem;
         }
 
         .mission-card p {
-            font-size: 0.8rem;
-            line-height: 1.45;
+            margin: 0 0 0.7rem;
+
+            font-size: 0.7rem;
+            line-height: 1.5;
+        }
+
+        .mission-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Status */
+
+        .status-wrap {
+            position: static;
+            right: auto;
+            bottom: auto;
+
+            width: 100%;
+            margin: 0;
         }
 
         .status-card {
+            display: block;
+            position: relative;
+
+            width: 100%;
+            max-width: none;
+
+            margin: 0;
             padding: 1rem;
-        }
 
-        .status-card h2 {
-            font-size: 1.15rem;
-            margin-bottom: 2.3rem;
-        }
-
-        .status-note {
-            top: 2.8rem;
-            right: 0.75rem;
-
-            font-size: 0.85rem;
-            line-height: 0.9;
+            transform: none;
         }
 
         .status-item {
-            grid-template-columns: minmax(0, 1fr) 78px;
-            column-gap: 0.65rem;
+            grid-template-columns: minmax(0, 1fr) 72px;
+            column-gap: 0.6rem;
+
             margin-top: 1rem;
         }
 
         .status-item .label {
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             line-height: 1.3;
         }
 
         .status-item small {
             font-size: 0.65rem;
-            line-height: 1.25;
+            line-height: 1.3;
         }
 
         .status-item strong {
-            font-size: 0.8rem;
+            font-size: 0.75rem;
         }
-
-        .galaxy-panel {
-            min-height: 500px;
-        }
-
-        /* Dynamic values */
 
         #query-text,
         #explore-coordinates,
         #neighbors-status {
-            width: 78px;
-            font-size: 0.8rem;
+            width: 72px;
+
+            font-size: 0.75rem;
         }
 
         #explore-coordinates {
@@ -760,63 +835,77 @@
         }
 
         #neighbors-status {
-            line-height: 1.45;
+            line-height: 1.4;
         }
 
-        .target-icon {
-            width: 15px;
-        }
-    }
 
-    @media (min-width: 901px) and (max-width: 1000px) {
-
-        .explainer {
-            padding-left: 1rem;
-            padding-right: 1rem;
-        }
-
-        .explainer-content {
-            grid-template-columns: 280px minmax(0, 1fr);
-            gap: 1.25rem;
-        }
-
-        .mission-card,
-        .status-card {
-            padding: 1.25rem;
-        }
-
-        .mission-card h2,
-        .status-card h2 {
-            font-size: 1.3rem;
-        }
-
-        .mission-card p {
-            font-size: 0.9rem;
-            line-height: 1.5;
-        }
-
-        .status-item {
-            grid-template-columns: minmax(0, 1fr) 90px;
-            column-gap: 0.75rem;
-        }
-
-        #query-text,
-        #explore-coordinates,
-        #neighbors-status {
-            width: 90px;
-        }
+        /* Remove desktop handwritten annotation */
 
         .status-note {
-            right: 0.8rem;
-            font-size: 0.95rem;
+            display: none;
         }
 
         .move-hint {
             display: none;
         }
+
+
+        /* RIGHT COLUMN — GALAXY */
+
+        .galaxy-container {
+            display: block;
+
+            position: relative;
+
+            width: 100%;
+            min-width: 0;
+
+            margin: 0;
+        }
+
+        .galaxy-panel {
+            position: relative;
+
+            top: auto;
+            right: auto;
+            bottom: auto;
+            left: auto;
+
+            transform: none;
+
+            box-sizing: border-box;
+
+            width: 100%;
+            max-width: none;
+            min-height: 500px;
+
+            margin: 0;
+        }
+
+        /* Explanation section */
+
+        .galaxy-explained {
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+        }
+
+        .galaxy-content {
+            grid-template-columns: minmax(0, 1fr) 280px;
+            gap: 2.5rem;
+        }
+
+        .galaxy-sidebar {
+            padding: 1.75rem 1.5rem 1.5rem 2.75rem;
+        }
+
+
+        /* Mobile fallback should NOT appear on tablet */
+
+        .mobile-message {
+            display: none;
+        }
     }
 
-    /* Mobile: show message, hide interactive demo */
 
     @media (max-width: 750px) {
 
@@ -824,33 +913,63 @@
             padding: 3rem 1.25rem;
         }
 
+
+        /* HERO */
+
         .explainer-hero h1 {
             font-size: 3.2rem;
         }
 
         .search-underline {
             width: 300px;
+            max-width: 90%;
         }
 
         .explainer-subtitle {
             font-size: 2rem;
         }
 
-        .mobile-message {
+
+        /* ONE COLUMN */
+
+        .explainer-content {
+            display: flex;
+            flex-direction: column;
+
+            width: 100%;
+            max-width: none;
+
+            margin: 0 auto;
+            gap: 1rem;
+        }
+
+        .explainer-sidebar {
             display: block;
+
+            width: 100%;
+            margin: 0;
         }
 
-        .galaxy-container {
-            display: none;
-        }
 
-        .status-card {
-            display: none;
-        }
+        /* MISSION */
 
-        .galaxy-panel {
-            min-height: auto;
-            padding: 3rem 2rem;
+        .mission-copy,
+        .mission-card {
+            position: static;
+
+            top: auto;
+            right: auto;
+            bottom: auto;
+            left: auto;
+
+            transform: none;
+
+            box-sizing: border-box;
+
+            width: 100%;
+            max-width: none;
+
+            margin: 0;
         }
 
         .mission-card {
@@ -858,31 +977,123 @@
         }
 
         .mission-card h2 {
+            margin: 0 0 0.5rem;
+
             font-size: 1.15rem;
-            margin-bottom: 0.5rem;
         }
 
         .mission-card p {
-            font-size: 0.8rem;
+            margin: 0 0 0.65rem;
+
+            font-size: 0.7rem;
             line-height: 1.45;
         }
 
-        /* stack the sidebar and galaxy panel vertically on mobile */
-        .explainer-content {
-            grid-template-columns: 1fr;
+        .mission-card p:last-child {
+            margin-bottom: 0;
         }
 
-        .explainer-sidebar {
-            order: 0;
+
+        /* STATUS IS GONE */
+
+        .status-card,
+        .beacon-status,
+        .status-note,
+        .status-wrap,
+        .move-hint {
+            display: none;
         }
 
-        .galaxy-panel {
-            order: 1;
+
+        /* INTERACTIVE GALAXY IS GONE */
+
+        .galaxy-container {
+            display: none;
+        }
+
+
+        /* DESKTOP EXPERIENCE REPLACEMENT */
+
+        .mobile-message {
+            display: block;
+
+            position: static;
+
+            top: auto;
+            right: auto;
+            bottom: auto;
+            left: auto;
+
+            transform: none;
+
+            box-sizing: border-box;
+
+            width: 100%;
+            max-width: none;
+
+            height: auto;
+            min-height: 0;
+
+            margin: 0;
+            padding: 2rem 1.5rem;
+
+            text-align: center;
+        }
+
+        .mobile-message h2 {
+            margin: 0 0 0.75rem;
+
+            font-size: 1.5rem;
+        }
+
+        .mobile-message p {
+            margin: 0;
+
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        /* Explanation section */
+
+        .galaxy-explained {
+            margin: 4rem auto;
+            padding: 0;
         }
 
         .galaxy-content {
             grid-template-columns: 1fr;
+            gap: 3rem;
             padding-top: 0;
         }
 
+        .galaxy-sidebar {
+            position: relative;
+            top: auto;
+
+            width: calc(100% - 32px);
+            margin: 0 auto;
+
+            padding: 1.75rem 1.4rem 1.5rem 2.75rem;
+
+            transform: rotate(0.4deg);
+        }
+
+        .next-lab {
+            margin-top: 2rem;
+            padding-top: 1.25rem;
+        }
+
+        .next-lab-content {
+            grid-template-columns: 1fr;
+            gap: 0.6rem;
+        }
+
+        .coming-soon {
+            font-size: 1.15rem;
+        }
+
+        .next-lab-title {
+            font-size: 0.75rem;
+            line-height: 1.4;
+        }
     }

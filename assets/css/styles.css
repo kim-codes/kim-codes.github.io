@@ -328,6 +328,11 @@
       color: #666;
   }
 
+  /* flip arrow for back btn */
+  .hand-arrow-back {
+      transform: scaleX(-1);
+  }
+
   /** share btn **/
 
   .lab-footer-actions {

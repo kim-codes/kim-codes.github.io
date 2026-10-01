@@ -39,7 +39,7 @@ tracking as much as I can in [issues](../../issues)
 ## keeping it healthy
 
 The playful parts of this site shouldn't come at the expense of performance or accessibility. 
-I periodically check it:
+I periodically check it: 
 
 - [PageSpeed Insights](https://pagespeed.web.dev/) — performance and Core Web Vitals
 - [WAVE](https://wave.webaim.org/) — accessibility

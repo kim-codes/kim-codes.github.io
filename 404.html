@@ -151,7 +151,7 @@
     <header>
 
         <a href="/" class="logo">
-            <img src="assets/img/kimcodes-gummy-twist.webp" alt="kimcodes">
+            <img src="/assets/img/kimcodes-gummy-twist.webp" alt="kimcodes">
         </a>
 
         <nav>
@@ -170,7 +170,7 @@
 
         <section class="error-content">
 
-            <img src="assets/img/404-robot.png" alt="404 error with a small unplugged robot" class="error-illustration">
+            <img src="/assets/img/404-robot.png" alt="404 error with a small unplugged robot" class="error-illustration">
 
             <h1>Oops... this page isn't here <span>(yet).</span></h1>
 
@@ -207,7 +207,7 @@
         const backLink = document.getElementById('error-back-link');
         const backText = backLink.querySelector('span');
 
-        // Check whether the visitor came from another page on the sire
+        // Check whether the visitor came from another page on the site
         if (document.referrer) {
             try {
                 const previousPage = new URL(document.referrer);

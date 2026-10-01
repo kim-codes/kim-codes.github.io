@@ -11,14 +11,54 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <style>
+        .site-feedback {
+            max-width: 300px;
+            margin-top: 2.5rem;
+
+            color: #666;
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+
+        .site-feedback a {
+            color: #555;
+            text-decoration: none;
+            white-space: nowrap;
+            font-weight: 500;
+
+            background-image: linear-gradient(currentColor, currentColor);
+            background-size: 0% 1px;
+            background-position: left bottom;
+            background-repeat: no-repeat;
+
+            transition: background-size 0.25s ease, color 0.2s ease;
+        }
+
+        .site-feedback a:hover {
+            color: #222;
+            background-size: 100% 1px;
+        }
+
+        .site-feedback a span {
+            display: inline-block;
+            margin-left: 2px;
+            transition: transform 0.2s ease;
+        }
+
+        .site-feedback a:hover span {
+            transform: translate(2px, -2px);
+        }
+    </style>
 
 </head>
 
 <body>
     <header>
-        <a href="index.html" class="logo">
-            <img src="assets/img/kimcodes-gummy-twist.webp" alt="Kim Codes">
+        <a href="/" class="logo">
+            <img src="/assets/img/kimcodes-gummy-twist.webp" alt="Kim Codes">
         </a>
 
         <nav>
@@ -42,38 +82,47 @@
 
                 <div class="contact-text">
 
-                                <p class="contact-intro">
-                Every project and opportunity on this site started with someone reaching out, asking a question, or
-                sharing an idea.
-                <br><br>
-                Maybe this one will too.
-            </p>
+                    <p class="contact-intro">
+                        Every project and opportunity on this site started with someone reaching out, asking a question,
+                        or
+                        sharing an idea.
+                        <br><br>
+                        Maybe this one will too.
+                    </p>
 
 
                     <div class="contact-links">
 
                         <a href="https://www.linkedin.com/in/kimcodes/" target="_blank" rel="noopener noreferrer">
-                            LinkedIn <span>→</span>
+                            LinkedIn 
                         </a>
 
                         <a href="https://stackoverflow.com/users/6696446/kimcodes" target="_blank"
                             rel="noopener noreferrer">
-                            Stack Overflow <span>→</span>
+                            Stack Overflow 
                         </a>
 
                         <a href="https://github.com/kim-codes" target="_blank" rel="noopener noreferrer">
-                            GitHub <span>→</span>
+                            GitHub
                         </a>
 
                         <a href="https://dev.to/kimcodes" target="_blank" rel="noopener noreferrer">
-                            Dev.to <span>→</span>
+                            Dev.to
                         </a>
 
                         <a href="https://medium.com/@kimcodes" target="_blank" rel="noopener noreferrer">
-                            Medium <span>→</span>
+                            Medium 
                         </a>
 
                     </div> <!-- end of contact links -->
+
+                    <p class="site-feedback">
+                        Built in the open. Spot something I could improve?
+                        <a href="https://github.com/kim-codes/kim-codes.github.io/issues/new" target="_blank"
+                            rel="noopener noreferrer">
+                            Tell me on GitHub <span>&lt;/&gt;</span>
+                        </a>
+                    </p>
 
                     <!--<div class="currently">
     
@@ -91,7 +140,7 @@
 
                 <div class="contact-illustration">
 
-                    <img src="assets/img/kimcodes-conversation.png" alt="Illustration of Kim">
+                    <img src="/assets/img/kimcodes-conversation.png" alt="Illustration of Kim">
 
                 </div>
 

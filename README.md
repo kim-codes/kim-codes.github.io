@@ -14,6 +14,29 @@ The tradeoff is real. Without a framework, there's no shared component system. T
 
 <img src="assets/img/kimcodes-sitemap.png" alt="Site map showing kim.codes page structure" width="600">
 
+## under the hood 
+deliberately simple static site: HTML, CSS, and vanilla JavaScript.
+
+```text
+kim.codes/
+├── index.html
+├── constants.html
+├── craft.html
+├── reflections.html
+├── footprints.html
+├── contact.html
+│
+├── labs/
+│   ├── search-beacons.html
+│   ├── program-pulse.html
+│   └── ai-agents.html
+│
+└── assets/
+    ├── css/
+    ├── js/
+    └── img/
+```
+
 ## worth noting
 
 #### some negatives 
@@ -27,7 +50,6 @@ The tradeoff is real. Without a framework, there's no shared component system. T
 #### other 
 - I try my best to keep everything in my words and tone. But sometimes that gets tough, the reality of today's world, when you want to move fast and ship things...
 
-
 ## status
 
 under construction. probably always will be. 
@@ -38,7 +60,7 @@ tracking as much as I can in [issues](../../issues)
 
 ## keeping it healthy
 
-The playful parts of this site shouldn't come at the expense of performance or accessibility. 
+the playful parts of this site shouldn't come at the expense of performance or accessibility. 
 I periodically check it: 
 
 - [PageSpeed Insights](https://pagespeed.web.dev/) — performance and Core Web Vitals

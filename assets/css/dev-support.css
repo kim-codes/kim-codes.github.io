@@ -48,7 +48,7 @@
 
 .section-copy {
     max-width: 620px;
-    margin-bottom: 2.5rem;
+    margin-bottom: 2rem;
 }
 
 .section-copy h2 {
@@ -149,6 +149,322 @@
     border-color: #242220;
 }
 
+/* =========================================================
+   EXPLAIN THE SYSTEM
+   ========================================================= */
+
+.explain-section {
+    margin-top: 8rem;
+}
+
+
+/* Request / response
+   -------------------------- */
+
+.claim-comparison {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.9rem;
+
+    max-width: 580px;
+    margin: 1rem 0 3.5rem;
+}
+
+.claim-example {
+    padding: 1rem 1.15rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.claim-label {
+    display: block;
+    margin-bottom: 0.5rem;
+
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    color: #777;
+}
+
+.claim-example code {
+    font-family: 'Courier New', monospace;
+    font-size: 0.76rem;
+    line-height: 1.55;
+    color: #242220;
+}
+
+
+/* Inline technical terms
+   -------------------------- */
+
+.inline-code {
+    padding: 0.1rem 0.3rem;
+
+    font-family: 'Courier New', monospace;
+    font-size: 0.85em;
+
+    background: #f3f3f1;
+    border-radius: 3px;
+}
+
+
+/* Solution
+   -------------------------- */
+
+.claim-solution {
+    max-width: 620px;
+    margin-top: 2.5rem;
+}
+
+.claim-solution pre {
+    margin: 0;
+    padding: 1.4rem 1.5rem;
+
+    overflow-x: auto;
+
+    background: #f5f5f3;
+    border-radius: 6px;
+}
+
+.claim-solution pre code {
+    font-family: 'Courier New', monospace;
+    font-size: 0.8rem;
+    line-height: 1.75;
+    color: #242220;
+}
+
+.claim-solution p {
+    max-width: 560px;
+    margin: 1rem 0 0;
+
+    font-size: 0.85rem;
+    line-height: 1.7;
+    color: #777;
+}
+
+.example-note {
+    max-width: 560px;
+    margin-top: 1.5rem;
+    font-size: 0.72rem;
+    line-height: 1.6;
+    color: #8a8681;
+}
+
+/* =========================================================
+   PRODUCT FEEDBACK
+   ========================================================= */
+
+.product-feedback-section {
+    margin-top: 8rem;
+}
+
+.reproduction-example {
+    max-width: 480px;
+    margin: 1.5rem 0 3rem;
+}
+
+.rule-example {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.rule-field {
+    padding: 1rem 1.15rem;
+}
+
+.rule-field span {
+    display: block;
+    margin-bottom: 0.5rem;
+
+    font-size: 0.68rem;
+    font-weight: 500;
+    color: #777;
+}
+
+.rule-field code {
+    font-family: 'Courier New', monospace;
+    font-size: 0.78rem;
+    color: #242220;
+}
+
+.rule-error {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    padding: 0.7rem 1.15rem;
+
+    border-top: 1px solid #e5e5e5;
+
+    font-size: 0.75rem;
+    color: #777;
+}
+
+.error-mark {
+    font-size: 1rem;
+    line-height: 1.2;
+}
+
+.error-message {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+
+.error-message strong {
+    font-weight: 500;
+    color: #555;
+}
+
+.error-message code {
+    font-family: 'Courier New', monospace;
+    font-size: 0.75rem;
+    color: #555;
+}
+
+/* --------------------------
+   Interactive rule solution
+   -------------------------- */
+
+.rule-reveal {
+    margin-top: 1rem;
+}
+
+
+/* Button */
+
+.rule-reveal-button {
+    display: inline-block;
+
+    padding: 0.6rem 0.9rem;
+
+    background: #242220;
+    border: 1px solid #242220;
+    border-radius: 4px;
+
+    font-family: inherit;
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: #fff;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease;
+}
+
+.rule-reveal-button:hover {
+    background: transparent;
+    color: #242220;
+}
+
+.rule-reveal-button:focus-visible {
+    outline: 2px solid #242220;
+    outline-offset: 3px;
+}
+
+
+/* Revealed solution */
+
+.rule-solution {
+    margin-top: 1.25rem;
+    padding: 1.1rem 1.2rem;
+
+    background: #f5f5f3;
+    border-radius: 5px;
+}
+
+
+/* Before / after rule name */
+
+.rule-name-change {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    margin-bottom: 0.75rem;
+}
+
+.rule-name-change code {
+    font-family: 'Courier New', monospace;
+    font-size: 0.78rem;
+}
+
+.rule-name-before {
+    color: #999;
+    text-decoration: line-through;
+    text-decoration-color: #aaa;
+}
+
+.rule-name-after {
+    color: #242220;
+    font-weight: 500;
+}
+
+
+/* Success */
+
+.rule-success {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+
+    margin-bottom: 0.7rem;
+
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: #444;
+}
+
+
+/* Explanation */
+
+.rule-solution p {
+    margin: 0;
+
+    font-size: 0.72rem;
+    line-height: 1.6;
+    color: #777;
+}
+
+.rule-solution p code {
+    font-family: 'Courier New', monospace;
+    font-size: 0.72rem;
+    color: #555;
+}
+
+.closing-section {
+    margin-top: 8rem;
+    margin-bottom: 3.5rem;
+}
+
+.story-note {
+    max-width: 620px;
+    margin: 0 0 4rem;
+    padding-top: 1.25rem;
+
+    border-top: 1px solid #e5e5e5;
+}
+
+.story-note p {
+    margin: 0 0 0.4rem;
+
+    font-size: 0.7rem;
+    line-height: 1.6;
+    color: #8a8681;
+}
+
+.story-note p:last-child {
+    margin-bottom: 0;
+}
+
+/** override **/
+.story-back {
+    margin-top: 0;
+}
+
 
 /* =========================================================
    RESPONSIVE
@@ -191,5 +507,43 @@
 
     .code-window code {
         font-size: 0.75rem;
+    }
+
+    .explain-section {
+        margin-top: 6rem;
+    }
+
+    .claim-comparison {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+    }
+
+    .claim-example {
+        padding: 1.1rem 1.2rem;
+    }
+
+    .claim-example code {
+        font-size: 0.76rem;
+    }
+
+    .claim-solution pre {
+        padding: 1.25rem;
+    }
+
+    .product-feedback-section {
+        margin-top: 6rem;
+    }
+
+    .reproduction-example {
+        max-width: 100%;
+    }
+
+    .closing-section {
+        margin-top: 6rem;
+        margin-bottom: 3rem;
+    }
+
+    .story-note {
+        margin-bottom: 3.5rem;
     }
 }

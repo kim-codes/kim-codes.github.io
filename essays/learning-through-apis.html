@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Learning through APIs | kimcodes</title>
+
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600&family=Caveat:wght@500&family=Dancing+Script:wght@500&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/technology.css">
+    <link rel="stylesheet" href="/assets/css/apis.css">
+
+</head>
+
+<body>
+
+    <header>
+
+        <a href="/" class="logo">
+            <img src="/assets/img/kimcodes-gummy-twist.webp" alt="kimcodes">
+        </a>
+
+        <nav>
+            <ul>
+                <li><a href="/constants.html">Constants</a></li>
+                <li><a href="/craft.html">Craft</a></li>
+                <li><a href="/reflections.html">Reflections</a></li>
+                <li><a href="/footprints.html">Footprints</a></li>
+                <li><a href="/contact.html">Say Hello</a></li>
+            </ul>
+        </nav>
+
+    </header>
+
+
+    <main class="technology-page">
+
+        <!-- INTRO -->
+        <section class="essay-intro">
+
+            <h1>Learning Through APIs</h1>
+
+            <div class="intro-copy">
+                <p>
+                    I found an old GraphQL workshop I wrote almost ten years ago.
+                </p>
+
+                <p>
+                    Some of it has aged exactly how you'd expect a ten year old technical
+                    workshop to age. Old screenshots. Old setup instructions. A few things
+                    I would definitely explain differently today.
+                </p>
+
+                <p>
+                    But going through it again reminded me of how fun it is to break something
+                    down and learn a new technology. For myself or for others.
+                </p>
+            </div>
+
+        </section>
+
+
+        <!-- SECTION 01 -->
+        <section class="essay-section">
+
+            <div class="section-heading">
+                <h2>Start with the problem</h2>
+                <p class="section-thought">
+                    How does an app get information from somewhere else
+                </p>
+            </div>
+
+            <div class="artifact-row">
+
+                <div class="section-copy">
+                    <p>
+                        The workshop started with APIs and REST before getting anywhere near
+                        GraphQL. An application makes a request, another system sends something
+                        back, and the application uses that response.
+                    </p>
+
+                    <p>
+                        REST gave us a familiar starting point: resources, URLs and JSON.
+                        From there, we could ask what GraphQL changes about that conversation.
+                    </p>
+                </div>
+
+                <figure class="workshop-artifact">
+
+                    <div class="artifact-meta" aria-hidden="true">
+                        <span class="ppt-icon">P</span>
+                        <span>GraphQL Workshop.pptx</span>
+                        <span class="meta-dot">·</span>
+                        <span>slide 6 of 48</span>
+                    </div>
+
+                    <div class="artifact-slide">
+                        <div class="artifact-sheet" aria-hidden="true"></div>
+
+                        <img src="/assets/img/writings/graphql-rest-slide.png"
+                            alt="PowerPoint slide from the original GraphQL workshop explaining REST APIs and JSON responses.">
+                    </div>
+
+                    <div class="artifact-note" aria-hidden="true">
+                        <span class="artifact-arrow">↖</span>
+                        <span>from the original workshop</span>
+                    </div>
+
+                    <figcaption>
+                        REST APIs and JSON responses.
+                    </figcaption>
+
+                </figure>
+
+            </div>
+
+        </section>
+
+
+        <!-- SECTION 02 -->
+        <section class="essay-section">
+
+            <div class="section-heading">
+                <h2>Ask for what you need</h2>
+            </div>
+
+            <div class="artifact-row artifact-row--reverse">
+
+                <figure class="workshop-artifact">
+
+                    <div class="artifact-meta" aria-hidden="true">
+                        <span class="ppt-icon">P</span>
+                        <span>GraphQL Workshop.pptx</span>
+                        <span class="meta-dot">·</span>
+                        <span>slide 11 of 48</span>
+                    </div>
+
+                    <div class="artifact-slide">
+                        <div class="artifact-sheet" aria-hidden="true"></div>
+
+                        <img src="/assets/img/writings/graphql-what-is-graphql-slide.png"
+                            alt="PowerPoint slide from the original GraphQL workshop introducing GraphQL with a query and its response.">
+                    </div>
+
+                    <div class="artifact-note" aria-hidden="true">
+                        <span class="artifact-arrow">↗</span>
+                        <span>yep, another old slide</span>
+                    </div>
+
+                    <figcaption>
+                        An early GraphQL query and response.
+                    </figcaption>
+
+                </figure>
+
+                <div class="section-copy">
+                    <p>
+                        One of the ideas I wanted to make clear was that GraphQL lets the
+                        application describe the information it needs. If I only need a name
+                        and height, those are the fields I can ask for.
+                    </p>
+
+                    <p>
+                        That becomes much easier to understand when you can see the request
+                        and response together. The structure of what comes back follows the
+                        structure of what was requested.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- SECTION 03 -->
+        <section class="essay-section">
+
+            <div class="section-heading">
+                <h2>The request shapes the response</h2>
+                <p class="section-thought">
+                    This was one of the concepts I wanted someone to be able to see,
+                    not just memorize.
+                </p>
+            </div>
+
+            <div class="section-copy">
+                <p>
+                    The workshop broke the two sides apart. First, build a query asking for
+                    a user's name, email and birthday. Then look at the response and find
+                    those same fields coming back in the same structure.
+                </p>
+            </div>
+
+            <div class="workshop-pair">
+
+                <!-- QUERY SLIDE -->
+                <figure class="workshop-artifact">
+
+                    <div class="artifact-meta" aria-hidden="true">
+                        <span class="ppt-icon">P</span>
+                        <span>GraphQL Workshop.pptx</span>
+                        <span class="meta-dot">·</span>
+                        <span>slide 14 of 48</span>
+                    </div>
+
+                    <div class="artifact-slide">
+                        <div class="artifact-sheet" aria-hidden="true"></div>
+
+                        <img src="/assets/img/writings/graphql-query-structure.PNG"
+                            alt="PowerPoint slide from the original GraphQL workshop showing a query requesting a user's name, email, and birthday.">
+                    </div>
+
+                    <figcaption>
+                        The query asks for three fields.
+                    </figcaption>
+
+                </figure>
+
+
+                <!-- RESPONSE SLIDE -->
+                <figure class="workshop-artifact">
+
+                    <div class="artifact-meta" aria-hidden="true">
+                        <span class="ppt-icon">P</span>
+                        <span>GraphQL Workshop.pptx</span>
+                        <span class="meta-dot">·</span>
+                        <span>slide 15 of 48</span>
+                    </div>
+
+                    <div class="artifact-slide">
+                        <div class="artifact-sheet" aria-hidden="true"></div>
+
+                        <img src="/assets/img/writings/graphql-response-structure.PNG"
+                            alt="PowerPoint slide from the original GraphQL workshop showing the response containing the requested name, email, and birthday.">
+                    </div>
+
+                    <figcaption>
+                        The response follows the same shape.
+                    </figcaption>
+
+                </figure>
+
+            </div>
+
+        </section>
+
+
+        <!-- SECTION 04 -->
+        <section class="essay-section">
+
+            <div class="section-heading">
+                <h2>Then we started poking at it.</h2>
+            </div>
+
+            <div class="section-copy">
+                <p>
+                    Once the basics made sense, the workshop stopped giving away as much.
+                    We used the schema and documentation to figure out what the API could
+                    give us: products, titles, images and variants.
+                </p>
+
+                <p>
+                    At one point we asked for <code>products</code> and got an error because
+                    the API needed a <code><strong>first</strong></code> or <code><strong>last</strong></code> argument.
+                    So we read the error, looked at the documentation and changed the query
+                    to <code>products(first: 4)</code>.
+                </p>
+
+                <p>
+                    I like that part looking back at it. I wasn't jus trying to get folks to copy a finished
+                    query. It was to get comfortable figuring out why something didn't work
+                    and what to try next.
+                </p>
+            </div>
+
+        </section>
+
+
+        <!-- CLOSING -->
+        <section class="essay-closing">
+
+            <h2>I still learn this ways</h2>
+
+            <p>
+                The workshop eventually went further into queries, mutations and using
+                information from one request in the next. The technology was the subject,
+                but learning how to explore it was just as important.
+            </p>
+
+            <p>
+                I still tend to approach unfamiliar technology the same way: build something,
+                poke at it, read the documentation, break a few things and keep going until
+                the pieces make sense.
+            </p>
+
+        </section>
+
+
+        <a class="back-link" href="/reflections.html">
+            ← Back to Reflections
+        </a>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Kim Codes</p>
+    </footer>
+
+</body>
+
+</html>

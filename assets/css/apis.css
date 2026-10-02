@@ -1,0 +1,399 @@
+/* =========================================================
+   LEARNING THROUGH APIs
+   ========================================================= */
+
+
+/* --------------------------
+   REST / GraphQL comparison
+   -------------------------- */
+.api-comparison {
+    max-width: 560px;
+    margin: 2.5rem 0 3rem;
+    padding-left: 24px;
+}
+
+.api-example {
+    padding: 0;
+}
+
+.api-label {
+    display: block;
+    margin-bottom: .7rem;
+
+    color: var(--accent);
+    font-size: .75rem;
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+}
+
+.api-example code {
+    display: block;
+    margin-bottom: .65rem;
+
+    color: var(--ink);
+    font-family: monospace;
+    font-size: 1.05rem;
+}
+
+.api-example p {
+    max-width: 500px;
+    margin: 0;
+
+    color: var(--muted);
+    font-size: .9rem;
+    line-height: 1.7;
+}
+
+/* --------------------------
+   Schema path
+   -------------------------- */
+
+.schema-path {
+    max-width: 520px;
+    margin: 3rem 0;
+    padding: 1.5rem 0;
+
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+
+    font-family: monospace;
+}
+
+.schema-row {
+    position: relative;
+    padding: .45rem 0;
+
+    color: var(--ink);
+    font-size: 1rem;
+}
+
+.schema-row::before {
+    content: "→";
+    margin-right: .65rem;
+    color: var(--accent);
+}
+
+.schema-row.level-1 {
+    padding-left: 1.5rem;
+}
+
+.schema-row.level-2 {
+    padding-left: 3rem;
+}
+
+.schema-row.level-3 {
+    padding-left: 4.5rem;
+}
+
+
+/* --------------------------
+   Query progression
+   -------------------------- */
+
+.query-progression {
+    max-width: 560px;
+    margin: 3rem 0;
+}
+
+.query-state {
+    padding: 1.5rem 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+}
+
+.query-label {
+    display: block;
+    margin-bottom: .75rem;
+
+    color: var(--muted);
+    font-size: .8rem;
+    font-weight: 600;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+}
+
+.query-state pre {
+    margin: 0 0 .8rem;
+    overflow-x: auto;
+}
+
+.query-state code {
+    color: var(--ink);
+    font-family: monospace;
+    font-size: 1rem;
+}
+
+.query-error,
+.query-success {
+    font-size: .9rem;
+}
+
+.query-error {
+    color: var(--body);
+}
+
+.query-success {
+    color: var(--accent);
+}
+
+.query-arrow {
+    padding: .8rem 0;
+    color: var(--accent);
+    font-size: 1.2rem;
+}
+
+
+/* --------------------------
+   API flow
+   -------------------------- */
+
+.api-flow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: .8rem;
+
+    max-width: 620px;
+    margin: 3rem 0;
+    padding: 1.5rem 0;
+
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+
+    color: var(--ink);
+    font-size: .95rem;
+    font-weight: 500;
+}
+
+.flow-arrow {
+    color: var(--accent);
+}
+
+/* =========================================================
+   WORKSHOP ARTIFACTS
+   ========================================================= */
+
+.workshop-artifact {
+    position: relative;
+    width: 100%;
+    max-width: 350px;
+    margin: 0;
+}
+
+
+/* Text + slide layout */
+.artifact-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 350px;
+    gap: 3.5rem;
+    align-items: center;
+
+    width: 900px;
+    max-width: calc(100vw - 100px);
+    margin: 2.5rem 0 4rem;
+}
+
+.artifact-row--reverse {
+    grid-template-columns: 350px minmax(0, 1fr);
+}
+
+
+/* Small PowerPoint context */
+
+.artifact-meta {
+    display: flex;
+    align-items: center;
+    gap: .45rem;
+
+    margin: 0 0 .65rem .25rem;
+
+    color: #666;
+    font-size: .72rem;
+    line-height: 1;
+}
+
+.ppt-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 18px;
+    height: 18px;
+
+    border-radius: 2px;
+    background: #d35230;
+    color: #fff;
+
+    font-size: .65rem;
+    font-weight: 700;
+}
+
+.meta-dot {
+    color: #aaa;
+}
+
+
+/* Slide + sheet underneath */
+
+.artifact-slide {
+    position: relative;
+    z-index: 1;
+}
+
+.artifact-sheet {
+    position: absolute;
+    z-index: -1;
+
+    top: 8px;
+    left: 8px;
+
+    width: 100%;
+    height: 100%;
+
+    background: #f1f1ef;
+
+    transform: rotate(1.2deg);
+}
+
+.artifact-slide img {
+    position: relative;
+    z-index: 2;
+
+    display: block;
+    width: 100%;
+    height: auto;
+
+    background: #fff;
+
+    box-shadow:
+        0 1px 2px rgba(0, 0, 0, .05),
+        0 8px 20px rgba(0, 0, 0, .07);
+}
+
+
+/* Handwritten annotation */
+
+.artifact-note {
+    display: flex;
+    align-items: flex-start;
+    gap: .4rem;
+
+    width: max-content;
+    margin: .85rem 0 0 1rem;
+
+    color: #444;
+
+    font-family: "Caveat", cursive;
+    font-size: 1rem;
+
+    transform: rotate(-2deg);
+}
+
+.artifact-arrow {
+    margin-top: -.2rem;
+    font-size: 1.6rem;
+    line-height: 1;
+}
+
+
+/* Accessible descriptive caption */
+
+.workshop-artifact figcaption {
+    margin: .25rem 0 0 3.1rem;
+
+    color: #666;
+    font-size: .75rem;
+    line-height: 1.5;
+}
+
+.technology-page .essay-section {
+    margin-bottom: 5rem;
+}
+
+
+/* =========================================================
+   QUERY + RESPONSE PAIR
+   ========================================================= */
+
+.workshop-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+
+    width: 900px;
+    max-width: calc(100vw - 80px);
+    margin: 3rem 0;
+}
+
+.workshop-pair .workshop-artifact {
+    width: 100%;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+    .artifact-row {
+        grid-template-columns: 1fr;
+        width: 100%;
+        max-width: 100%;
+        gap: 2rem;
+    }
+
+    .workshop-artifact {
+        width: 100%;
+        max-width: 520px;
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .workshop-pair {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+}
+
+
+/* --------------------------
+   Mobile
+   -------------------------- */
+
+@media (max-width: 700px) {
+
+    .api-comparison {
+        padding-left: 12px;
+    }
+
+
+    .schema-row.level-1 {
+        padding-left: 1rem;
+    }
+
+    .schema-row.level-2 {
+        padding-left: 2rem;
+    }
+
+    .schema-row.level-3 {
+        padding-left: 3rem;
+    }
+
+    .api-flow {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: .45rem;
+    }
+
+    .flow-arrow {
+        transform: rotate(90deg);
+        margin-left: .25rem;
+    }
+
+}

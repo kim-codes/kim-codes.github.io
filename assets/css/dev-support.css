@@ -460,6 +460,44 @@
     margin-bottom: 0;
 }
 
+/* --------------------------
+   Other problems
+   -------------------------- */
+
+.problem-links {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.65rem;
+}
+
+.problem-links a {
+    font-size: 0.78rem;
+    line-height: 1.5;
+    color: #777;
+
+    text-decoration: none;
+    border-bottom: 1px solid #ccc;
+
+    transition:
+        color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.problem-links a:visited {
+    color: #777;
+}
+
+.problem-links a:hover {
+    color: #242220;
+    border-bottom-color: #242220;
+}
+
+.problem-links a:focus-visible {
+    outline: 2px solid #242220;
+    outline-offset: 3px;
+}
+
 /** override **/
 .story-back {
     margin-top: 0;
@@ -545,5 +583,13 @@
 
     .story-note {
         margin-bottom: 3.5rem;
+    }
+
+    .other-problems {
+        margin-top: 3.5rem;
+    }
+
+    .story-note {
+        margin: 3rem 0 3.5rem;
     }
 }

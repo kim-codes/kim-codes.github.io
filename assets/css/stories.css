@@ -27,11 +27,22 @@
     max-width: 100%;
 
     margin: 0 auto 3rem;
+    text-align: center;
+    line-height: 1.6;
+    padding-bottom: 1rem;
+    
+}
 
+.section-intro h1 {
+    font-size: 2rem;
+}
+
+.section-intro p {
     color: #555;
     font-size: 1.05rem;
-    line-height: 1.6;
 }
+
+
 
 
 /* =========================================================
@@ -40,11 +51,11 @@
 
 .project-grid {
     display: grid;
-    grid-template-columns: repeat(3, 235px);
+    grid-template-columns: repeat(3, 255px);
     justify-content: center;
 
-    column-gap: 42px;
-    row-gap: 60px;
+    column-gap: 48px;
+    row-gap: 80px;
 
     margin: 0 auto 5rem;
 }
@@ -117,13 +128,13 @@
 
     color: #242220;
 
-    font-size: 0.78rem;
+    font-size: 0.74rem;
     font-weight: 500;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.05em;
     text-transform: uppercase;
     text-decoration: none;
 
-    border-bottom: 1px solid #aaa;
+    border-bottom: 1px solid transparent;
 
     transition:
         color 0.2s ease,
@@ -132,7 +143,12 @@
 
 .project-card .project-text-link:hover {
     color: #000;
-    border-color: #242220;
+    border-color: #aaa;
+}
+
+.project-card .project-text-link:focus-visible {
+    outline: 2px solid #242220;
+    outline-offset: 3px;
 }
 
 
@@ -161,9 +177,32 @@
     font-size: 0.95rem;
 }
 
+/** add tags for stories **/
+.story-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 0.7rem;
+
+    margin: 0 0 0.65rem;
+
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: #999;
+}
+
+.story-tags span+span::before {
+    content: "·";
+    margin-right: 0.7rem;
+    color: #bbb;
+}
+
+/** override back arrow **/
+
 .hand-arrow-back {
     transform: scaleX(-1);
 }
+
 
 
 /* =========================================================

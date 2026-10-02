@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Hacktoberfest | kimcodes</title>
+
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600&family=Caveat:wght@500&family=Dancing+Script:wght@500&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="stylesheet" href="/assets/css/dev-support.css">
+
+</head>
+
+<body>
+
+    <header>
+
+        <a href="/" class="logo">
+            <img src="/assets/img/kimcodes-gummy-twist.webp" alt="kimcodes">
+        </a>
+
+        <nav>
+            <ul>
+                <li><a href="/constants.html">Constants</a></li>
+                <li><a href="/craft.html">Craft</a></li>
+                <li><a href="/reflections.html">Reflections</a></li>
+                <li><a href="/footprints.html">Footprints</a></li>
+                <li><a href="/contact.html">Say Hello</a></li>
+            </ul>
+        </nav>
+
+    </header>
+
+    <main class="dev-support">
+
+        <!-- Hero -->
+        <section class="dev-support-hero">
+            <h1>Helping Developers Get Unstuck.</h1>
+
+            <p>
+                Authentication problems rarely arrive as neat bug reports.
+                I spent a lot of time meeting developers in those moments. Trying to dive quickly into their world,
+                understand what they were trying to build, and figure out where things were going wrong. The error in
+                front of us was usually just the place to start.
+            </p>
+        </section>
+
+
+        <!-- Debug the implementation -->
+        <section class="dev-support-section">
+
+            <div class="section-copy">
+                <h2>Debug the implementation.</h2>
+
+                <p>
+                    A commen scenario my devs would run into is a dev would be tryintg to update users through the
+                    Management API, but would keep getting a 400 error. The request looked close, but something wasn't
+                    right.
+                    <br><br>
+                    Their GET request worked, but PATCH kept failing. That gave me somewhere to start.
+                </p>
+            </div>
+
+            <div class="code-example">
+
+                <div class="code-window">
+                    <div class="code-window-bar">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+
+                    <pre><code>PATCH /api/v2/users/123
+
+                        Authorization: Bearer YOUR_TOKEN
+                        Content-Type: application/json
+
+                        {
+                        "name": "Kim"
+                        }
+
+                        → 400 Bad Request</code></pre>
+                </div>
+
+                <a href="https://community.auth0.com/t/using-api-in-react-to-update-delete-create-get-users/10461"
+                    class="dev-support-link" target="_blank" rel="noopener noreferrer">
+                    View the original thread
+                </a>
+
+                <div class="example-context">
+                    <p>
+                        I compared the two requests, checked how the API was being called, and narrowed the problem down
+                        to the request itself.
+                        <br><br>
+                        The were two issues hiding in the request. The request was using 1) an incorrect endpoint and 2)
+                        the header wasn't being passed correctly. Once both were fixed, the PATCH request worked.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Explain what is happening -->
+        <section class="dev-support-section explain-section">
+
+            <div class="section-copy">
+                <h2>Explain what’s happening.</h2>
+
+                <p>
+                    Not every problem came down to broken code. Another common scenario is when a dev is requesting
+                    additional user information when getting a token, but the token coming back doesn't contain
+                    everything they had asked for.
+                    <br><br>
+                    From their perspective, the request had worked. They had a token.
+                    The confusing part was why some of the information they requested
+                    wasn't there.
+                    <br><br>
+                </p>
+            </div>
+
+            <div class="claim-comparison">
+
+                <div class="claim-example">
+                    <span class="claim-label">They asked for</span>
+                    <code>openid name email app_metadata identities</code>
+                </div>
+
+                <div class="claim-example">
+                    <span class="claim-label">They got back</span>
+                    <code>openid email</code>
+                </div>
+
+            </div>
+
+            <div class="example-context">
+                <p>
+                    The answer came down to how OpenID Connect (OIDC) handles claims. OIDC defines a set of standard
+                    claims that can be included in an ID token. <code class="inline-code">app_metadata</code> is not 't
+                    one of them. So asking for it in the
+                    scope isn't enough.
+                    <br><br>
+                    I would walk developers through how OIDC claims worked, then show them how to explicitly add the
+                    information they needed as a custom namespaced claim.
+                </p>
+            </div>
+
+            <div class="claim-solution">
+                <span class="claim-label">Adding the custom claim</span>
+
+                <pre><code>var namespace = 'https://example.com/';
+
+                    context.idToken[namespace + 'app_metadata'] =
+                        user.app_metadata;</code></pre>
+
+                <p>
+                    The metadata could then be included in the ID token under its own namespace, avoiding collisions
+                    with standard OpenID Connect claims.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- Take it back to the product -->
+        <section class="dev-support-section product-feedback-section">
+
+            <div class="section-copy">
+                <h2>Take the problem back to the product</h2>
+
+                <p>
+                    There were also times when digging into a developer's problem exposed
+                    friction in the product itself.
+                    <br><br>
+                    One developer couldn't create a Rule using the name they wanted.
+                    Nothing about the error made it obvious why, so I tried to reproduce
+                    the problem myself.
+                </p>
+            </div>
+
+            <div class="reproduction-example">
+
+                <span class="claim-label">Reproducing the issue</span>
+
+                <div class="rule-example">
+
+                    <div class="rule-field">
+                        <span>Rule name</span>
+                        <code>example@rule</code>
+                    </div>
+
+                    <div class="rule-error">
+                        <span class="error-mark">×</span>
+
+                        <div class="error-message">
+                            <strong>ERROR: Unknown error.</strong>
+                            <span>
+                                Possible reason: you are not calling
+                                <code>callback(null, user, context)</code>
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="rule-reveal">
+
+                    <button class="rule-reveal-button" type="button" aria-expanded="false">
+                        What was causing the issue?
+                    </button>
+
+                    <div class="rule-solution" hidden>
+
+                        <div class="rule-name-change">
+                            <code class="rule-name-before">example@rule</code>
+                            <code class="rule-name-after">examplerule</code>
+                        </div>
+
+                        <div class="rule-success">
+                            <span aria-hidden="true">✓</span>
+                            <span>Rule works</span>
+                        </div>
+
+                        <p>
+                            The code hadn't changed. The <code>@</code> in the Rule name
+                            was the problem.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="example-context">
+                <p>
+                    I eventually found the answer buried in the documentation.
+                    There were restrictions on how Rules could be named, but the developer
+                    had very little chance of discovering that from the experience in
+                    front of them.
+                    <br><br>
+                    I could explain the restriction and get them moving again. I also
+                    took the issue back to the team. If one developer had run into it,
+                    there was a good chance someone else would too.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- Closing reflection -->
+        <section class="dev-support-section closing-section">
+
+            <div class="section-copy">
+                <h2>Look for the problem behind the problem</h2>
+
+                <p>
+                    After enough conversations like these, I learned not to take the error
+                    in front of me at face value.
+                    <br><br>
+                    A failed API call might come down to the request itself. Missing information
+                    might mean digging into how the underlying protocol works. An error pointing
+                    at someone's code might turn out to be friction in the product.
+                    <br><br>
+                    The useful part wasn't knowing every answer. It was knowing where to start
+                    looking, asking enough questions to understand what someone was trying to
+                    build, and staying with the problem until we understood what was happening.
+                    <br><br>
+                    Those conversations also gave me a clearer view into where developers were
+                    getting stuck. When the same questions or points of confusion kept appearing,
+                    that was useful information to take back to the teams building the product,
+                    documentation, and developer experience.
+                </p>
+            </div>
+
+        </section>
+
+   <aside class="other-problems">
+
+    <p class="other-problems-title">
+        A few other problems I helped untangle
+    </p>
+
+    <div class="problem-links">
+
+        <a href="https://community.auth0.com/t/intermittent-error-unknown-or-invalid-login-ticket/9600/11"
+           target="_blank"
+           rel="noopener noreferrer">
+            Third-party cookies and intermittent authentication failures
+        </a>
+
+        <a href="https://community.auth0.com/t/can-not-reach-to-authentication/10575"
+           target="_blank"
+           rel="noopener noreferrer">
+            Migrating from getSsoData() to checkSession()
+        </a>
+
+        <a href="https://community.auth0.com/t/using-implicit-grant-with-the-auth0-management-api/10473"
+           target="_blank"
+           rel="noopener noreferrer">
+            Calling the Management API securely from an SPA
+        </a>
+
+        <a href="https://community.auth0.com/t/using-api-in-react-to-update-delete-create-get-users/10461"
+           target="_blank"
+           rel="noopener noreferrer">
+            Debugging API and CORS issues in React
+        </a>
+
+        <a href="https://community.auth0.com/t/passwordless-with-code-option-fails-with-cors/12635"
+           target="_blank"
+           rel="noopener noreferrer">
+            Troubleshooting passwordless authentication and CORS
+        </a>
+
+    </div>
+
+</aside>
+
+        <!-- Historical note -->
+        <aside class="story-note">
+            <p>
+                These examples are adapted from developer support conversations during my
+                time at Auth0. Some details have been simplified for clarity, and the
+                technical examples reflect Auth0's implementation at the time.
+            </p>
+
+            <p>
+                Auth0 updated its custom claims behavior in 2022 to support certain
+                non-namespaced custom claims.
+            </p>
+        </aside>
+
+        <section class="story-back">
+            <a href="/stories.html" class="text-link">
+                <span>
+                    <svg class="hand-arrow hand-arrow-back" viewBox="0 0 40 20" width="32" height="16">
+                        <path d="M2,16 Q16,14 34,8 M28,4 L35,8 L30,14" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </span>
+                <em>go back to behind the work stories</em>
+            </a>
+        </section>
+
+    </main>
+
+    <script>
+        const ruleRevealButton = document.querySelector('.rule-reveal-button');
+        const ruleSolution = document.querySelector('.rule-solution');
+
+        ruleRevealButton.addEventListener('click', () => {
+            const isOpen = ruleRevealButton.getAttribute('aria-expanded') === 'true';
+
+            ruleRevealButton.setAttribute('aria-expanded', String(!isOpen));
+            ruleSolution.hidden = isOpen;
+
+            ruleRevealButton.innerHTML = isOpen
+                ? 'See what I found'
+                : 'Hide solution';
+        });
+    </script>
+
+</body>
+
+</html>

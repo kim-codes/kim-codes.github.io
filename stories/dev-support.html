@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Hacktoberfest | kimcodes</title>
+
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600&family=Caveat:wght@500&family=Dancing+Script:wght@500&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="stylesheet" href="/assets/css/dev-support.css">
+
+</head>
+
+<body>
+
+    <header>
+
+        <a href="/" class="logo">
+            <img src="/assets/img/kimcodes-gummy-twist.webp" alt="kimcodes">
+        </a>
+
+        <nav>
+            <ul>
+                <li><a href="/constants.html">Constants</a></li>
+                <li><a href="/craft.html">Craft</a></li>
+                <li><a href="/reflections.html">Reflections</a></li>
+                <li><a href="/footprints.html">Footprints</a></li>
+                <li><a href="/contact.html">Say Hello</a></li>
+            </ul>
+        </nav>
+
+    </header>
+
+    <main class="dev-support">
+
+        <!-- Hero -->
+        <section class="dev-support-hero">
+            <h1>Helping Developers Get Unstuck.</h1>
+
+            <p>
+                Authentication problems rarely arrive as neat bug reports.
+                I spent a lot of time meeting developers in those moments. Trying to dive quickly into their world,
+                understand what they were trying to do, and try to help them find a way forward. Sometimes I would have
+                to push back.
+            </p>
+        </section>
+
+
+        <!-- Debug the implementation -->
+        <section class="dev-support-section">
+
+            <div class="section-copy">
+                <h2>Debug the implementation.</h2>
+
+                <p>
+                    A commen scenario my devs would run into is a dev would be tryintg to update users through the
+                    Management API, but would keep getting a 400 error. The request looked close, but something wasn't
+                    right.
+                </p>
+            </div>
+
+            <div class="code-example">
+
+                <div class="code-window">
+                    <div class="code-window-bar">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+
+                    <pre><code>PATCH /api/v2/users/123
+
+                        Authorization: Bearer YOUR_TOKEN
+                        Content-Type: application/json
+
+                        {
+                        "name": "Kim"
+                        }
+
+                        → 400 Bad Request</code></pre>
+                </div>
+
+                <div class="example-context">
+                    <p>
+                        The request was using an incorrect endpoint and the header
+                        wasn't being passed correctly. Once both were fixed, it worked.
+                    </p>
+
+                    <a href="#" class="dev-support-link">
+                        View the original thread →
+                    </a>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <section class="story-back">
+        <a href="/stories.html" class="text-link">
+            <span>
+                <svg class="hand-arrow hand-arrow-back" viewBox="0 0 40 20" width="32" height="16">
+                    <path d="M2,16 Q16,14 34,8 M28,4 L35,8 L30,14" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </span>
+            <em>go back to behind the work stories</em>
+        </a>
+    </section>
+
+    </main>
+
+</body>
+
+</html>

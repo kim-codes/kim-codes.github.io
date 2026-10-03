@@ -15,8 +15,9 @@
         rel="stylesheet">
 
     <!-- CSS -->
-     <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="stylesheet" href="/assets/css/styles.css">
     <link rel="stylesheet" href="/assets/css/technology.css">
+    <link rel="stylesheet" href="/assets/css/7days.css">
 
 </head>
 
@@ -40,24 +41,2115 @@
 
     </header>
 
-    <main class="technology-page">
+    <main class="vscode-archive">
 
         <!-- INTRO -->
-        <section class="essay-intro">
+        <section class="archive-intro">
 
             <h1>7 Days of VS Code</h1>
+
+            <p class="archive-intro-copy">
+                A series of short articles I wrote while exploring VS Code,
+                from navigating the editor to customizing it and working
+                with version control.
+            </p>
+
         </section>
 
 
-        <a class="back-link" href="/reflections.html">
-            ← Back to Reflections
-        </a>
+        <!-- SERIES INDEX -->
+        <nav class="series-index" id="series" aria-label="7 Days of VS Code articles">
+
+            <p class="series-index-title">In this series</p>
+
+            <ol class="series-list">
+
+                <li>
+                    <a href="#day-01" class="series-link active" data-article="day-01">
+                        <span class="series-number">01</span>
+                        <span>An Overview of VS Code</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#day-02" class="series-link" data-article="day-02">
+                        <span class="series-number">02</span>
+                        <span>Navigating VS Code</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#day-03" class="series-link" data-article="day-03">
+                        <span class="series-number">03</span>
+                        <span>Customizing VS Code</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#day-04" class="series-link" data-article="day-04">
+                        <span class="series-number">04</span>
+                        <span>VS Code &amp; Version Control</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#day-05" class="series-link" data-article="day-05">
+                        <span class="series-number">05</span>
+                        <span>Extending VS Code: Part 1</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#day-06" class="series-link" data-article="day-06">
+                        <span class="series-number">06</span>
+                        <span>Extending VS Code: Part 2</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#day-07" class="series-link" data-article="day-07">
+                        <span class="series-number">07</span>
+                        <span>Features of VS Code’s Extensibility Model</span>
+                    </a>
+                </li>
+
+            </ol>
+
+        </nav>
+
+        <!-- =====================================================
+     01 — AN OVERVIEW OF VS CODE
+     ===================================================== -->
+
+        <section class="essay-section archive-entry series-article active" id="day-01">
+
+            <div class="section-heading">
+
+                <p class="article-number">01 / 07</p>
+
+                <h2>An Overview of VS Code</h2>
+
+                <p class="article-date">
+                    Originally published January 8, 2018
+                </p>
+
+            </div>
+
+
+            <div class="section-copy">
+
+                <h3>Intro</h3>
+
+                <p>
+                    Out of the box, VS Code is described as a "lightning fast"
+                    and "lightweight" source code editor that supports hundreds
+                    of programming languages. It can be used on any platform —
+                    Mac, Linux, Windows.
+                </p>
+
+                <figure class="archive-image">
+                    <img src="assets/img/vscode/vscode-11.png" alt="Visual Studio Code editor">
+                </figure>
+
+
+                <h3>The guts</h3>
+
+                <p>
+                    VS Code is built on Electron, along with JavaScript, Node.js
+                    and some Microsoft-y things like the Visual Studio debugger
+                    and TypeScript. So it's a pretty powerful editor.
+                </p>
+
+                <p>
+                    It has built-in IntelliSense
+                    <em>(note: not all languages, so you may need to pick up an
+                        extension for ones not included)</em>. For those who are not
+                    familiar, IntelliSense provides a number of features like code
+                    completion, parameter info, and more. You may have heard
+                    IntelliSense called in a different form like code completion
+                    or code hinting.
+                </p>
+
+                <p>
+                    And to be honest, it's the kind of thing you don't really know
+                    you're missing until you fully use it.
+                </p>
+
+                <p>
+                    It's got the Visual Studio debugger allowing you to step through
+                    code, inspect vars, view call stacks, and execute commands in
+                    console easily.
+                </p>
+
+                <p>
+                    VS Code is great for building cross-platform applications. It
+                    was originally described as being created for building web and
+                    cloud applications, but I believe it is and will continue to be
+                    for more than just that.
+                </p>
+
+
+                <h3>So, why VS Code?</h3>
+
+                <p>
+                    Why choose something like VS Code, well let's see...
+                </p>
+
+
+                <h4>Customization</h4>
+
+                <p>
+                    Firstly, how customizable it is. It's super easy to install
+                    many third-party extensions or to even create your own
+                    (which we will be learning how to do later on!).
+                </p>
+
+
+                <h4>Open source</h4>
+
+                <p>
+                    It's open source. So you can contribute to it and join the
+                    community on GitHub. I always find a tool most powerful when
+                    the community can come in and improve it.
+                </p>
+
+                <p>
+                    Missing a feature? Let the community create it and it helps
+                    to expand the improvement for integration with other tools.
+                    Super!
+                </p>
+
+
+                <h4>Git diff view</h4>
+
+                <p>
+                    I have adored IntelliJ's git diff view for the longest time
+                    and now VS Code has got a great one as well. VS Code displays
+                    the current and the previous versions side by side for a quick
+                    comparison and makes it easy to solve merge issues!
+                </p>
+
+                <figure class="archive-image">
+                    <img src="assets/img/vscode/vscode-diff.jpg" alt="Side-by-side Git diff view in Visual Studio Code">
+                    <figcaption>
+                        Image credited to bytearcher in the original article.
+                    </figcaption>
+                </figure>
+
+                <p>
+                    The fact that git is integrated already is also just great.
+                </p>
+
+
+                <h4>Easy split-screen</h4>
+
+                <p>
+                    Forget remembering the shortcut for split-screen. VS Code
+                    makes it easy with the click of an icon.
+                </p>
+
+                <p>
+                    <em>
+                        Located at the upper right side of the editor. There are
+                        also several other ways to split: keyboard shortcuts,
+                        drag and drop, or Ctrl and click on the file in the Explorer.
+                    </em>
+                </p>
+
+
+                <h4>Peek view</h4>
+
+                <figure class="archive-image archive-image--medium">
+                    <img src="assets/img/vscode/vscode-peekededitor.png"
+                        alt="Peek editor open inside Visual Studio Code">
+                    <figcaption>
+                        Image: Visual Studio Code documentation, as credited in
+                        the original article.
+                    </figcaption>
+                </figure>
+
+                <p>
+                    Want to check something quickly without doing a huge context
+                    switch? VS Code introduces peeked editors so that you can
+                    easily search, and even make edits right there in the
+                    peeked editor.
+                </p>
+
+
+                <h4>Terminal</h4>
+
+                <p>
+                    VS Code makes it convenient to execute a command line task
+                    without the need to switch windows.
+                    <em>(Note: it starts at the root of your workspace.)</em>
+                    And you can even manage multiple terminals if you want.
+                </p>
+
+
+                <h4>Zen Mode</h4>
+
+                <p>
+                    Zen Mode hides all the UI features (activity bar, status bar,
+                    side panels, etc.) and lets you focus on your code. The editor
+                    becomes fullscreen.
+                </p>
+
+                <p>
+                    To enable Zen Mode you can either select it by the
+                    <strong>View</strong> menu, the
+                    <strong>Command Palette</strong>, or by hitting
+                    <code>Ctrl+K Z</code>.
+                </p>
+
+                <figure class="archive-image">
+                    <img src="assets/img/vscode/zen-mode.gif" alt="Zen Mode in Visual Studio Code">
+                    <figcaption>
+                        Image from VS Code Tips &amp; Tricks, as credited in the
+                        original article.
+                    </figcaption>
+                </figure>
+
+
+                <h4>There's probably an extension for that...</h4>
+
+                <p>
+                    Whatever you are in need of, whatever feature you love in
+                    another editor/IDE, there's probably an extension for that!
+                </p>
+
+
+                <h3>Wait, why an editor over an IDE?</h3>
+
+                <h4>Let's compare</h4>
+
+                <p>
+                    An editor, like VS Code, is built for speed, starts up fast
+                    since it's so lightweight and extensions are loaded in a
+                    separate process.
+                </p>
+
+                <p>
+                    An IDE, like Visual Studio, is feature rich, robust, and can
+                    "do everything". However, it tends to be slower and you can
+                    feel overloaded with features. You might be so overloaded that
+                    you can not even utilize the IDE's full potential... or maybe
+                    you don't even need all those luxurious features.
+                </p>
+
+                <p>
+                    Let's dive in a bit. Let's compare VS Code to Visual Studio.
+                    VS Code is portable as hell, works on all platforms and
+                    generally requires fewer admin rights. VS Code allows you to
+                    install plugins and extensions as you go, as you need.
+                </p>
+
+                <p>
+                    As mentioned earlier Visual Studio, being an IDE, is feature
+                    rich. If you don't need all those features, maybe go for
+                    something lighter.
+                </p>
+
+                <p>
+                    <em>
+                        Examples of editors: Sublime, Vim, Brackets, Atom, VS Code.
+                    </em>
+                </p>
+
+                <p>
+                    <em>
+                        Examples of IDEs: Visual Studio, IntelliJ, Eclipse, WebStorm.
+                    </em>
+                </p>
+
+
+                <h3>TL;DR</h3>
+
+                <p>
+                    Your setup is an important part of how you work and how
+                    productive you will be as a developer. And so your choice of
+                    code editor is no exception!
+                </p>
+
+                <p>
+                    I highly recommend checking out VS Code. Considering it requires
+                    little configuration to get up and running it makes it a must
+                    try in my books!
+                </p>
+
+            </div>
+
+
+            <!-- NEXT ARTICLE -->
+
+            <nav class="article-pagination" aria-label="Article navigation">
+
+                <span></span>
+
+                <a href="#day-02" class="article-next" data-article="day-02">
+                    <span>02</span>
+                    Navigating VS Code →
+                </a>
+
+            </nav>
+
+        </section>
+
+        <!-- =====================================================
+     02 — NAVIGATING VS CODE
+     ===================================================== -->
+
+        <div class="series-articles">
+
+            <section class="essay-section archive-entry series-article active" id="day-02">
+
+                <div class="section-heading">
+
+                    <p class="article-number">02 / 07</p>
+
+                    <h2>Navigating VS Code</h2>
+
+                    <p class="article-date">
+                        Originally published January 10, 2018
+                    </p>
+
+                </div>
+
+                <div class="section-copy">
+
+                    <p>
+                        New to Visual Studio Code? Its look and feel is pretty similar
+                        to most editors and IDEs. But let's take a bit to become familiar
+                        with it.
+                    </p>
+
+                    <p>
+                        I will quickly introduce you to the fundamentals: the Activity Bar,
+                        the Editor, Tabs, the Status Bar, the Command Palette, and the
+                        Minimap. All in <u>under</u> 3 minutes!
+                    </p>
+
+
+                    <h3>Activity Bar</h3>
+
+                    <figure class="archive-image archive-image--small">
+                        <img src="assets/img/vscode/vscode-screenshot-1.png" alt="Visual Studio Code activity bar">
+                    </figure>
+
+                    <p>
+                        <strong>Explorer:</strong> Explorer allows you to browse and manage
+                        files and folders in your current workspace/folder.
+                        <strong>Windows:</strong> <code>Ctrl+Shift+E</code>
+                        <strong>Mac:</strong> <code>Cmd+Shift+E</code>
+                    </p>
+
+                    <p>
+                        <strong>Search:</strong> <code>Ctrl+Shift+F</code>.
+                        Search current files open for a specific string. Also allowing
+                        you the option for "Find and Replace".
+                    </p>
+
+                    <p>
+                        <strong>Source control:</strong> <code>Ctrl+Shift+G</code>.
+                        Integration with your version control system — namely Git!
+                        Which comes built in. You have the ability to initialize the
+                        current workspace/folder and/or perform version control functions
+                        like commit, pull, etc.
+                    </p>
+
+                    <p>
+                        <strong>Debugger:</strong> <code>Ctrl+Shift+D</code>.
+                        Displays useful debugging information like call stacks,
+                        variables, and breakpoints.
+                    </p>
+
+
+                    <h3>Editor</h3>
+
+                    <p>
+                        The main area! You can open up to 3 editors side by side in one
+                        single instance of VS Code. You can have multiple tabs within
+                        each (a.k.a open multiple files).
+                    </p>
+
+                    <figure class="archive-image">
+                        <img src="assets/img/vscode/vscode-threeeditors.png"
+                            alt="Three editors displayed side by side in Visual Studio Code">
+                        <figcaption>
+                            Original image from the 2018 article.
+                        </figcaption>
+                    </figure>
+
+                    <p>
+                        Switch between them by using
+                        <strong>Windows:</strong> <code>Ctrl</code> or
+                        <strong>Mac:</strong> <code>Cmd</code>
+                        along with the number key <code>1</code>, <code>2</code>,
+                        or <code>3</code>.
+                    </p>
+
+                    <p>
+                        <em>Re-arrange the editors by drag and dropping along the top bar.</em>
+                    </p>
+
+
+                    <h3>Tabs</h3>
+
+                    <p>
+                        When you open a file in VS Code, it'll open a new tab in the
+                        current editor.
+                    </p>
+
+                    <figure class="archive-image">
+                        <img src="assets/img/vscode/vscode-tabs.png"
+                            alt="Tabs open across the top of the Visual Studio Code editor">
+                        <figcaption>
+                            Original image from the 2018 article.
+                        </figcaption>
+                    </figure>
+
+                    <p>
+                        By default, tabs are added to the right, but you can re-arrange
+                        tabs the same way you would editors, by drag and dropping the
+                        filename header located at the top.
+                    </p>
+
+
+                    <h3>Status Bar</h3>
+
+                    <figure class="archive-image">
+                        <img src="assets/img/vscode/vscode-statusbar.png" alt="Visual Studio Code status bar">
+                    </figure>
+
+                    <p>
+                        The status bar gives you info about the project, or in particular
+                        the file, you currently have open.
+                    </p>
+
+                    <p>
+                        <strong>Right side:</strong> The current line you are on, the
+                        indentation setting, the encoding, EOL sequence, and the
+                        language mode.
+                    </p>
+
+                    <p>
+                        <strong>Left side:</strong> If you have Git setup, you will be able
+                        to see things like what branch you currently have checked out,
+                        along with any errors and warnings.
+                    </p>
+
+
+                    <h3>Command Palette</h3>
+
+                    <p>
+                        Allows quick keyboard accessibility for even quicker access to
+                        VS Code functionality and commands.
+                        <code>Ctrl+Shift+P</code> or <code>Ctrl+P</code> with
+                        <code>&gt;</code>.
+                    </p>
+
+                    <figure class="archive-image">
+                        <img src="assets/img/vscode/vscode-commandpalette.png"
+                            alt="Command Palette open in Visual Studio Code">
+                    </figure>
+
+                    <p>
+                        What you'll find in the palette will differ based on the extensions
+                        you installed. Therefore, the more you install the more functionality
+                        you'll have access to.
+                    </p>
+
+                    <p>
+                        Depending on where you are in your code, you can find out what you
+                        can execute by typing <code>?</code> into the command palette.
+                        It'll pop back to you a list of available commands.
+                    </p>
+
+
+                    <h3>Minimap</h3>
+
+                    <p>
+                        Located on the right side of the editor. Click or drag the shaded
+                        area to navigate to that section of the code. The minimap gives you
+                        a nice overview of the file you have open.
+                    </p>
+
+                    <figure class="archive-image archive-image--medium">
+                        <img src="assets/img/vscode/vscode-minimap.png"
+                            alt="Minimap displayed on the right side of Visual Studio Code">
+                    </figure>
+
+                    <p>
+                        And that's it for navigating VS Code!
+                    </p>
+
+                </div>
+
+
+                <nav class="article-pagination" aria-label="Article navigation">
+
+                    <a href="#day-01" class="article-prev" data-article="day-01">
+                        ← <span>01</span>
+                        An Overview of VS Code
+                    </a>
+
+                    <a href="#day-03" class="article-next" data-article="day-03">
+                        <span>03</span>
+                        Customizing VS Code →
+                    </a>
+
+                </nav>
+
+            </section>
+
+
+            <!-- =====================================================
+            03 — CUSTOMIZING VS CODE
+            ===================================================== -->
+
+
+            <section class="essay-section archive-entry series-article" id="day-03" hidden>
+
+                <div class="section-heading">
+
+                    <p class="article-number">03 / 07</p>
+
+                    <h2>Customizing VS Code</h2>
+
+                    <p class="article-date">
+                        Originally published January 11, 2018
+                    </p>
+
+                </div>
+
+                <div class="section-copy">
+
+                    <p>
+                        I always love when I have the option to customize and add a little
+                        of my own flavor to something!
+                    </p>
+
+
+                    <h3>Changing Editor Theme</h3>
+
+                    <p>
+                        VS Code lets you change your background color, text color, and
+                        language syntax colorization. You can edit the theme directly in
+                        the settings, or you can use the 'Color Theme Picker' for an
+                        easier time.
+                    </p>
+
+                    <p>
+                        To navigate to the Color Theme Picker either hit
+                        <code>Ctrl+K Ctrl+T</code> or head over to
+                        <strong>File &gt; Preferences &gt; Color Theme</strong>.
+                    </p>
+
+                    <figure class="archive-image">
+                        <img src="assets/img/vscode/vs-code-theme.png" alt="Visual Studio Code Color Theme Picker">
+                    </figure>
+
+                    <p>
+                        To customize the theme items yourself, you can open the command
+                        palette (remember <code>Ctrl+Shift+P</code>) and type
+                        <em>themes</em>.
+                    </p>
+
+
+                    <h3>Changing Icon Theme</h3>
+
+                    <p>
+                        This one is a small change, but it's one of the most important
+                        for me! Head over to the 'File Icon Theme' and select a colorful
+                        or discrete set for your icons displayed in the explorer.
+                    </p>
+
+                    <figure class="archive-image archive-image--medium">
+                        <img src="assets/img/vscode/vscode-icons.gif"
+                            alt="Changing file icon themes in Visual Studio Code">
+                    </figure>
+
+
+                    <h3>Changing Workspace Settings</h3>
+
+                    <p>
+                        Open User Settings under
+                        <strong>File &gt; Preferences &gt; Settings</strong>.
+                    </p>
+
+                    <p>I'll go through a few quick ones...</p>
+
+
+                    <h4>Font</h4>
+
+                    <pre><code>"editor.fontFamily": "Consolas, 'Courier New', monospace",</code></pre>
+
+
+                    <h4>Font Size</h4>
+
+                    <p>Default = 14</p>
+
+                    <pre><code>"editor.fontSize": 18,</code></pre>
+
+
+                    <h4>Word Wrap</h4>
+
+                    <p>Default = off</p>
+
+                    <pre><code>"editor.wordWrap": "on",</code></pre>
+
+
+                    <h4>Format</h4>
+
+                    <p>Default = false</p>
+
+                    <pre><code>"editor.formatOnPaste": true,</code></pre>
+
+
+                    <h4>Auto Save</h4>
+
+                    <p>One of my favs! Default = off</p>
+
+                    <pre><code>"files.autoSave": "afterDelay",</code></pre>
+
+
+                    <h4>Exclude Files</h4>
+
+                    <pre><code>"files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/.CVS": true,
+    "**/.DS_Store": true,
+    "somefolder/": true,
+    "somefile": true
+}</code></pre>
+
+
+                    <h4>Auto Closing Brackets</h4>
+
+                    <p>Default = true</p>
+
+                    <pre><code>"editor.autoClosingBrackets": false,</code></pre>
+
+
+                    <h4>Indentations</h4>
+
+                    <p>
+                        Default = inserts spaces and uses 4 spaces per Tab key.
+                    </p>
+
+                    <pre><code>"editor.insertSpaces": true,
+"editor.tabSize": 4,</code></pre>
+
+
+                    <p>And the list goes on!</p>
+
+
+                    <h3>Language File Type Editing</h3>
+
+                    <p>
+                        For each language, whether it be TypeScript, JavaScript, Rust,
+                        etc., you may want to have different editing settings for each one.
+                        To customize these settings open the command palette and type
+                        <strong>'Configure language specific settings'</strong>.
+                    </p>
+
+                    <p>
+                        At which point you can select the language you want to edit and
+                        begin specifying the settings you want. It's that simple!
+                    </p>
+
+                    <figure class="archive-image">
+                        <img src="assets/img/vscode/vscode-languagesettings.png"
+                            alt="Language-specific settings in Visual Studio Code">
+                    </figure>
+
+
+                    <h3>Keymappings</h3>
+
+                    <p>
+                        To see all keymappings navigate to
+                        <strong>File &gt; Preferences &gt; Keyboard Shortcuts</strong>.
+                    </p>
+
+                    <figure class="archive-image archive-image--medium">
+                        <img src="assets/img/vscode/vscode-keys.png" alt="Keyboard shortcuts in Visual Studio Code">
+                    </figure>
+
+
+                    <h4>Editing Current Keymappings</h4>
+
+                    <p>
+                        To edit a current keybinding, navigate to the keyboard shortcuts
+                        scroll and type in the command you want to edit. Either right
+                        click and select 'Change Keybinding', select the command and hit
+                        <code>Ctrl+K Ctrl+K</code>, or hover beside the command and click
+                        the pencil icon.
+                    </p>
+
+                    <figure class="archive-image archive-image--medium">
+                        <img src="assets/img/vscode/vscode-keybinding.png"
+                            alt="Editing a keyboard shortcut in Visual Studio Code">
+                    </figure>
+
+
+                    <h4>Adding New Keymappings</h4>
+
+                    <p>
+                        Open the <strong>Command Palette</strong> and type
+                        'Open Keyboard Shortcuts File'.
+                    </p>
+
+                    <figure class="archive-image">
+                        <img src="assets/img/vscode/vscode-shortcuts.png"
+                            alt="Visual Studio Code keyboard shortcuts file">
+                    </figure>
+
+                    <p>
+                        Find the rule that triggers the action in the
+                        <strong>Default Keyboard Shortcuts</strong> file and write a
+                        modified version of it in your <code>keybindings.json</code>
+                        file.
+                    </p>
+
+
+                    <h3>Keymapping Extensions</h3>
+
+                    <p>
+                        You can import keybindings from other popular editors in the
+                        VS Code Marketplace.
+                    </p>
+
+                    <p>
+                        Or navigate to
+                        <strong>File &gt; Preferences &gt; Keymap Extensions</strong>.
+                    </p>
+
+
+                    <h4>Dealing With Conflicts</h4>
+
+                    <p>
+                        Having many extensions and customizations are great! But this
+                        also makes room for conflicts. The same keyboard shortcut can
+                        be mapped to several commands and can make for some wonky
+                        behavior.
+                    </p>
+
+                    <figure class="archive-image">
+                        <img src="assets/img/vscode/vscode-conflicts.png"
+                            alt="Conflicting keyboard shortcuts in Visual Studio Code">
+                    </figure>
+
+                    <p>
+                        Luckily, VS Code has provided us with a nifty
+                        <strong>Show Conflicts</strong> feature which filters keybindings
+                        based on the shortcut and displays the resulting conflicts,
+                        if any.
+                    </p>
+
+                    <figure class="archive-image archive-image--medium">
+                        <img src="assets/img/vscode/vscode-conflicts2.png"
+                            alt="Show Conflicts feature in Visual Studio Code">
+                    </figure>
+
+
+                    <h3>Extensions</h3>
+
+                    <p>
+                        And of course, there are tons of extensions you can find in the
+                        marketplace to extend and make the most of your VS Code
+                        experience.
+                    </p>
+
+                </div>
+
+                <nav class="article-pagination" aria-label="Article navigation">
+
+                    <a href="#day-02" class="article-prev" data-article="day-02">
+                        ← <span>02</span>
+                        Navigating VS Code
+                    </a>
+
+                    <a href="#day-04" class="article-next" data-article="day-04">
+                        <span>04</span>
+                        VS Code & Version Control →
+                    </a>
+
+                </nav>
+
+            </section>
+
+
+
+            <!-- =====================================================
+            04 — VS CODE & VERSION CONTROL
+            ===================================================== -->
+
+            <section class="essay-section archive-entry series-article" id="day-04" hidden>
+
+                <div class="section-heading">
+
+                    <p class="article-number">04 / 07</p>
+
+                    <h2>VS Code &amp; Version Control</h2>
+
+                    <p class="article-date">
+                        Originally published January 13, 2018
+                    </p>
+
+                </div>
+
+
+                <div class="section-copy">
+
+                    <p>
+                        VS Code has Git Version Control built into the editor when you
+                        install it. You can also install other source control systems
+                        from the marketplace.
+                    </p>
+
+                    <p><strong>Other Version Control System Integrations for VS Code</strong></p>
+
+                    <ul>
+                        <li>Mercurial</li>
+                        <li>Perforce</li>
+                        <li>SVN</li>
+                        <li>Team Foundation Server</li>
+                    </ul>
+
+                    <p>
+                        Let's take a look specifically at the Git support VS Code offers.
+                    </p>
+
+
+                    <h3>Git Integration</h3>
+
+                    <p>
+                        This article will assume you have basic knowledge of Git.
+                        It also assumes you have already installed the Git client.
+                    </p>
+
+                    <p>Let's dive in!</p>
+
+
+                    <h3>Features in the Activity Bar</h3>
+
+                    <p>
+                        Remember the Activity Bar we saw in Navigating VS Code? The
+                        <strong>Source Control</strong> icon
+                        (<code>Ctrl+Shift+G</code>) will display an overview of the
+                        changes made to your repository.
+                    </p>
+
+                    <p>
+                        You will be able to view details like changes, staged changes,
+                        and merge changes.
+                    </p>
+
+                    <figure class="archive-image archive-image--medium">
+                        <img src="assets/img/vscode/vscode-git1.png"
+                            alt="Source Control changes shown in Visual Studio Code">
+                    </figure>
+
+                    <p>
+                        Clicking on any of these will provide further details on the
+                        changes.
+                    </p>
+
+
+                    <h3>Features in the Status Bar</h3>
+
+                    <p>
+                        Remember the Status Bar we saw in Navigating VS Code? Here we
+                        can also see details regarding the status of our repository
+                        changes. We can view our current branch, modified tracked files
+                        and staged changes, along with commits.
+                    </p>
+
+                    <figure class="archive-image archive-image--medium">
+                        <img src="assets/img/vscode/vscode-branch.png"
+                            alt="Git branch information in the Visual Studio Code status bar">
+                    </figure>
+
+                    <p>
+                        The status bar allows us to switch between branches or even
+                        create a new branch on the fly.
+                    </p>
+
+                    <p>
+                        There is also the <strong>Synchronize</strong> changes action
+                        in the Status Bar. When there is an available upstream branch
+                        configured you can synchronize with it. You can pull down the
+                        remote changes to your local copy and/or push your local changes
+                        to the upstream branch.
+                    </p>
+
+                    <p>
+                        When no upstream is available, then you will have a
+                        <strong>Publish</strong> action available to set up with a
+                        remote repository.
+                    </p>
+
+
+                    <h3>Commit Actions</h3>
+
+                    <p>
+                        Hit the <code>...</code> menu on the top of the Git view to see
+                        all available actions. These actions include pull, push, commit,
+                        stage, etc.
+                    </p>
+
+                    <figure class="archive-image archive-image--medium">
+                        <img src="assets/img/vscode/undo-last-commit.gif"
+                            alt="Git commit actions in Visual Studio Code">
+                    </figure>
+
+                    <p>
+                        We can quickly go from our changes to stage changes by hovering
+                        over the number of files and with the click of the
+                        <code>+</code> button.
+                    </p>
+
+                    <figure class="archive-image archive-image--medium">
+                        <img src="assets/img/vscode/git-stage-all.gif" alt="Staging Git changes in Visual Studio Code">
+                    </figure>
+
+                    <p>
+                        You can also stage a portion of a file by selecting and then
+                        choosing <strong>Stage Selected Ranges</strong> from the
+                        command palette.
+                    </p>
+
+
+                    <h3>Resolve Merge Conflicts and Git Diff</h3>
+
+                    <p>
+                        During a merge, click the Source Control button in the Activity
+                        Bar and make changes in the diff view. Select and accept current,
+                        incoming or both changes in just one click.
+                    </p>
+
+                    <figure class="archive-image">
+                        <img src="assets/img/vscode/resolve-merge-conflicts.gif"
+                            alt="Resolving a Git merge conflict in Visual Studio Code">
+                    </figure>
+
+                    <p>
+                        Differences are highlighted and you are presented with various
+                        actions to accept.
+                    </p>
+
+                    <p>
+                        Git diff is also supported in VS Code. You can view side by side
+                        or inline.
+                    </p>
+
+                    <figure class="archive-image archive-image--medium">
+                        <img src="assets/img/vscode/vscode-sideside1.png"
+                            alt="Side-by-side Git diff in Visual Studio Code">
+                    </figure>
+
+                    <figure class="archive-image archive-image--medium">
+                        <img src="assets/img/vscode/vscode-inline.png" alt="Inline Git diff in Visual Studio Code">
+                    </figure>
+
+
+                    <h3>Clone or Initialize Repository</h3>
+
+                    <p>
+                        To clone a repository, you can run a
+                        <strong>Git Clone</strong> command from the command palette
+                        (<code>Ctrl+Shift+P</code>).
+                    </p>
+
+                    <p>
+                        To initialize a repository, you can run an
+                        <strong>Initialize Git Repository</strong> command from the
+                        command palette and the necessary metadata will be created.
+                    </p>
+
+                    <figure class="archive-image archive-image--medium">
+                        <img src="assets/img/vscode/vscode-initializegit.png"
+                            alt="Initialize Git Repository command in Visual Studio Code">
+                    </figure>
+
+
+                    <h3>Multiple Source Control Integrations</h3>
+
+                    <p>
+                        VS Code is capable of handling multiple source control
+                        integrations across various projects. The source control
+                        providers list shows the providers and repos.
+                    </p>
+
+                    <figure class="archive-image archive-image--medium">
+                        <img src="assets/img/vscode/vscode-multiplesources.png"
+                            alt="Multiple source control providers in Visual Studio Code">
+                    </figure>
+
+                    <p>
+                        That's it for my overview of using Git with VS Code.
+                    </p>
+
+                </div>
+
+
+                <!-- PREVIOUS / NEXT -->
+
+                <nav class="article-pagination" aria-label="Article navigation">
+
+                    <a href="#day-03" class="article-prev" data-article="day-03">
+                        ← <span>03</span>
+                        Customizing VS Code
+                    </a>
+
+                    <a href="#day-05" class="article-next" data-article="day-05">
+                        <span>05</span>
+                        Extending VS Code →
+                    </a>
+
+                </nav>
+
+            </section>
+
+
+            <!-- =====================================================
+     05 — EXTENDING VS CODE: PART 1
+     ===================================================== -->
+
+            <section class="essay-section archive-entry series-article" id="day-05" hidden>
+
+                <div class="section-heading">
+
+                    <p class="article-number">05 / 07</p>
+
+                    <h2>Extending VS Code: Part 1</h2>
+
+                    <p class="article-date">
+                        Originally published January 15, 2018
+                    </p>
+
+                </div>
+
+
+                <div class="section-copy">
+
+                    <p>
+                        There are many ways to extend VS Code. For this part,
+                        we will be building a theme extension.
+                    </p>
+
+
+                    <h3>Building a custom theme extension from scratch</h3>
+
+                    <p>
+                        <em>Requirements — Node.js</em>
+                    </p>
+
+                    <p>
+                        All extensions belong to a directory. On a Windows machine
+                        you can find it under:
+                    </p>
+
+                    <pre><code>%USERNAME%\.vscode\extensions</code></pre>
+
+                    <p>
+                        On a Mac or Linux you can find that directory at:
+                    </p>
+
+                    <pre><code>~/.vscode/extensions</code></pre>
+
+                    <p>
+                        Therefore, all extensions we build will fall under this folder.
+                    </p>
+
+
+                    <h3>First step</h3>
+
+                    <p>
+                        Create a directory within the extension directory. The name
+                        of this folder should be the name of your extension, for example:
+                        <em>kims-awesome-extension</em>.
+                    </p>
+
+                    <p>
+                        Once it is created, navigate to that folder.
+                    </p>
+
+
+                    <h3>Second step</h3>
+
+                    <h4>Extension Manifest File — package.json</h4>
+
+                    <p>
+                        <code>package.json</code> is going to describe our extension.
+                        This JSON file will contain metadata about the extension.
+                    </p>
+
+                    <p>Let's take a look at all the required fields:</p>
+
+                    <ul>
+                        <li>
+                            <strong>name</strong> — <code>string</code> — the name of
+                            the extension and should be all lowercase with no spaces.
+                        </li>
+
+                        <li>
+                            <strong>version</strong> — <code>string</code> — semantic
+                            versioning number for compatibility.
+                        </li>
+
+                        <li>
+                            <strong>publisher</strong> — <code>string</code> — the
+                            publisher's username in the VS Code Marketplace.
+                        </li>
+                    </ul>
+
+                    <p>Optional fields include:</p>
+
+                    <ul>
+                        <li>
+                            <strong>license</strong> — <code>string</code>
+                        </li>
+
+                        <li>
+                            <strong>displayName</strong> — <code>string</code> — the
+                            name displayed in the VS Code Marketplace.
+                        </li>
+
+                        <li>
+                            <strong>description</strong> — <code>string</code> — a
+                            short description of the extension.
+                        </li>
+
+                        <li>
+                            <strong>keywords</strong> — <code>array</code> — keywords
+                            or tags to find the extension.
+                        </li>
+
+                        <li>
+                            <strong>main</strong> — <code>string</code> — the entry
+                            point to the extension.
+                        </li>
+
+                        <li>
+                            <strong>activationEvents</strong> — <code>array</code> —
+                            activation events for the extension.
+                        </li>
+                    </ul>
+
+                    <p>And a few others.</p>
+
+                    <p>Here is an example of a <code>package.json</code> file:</p>
+
+                    <pre><code>{
+    "name": "kims-awesome-extension",
+    "displayName": "The Ultimate Extension",
+    "version": "0.1.0",
+    "publisher": "kim-codes",
+    "description": "The extension to rule all extensions.",
+    "categories": [
+        "Other"
+    ],
+    "icon": "images/icon.png",
+    "activationEvents": [
+        "onLanguage:markdown"
+    ],
+    "engines": {
+        "vscode": "^1.0.0"
+    },
+    "main": "./out/extension"
+}</code></pre>
+
+                    <p>
+                        However, since for this example we are building a theme,
+                        our <code>package.json</code> file is going to be slightly
+                        different and includes a contribution section.
+                    </p>
+
+                    <pre><code>"contributes": {
+    "themes": [
+        {
+            "label": "KimsTheme",
+            "uiTheme": "vs-dark",
+            "path": "./themes/kims-theme.json"
+        }
+    ]
+}</code></pre>
+
+                    <p>
+                        Now that we have our <code>package.json</code> file, we need
+                        to create a theme JSON file, <code>kims-theme.json</code>.
+                    </p>
+
+
+                    <h3>Third step</h3>
+
+                    <h4>Theme JSON file</h4>
+
+                    <p>
+                        Within the theme JSON file, we will be able to modify almost
+                        all elements of the VS Code interface. To be able to modify
+                        an item, we will need a way to select that item and a syntax
+                        to define how it will change.
+                    </p>
+
+                    <p>
+                        The latter could include applying a new color or applying a
+                        new font style.
+                    </p>
+
+                    <p>
+                        The structure of our theme file will start off with a skeleton
+                        like such:
+                    </p>
+
+                    <pre><code>{
+    "name": "kims-theme",
+    "type": "dark",
+    "colors": {
+    },
+    "tokenColors": [
+    ]
+}</code></pre>
+
+                    <p>
+                        To make changes (and start building our custom theme), we use
+                        workbench colors for the UI and "tokens" for defining syntax
+                        highlighting aspects.
+                    </p>
+
+
+                    <h4>Colors</h4>
+
+                    <p>
+                        For the <code>colors</code> field, we can add key-value pairs
+                        that will edit items such as the background, the foreground,
+                        etc. For example:
+                    </p>
+
+                    <pre><code>"colors": {
+    "editor.background": "#F5F5DC",
+    "editor.foreground": "#00FFFF"
+}</code></pre>
+
+
+                    <h4>Testing an extension</h4>
+
+                    <p>
+                        At this point, we can stop and test our extension. We can leave
+                        the <code>tokenColors</code> field as an empty array.
+                    </p>
+
+                    <p>
+                        If VS Code is already open simply open the command palette and
+                        run <strong>Reload Window</strong>, a relaunch is not necessary.
+                        After which run <code>Preferences: Color Theme</code> or navigate
+                        to <strong>File → Preferences → Color Theme</strong>.
+                    </p>
+
+                    <p>
+                        If all went well, you should now see your theme within the
+                        list of available themes.
+                    </p>
+
+                    <figure class="archive-image">
+                        <img src="assets/img/vscode/vscode-kimstheme.png"
+                            alt="Custom theme appearing in the Visual Studio Code theme picker">
+                    </figure>
+
+
+                    <h4>Tokens</h4>
+
+                    <p>
+                        The <code>tokenColors</code> field is a bit more complex
+                        compared to the <code>colors</code> field. Instead of a
+                        key-value pair, it takes an array of objects.
+                    </p>
+
+                    <p>
+                        There are two ways to work with token colors. You can either
+                        reference an existing TextMate theme
+                        (<code>.tmTheme</code> file), or you can come up with your
+                        own theming rules.
+                    </p>
+
+                    <p>
+                        I like to think of scopes as defining elements that you can
+                        actually select to do something with or modify.
+                    </p>
+
+                    <p>
+                        Let's take a look at the code which will help us understand
+                        what's going on.
+                    </p>
+
+                    <pre><code>{
+    "name": "Functions",
+    "scope": [
+        "entity.name.function",
+        "meta.selector.css entity.name.tag",
+        "entity.name.method - source.java"
+    ],
+    "settings": {
+        "foreground": "#8ab1b0",
+        "fontStyle": "italic"
+    }
+}</code></pre>
+
+                    <p>
+                        Here we have a token called <code>Functions</code>. Within
+                        this token we define a scope (you can have more than one scope).
+                        Whenever the syntax highlighter parser reaches this defined
+                        scope, the defined settings for that token are applied.
+                    </p>
+
+                    <p>
+                        That scope stuff looks pretty tricky, doesn't it? An easy way
+                        to identify scopes that we want to style in our theme is to
+                        navigate to the type of file we want to customize, for example,
+                        JavaScript files.
+                    </p>
+
+                    <p>
+                        We can open a JavaScript file and from the command palette run
+                        a command called <strong>Developer: Inspect TM Scopes</strong>.
+                    </p>
+
+                    <figure class="archive-image archive-image--medium">
+                        <img src="assets/img/vscode/vscode-tmscope.png"
+                            alt="Inspecting TextMate scopes in Visual Studio Code">
+                    </figure>
+
+                    <p>
+                        It'll look something like this!
+                    </p>
+
+
+                    <h3>Last step</h3>
+
+                    <p>
+                        After adding your tokens for your theme, re-test your extension
+                        like before and voilà!
+                    </p>
+
+
+                    <h4>Want to modify a few UI items and not build a whole theme?</h4>
+
+                    <p>
+                        Head back over to Customizing VS Code and simply override the
+                        few workspace settings to get the colors you want in your theme.
+                        You do this by using the
+                        <code>workbench.colorCustomizations</code> object in user
+                        settings.
+                    </p>
+
+                </div>
+
+
+                <!-- PREVIOUS / NEXT -->
+
+                <nav class="article-pagination" aria-label="Article navigation">
+
+                    <a href="#day-04" class="article-prev" data-article="day-04">
+                        ← <span>04</span>
+                        VS Code &amp; Version Control
+                    </a>
+
+                    <a href="#day-06" class="article-next" data-article="day-06">
+                        <span>06</span>
+                        Extending VS Code: Part 2 →
+                    </a>
+
+                </nav>
+
+            </section>
+
+            <!-- =====================================================
+     06 — EXTENDING VS CODE: PART 2
+     ===================================================== -->
+
+            <section class="essay-section archive-entry series-article" id="day-06" hidden>
+
+                <div class="section-heading">
+
+                    <p class="article-number">06 / 07</p>
+
+                    <h2>Extending VS Code: Part 2</h2>
+
+                    <p class="article-date">
+                        Originally published January 16, 2018
+                    </p>
+
+                </div>
+
+
+                <div class="section-copy">
+
+                    <p>
+                        Today, we will be building an extension for our workspace that
+                        targets working with the status bar in the editor. We will build
+                        a character counter for a specific selection of text in the editor.
+                    </p>
+
+                    <p>
+                        The extension will be built using JavaScript.
+                    </p>
+
+
+                    <h3>Let's begin</h3>
+
+                    <p>
+                        <em>Requirements — Node.js</em>
+                    </p>
+
+                    <p>
+                        Creating a command extension is a bit different than creating
+                        a theme extension.
+                    </p>
+
+
+                    <h3>The structure of an extension</h3>
+
+                    <p>
+                        VS Code stores all its extensions in a directory. On a Windows
+                        machine you can find it under:
+                    </p>
+
+                    <pre><code>%USERNAME%\.vscode\extensions</code></pre>
+
+                    <p>
+                        On a Mac or Linux you can find that directory at:
+                    </p>
+
+                    <pre><code>~/.vscode/extensions</code></pre>
+
+                    <p>
+                        Your extensions can be built in TypeScript or JavaScript.
+                        We will be exploring a JavaScript example.
+                    </p>
+
+                    <p>
+                        For a JavaScript extension, the structure will look something
+                        like this:
+                    </p>
+
+                    <pre><code>── .vscode
+│   ├── launch.json
+│   ├── settings.json
+│   └── tasks.json
+├── .vscodeignore
+├── README.md
+├── src
+│   └── extension.js
+├── test
+│   ├── extension.test.js
+│   └── index.js
+├── node_modules
+│   └── vscode
+├── package.json
+└── jsconfig.json</code></pre>
+
+
+                    <h4>Let's explore a few of these folders and files</h4>
+
+                    <ul>
+                        <li>
+                            <strong>.vscode</strong> — The VS Code integration.
+                        </li>
+
+                        <li>
+                            <strong>.vscodeignore</strong> — Works just like
+                            <code>.gitignore</code>. It signals what files to ignore
+                            when publishing the extension.
+                        </li>
+
+                        <li>
+                            <strong>README.md</strong> — Used to describe the extension
+                            to users.
+                        </li>
+
+                        <li>
+                            <strong>test</strong> — Unit tests reside here and can be
+                            run against the VS Code API.
+                        </li>
+
+                        <li>
+                            <strong>package.json</strong> — Our extension's manifest
+                            file and the entry point to our extension.
+                        </li>
+
+                        <li>
+                            <strong>extension.js</strong> — Contains the logic.
+                        </li>
+                    </ul>
+
+
+                    <h3>Manifest — package.json</h3>
+
+                    <p>Let's explore the various keys.</p>
+
+                    <ul>
+                        <li>
+                            <strong>name</strong> — <code>string</code> — the name of
+                            the extension and should be all lowercase with no spaces.
+                        </li>
+
+                        <li>
+                            <strong>version</strong> — <code>string</code> — semantic
+                            versioning number for compatibility.
+                        </li>
+
+                        <li>
+                            <strong>publisher</strong> — <code>string</code> — the
+                            publisher's username in the VS Code Marketplace.
+                        </li>
+
+                        <li>
+                            <strong>license</strong> — <code>string</code> — the
+                            extension's license.
+                        </li>
+
+                        <li>
+                            <strong>displayName</strong> — <code>string</code> — the
+                            name displayed in the VS Code Marketplace.
+                        </li>
+
+                        <li>
+                            <strong>description</strong> — <code>string</code> — a
+                            short description of the extension.
+                        </li>
+
+                        <li>
+                            <strong>keywords</strong> — <code>array</code> — keywords
+                            or tags used to find the extension.
+                        </li>
+
+                        <li>
+                            <strong>main</strong> — <code>string</code> — the entry
+                            point to the extension.
+                        </li>
+
+                        <li>
+                            <strong>activationEvents</strong> — <code>array</code> —
+                            the activation events for the extension.
+                        </li>
+
+                        <li>
+                            <strong>engines</strong> — the compatible versions of
+                            VS Code for the extension.
+                        </li>
+
+                        <li>
+                            <strong>devDependencies</strong> — required Node.js
+                            dependencies for the extension.
+                        </li>
+                    </ul>
+
+                    <p>
+                        Within the manifest file, we also find contribution points.
+                    </p>
+
+
+                    <h3>Logic — extension.js</h3>
+
+                    <h4>activate</h4>
+
+                    <p>
+                        Our logic for the extension can be found in the
+                        <code>extension.js</code> file, which will contain a method
+                        called <code>activate</code>.
+                    </p>
+
+                    <p>
+                        The activate method gets invoked only once from the activation
+                        event that we specified in our manifest.
+                    </p>
+
+
+                    <h4>deactivate</h4>
+
+                    <p>
+                        A <code>deactivate</code> method can be implemented if the
+                        extension makes use of OS resources. The method is used for
+                        clean-up at the time the application shuts down.
+                    </p>
+
+
+                    <h3>So, how does the extension come into existence?</h3>
+
+                    <p>
+                        Depending on the <code>activationEvent</code> we choose and
+                        define for our extension, it will partly affect how our extension
+                        is loaded. It could be when a specific file type is loaded,
+                        when a command is fired, etc.
+                    </p>
+
+                    <p>
+                        The extension activation process, as an example, can go a
+                        little something like this:
+                    </p>
+
+                    <ol>
+                        <li>
+                            As we mentioned earlier, the manifest file is the entry
+                            point to an extension. It is the first thing the extension
+                            development host instance looks for and reads.
+                        </li>
+
+                        <li>
+                            An activation event is created.
+                        </li>
+
+                        <li>
+                            The logic of the extension — the
+                            <code>extension.js</code> file — gets loaded in the
+                            JavaScript VM.
+                        </li>
+
+                        <li>
+                            The <code>activate</code> function defined in
+                            <code>extension.js</code> is found and called.
+                        </li>
+
+                        <li>
+                            One last step: the implementation is invoked and it does
+                            its thing!
+                        </li>
+                    </ol>
+
+
+                    <h3>Let's get to coding!</h3>
+
+
+                    <h4>First challenge</h4>
+
+                    <p>
+                        Let's try displaying a message.
+                    </p>
+
+                    <p>
+                        Create your <strong>package.json</strong> file. I included
+                        only a few fields, just to quickly get this up and rolling.
+                    </p>
+
+                    <p>
+                        <a href="https://gist.github.com/kim-codes/6b6d62f3b49c41ee74df761a10f9e47e" target="_blank"
+                            rel="noopener noreferrer" class="archive-code-link">
+                            View the package.json example ↗
+                        </a>
+                    </p>
+
+                    <p>
+                        Create your <strong>extension.js</strong> file.
+                    </p>
+
+                    <p>
+                        <a href="https://gist.github.com/kim-codes/3cdc38b76ebbe1d6c725b6f1cc89f11c" target="_blank"
+                            rel="noopener noreferrer" class="archive-code-link">
+                            View the extension.js example ↗
+                        </a>
+                    </p>
+
+                    <p>
+                        Remember how to reload the window? Activate the command palette
+                        and select <strong>Reload Window</strong>.
+                    </p>
+
+                    <figure class="archive-image">
+                        <img src="assets/img/vscode/vscode-extension1.png"
+                            alt="Testing a custom extension in Visual Studio Code">
+                    </figure>
+
+
+                    <h4>Second challenge</h4>
+
+                    <p>
+                        Let's try grabbing a selected piece of text in the editor
+                        and displaying it.
+                    </p>
+
+                    <p>
+                        First, you'll need to get the current editor. From the current
+                        editor, we will need to grab the selection to get the word or
+                        phrase that has been highlighted.
+                    </p>
+
+                    <p>
+                        After which, we store the value in a variable and use it
+                        however we want. For this second challenge, we will merely
+                        display it back to the user.
+                    </p>
+
+                    <p>
+                        Try not to peek ahead!!
+                    </p>
+
+                    <p>...</p>
+
+                    <p>
+                        But I'll show you my code.
+                    </p>
+
+                    <p>
+                        <a href="https://gist.github.com/kim-codes/a77ff7bd80e7f7b06611e5cc7b96237a" target="_blank"
+                            rel="noopener noreferrer" class="archive-code-link">
+                            View my solution ↗
+                        </a>
+                    </p>
+
+
+                    <h4>Third challenge</h4>
+
+                    <p>
+                        Now let's try connecting our code to an external dictionary
+                        API that will let us look up the definition of the word selected.
+                    </p>
+
+                    <p>
+                        I'll be using an API from Oxford Dictionaries, but feel free
+                        to use any dictionary API that you are comfortable with.
+                    </p>
+
+
+                    <h5>Behind the scenes</h5>
+
+                    <p>
+                        I am sending an XMLHttpRequest to the API by providing my
+                        credentials and adding an event listener to the request.
+                    </p>
+
+                    <p>
+                        This event listener, when it receives a notification that
+                        transactions have been completed, will parse the results in
+                        JSON format.
+                    </p>
+
+                    <p>
+                        The results I get back contain a ton of information. However,
+                        all we want right now is the first definition.
+                    </p>
+
+
+                    <h3>Conclusion</h3>
+
+                    <p>
+                        And it's that simple to create a VS Code extension :)
+                        Stay tuned for next time! I shall reveal how to complete the
+                        third challenge if you had trouble.
+                    </p>
+
+                </div>
+
+
+                <!-- PREVIOUS / NEXT -->
+
+                <nav class="article-pagination" aria-label="Article navigation">
+
+                    <a href="#day-05" class="article-prev" data-article="day-05">
+                        ← <span>05</span>
+                        Extending VS Code: Part 1
+                    </a>
+
+                    <a href="#day-07" class="article-next" data-article="day-07">
+                        <span>07</span>
+                        Features of VS Code’s Extensibility Model →
+                    </a>
+
+                </nav>
+
+            </section>
+
+            <!-- =====================================================
+     07 — FEATURES OF VS CODE'S EXTENSIBILITY MODEL
+     ===================================================== -->
+
+            <section class="essay-section archive-entry series-article" id="day-07" hidden>
+
+                <div class="section-heading">
+
+                    <p class="article-number">07 / 07</p>
+
+                    <h2>Features of VS Code's Extensibility Model</h2>
+
+                    <p class="article-date">
+                        Originally published January 20, 2018
+                    </p>
+
+                </div>
+
+
+                <div class="section-copy">
+
+                    <p>
+                        I abstracted this part out of my Extending VS Code: PART 2
+                        so that it can be referenced without needing to go through
+                        the entire tutorial. Enjoy!
+                    </p>
+
+
+                    <h3>Structure</h3>
+
+                    <p>
+                        VS Code stores all its extensions in a directory. On a Windows
+                        machine you can find it under:
+                    </p>
+
+                    <pre><code>%USERNAME%\.vscode\extensions</code></pre>
+
+                    <p>
+                        On a Mac or Linux you can find that directory at:
+                    </p>
+
+                    <pre><code>~/.vscode/extensions</code></pre>
+
+                    <p>
+                        Your extensions can be built in TypeScript or JavaScript.
+                        We will be exploring an imaginary JavaScript extension.
+                    </p>
+
+                    <p>
+                        For a JavaScript extension, the structure will look something
+                        like this:
+                    </p>
+
+                    <pre><code>── .vscode
+│   ├── launch.json
+│   ├── settings.json
+│   └── tasks.json
+├── .vscodeignore
+├── README.md
+├── src
+│   └── extension.js
+├── test                        // tests folder
+│   ├── extension.test.js
+│   └── index.js
+├── node_modules
+│   └── vscode                  // language services
+├── package.json                // extension's manifest
+└── jsconfig.json</code></pre>
+
+
+                    <h4>Let's explore a few of these folders and files</h4>
+
+                    <ul>
+                        <li>
+                            <strong>.vscode</strong> — The VS Code integration.
+                        </li>
+
+                        <li>
+                            <strong>.vscodeignore</strong> — Works just like
+                            <code>.gitignore</code>. It signals what files to ignore
+                            when publishing the extension.
+                        </li>
+
+                        <li>
+                            <strong>README.md</strong> — Used to describe the extension
+                            to users.
+                        </li>
+
+                        <li>
+                            <strong>test</strong> — Unit tests reside here and can be
+                            run against the VS Code API.
+                        </li>
+
+                        <li>
+                            <strong>package.json</strong> — Our extension's manifest
+                            file and acts as the entry point to our extension.
+                        </li>
+
+                        <li>
+                            <strong>extension.js</strong> — Contains the logic.
+                        </li>
+                    </ul>
+
+
+                    <h3>Manifest — package.json</h3>
+
+                    <p>
+                        Let's explore the various keys.
+                    </p>
+
+                    <ul>
+                        <li>
+                            <strong>name</strong> — <code>string</code> — the name of
+                            the extension and should be all lowercase with no spaces.
+                        </li>
+
+                        <li>
+                            <strong>version</strong> — <code>string</code> — semantic
+                            versioning number for compatibility.
+                        </li>
+
+                        <li>
+                            <strong>publisher</strong> — <code>string</code> — the
+                            publisher's username in the VS Code Marketplace.
+                        </li>
+
+                        <li>
+                            <strong>license</strong> — <code>string</code> — the
+                            license file should be at the root.
+                        </li>
+
+                        <li>
+                            <strong>displayName</strong> — <code>string</code> — the
+                            name displayed in the VS Code Marketplace.
+                        </li>
+
+                        <li>
+                            <strong>description</strong> — <code>string</code> — a
+                            short description of the extension.
+                        </li>
+
+                        <li>
+                            <strong>keywords</strong> — <code>array</code> — keywords
+                            or tags used to find the extension.
+                        </li>
+
+                        <li>
+                            <strong>main</strong> — <code>string</code> — the entry
+                            point to the extension.
+                        </li>
+
+                        <li>
+                            <strong>activationEvents</strong> — <code>array</code> —
+                            the activation events for the extension.
+                        </li>
+
+                        <li>
+                            <strong>engines</strong> — the compatible versions of
+                            VS Code for the extension.
+                        </li>
+
+                        <li>
+                            <strong>devDependencies</strong> — required Node.js
+                            dependencies for the extension.
+                        </li>
+                    </ul>
+
+                    <p>
+                        For more key fields, check out the
+                        <a href="https://code.visualstudio.com/api/references/extension-manifest" target="_blank"
+                            rel="noopener noreferrer">
+                            Extension Manifest documentation ↗
+                        </a>.
+                    </p>
+
+                    <p>
+                        Within the manifest file, we find contribution points.
+                    </p>
+
+
+                    <h3>Logic — extension.js</h3>
+
+
+                    <h4>activate</h4>
+
+                    <p>
+                        Our logic for the extension can be found in the
+                        <code>extension.js</code> file, which will contain a method
+                        called <code>activate</code>.
+                    </p>
+
+                    <p>
+                        The activate method gets invoked only once from the activation
+                        event that we specified in our manifest.
+                    </p>
+
+
+                    <h4>deactivate</h4>
+
+                    <p>
+                        A <code>deactivate</code> method can be implemented if the
+                        extension makes use of OS resources. The method is used for
+                        clean-up at the time the application shuts down.
+                    </p>
+
+
+                    <h3>So, how does the extension come into existence?</h3>
+
+                    <p>
+                        Depending on the <code>activationEvent</code> we choose and
+                        define for our extension, it will partly affect how our
+                        extension is loaded. It could be when a specific file type
+                        is loaded, when a command is fired, etc.
+                    </p>
+
+                    <p>
+                        The extension activation process, as an example, can go a
+                        little something like this:
+                    </p>
+
+                    <ol>
+                        <li>
+                            As we mentioned earlier, the manifest file is the entry
+                            point to an extension. It is the first thing the
+                            <strong>extension development host instance</strong>
+                            looks for and reads. So when the extension is called upon,
+                            for example from the command palette, it is invoked.
+                        </li>
+
+                        <li>
+                            An activation event is created.
+                        </li>
+
+                        <li>
+                            At which point the logic of the extension, the
+                            <code>extension.js</code> file, gets loaded in the
+                            JavaScript VM.
+                        </li>
+
+                        <li>
+                            The <code>activate</code> function defined in
+                            <code>extension.js</code> is found and called.
+                        </li>
+
+                        <li>
+                            One last step: the implementation is invoked and it does
+                            its thing!
+                        </li>
+                    </ol>
+
+
+                    <p>
+                        This is just a quick overview of some of the features of
+                        Visual Studio Code's extensibility.
+                    </p>
+
+                    <p>
+                        <a href="https://code.visualstudio.com/api" target="_blank" rel="noopener noreferrer">
+                            Explore the VS Code Extension API documentation ↗
+                        </a>
+                    </p>
+
+                </div>
+
+
+                <!-- PREVIOUS -->
+
+                <nav class="article-pagination" aria-label="Article navigation">
+
+                    <a href="#day-06" class="article-prev" data-article="day-06">
+                        ← <span>06</span>
+                        Extending VS Code: Part 2
+                    </a>
+
+                    <span></span>
+
+                </nav>
+
+            </section>
+
+        </div> <!-- END OF SERIES ARTICLE DIV CONTAINER-->
+
 
     </main>
 
     <footer>
         <p>&copy; 2026 Kim Codes</p>
     </footer>
+
+    <script src="/assets/js/7days.js"></script>
 
 </body>
 

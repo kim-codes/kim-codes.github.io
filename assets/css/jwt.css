@@ -266,7 +266,7 @@
 }
 
 .pieces-note {
-    margin: 2rem 0 2.2rem 44%;
+    margin: 2.5rem 0 3.5rem 44%;
     transform: rotate(-3deg);
 }
 
@@ -275,9 +275,24 @@
    DETAILS
    ========================================================= */
 
+.detail-panel {
+    display: none;
+}
+
+.detail-panel.visible {
+    display: block;
+    padding: 2rem 2.25rem;
+
+    border: 1px solid #e1e1e1;
+    border-radius: 8px;
+    background: #fff;
+
+    animation: detail-in .3s ease both;
+}
+
 .part-details {
     width: min(100%, 700px);
-    margin: 0 auto;
+    margin: 4rem auto 0;
 }
 
 .detail-panel {
@@ -308,16 +323,15 @@
 /* title */
 
 .detail-title {
-    margin-bottom: 2rem;
-    text-align: center;
+    margin-bottom: 1.5rem;
 }
 
 .detail-label {
     display: block;
-    margin-bottom: .55rem;
+    margin-bottom: .4rem;
 
     color: #467b9f;
-    font-size: .76rem;
+    font-size: .72rem;
     font-weight: 600;
     letter-spacing: .08em;
     text-transform: uppercase;
@@ -325,9 +339,8 @@
 
 .detail-title p {
     margin: 0;
-
     color: #777;
-    font-size: .88rem;
+    font-size: .85rem;
     line-height: 1.6;
 }
 
@@ -337,19 +350,16 @@
    ========================================================= */
 
 .claims {
-    border-top: 1px solid #e4e4e4;
+    margin-top: .5rem;
 }
 
 .claim {
     display: grid;
     grid-template-columns: 70px 1fr 170px;
-
     align-items: center;
     gap: 1rem;
 
-    min-height: 62px;
-
-    border-bottom: 1px solid #e4e4e4;
+    min-height: 58px;
 }
 
 .claim>code {
@@ -397,13 +407,8 @@
 .header-values {
     display: grid;
     grid-template-columns: 1fr 1fr;
-
     gap: 3rem;
-
     padding: 1.8rem 0;
-
-    border-top: 1px solid #e4e4e4;
-    border-bottom: 1px solid #e4e4e4;
 }
 
 .simple-claim {
@@ -435,16 +440,11 @@
 
 .signature-example {
     display: flex;
-
     align-items: center;
     justify-content: center;
-
     gap: 1rem;
 
-    padding: 2rem;
-
-    border-top: 1px solid #e4e4e4;
-    border-bottom: 1px solid #e4e4e4;
+    padding: 1rem 0 0;
 }
 
 .signature-check {
@@ -479,9 +479,11 @@
 }
 
 
+
 /* =========================================================
    API PLAYGROUND
    ========================================================= */
+
 
 .api-playground {
     max-width: 950px;
@@ -506,6 +508,72 @@
     transform: rotate(-2deg);
 }
 
+/* =========================================================
+   PROGRESSIVE REVEAL
+   ========================================================= */
+
+.continue-token {
+    display: none;
+    margin-top: 4rem;
+    text-align: center;
+}
+
+.continue-token.visible {
+    display: block;
+    animation: reveal-next .4s ease both;
+}
+
+.continue-note {
+    display: block;
+    margin-bottom: .8rem;
+    transform: rotate(-2deg);
+}
+
+.continue-button {
+    padding: .4rem .6rem;
+
+    border: 0;
+    background: transparent;
+
+    color: #222;
+    font-family: 'Caveat', cursive;
+    font-size: 1.45rem;
+
+    cursor: pointer;
+}
+
+.continue-button span {
+    display: inline-block;
+    margin-left: .25rem;
+    transition: transform .18s ease;
+}
+
+.continue-button:hover span {
+    transform: translateX(5px);
+}
+
+/** HIDE api playground initially **/
+
+.api-playground {
+    display: none;
+}
+
+.api-playground.visible {
+    display: block;
+    animation: reveal-next .55s ease both;
+}
+
+@keyframes reveal-next {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
 /* =========================================================
    REQUEST PATH

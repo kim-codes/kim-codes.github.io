@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>kimcodes</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&amp;family=Inter:wght@400;500;600&amp;family=Caveat:wght@500&amp;family=Dancing+Script:wght@500&amp;display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="stylesheet" href="/assets/css/jwt.css">
+</head>
+
+<body>
+
+    <header>
+
+        <a href="/" class="logo">
+            <img src="/assets/img/kimcodes-gummy-twist.webp" alt="kimcodes">
+        </a>
+
+        <nav>
+            <ul>
+                <li><a href="/constants.html">Constants</a></li>
+                <li><a href="/craft.html">Craft</a></li>
+                <li><a href="/reflections.html">Reflections</a></li>
+                <li><a href="/footprints.html">Footprints</a></li>
+                <li><a href="/contact.html">Say Hello</a></li>
+            </ul>
+        </nav>
+
+    </header>
+
+    <main class="jwt-lab">
+
+        <section class="token-explorer">
+
+            <div class="lab-intro">
+                <h1>What’s inside the token?</h1>
+                <p>
+                    A token carries information about who is making a request,
+                    who the token is meant for, and what they’re allowed to do.
+                </p>
+            </div>
+
+
+            <!-- Encoded token -->
+            <div class="encoded-token" aria-label="Example JSON Web Token">
+                <code>
+                eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c2VyXzE4NDIiLCJhdWQiOiJwaG90b3MtYXBpIiwiaXNzIjoiYXV0aC5leGFtcGxlIn0.K4Q9nJ7xP2
+            </code>
+            </div>
+
+            <p class="token-instruction">
+                Click each part to see what it means.
+            </p>
+
+
+            <!-- Token anatomy -->
+            <div class="token-parts" role="group" aria-label="Parts of a JSON Web Token">
+
+                <button class="token-part token-header" data-part="header" type="button">
+                    <span class="token-fragment">
+                        eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9
+                    </span>
+
+                    <span class="token-part-name">Header</span>
+                    <span class="token-part-description">
+                        How the token was created.
+                    </span>
+                </button>
+
+                <span class="token-dot" aria-hidden="true">.</span>
+
+                <button class="token-part token-payload active" data-part="payload" type="button">
+                    <span class="token-fragment">
+                        eyJzdWIiOiJ1c2VyXzE4NDIiLCJhdWQiOiJwaG90b3MtYXBpIg
+                    </span>
+
+                    <span class="token-part-name">Payload</span>
+                    <span class="token-part-description">
+                        Claims about the user and permissions.
+                    </span>
+                </button>
+
+                <span class="token-dot" aria-hidden="true">.</span>
+
+                <button class="token-part token-signature" data-part="signature" type="button">
+                    <span class="token-fragment">
+                        K4Q9nJ7xP2
+                    </span>
+
+                    <span class="token-part-name">Signature</span>
+                    <span class="token-part-description">
+                        Helps verify the token hasn’t been changed.
+                    </span>
+                </button>
+
+            </div>
+
+
+            <!-- Inspector -->
+            <div class="token-inspector">
+
+                <!-- HEADER -->
+                <div class="inspector-panel" id="header-panel">
+
+                    <div class="inspector-heading">
+                        <span>Header</span>
+                        <p>Information about how the token was created.</p>
+                    </div>
+
+                    <div class="claim-row">
+                        <code>alg</code>
+                        <span class="claim-value">RS256</span>
+                        <span class="claim-help">signing algorithm</span>
+                    </div>
+
+                    <div class="claim-row">
+                        <code>typ</code>
+                        <span class="claim-value">JWT</span>
+                        <span class="claim-help">token type</span>
+                    </div>
+
+                </div>
+
+
+                <!-- PAYLOAD -->
+                <div class="inspector-panel active" id="payload-panel">
+
+                    <div class="inspector-heading">
+                        <span>Payload</span>
+                        <p>The claims carried by this token.</p>
+                    </div>
+
+                    <div class="claim-row">
+                        <code>sub</code>
+                        <span class="claim-value">user_1842</span>
+                        <span class="claim-help">who is this about?</span>
+                    </div>
+
+                    <div class="claim-row">
+                        <code>aud</code>
+                        <span class="claim-value">photos-api</span>
+                        <span class="claim-help">who is this for?</span>
+                    </div>
+
+                    <div class="claim-row">
+                        <code>iss</code>
+                        <span class="claim-value">auth.example</span>
+                        <span class="claim-help">who issued it?</span>
+                    </div>
+
+                    <div class="claim-row">
+                        <code>exp</code>
+                        <span class="claim-value">2:30 PM</span>
+                        <span class="claim-help">when does it expire?</span>
+                    </div>
+
+                    <div class="claim-row claim-scope">
+                        <code>scope</code>
+
+                        <span class="claim-value scope-list">
+                            <span>photos:read</span>
+                            <span>photos:write</span>
+                        </span>
+
+                        <span class="claim-help">what can it do?</span>
+                    </div>
+
+                </div>
+
+
+                <!-- SIGNATURE -->
+                <div class="inspector-panel" id="signature-panel">
+
+                    <div class="inspector-heading">
+                        <span>Signature</span>
+                        <p>
+                            The signature lets the API verify that the token
+                            hasn’t been changed since it was issued.
+                        </p>
+                    </div>
+
+                    <div class="signature-status">
+                        <span class="status-check">✓</span>
+
+                        <div>
+                            <strong>Signature valid</strong>
+                            <p>This token has not been modified.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Send token -->
+            <div class="send-token-area">
+
+                <button id="send-token" class="primary-action" type="button">
+                    Send token to API
+                    <span aria-hidden="true">→</span>
+                </button>
+
+            </div>
+
+
+            <!-- Request flow -->
+            <div class="request-flow">
+
+                <div class="request-origin">
+
+                    <div class="app-icon" aria-hidden="true">
+                        <div class="laptop-screen"></div>
+                        <div class="laptop-base"></div>
+                    </div>
+
+                    <strong>Your app</strong>
+                    <code>GET /photos/42</code>
+
+                </div>
+
+
+                <div class="flow-line" aria-hidden="true">
+                    <span></span>
+                    <span class="flow-arrow">→</span>
+                </div>
+
+
+                <div class="api-checkpoint">
+
+                    <span class="checkpoint-label">API checkpoint</span>
+
+                    <ul>
+                        <li>
+                            <span class="check">✓</span>
+                            Signature is valid
+                        </li>
+
+                        <li>
+                            <span class="check">✓</span>
+                            Audience matches
+                        </li>
+
+                        <li>
+                            <span class="check">✓</span>
+                            Token is not expired
+                        </li>
+
+                        <li>
+                            <span class="check">✓</span>
+                            Has required scope
+                        </li>
+                    </ul>
+
+                </div>
+
+
+                <div class="flow-line" aria-hidden="true">
+                    <span></span>
+                    <span class="flow-arrow">→</span>
+                </div>
+
+
+                <div class="api-result">
+
+                    <span class="api-label">Photos API</span>
+
+                    <strong>200 OK</strong>
+
+                    <p>Here’s photo #42.</p>
+
+                </div>
+
+            </div>
+
+
+            <!-- HTTP request -->
+            <div class="http-request">
+
+                <span class="request-label">HTTP request</span>
+
+                <code>GET /photos/42</code>
+
+                <code>
+                Authorization: Bearer
+                eyJhbGciOiJSUzI1NiIsInR5cCI6IkpX...
+            </code>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+
+        <p>&copy; 2026 Kim Codes</p>
+
+    </footer>
+
+</body>
+
+</html>

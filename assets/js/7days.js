@@ -21,6 +21,18 @@ function showArticle(articleId, shouldScroll = true) {
         link.classList.remove('active');
     });
 
+    articleNavLinks.forEach(link => {
+
+    link.addEventListener('click', event => {
+
+        event.preventDefault();
+
+        showArticle(link.dataset.article);
+
+    });
+
+});
+
     // Show selected article
     targetArticle.hidden = false;
     targetArticle.classList.add('active');

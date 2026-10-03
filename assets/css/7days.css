@@ -1,0 +1,441 @@
+/* =========================================================
+   VS CODE ARCHIVE
+   ========================================================= */
+
+.vscode-archive {
+    width: min(calc(100% - 48px), 760px);
+    margin: 8rem auto 0;
+}
+
+
+/* =========================================================
+   INTRO
+   ========================================================= */
+
+.archive-intro {
+    margin-bottom: 4.5rem;
+}
+
+.archive-kicker {
+    margin-bottom: 1rem;
+    color: #8c9296;
+    font-size: .78rem;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+}
+
+.archive-intro h1 {
+    margin: 0 0 1.5rem;
+    font-size: clamp(2.5rem, 6vw, 4.4rem);
+    font-weight: 500;
+    letter-spacing: -.045em;
+}
+
+.archive-intro-copy {
+    max-width: 610px;
+    margin: 0;
+    color: #4b5358;
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   SERIES INDEX
+   ========================================================= */
+
+.series-index {
+    margin-bottom: 7rem;
+}
+
+.series-index-title {
+    margin: 0 0 1.5rem;
+    color: #8c9296;
+    font-size: .75rem;
+    font-weight: 500;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+}
+
+.series-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 3rem;
+    row-gap: 0;
+
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+.series-list li {
+    margin: 0;
+}
+
+.series-list a {
+    display: grid;
+    grid-template-columns: 32px 1fr;
+    gap: .65rem;
+    align-items: baseline;
+
+    padding: .8rem 0;
+
+    color: #1c2023;
+    text-decoration: none;
+}
+
+.series-number {
+    color: #8c9296;
+    font-size: .75rem;
+}
+
+.series-list a span:last-child {
+    width: fit-content;
+    border-bottom: 1px solid transparent;
+}
+
+.series-list a:hover span:last-child,
+.series-list a:focus-visible span:last-child {
+    border-bottom-color: currentColor;
+}
+
+
+/* Active article */
+
+.series-link.active {
+    font-weight: 500;
+}
+
+.series-link.active .series-number {
+    color: #1c2023;
+}
+
+
+/* =========================================================
+   ARCHIVE ARTICLE
+   ========================================================= */
+
+.archive-entry {
+    scroll-margin-top: 3rem;
+    margin-bottom: 8rem;
+}
+
+.series-article[hidden] {
+    display: none;
+}
+
+
+/* Article number + date */
+
+.article-number {
+    margin: 0 0 .8rem;
+    color: #8c9296;
+    font-size: .75rem;
+    letter-spacing: .06em;
+}
+
+.article-date {
+    margin: .75rem 0 0;
+    color: #8c9296;
+    font-size: .8rem;
+}
+
+
+/* =========================================================
+   ARTICLE TYPOGRAPHY
+   ========================================================= */
+
+.archive-entry .section-copy {
+    color: #4b5358;
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+.archive-entry .section-copy p {
+    margin: 0 0 1.4rem;
+}
+
+
+/* Main sections inside an article */
+
+.archive-entry .section-copy h3 {
+    margin: 2.75rem 0 1rem;
+
+    color: #1c2023;
+    font-size: 1.15rem;
+    font-weight: 500;
+    line-height: 1.35;
+}
+
+
+/* Smaller subsections */
+
+.archive-entry .section-copy h4 {
+    margin: 2rem 0 .75rem;
+
+    color: #1c2023;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.archive-entry .section-copy h5 {
+    margin: 1.75rem 0 .65rem;
+
+    color: #1c2023;
+    font-size: .95rem;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+
+/* =========================================================
+   ARTICLE LISTS
+   ========================================================= */
+
+.archive-entry .section-copy ul,
+.archive-entry .section-copy ol {
+    margin: 1.4rem 0 2rem;
+    padding-left: 1.4rem;
+}
+
+.archive-entry .section-copy li {
+    margin: 0 0 .5rem;
+    padding-left: .2rem;
+
+    color: #4b5358;
+    line-height: 1.65;
+}
+
+.archive-entry .section-copy li:last-child {
+    margin-bottom: 0;
+}
+
+.archive-entry .section-copy li strong {
+    color: #1c2023;
+    font-weight: 600;
+}
+
+
+/* Nested lists */
+
+.archive-entry .section-copy li ul,
+.archive-entry .section-copy li ol {
+    margin: .6rem 0;
+}
+
+
+/* =========================================================
+   INLINE CODE
+   ========================================================= */
+
+.archive-entry code {
+    padding: .1rem .32rem;
+
+    background: #f6f6f6;
+    border-radius: 3px;
+
+    font-size: .88em;
+}
+
+
+/* Slightly smaller code labels inside lists */
+
+.archive-entry .section-copy li code {
+    padding: .07rem .28rem;
+    font-size: .82em;
+}
+
+
+/* =========================================================
+   CODE BLOCKS
+   ========================================================= */
+
+.archive-entry pre {
+    overflow-x: auto;
+
+    margin: 1.5rem 0 2rem;
+    padding: 1.1rem 1.2rem;
+
+    background: #f6f6f6;
+    border-radius: 4px;
+
+    font-family:
+        ui-monospace,
+        SFMono-Regular,
+        Menlo,
+        Monaco,
+        Consolas,
+        "Liberation Mono",
+        monospace;
+
+    font-size: .85rem;
+    line-height: 1.65;
+}
+
+.archive-entry pre code {
+    padding: 0;
+
+    background: transparent;
+    border-radius: 0;
+
+    font-size: inherit;
+}
+
+
+/* =========================================================
+   SCREENSHOTS
+   ========================================================= */
+
+.archive-image {
+    margin: 2.5rem 0;
+}
+
+.archive-image img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.archive-image--small {
+    max-width: 180px;
+}
+
+.archive-image--medium {
+    max-width: 420px;
+}
+
+.archive-image figcaption {
+    margin-top: .6rem;
+
+    color: #8c9296;
+    font-size: .75rem;
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   LINKS INSIDE ARTICLES
+   ========================================================= */
+
+.archive-entry .section-copy a {
+    color: #1c2023;
+    text-decoration-line: underline;
+    text-decoration-color: #b8bdc0;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+}
+
+.archive-entry .section-copy a:hover,
+.archive-entry .section-copy a:focus-visible {
+    text-decoration-color: #1c2023;
+}
+
+
+/* =========================================================
+   PREVIOUS / NEXT
+   ========================================================= */
+
+.article-pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+
+    margin-top: 5rem;
+    padding-top: 1.5rem;
+
+    border-top: 1px solid #e5e5e5;
+}
+
+.article-pagination a {
+    color: #4b5358;
+    font-size: .85rem;
+    line-height: 1.5;
+    text-decoration: none;
+}
+
+.article-pagination a span {
+    color: #8c9296;
+    font-size: .75rem;
+}
+
+.article-pagination a:hover,
+.article-pagination a:focus-visible {
+    color: #111;
+}
+
+.article-next {
+    text-align: right;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    .vscode-archive {
+        width: min(calc(100% - 36px), 760px);
+        margin-top: 6rem;
+    }
+
+    .archive-intro {
+        margin-bottom: 3.5rem;
+    }
+
+    .series-list {
+        grid-template-columns: 1fr;
+    }
+
+    .series-index {
+        margin-bottom: 5rem;
+    }
+
+    .archive-entry {
+        margin-bottom: 6rem;
+    }
+
+
+    /* Article content */
+
+    .archive-entry .section-copy ul,
+    .archive-entry .section-copy ol {
+        padding-left: 1.25rem;
+    }
+
+    .archive-entry .section-copy h3 {
+        margin-top: 2.4rem;
+    }
+
+    .archive-entry pre {
+        margin-left: 0;
+        margin-right: 0;
+        padding: 1rem;
+
+        font-size: .78rem;
+    }
+
+
+    /* Images */
+
+    .archive-image--small,
+    .archive-image--medium {
+        max-width: 100%;
+    }
+
+
+    /* Previous / next */
+
+    .article-pagination {
+        align-items: flex-start;
+        gap: 1.5rem;
+    }
+
+    .article-pagination a {
+        max-width: 45%;
+    }
+
+}

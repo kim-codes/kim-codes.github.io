@@ -133,6 +133,16 @@
       margin: 0 auto;
   }
 
+  .hero-focus {
+      margin-top: 1rem !important;
+      max-width: none !important;
+      font-size: .82rem !important;
+      font-weight: 400;
+      color: #999 !important;
+      letter-spacing: 0;
+      text-transform: none;
+  }
+
 
   /* --------------------------
        Text Link (originally a button) 
@@ -142,7 +152,7 @@
       display: inline-flex;
       align-items: center;
       gap: 0.4rem;
-      margin-top: 2.5rem;
+      margin-top: 2rem;
       color: #222;
       text-decoration: none;
       font-size: 1rem;

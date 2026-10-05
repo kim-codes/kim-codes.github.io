@@ -12,691 +12,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 
+    <!-- CSS -->
     <link rel="stylesheet" href="/assets/css/styles.css">
-
-    <style>
-        /* =========================================================
-   LAB PAGE
-   ========================================================= */
-
-        .lab-page {
-            width: min(1280px, calc(100% - 64px));
-            margin: 0 auto;
-        }
-
-
-        /* =========================================================
-   SPLIT LAYOUT
-   ========================================================= */
-
-        .lab-split {
-            display: grid;
-            grid-template-columns: minmax(320px, 0.8fr) minmax(520px, 1.2fr);
-            min-height: 100vh;
-        }
-
-
-        /* =========================================================
-   LEFT SIDE
-   ========================================================= */
-
-        .lab-hero {
-            position: relative;
-            padding: 100px 72px 100px 0;
-        }
-
-
-        .lab-hero-inner {
-            position: sticky;
-            top: 100px;
-            max-width: 430px;
-        }
-
-
-        .lab-hero h1 {
-            font-size: clamp(3rem, 4.7vw, 4.8rem);
-            line-height: 1.02;
-            font-weight: 600;
-            letter-spacing: -0.045em;
-            margin-bottom: 1rem;
-        }
-
-
-        .lab-hero h1 em {
-            font-weight: inherit;
-        }
-
-
-        .lab-intro {
-            max-width: 360px;
-            margin: 0;
-
-            font-size: 1.05rem;
-            line-height: 1.75;
-
-            color: #555;
-        }
-
-
-        /* =========================================================
-   RIGHT SIDE
-   ========================================================= */
-
-        .lab-experiments {
-            padding-left: 72px;
-        }
-
-        /* =========================================================
-   EXPERIMENT
-   ========================================================= */
-
-        .experiment-card {
-            position: relative;
-            display: grid;
-            grid-template-columns: minmax(0, 1fr) 210px;
-            column-gap: 46px;
-            min-height: 290px;
-            padding: 60px 0 48px;
-            color: inherit;
-            text-decoration: none;
-            border: none;
-            background: transparent;
-        }
-
-
-
-        /* first experiment doesn't need extra border above */
-
-        .experiment-card:first-child {
-            padding-top: 80px;
-        }
-
-        .experiment-card:nth-of-type(even) {
-            margin-left: 80px;
-            width: calc(100% - 80px);
-        }
-
-        .experiment-card:nth-of-type(3) {
-            grid-template-columns: 1fr;
-            min-height: 350px;
-
-            margin-left: 0;
-            width: 100%;
-
-            padding-top: 40px;
-            padding-bottom: 100px;
-        }
-
-        .experiment-card:nth-of-type(3) .experiment-copy {
-            max-width: 600px;
-        }
-
-        .experiment-card:nth-of-type(3) .experiment-copy h2 {
-            max-width: 520px;
-            font-size: 2.3rem;
-        }
-
-        .experiment-card:nth-of-type(3) .experiment-copy p:not(.experiment-note) {
-            max-width: 500px;
-        }
-
-        .experiment-card:nth-of-type(3) .agent-visual {
-            position: absolute;
-
-            right: 20px;
-            bottom: 55px;
-
-            width: 150px;
-            height: 90px;
-
-            opacity: 0.45;
-        }
-
-
-        .experiment-copy h2 {
-            margin: 0;
-
-            font-size: 2rem;
-            line-height: 1.05;
-            font-weight: 600;
-            letter-spacing: -0.04em;
-        }
-
-
-        .experiment-copy p {
-            max-width: 360px;
-
-            margin: 22px 0 0;
-
-            font-size: 0.98rem;
-            line-height: 1.65;
-
-            color: #626262;
-        }
-
-
-
-        .experiment-visual {
-            align-self: center;
-
-            width: 100%;
-            height: 135px;
-
-            margin: 0;
-        }
-
-
-        .experiment-arrow {
-            left: 0;
-            font-size: 0.9rem;
-            color: #0787bd;
-            transition: transform 160ms ease;
-        }
-
-
-        .experiment-arrow em {
-            font-style: italic;
-        }
-
-
-        .experiment-card:hover .experiment-arrow {
-            transform: translateX(5px);
-            text-decoration: underline;
-        }
-
-        /* lab footer */
-        .lab-footer {
-            padding: 50px 0 100px;
-        }
-
-
-        .lab-footer p {
-            margin: 0 0 40px;
-
-            font-size: 1rem;
-            color: #666;
-        }
-
-        .hand-arrow-back {
-            transform: scaleX(-1);
-        }
-
-
-        /* tablet rendering */
-        @media (max-width: 1000px) {
-
-            .lab-page {
-                width: min(100% - 48px, 1100px);
-            }
-
-            .lab-split {
-                grid-template-columns: 0.9fr 1.1fr;
-            }
-
-            .lab-hero {
-                padding-right: 42px;
-            }
-
-            .lab-experiments {
-                padding-left: 42px;
-            }
-
-            .experiment-card {
-                grid-template-columns: 1fr;
-                min-height: 390px;
-            }
-
-            .experiment-visual {
-                width: 200px;
-                margin-left: auto;
-                margin-top: 32px;
-            }
-        }
-
-
-        /* mobile rendering */
-        @media (max-width: 760px) {
-
-            .lab-page {
-                width: min(100% - 36px, 760px);
-            }
-
-
-            /* stop doing the split on mobile */
-            .lab-split {
-                display: block;
-                min-height: auto;
-            }
-
-
-            /* hero scrolls normally */
-
-            .lab-hero {
-                padding: 60px 0 50px;
-
-                border-right: none;
-                border-bottom: 1px solid #ddd;
-            }
-
-
-            .lab-hero-inner {
-                position: static;
-
-                max-width: 100%;
-            }
-
-
-            .lab-hero h1 {
-                max-width: 540px;
-
-                font-size: clamp(2.8rem, 12vw, 4.1rem);
-            }
-
-            .lab-intro {
-                max-width: 450px;
-            }
-
-
-            /* experiment side */
-
-            .lab-experiments {
-                padding-left: 0;
-            }
-
-
-            .experiment-card,
-            .experiment-card:first-child {
-                grid-template-columns: 1fr;
-
-                min-height: auto;
-
-                padding: 52px 0 70px;
-            }
-
-            .experiment-card:nth-of-type(even) {
-                margin-left: 0;
-                width: 100%;
-            }
-
-            .experiment-copy h2 {
-                max-width: 520px;
-
-                font-size: clamp(2rem, 9vw, 2.8rem);
-            }
-
-
-            .experiment-visual {
-                width: 190px;
-                height: 115px;
-
-                margin: 38px 20px 0 auto;
-            }
-
-
-            .experiment-arrow {
-                bottom: 25px;
-            }
-
-
-            .lab-footer {
-                padding: 45px 0 70px;
-            }
-
-        }
-
-        /* for all the visuals for each experiment card */
-        .experiment-visual {
-            position: relative;
-            height: 120px;
-            margin-top: auto;
-        }
-
-
-        /* vector search visual */
-        .vector-visual {
-            width: 190px;
-            align-self: flex-end;
-            margin-right: 30px;
-        }
-
-        .vector-dot {
-            position: absolute;
-
-            width: 6px;
-            height: 6px;
-
-            border-radius: 50%;
-            background: #111;
-        }
-
-        .dot-1 {
-            left: 16%;
-            top: 55%;
-        }
-
-        .dot-2 {
-            left: 32%;
-            top: 28%;
-        }
-
-        .dot-3 {
-            left: 50%;
-            top: 70%;
-        }
-
-        .dot-4 {
-            left: 65%;
-            top: 38%;
-        }
-
-        .dot-5 {
-            left: 80%;
-            top: 58%;
-        }
-
-        .dot-6 {
-            left: 90%;
-            top: 18%;
-        }
-
-
-        .dot-query,
-        .dot-beacon {
-            width: 15px;
-            height: 15px;
-
-            background: #fff;
-        }
-
-        .dot-query {
-            left: 52%;
-            top: 30%;
-
-            border: 2px solid #53a653;
-        }
-
-        .dot-query::after {
-            content: "";
-            position: absolute;
-            inset: 3px;
-
-            border-radius: 50%;
-            background: #53a653;
-        }
-
-        .dot-beacon {
-            left: 70%;
-            top: 70%;
-
-            border: 2px solid #e25b5b;
-        }
-
-        .dot-beacon::after {
-            content: "";
-            position: absolute;
-            inset: 3px;
-
-            border-radius: 50%;
-            background: #e25b5b;
-        }
-
-
-        /* program pulse visual */
-        .pulse-visual {
-            display: flex;
-            align-items: flex-end;
-            justify-content: flex-end;
-            gap: 28px;
-
-            padding-right: 32px;
-        }
-
-        .mini-bars {
-            display: flex;
-            align-items: flex-end;
-            gap: 5px;
-            height: 70px;
-        }
-
-        .mini-bars span {
-            display: block;
-            width: 10px;
-
-            border: 1px solid #111;
-            background:
-                repeating-linear-gradient(-45deg,
-                    transparent,
-                    transparent 3px,
-                    rgba(7, 135, 189, 0.15) 3px,
-                    rgba(7, 135, 189, 0.15) 5px);
-        }
-
-        .mini-bars span:nth-child(1) {
-            height: 22px;
-        }
-
-        .mini-bars span:nth-child(2) {
-            height: 38px;
-        }
-
-        .mini-bars span:nth-child(3) {
-            height: 50px;
-        }
-
-        .mini-bars span:nth-child(4) {
-            height: 67px;
-        }
-
-        .mini-line {
-            width: 130px;
-            height: 75px;
-
-            color: #0787bd;
-        }
-
-        .mini-line circle {
-            fill: #111;
-        }
-
-        /* Ai Agent Visual */
-        .agent-visual {
-            width: 210px;
-            height: 125px;
-            align-self: flex-end;
-            margin-right: 28px;
-
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            gap: 6px;
-        }
-
-        .agent-layer {
-            height: 15px;
-            border: 1px solid #222;
-            border-radius: 2px;
-        }
-
-        .agent-layer-1 {
-            position: relative;
-            width: 72%;
-            margin-left: auto;
-            margin-right: auto;
-
-            height: 27px;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            font-size: 0.68rem;
-            letter-spacing: 0.04em;
-        }
-
-        .agent-layer-2 {
-            width: 80%;
-            margin: 0 auto;
-        }
-
-        .agent-layer-3 {
-            width: 87%;
-            margin: 0 auto;
-        }
-
-        .agent-layer-4 {
-            width: 94%;
-            margin: 0 auto;
-        }
-
-        .agent-layer-5 {
-            width: 100%;
-        }
-
-
-        /* little imperfect offsets so it doesn't feel too diagram-perfect */
-
-        .agent-layer-2 {
-            transform: translateX(-2px);
-        }
-
-        .agent-layer-3 {
-            transform: translateX(2px);
-        }
-
-        .agent-layer-4 {
-            transform: translateX(-1px);
-        }
-
-        .agent-layer-5 {
-            transform: translateX(1px);
-        }
-
-        /* grogu part 2 visuals */
-        .embedding-visual {
-            position: relative;
-            width: 220px;
-            height: 125px;
-
-            align-self: flex-end;
-            margin-right: 26px;
-        }
-
-
-        /* words before they become vectors */
-
-        .embedding-word {
-            position: absolute;
-
-            font-size: 0.68rem;
-            font-style: italic;
-            color: #555;
-        }
-
-        .word-1 {
-            left: 0;
-            top: 20px;
-        }
-
-        .word-2 {
-            left: 4px;
-            top: 55px;
-        }
-
-        .word-3 {
-            left: 0;
-            top: 90px;
-        }
-
-
-        /* little transformation lines */
-
-        .embedding-arrow-line {
-            position: absolute;
-            left: 62px;
-
-            width: 52px;
-            height: 1px;
-
-            background: #999;
-
-            transform-origin: left center;
-        }
-
-        .embedding-arrow-line::after {
-            content: "";
-
-            position: absolute;
-            right: -1px;
-            top: -3px;
-
-            width: 6px;
-            height: 6px;
-
-            border-top: 1px solid #999;
-            border-right: 1px solid #999;
-
-            transform: rotate(45deg);
-        }
-
-        .line-1 {
-            top: 28px;
-            transform: rotate(5deg);
-        }
-
-        .line-2 {
-            top: 62px;
-            transform: rotate(-3deg);
-        }
-
-        .line-3 {
-            top: 95px;
-            transform: rotate(4deg);
-        }
-
-
-        /* vector-space points */
-
-        .embedding-point {
-            position: absolute;
-
-            width: 7px;
-            height: 7px;
-
-            border-radius: 50%;
-            background: #111;
-        }
-
-        .point-1 {
-            right: 65px;
-            top: 18px;
-        }
-
-        .point-2 {
-            right: 25px;
-            top: 38px;
-        }
-
-        .point-3 {
-            right: 82px;
-            top: 68px;
-        }
-
-        .point-4 {
-            right: 42px;
-            top: 88px;
-        }
-
-        .point-5 {
-            right: 5px;
-            top: 70px;
-
-            width: 11px;
-            height: 11px;
-
-            background: #fff;
-            border: 2px solid #53a653;
-        }
-    </style>
+    <link rel="stylesheet" href="/assets/css/lab.css">
 
 </head>
 
@@ -832,6 +150,70 @@
 
                 </a>
 
+                <!-- JWT TOKENS -->
+                <a href="/labs/jwt.html" class="experiment-card">
+
+                    <div class="experiment-copy">
+                        <h2>
+                            Taking apart JWTs
+                        </h2>
+
+                        <p>
+                            A closer look at JWTs, claims, and how an API decides what to trust.
+                        </p>
+
+                        <span class="experiment-arrow">
+                            <em>take it apart &gt;</em>
+                        </span>
+
+                    </div>
+
+                    <div class="experiment-visual token-visual" aria-hidden="true">
+
+                        <svg viewBox="0 0 360 190" class="token-sketch">
+
+                            <!-- whole token -->
+                            <rect x="62" y="24" width="236" height="38" rx="5" class="token-whole" />
+
+                            <text x="180" y="48" text-anchor="middle" class="token-text">
+                                eyJhbGciOi...eyJzdWIiOi...K4Q9nJ7x...
+                            </text>
+
+                            <!-- little decomposition lines -->
+                            <path d="M180 62 V82 M75 82 H285" class="token-guide" />
+
+                            <path d="M75 82 V98 M180 82 V98 M285 82 V98" class="token-guide" />
+
+                            <!-- header -->
+                            <rect x="28" y="98" width="94" height="44" rx="5" class="token-header" />
+
+                            <!-- payload -->
+                            <rect x="133" y="98" width="94" height="44" rx="5" class="token-payload" />
+
+                            <!-- signature -->
+                            <rect x="238" y="98" width="94" height="44" rx="5" class="token-signature" />
+
+                            <text x="75" y="125" text-anchor="middle" class="token-piece-text">
+                                header
+                            </text>
+
+                            <text x="180" y="125" text-anchor="middle" class="token-piece-text">
+                                payload
+                            </text>
+
+                            <text x="285" y="125" text-anchor="middle" class="token-piece-text">
+                                signature
+                            </text>
+
+                            <!-- JWT dots -->
+                            <circle cx="127" cy="120" r="2" class="token-dot" />
+                            <circle cx="233" cy="120" r="2" class="token-dot" />
+
+                        </svg>
+
+                    </div>
+                    
+                </a>
 
                 <!-- AI AGENTS -->
                 <a href="/labs/aiagents.html" class="experiment-card">
@@ -844,7 +226,7 @@
 
                         <p>
                             Digging beneath the agent layer to uncover
-                            the foundations that make autonomy possible.
+                            the foundations that make autonomy possible (lab in progress)
                         </p>
 
                     </div>
@@ -880,7 +262,7 @@
                         </h2>
 
                         <p>
-                            A follow-up experiment exploring how raw meaning
+                            Finding meaning inthe galaxy part 2: exploring how raw meaning
                             gets turned into coordinates in vector space.
                         </p>
 

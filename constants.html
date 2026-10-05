@@ -4,47 +4,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>kimcodes</title>
+
+    <title>About | kimcodes</title>
+    <meta name="description"
+        content="Technical marketer, GTM strategist, and developer advocate working at the intersection of technology, developers, and go-to-market.">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 
+    <!-- CSS -->
+    <!-- Global styles -->
     <link rel="stylesheet" href="assets/css/styles.css">
-    <style>
-        .about-sidequest {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            color: #77716b;
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 11px;
-            text-decoration: none;
-        }
-
-        .about-sidequest svg {
-            width: 60px;
-            height: auto;
-        }
-
-        .about-sidequest:hover {
-            color: #242220;
-        }
-
-        .career-sidequest {
-            margin-top: 18px;
-        }
-
-        /* Don't expose the career page from mobile */
-        @media (max-width: 700px) {
-            .career-sidequest {
-                display: none;
-            }
-        }
-    </style>
-
+    <!-- Page styles -->
+    <link rel="stylesheet" href="assets/css/about.css">
 </head>
 
 <body>
@@ -56,8 +31,8 @@
         </a>
 
         <nav>
-            <ul> <!-- constants, rabbit holes, experiments, connections, reflections, breadcrumbs -->
-                <li><a href="/constants.html">Constants</a></li>
+            <ul>
+                <li><a href="/constants.html" aria-current="page">Constants</a></li>
                 <li><a href="/craft.html">Craft</a></li>
                 <li><a href="/reflections.html">Reflections</a></li>
                 <li><a href="/footprints.html">Footprints</a></li>
@@ -67,67 +42,227 @@
 
     </header>
 
-    <main>
 
-        <section class="about">
+    <main class="about-page">
 
-            <div class="about-image">
-                <img src="assets/img/kimcodes-character-22.PNG" alt="kimcodes character in front of a laptop">
+        <!-- =========================================
+             INTRO
+        ========================================== -->
 
-                <!--<a href="chapters.html" class="about-sidequest career-sidequest">
-                    <svg viewBox="0 0 80 32" aria-hidden="true">
-                        <path d="M2 24 C18 4, 34 5, 39 16 C44 27, 59 26, 76 9" fill="none" stroke="currentColor"
-                            stroke-width="1.5" stroke-linecap="round" />
-                        <path d="M70 7 L77 9 L73 15" fill="none" stroke="currentColor" stroke-width="1.5"
-                            stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
+        <section class="about-intro">
 
-                    <span>the scenic route</span>
-                </a>--> 
+            <div class="about-intro-copy">
+
+                <h1>
+                    Bridging
+                    <span class="about-accent">technology</span>
+                    and the
+                    <span class="about-accent">people</span>
+                    who use it.
+                </h1>
+
+                <div class="about-positioning">
+
+                    <p class="about-role">
+                        I'm a technical marketer, GTM strategist, and developer advocate.
+                    </p>
+
+                    <p>
+                        I've spent my career working where technology, developers, and
+                        go-to-market meet. Turning complex technology into clear stories,
+                        compelling experiences, and programs that help people understand it
+                        and put it to work.
+                    </p>
+
+                </div>
+
             </div>
 
-            <div class="about-content">
 
-                <h1>Curiosity has always been my <span class="accent">compass.</span></h1>
-                <!-- A career built on curiosity.-->
+            <div class="about-portrait">
+                <img src="assets/img/kim-aboutme.png" alt="Portrait of Kim">
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             EXPERIENCE
+        ========================================== -->
+
+        <section class="about-details">
+
+            <!-- Career -->
+            <div class="about-detail about-stops">
+
+                <h2 class="about-label">A few stops along the way</h2>
+
+                <div class="company-list">
+                    <span>Microsoft</span>
+                    <span>Auth0</span>
+                    <span>GitHub</span>
+                </div>
+
+            </div>
+
+
+            <!-- Work -->
+            <div class="about-detail about-work">
+
+                <h2 class="about-label">The work I keep coming back to</h2>
+
+                <div class="work-list">
+
+                    <div class="work-item">
+                        <span class="work-title">Technical storytelling</span>
+                        <a href="/lab.html" class="work-example">
+                            Making complex technology easier to understand 
+                        </a>
+                    </div>
+
+                    <div class="work-item">
+                        <span class="work-title">Developer education</span>
+                        <a href="/stories/dev-support.html" class="work-example">
+                            Helping Developers Get Unstuck 
+                        </a>
+                    </div>
+
+                    <div class="work-item">
+                        <span class="work-title">Product positioning</span>
+                        <span class="work-example">
+                            Launch messaging, sales plays, and field resources
+                        </span>
+                    </div>
+
+                    <div class="work-item">
+                        <span class="work-title">Demos + technical content</span>
+                        <a href="/footprints.html" class="work-example">
+                            Talks, demos, and technical sessions
+                        </a>
+                    </div>
+
+                    <div class="work-item">
+                        <span class="work-title">Field enablement</span>
+                        <a href="/stories/intothecosmos.html" class="work-example">
+                            Cloud &amp; AI seller readiness
+                        </a>
+                    </div>
+
+                    <div class="work-item">
+                        <span class="work-title">GTM programs</span>
+                        <span class="work-example">
+                            Cloud &amp; AI platform programs across the Americas
+                        </span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Tech -->
+            <div class="about-detail about-tech">
+
+                <h2 class="about-label">Tech I work with</h2>
+
+                <div class="tech-list">
+                    <span>Developer Platforms</span>
+                    <span>Cloud &amp; AI</span>
+                    <span>Identity &amp; Access</span>
+                    <span>OAuth 2.0</span>
+                    <span>OpenID Connect</span>
+                    <span>APIs</span>
+                    <span>Open Source</span>
+                    <span>Azure</span>
+                    <span>Containers</span>
+                    <span>Serverless</span>
+                    <span>Databases</span>
+                </div>
+
+            </div>
+
+            <section class="about-detail recognition">
+                <h2 class="about-label">Recognition</h2>
+
+                <p class="recognition-title">
+                    5-time Canadian Marketing Association Award winner
+                </p>
+
+                <p class="recognition-categories">
+                    Innovative Media · Brand Building · Customer Experience · Business Impact
+                </p>
+            </section>
+
+
+            <!-- Around the web -->
+            <div class="about-detail about-links">
+
+                <h2 class="about-label">Find me around the web</h2>
+
+                <div class="web-links">
+                    <a href="https://www.linkedin.com/in/kimcodes/" target="_blank"
+                        rel="noopener noreferrer">LinkedIn</a>
+
+                    <a href="https://stackoverflow.com/users/6696446/kimcodes" target="_blank"
+                        rel="noopener noreferrer">Stack Overflow</a>
+
+                    <a href="https://github.com/kim-codes" target="_blank" rel="noopener noreferrer">GitHub</a>
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================
+             CURIOSITY
+        ========================================== -->
+
+        <section class="about-story">
+
+            <h2>
+                Curiosity has always been my
+                <span class="story-accent">compass.</span>
+            </h2>
+
+            <div class="story-copy">
 
                 <p>
-                    Since I was young, I've been interested by how things work.
+                    Since I was young, I've been interested in how things work.
                     That usually meant taking electronics apart (most of the time,
-                    successfully putting them back together), solving puzzles,
-                    or building something just to see if I could.
+                    successfully putting them back together), solving puzzles, or
+                    building something just to see if I could.
                 </p>
 
                 <p>
-                    That curiosity eventually became a career. Over the last decade
-                    I've worked across developer relations, open source, engineering, product
-                    marketing, technical enablement, and go-to-market
-                    strategy. They might seem like very different roles, but to me they've always had something in
-                    common:
-                    learning complex things, making them easier to understand, and helping other people succeed with
-                    them.
+                    That curiosity never really went away. It just found bigger things
+                    to take apart: technology, products, programs, and the problems
+                    that sit between them.
                 </p>
 
                 <p>
-                    I'm often at my best in the messy middle. When the strategy makes sense on paper, but something
-                    isn't quite connecting in practice. I like figuring out what's preventing movement, bringing the
-                    right people and ideas together, and building the programs or systems that help teams get unstuck.
+                    I am often at my best in the messy middle. When the strategy makes
+                    sense on paper, but something isn't quite connecting in practice.
+                    I like figuring out what is preventing movement, bringing the right things
+                    together, and building the programs or systems that help teams get unstuck.
                 </p>
 
                 <p>
                     My career hasn't followed a straight line, and I hope it never does.
-                    The best opportunities I've had came from staying curious, saying yes to challenges that felt a
-                    little uncomfortable,
-                    and learning from people who were generous enough to share what they knew.
+                    The best opportunities I've had came from staying curious, saying
+                    yes to challenges that felt a little uncomfortable, and learning
+                    from people who were generous enough to share what they knew.
                 </p>
 
-                <p> Still taking things apart. Just fewer electronics these days.</p>
-
-                <!-- These days I mostly take apart products, ideas, and technical concepts. -->
+                <p class="story-closing">
+                    Still taking things apart. Just fewer electronics these days.
+                </p>
 
                 <a href="/craft.html" class="text-link">
-                    See where that curiosity has led <span>
-                        <svg class="hand-arrow" viewBox="0 0 40 20" width="32" height="16">
+                    See where that curiosity has led
+                    <span>
+                        <svg class="hand-arrow" viewBox="0 0 40 20" width="32" height="16" aria-hidden="true">
                             <path d="M2,16 Q16,14 34,8 M28,4 L35,8 L30,14" fill="none" stroke="currentColor"
                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
@@ -140,10 +275,9 @@
 
     </main>
 
+
     <footer>
-
         <p>&copy; 2026 Kim Codes</p>
-
     </footer>
 
 </body>

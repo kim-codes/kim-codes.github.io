@@ -1,0 +1,1170 @@
+/* =========================================================
+   JWT LAB
+   ========================================================= */
+
+.jwt-lab {
+    width: min(calc(100% - 48px), 1100px);
+    margin: 0 auto;
+    padding: 7rem 0 10rem;
+
+    font-family: 'Inter', sans-serif;
+    color: #202124;
+}
+
+/* =========================================================
+   PAGE INTRO
+   ========================================================= */
+
+.lab-hero {
+    max-width: 760px;
+    margin: 0 auto 7rem;
+    text-align: center;
+}
+
+.lab-hero h1 {
+    margin: 0 0 1.5rem;
+
+    font-size: clamp(3.2rem, 6vw, 5rem);
+    font-weight: 500;
+    letter-spacing: -0.055em;
+    line-height: .95;
+}
+
+.lab-hero p {
+    max-width: 620px;
+    margin: 0 auto;
+
+    color: #666;
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   TOKEN CONTEXT
+   ========================================================= */
+
+.token-context {
+    max-width: 900px;
+    margin: 0 auto 7rem;
+    padding: 2rem 2.25rem;
+
+    border: 1px solid #e5e5e5;
+    border-radius: 8px;
+    background: #fcfcfc;
+}
+
+.context-label {
+    display: block;
+    margin-bottom: 1.75rem;
+
+    color: #999;
+    font-size: .68rem;
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+}
+
+.context-grid {
+    display: grid;
+    grid-template-columns: .8fr 1.2fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+
+/* LEFT */
+
+.context-intro h2 {
+    margin: 0 0 .75rem;
+
+    color: #222;
+    font-size: 1.25rem;
+    font-weight: 600;
+    letter-spacing: -.02em;
+}
+
+.context-intro p,
+.context-example p {
+    margin: 0;
+
+    color: #666;
+    font-size: .86rem;
+    line-height: 1.65;
+}
+
+
+/* RIGHT */
+
+.token-journey {
+    display: grid;
+    grid-template-columns: 85px 1fr 85px;
+    align-items: center;
+
+    width: 100%;
+    margin: 0 0 1.25rem;
+}
+
+.journey-stop {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .5rem;
+}
+
+.journey-stop strong {
+    font-size: .7rem;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.journey-dot {
+    width: 10px;
+    height: 10px;
+
+    border: 2px solid #888;
+    border-radius: 50%;
+    background: #fff;
+}
+
+.journey-line {
+    position: relative;
+    height: 1px;
+    border-top: 1px dashed #bbb;
+}
+
+.journey-token {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    padding: .25rem .45rem;
+
+    border: 1px solid #d7d7d7;
+    border-radius: 4px;
+
+    background: #fff;
+    color: #666;
+
+    font-family: monospace;
+    font-size: .6rem;
+
+    transform: translate(-50%, -50%);
+}
+
+
+/* =========================================================
+   TOKEN INTRO
+   ========================================================= */
+
+.lab-intro {
+    max-width: 680px;
+    margin: 0 auto 3rem;
+    text-align: center;
+}
+
+.intro-note {
+    display: block;
+    width: max-content;
+    margin: 0 auto 1.75rem;
+    transform: rotate(-2deg);
+}
+
+.lab-intro h2 {
+    margin: 0 0 1rem;
+
+    font-size: clamp(2.3rem, 4vw, 3.2rem);
+    font-weight: 500;
+    letter-spacing: -0.045em;
+    line-height: 1;
+}
+
+.lab-intro p {
+    max-width: 560px;
+    margin: 0 auto;
+
+    color: #666;
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+/* =========================================================
+   HANDWRITTEN NOTES
+   ========================================================= */
+
+.hand-note {
+    font-family: 'Caveat', cursive;
+    color: #444;
+    font-size: 1.35rem;
+    line-height: 1.1;
+}
+
+.note-arrow {
+    display: block;
+    margin-top: .2rem;
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+}
+
+
+/* =========================================================
+   ORIGINAL TOKEN
+   ========================================================= */
+
+.token-start {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.whole-token {
+    width: 100%;
+    padding: 1.25rem 1.5rem;
+
+    border: 1px solid #dedede;
+    border-radius: 6px;
+
+    background: #fafafa;
+    cursor: pointer;
+
+    transition:
+        border-color .2s ease,
+        transform .2s ease,
+        box-shadow .2s ease;
+}
+
+.whole-token:hover {
+    border-color: #aaa;
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 24px rgba(0, 0, 0, .04);
+}
+
+.whole-token code {
+    display: block;
+    overflow: hidden;
+
+    color: #62676b;
+    font-family: monospace;
+    font-size: .82rem;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.token-start-note {
+    margin: 1.2rem auto 0;
+}
+
+
+/* when whole-token opened */
+
+.token-start-note {
+    transition: opacity .2s ease;
+}
+
+.token-start-note.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   TOKEN ANATOMY
+   ========================================================= */
+
+.token-anatomy {
+    display: none;
+    max-width: 950px;
+    margin: 4rem auto 0;
+    position: relative;
+}
+
+/* vertical line coming down from whole token */
+.token-anatomy::before {
+    content: "";
+    position: absolute;
+
+    top: -4rem;
+    left: 50%;
+    height: 2.75rem;
+
+    border-left: 1px dashed #c5c5c5;
+}
+
+.token-anatomy.visible {
+    display: block;
+
+    animation: anatomy-in .5s ease both;
+}
+
+@keyframes anatomy-in {
+
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* =========================================================
+   TOKEN PIECES
+   ========================================================= */
+
+.token-pieces {
+    display: grid;
+    grid-template-columns: 1fr auto 1.35fr auto .8fr;
+    position: relative;
+    align-items: start;
+    gap: .7rem;
+}
+
+.token-pieces::before {
+    content: "";
+    position: absolute;
+
+    top: -1.25rem;
+    left: 15%;
+    right: 12%;
+
+    border-top: 1px dashed #c5c5c5;
+}
+
+.token-piece {
+    padding: 0;
+    position: relative;
+    border: 0;
+    background: none;
+
+    color: inherit;
+    font-family: inherit;
+
+    cursor: pointer;
+}
+
+.token-piece::before {
+    content: "";
+    position: absolute;
+
+    top: -1.25rem;
+    left: 50%;
+
+    height: 1.25rem;
+
+    border-left: 1px dashed #c5c5c5;
+}
+
+
+.token-piece code {
+    display: block;
+    overflow: hidden;
+
+    padding: 1rem;
+
+    border: 1px solid #dedede;
+    border-radius: 6px;
+
+    color: #555;
+    font-family: monospace;
+    font-size: .78rem;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    transition:
+        transform .18s ease,
+        border-color .18s ease,
+        box-shadow .18s ease;
+}
+
+/** change background , no colors, for each piece of the token **/
+
+/* Header — subtle dots */
+.header-piece code {
+    background-color: #fafafa;
+    background-image:
+        radial-gradient(#d8d8d8 0.7px, transparent 0.7px);
+    background-size: 9px 9px;
+}
+
+
+/* Payload — subtle ruled lines */
+.payload-piece code {
+    background-color: #fafafa;
+    background-image:
+        repeating-linear-gradient(0deg,
+            transparent,
+            transparent 11px,
+            #e7e7e7 12px);
+}
+
+
+/* Signature — subtle diagonal marks */
+.signature-piece code {
+    background-color: #fafafa;
+    background-image:
+        repeating-linear-gradient(135deg,
+            transparent,
+            transparent 8px,
+            #e8e8e8 9px,
+            transparent 10px);
+}
+
+.token-piece>span {
+    display: block;
+    margin-top: .9rem;
+
+    font-size: .75rem;
+    font-weight: 600;
+    letter-spacing: .07em;
+    text-transform: uppercase;
+}
+
+.token-piece:hover code {
+    transform: translateY(-3px);
+    border-color: #aaa;
+
+    box-shadow:
+        0 8px 18px rgba(0, 0, 0, .04);
+}
+
+.token-piece.active code {
+    border-color: #789db8;
+
+    box-shadow:
+        0 0 0 1px #789db8;
+}
+
+.token-dot {
+    padding-top: .8rem;
+
+    color: #999;
+    font-family: monospace;
+    font-size: 1.3rem;
+}
+
+.pieces-note {
+    position: absolute;
+    top: .25rem;
+    right: -1rem;
+
+    margin: 0;
+    transform: rotate(-3deg);
+}
+
+
+/* =========================================================
+   DETAILS
+   ========================================================= */
+
+.detail-panel {
+    display: none;
+}
+
+.detail-panel.visible {
+    display: block;
+    padding: 1.75rem 2.25rem;
+
+    border: 1px solid #e1e1e1;
+    border-radius: 8px;
+    background: #fff;
+
+    animation: detail-in .3s ease both;
+}
+
+.part-details {
+    position: relative;
+    width: min(100%, 700px);
+    margin: 3.5rem auto 0;
+}
+
+.detail-connector {
+    position: absolute;
+    bottom: 100%;
+
+    width: 1px;
+    height: 3.5rem;
+
+    border-left: 1px dashed #c5c5c5;
+
+    transform: translateX(-50%);
+    pointer-events: none;
+
+    opacity: 0;
+}
+
+
+@keyframes detail-in {
+
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* title */
+
+.detail-title {
+    margin-bottom: 1.5rem;
+}
+
+.detail-label {
+    display: block;
+    margin-bottom: .4rem;
+
+    color: #222;
+    font-size: .72rem;
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+}
+
+.detail-title p {
+    margin: 0;
+    color: #777;
+    font-size: .85rem;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   PAYLOAD CLAIMS
+   ========================================================= */
+
+.claims {
+    margin-top: .5rem;
+}
+
+.claim {
+    display: grid;
+    grid-template-columns: 70px 1fr 170px;
+    align-items: center;
+    gap: 1rem;
+
+    min-height: 58px;
+}
+
+.claim>code {
+    color: #444;
+
+    font-family: monospace;
+    font-size: .82rem;
+    font-weight: 600;
+}
+
+.claim>strong,
+.scope-values strong {
+    font-size: .86rem;
+    font-weight: 500;
+}
+
+.claim>span {
+    color: #929292;
+    font-size: .75rem;
+}
+
+.scope-values {
+    display: flex;
+    gap: .5rem;
+    flex-wrap: wrap;
+}
+
+.scope-values strong {
+    padding: .35rem .5rem;
+
+    border: 1px solid #ddd;
+    border-radius: 4px;
+
+    background: #fafafa;
+
+    font-family: monospace;
+    font-size: .73rem;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.header-values {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    padding: 1rem 0 .25rem;
+}
+
+.simple-claim {
+    display: grid;
+    grid-template-columns: 50px 1fr;
+    gap: .4rem 1rem;
+}
+
+.simple-claim code {
+    grid-row: 1 / 3;
+
+    font-family: monospace;
+    font-weight: 600;
+}
+
+.simple-claim strong {
+    font-size: .88rem;
+}
+
+.simple-claim span {
+    color: #929292;
+    font-size: .75rem;
+}
+
+
+/* =========================================================
+   SIGNATURE
+   ========================================================= */
+
+.signature-example {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+
+    padding: 1rem 0 0;
+}
+
+.signature-check {
+    display: grid;
+    width: 32px;
+    height: 32px;
+    place-items: center;
+    border-radius: 50%;
+    color: #287748;
+    font-size: 1.2rem;
+}
+
+.signature-example strong,
+.signature-example span {
+    display: block;
+    color: #287748;
+}
+
+.signature-example strong {
+    margin-bottom: .25rem;
+    font-size: .88rem;
+}
+
+.signature-example div span {
+    color: #888;
+    font-size: .76rem;
+}
+
+
+
+/* =========================================================
+   API PLAYGROUND
+   ========================================================= */
+
+
+.api-playground {
+    max-width: 950px;
+
+    margin: 8rem auto 0;
+    padding-top: 2rem;
+
+    border-top: 1px solid #eee;
+}
+
+.api-note {
+    width: max-content;
+
+    margin: -3.6rem auto 3rem;
+
+    padding: 0 1rem;
+
+    background: #fff;
+
+    text-align: center;
+
+    transform: rotate(-2deg);
+}
+
+/* =========================================================
+   PROGRESSIVE REVEAL
+   ========================================================= */
+
+.continue-token {
+    display: none;
+    margin-top: 4rem;
+    text-align: center;
+}
+
+.continue-token.visible {
+    display: block;
+    animation: reveal-next .4s ease both;
+}
+
+.continue-note {
+    display: block;
+    margin-bottom: .8rem;
+    transform: rotate(-2deg);
+}
+
+.continue-button {
+    padding: .4rem .6rem;
+
+    border: 0;
+    background: transparent;
+
+    color: #222;
+    font-family: 'Caveat', cursive;
+    font-size: 1.45rem;
+
+    cursor: pointer;
+}
+
+.continue-button span {
+    display: inline-block;
+    margin-left: .25rem;
+    transition: transform .18s ease;
+}
+
+.continue-button:hover span {
+    transform: translateX(5px);
+}
+
+/** HIDE api playground initially **/
+
+.api-playground {
+    display: none;
+}
+
+.api-playground.visible {
+    display: block;
+    animation: reveal-next .55s ease both;
+}
+
+@keyframes reveal-next {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================================================
+   REQUEST PATH
+   ========================================================= */
+
+.request-path {
+    display: grid;
+    grid-template-columns: 150px 1fr 150px;
+
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.endpoint {
+    text-align: center;
+}
+
+.endpoint strong {
+    display: block;
+
+    margin-top: .8rem;
+
+    font-size: .82rem;
+}
+
+.endpoint code,
+.api-waiting {
+    display: block;
+
+    margin-top: .35rem;
+
+    color: #888;
+    font-family: monospace;
+    font-size: .7rem;
+}
+
+
+/* =========================================================
+   APP DRAWING
+   ========================================================= */
+
+.app-drawing {
+    width: 42px;
+    margin: 0 auto;
+}
+
+.screen {
+    width: 32px;
+    height: 23px;
+
+    margin: 0 auto;
+
+    border: 2px solid #59656d;
+    border-radius: 3px;
+}
+
+.computer-base {
+    width: 42px;
+    height: 2px;
+
+    margin-top: 4px;
+
+    background: #59656d;
+}
+
+
+/* =========================================================
+   API DRAWING
+   ========================================================= */
+
+.api-drawing {
+    display: grid;
+    gap: 4px;
+
+    width: 38px;
+    margin: 0 auto;
+}
+
+.api-drawing span {
+    display: block;
+
+    height: 8px;
+
+    border: 1px solid #59656d;
+    border-radius: 2px;
+}
+
+
+/* =========================================================
+   TOKEN ROUTE
+   ========================================================= */
+
+.token-route {
+    position: relative;
+
+    height: 60px;
+}
+
+.route-line {
+    position: absolute;
+
+    top: 50%;
+    right: 0;
+    left: 0;
+
+    border-top: 1px dashed #aaa;
+}
+
+.travelling-token {
+    position: absolute;
+
+    top: 50%;
+    left: 0;
+
+    padding: .35rem .55rem;
+
+    border: 1px solid #8caac0;
+    border-radius: 4px;
+
+    background: #f0f7fb;
+    color: #46738f;
+
+    font-family: monospace;
+    font-size: .65rem;
+
+    opacity: 0;
+
+    transform: translate(-50%, -50%);
+}
+
+
+/* travelling */
+
+.travelling-token.sending {
+    opacity: 1;
+
+    animation: send-token 1.4s ease forwards;
+}
+
+@keyframes send-token {
+
+    0% {
+        left: 0;
+    }
+
+    65% {
+        left: 50%;
+    }
+
+    80% {
+        left: 50%;
+    }
+
+    100% {
+        left: 100%;
+    }
+
+}
+
+
+/* =========================================================
+   SEND
+   ========================================================= */
+
+.send-area {
+    margin-top: 2.7rem;
+    text-align: center;
+}
+
+.send-token {
+    padding: .85rem 1.35rem;
+
+    border: 0;
+    border-radius: 4px;
+
+    background: #24282c;
+    color: #fff;
+
+    font-family: inherit;
+    font-size: .82rem;
+    font-weight: 500;
+
+    cursor: pointer;
+
+    transition:
+        background .15s ease,
+        transform .15s ease;
+}
+
+.send-token:hover {
+    background: #111;
+    transform: translateY(-1px);
+}
+
+.send-token span {
+    margin-left: .45rem;
+}
+
+
+/* =========================================================
+   TOKEN CHECK
+   ========================================================= */
+
+.token-check {
+    max-width: 450px;
+
+    margin: 2.5rem auto 0;
+
+    opacity: 0;
+
+    text-align: center;
+
+    transition: opacity .25s ease;
+}
+
+.token-check.visible {
+    opacity: 1;
+}
+
+.checking-label {
+    margin: 0 0 1rem;
+
+    color: #777;
+
+    font-family: 'Caveat', cursive;
+    font-size: 1.3rem;
+}
+
+.check-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    gap: .7rem 1.4rem;
+}
+
+.check-item {
+    color: #777;
+    font-size: .75rem;
+}
+
+.check-item span {
+    margin-right: .25rem;
+    color: #31805a;
+}
+
+
+/* successful API */
+
+.api-endpoint.success .api-waiting {
+    color: #287748;
+    font-weight: 600;
+}
+
+/** closing content of the lab **/
+
+.token-ending {
+    display: none;
+
+    max-width: 560px;
+    margin: 6rem auto 3rem;
+
+    text-align: center;
+}
+
+.token-ending.visible {
+    display: block;
+    animation: detail-in .4s ease both;
+}
+
+.ending-check {
+    display: block;
+    margin-bottom: 1rem;
+
+    color: #278553;
+    font-size: 1.4rem;
+}
+
+.token-ending h2 {
+    margin: 0 0 1rem;
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+
+.token-ending>p {
+    margin: 0 auto;
+    color: #777;
+    line-height: 1.7;
+}
+
+.ending-next {
+    margin-top: 4rem;
+}
+
+.ending-next span,
+.ending-next small {
+    display: block;
+    font-family: "Caveat", cursive;
+    font-weight: 500;
+}
+
+.ending-next span {
+    font-size: 1.4rem;
+}
+
+.ending-next small {
+    margin-top: .4rem;
+    color: #888;
+    font-size: 1.1rem;
+}
+
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 760px) {
+
+    .jwt-lab {
+        width: min(calc(100% - 32px), 600px);
+        padding-top: 5rem;
+    }
+
+    .lab-hero {
+        margin-bottom: 5rem;
+    }
+
+    .token-context {
+        padding: 1.5rem;
+        margin-bottom: 5rem;
+    }
+
+    .context-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .token-journey {
+        grid-template-columns: 90px 1fr 90px;
+    }
+
+    .journey-stop strong {
+        font-size: .7rem;
+    }
+
+    .lab-intro {
+        margin-bottom: 3.5rem;
+    }
+
+    .token-pieces {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .token-dot {
+        display: none;
+    }
+
+    .pieces-note {
+        margin: 2rem auto;
+        text-align: center;
+    }
+
+    .claim {
+        grid-template-columns: 55px 1fr;
+        padding: .8rem 0;
+    }
+
+    .claim>span {
+        grid-column: 2;
+    }
+
+    .header-values {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .request-path {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .token-route {
+        width: 1px;
+        height: 100px;
+        margin: 0 auto;
+    }
+
+    .route-line {
+        top: 0;
+        bottom: 0;
+        left: 0;
+
+        border-top: 0;
+        border-left: 1px dashed #aaa;
+    }
+
+    .travelling-token {
+        display: none;
+    }
+
+}

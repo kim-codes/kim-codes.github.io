@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Hacktoberfest | kimcodes</title>
+    <title>Helping Developers Get Unstuck | kimcodes</title>
 
     <!-- FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -62,9 +62,8 @@
                 <h2>Debug the implementation.</h2>
 
                 <p>
-                    A commen scenario my devs would run into is a dev would be tryintg to update users through the
-                    Management API, but would keep getting a 400 error. The request looked close, but something wasn't
-                    right.
+                    A common scenario: a developer is trying to update users through the Management API but keeps getting a 400 error
+                    The request looked close, but something wasn't right.
                     <br><br>
                     Their GET request worked, but PATCH kept failing. That gave me somewhere to start.
                 </p>
@@ -101,7 +100,7 @@
                         I compared the two requests, checked how the API was being called, and narrowed the problem down
                         to the request itself.
                         <br><br>
-                        The were two issues hiding in the request. The request was using 1) an incorrect endpoint and 2)
+                        There were two issues two issues hiding in the request. The request was using 1) an incorrect endpoint and 2)
                         the header wasn't being passed correctly. Once both were fixed, the PATCH request worked.
                     </p>
 
@@ -146,9 +145,8 @@
             <div class="example-context">
                 <p>
                     The answer came down to how OpenID Connect (OIDC) handles claims. OIDC defines a set of standard
-                    claims that can be included in an ID token. <code class="inline-code">app_metadata</code> is not 't
-                    one of them. So asking for it in the
-                    scope isn't enough.
+                    claims that can be included in an ID token. <code class="inline-code">app_metadata</code> is not
+                    one of them. So asking for it in the scope isn't enough.
                     <br><br>
                     I would walk developers through how OIDC claims worked, then show them how to explicitly add the
                     information they needed as a custom namespaced claim.

@@ -11,9 +11,150 @@
     color: #202124;
 }
 
+/* =========================================================
+   PAGE INTRO
+   ========================================================= */
+
+.lab-hero {
+    max-width: 760px;
+    margin: 0 auto 7rem;
+    text-align: center;
+}
+
+.lab-hero h1 {
+    margin: 0 0 1.5rem;
+
+    font-size: clamp(3.2rem, 6vw, 5rem);
+    font-weight: 500;
+    letter-spacing: -0.055em;
+    line-height: .95;
+}
+
+.lab-hero p {
+    max-width: 620px;
+    margin: 0 auto;
+
+    color: #666;
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
 
 /* =========================================================
-   INTRO
+   TOKEN CONTEXT
+   ========================================================= */
+
+.token-context {
+    max-width: 900px;
+    margin: 0 auto 7rem;
+    padding: 2rem 2.25rem;
+
+    border: 1px solid #e5e5e5;
+    border-radius: 8px;
+    background: #fcfcfc;
+}
+
+.context-label {
+    display: block;
+    margin-bottom: 1.75rem;
+
+    color: #999;
+    font-size: .68rem;
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+}
+
+.context-grid {
+    display: grid;
+    grid-template-columns: .8fr 1.2fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+
+/* LEFT */
+
+.context-intro h2 {
+    margin: 0 0 .75rem;
+
+    color: #222;
+    font-size: 1.25rem;
+    font-weight: 600;
+    letter-spacing: -.02em;
+}
+
+.context-intro p,
+.context-example p {
+    margin: 0;
+
+    color: #666;
+    font-size: .86rem;
+    line-height: 1.65;
+}
+
+
+/* RIGHT */
+
+.token-journey {
+    display: grid;
+    grid-template-columns: 85px 1fr 85px;
+    align-items: center;
+
+    width: 100%;
+    margin: 0 0 1.25rem;
+}
+
+.journey-stop {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .5rem;
+}
+
+.journey-stop strong {
+    font-size: .7rem;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.journey-dot {
+    width: 10px;
+    height: 10px;
+
+    border: 2px solid #888;
+    border-radius: 50%;
+    background: #fff;
+}
+
+.journey-line {
+    position: relative;
+    height: 1px;
+    border-top: 1px dashed #bbb;
+}
+
+.journey-token {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    padding: .25rem .45rem;
+
+    border: 1px solid #d7d7d7;
+    border-radius: 4px;
+
+    background: #fff;
+    color: #666;
+
+    font-family: monospace;
+    font-size: .6rem;
+
+    transform: translate(-50%, -50%);
+}
+
+
+/* =========================================================
+   TOKEN INTRO
    ========================================================= */
 
 .lab-intro {
@@ -22,12 +163,19 @@
     text-align: center;
 }
 
-.lab-intro h1 {
+.intro-note {
+    display: block;
+    width: max-content;
+    margin: 0 auto 1.75rem;
+    transform: rotate(-2deg);
+}
+
+.lab-intro h2 {
     margin: 0 0 1rem;
 
-    font-size: clamp(2.7rem, 5vw, 4.3rem);
+    font-size: clamp(2.3rem, 4vw, 3.2rem);
     font-weight: 500;
-    letter-spacing: -0.05em;
+    letter-spacing: -0.045em;
     line-height: 1;
 }
 
@@ -39,7 +187,6 @@
     font-size: 1rem;
     line-height: 1.7;
 }
-
 
 /* =========================================================
    HANDWRITTEN NOTES
@@ -838,6 +985,28 @@
     .jwt-lab {
         width: min(calc(100% - 32px), 600px);
         padding-top: 5rem;
+    }
+
+    .lab-hero {
+        margin-bottom: 5rem;
+    }
+
+    .token-context {
+        padding: 1.5rem;
+        margin-bottom: 5rem;
+    }
+
+    .context-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .token-journey {
+        grid-template-columns: 90px 1fr 90px;
+    }
+
+    .journey-stop strong {
+        font-size: .7rem;
     }
 
     .lab-intro {

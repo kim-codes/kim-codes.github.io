@@ -37,328 +37,396 @@
         </nav>
 
     </header>
+
     <main class="jwt-lab">
 
         <section class="token-explorer">
 
-            <!-- INTRO -->
-            <div class="lab-intro">
-                <h1>What's inside the token?</h1>
+
+            <!-- PAGE INTRO -->
+
+            <div class="lab-hero">
+                <h1>Taking Apart a JWT</h1>
+
                 <p>
-                    A token can look like one long string of nonsense.
-                    Let's disect our jwt.
+                    JWTs show up everywhere in modern applications. But what is all that
+                    encoded text, what does it contain, and what happens when an API receives it?
                 </p>
             </div>
 
 
-            <!-- ORIGINAL TOKEN -->
-            <div class="token-start" id="token-start">
+            <!-- LEVEL SET -->
 
-                <div class="hand-note token-start-note">
-                    <span>click the token</span>
-                    <span class="note-arrow">↓</span>
+            <div class="token-context">
+
+                <span class="context-label">Before we take it apart</span>
+
+                <div class="context-grid">
+
+                    <div class="context-intro">
+                        <h2>What is a token?</h2>
+
+                        <p>
+                            When you sign in to an application, it needs a way to know
+                            who you are and what you're allowed to do.
+                        </p>
+                    </div>
+
+                    <div class="context-example">
+
+                        <div class="token-journey">
+
+                            <div class="journey-stop">
+                                <span class="journey-dot"></span>
+                                <strong>You sign in</strong>
+                            </div>
+
+                            <div class="journey-line">
+                                <span class="journey-token">token</span>
+                            </div>
+
+                            <div class="journey-stop">
+                                <span class="journey-dot"></span>
+                                <strong>Your app</strong>
+                            </div>
+
+                        </div>
+
+                        <p>
+                            A token carries information between systems. A JWT (JSON Web Token)
+                            packages some of that information into a compact string that applications
+                            can pass around and verify.
+                        </p>
+
+                    </div>
+
                 </div>
+            </div>
 
-                <button class="whole-token" id="whole-token" type="button">
-                    <code>
-                    eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c2VyXzE4NDIiLCJhdWQiOiJwaG90b3MtYXBpIiwiaXNzIjoiYXV0aC5leGFtcGxlIn0.K4Q9nJ7xP2
-                </code>
-                </button>
+            <!-- TOKEN INTRO -->
 
+            <div class="lab-intro">
+
+                <h2>What's inside the token?</h2>
+
+                <p>
+                    Let's take one apart.
+                </p>
 
             </div>
 
 
-            <!-- TOKEN PIECES -->
-            <div class="token-anatomy" id="token-anatomy" aria-hidden="true">
+            <!-- ORIGINAL TOKEN -->
 
-                <div class="hand-note pieces-note">
-                    <span>try each piece</span>
-                    <span class="note-arrow">↓</span>
-                </div>
+            <div class="token-start" id="token-start">
 
-                <div class="token-pieces">
 
-                    <button class="token-piece header-piece" type="button" data-part="header">
+                <!-- ORIGINAL TOKEN -->
+                <div class="token-start" id="token-start">
 
-                        <code>eyJhbGciOiJSUzI1Ni...</code>
-                        <span>Header</span>
-
-                    </button>
-
-                    <span class="token-dot">.</span>
-
-                    <button class="token-piece payload-piece" type="button" data-part="payload">
-
-                        <code>eyJzdWIiOiJ1c2VyXz...</code>
-                        <span>Payload</span>
-
-                    </button>
-
-                    <span class="token-dot">.</span>
-
-                    <button class="token-piece signature-piece" type="button" data-part="signature">
-
-                        <code>K4Q9nJ7xP2...</code>
-                        <span>Signature</span>
-
-                    </button>
-
-                </div>
-
-
-                <!-- DETAILS -->
-
-                <div class="part-details">
-
-
-                    <!-- HEADER -->
-
-                    <div class="detail-panel" id="header-detail">
-
-                        <div class="detail-title">
-                            <span class="detail-label">Header</span>
-
-                            <p>
-                                A few instructions for understanding
-                                how this token was created.
-                            </p>
-                        </div>
-
-                        <div class="header-values">
-
-                            <div class="simple-claim">
-                                <code>alg</code>
-                                <strong>RS256</strong>
-                                <span>the signing algorithm</span>
-                            </div>
-
-                            <div class="simple-claim">
-                                <code>typ</code>
-                                <strong>JWT</strong>
-                                <span>the token type</span>
-                            </div>
-
-                        </div>
-
-                    </div>
-
-
-                    <!-- PAYLOAD -->
-
-                    <div class="detail-panel payload-detail" id="payload-detail">
-
-                        <div class="detail-title">
-                            <span class="detail-label">Payload</span>
-
-                            <p>
-                                This is where the claims live.
-                            </p>
-                        </div>
-
-
-                        <div class="claims">
-
-                            <div class="claim">
-                                <code>sub</code>
-
-                                <strong>user_1842</strong>
-
-                                <span>who it's about</span>
-                            </div>
-
-
-                            <div class="claim">
-                                <code>aud</code>
-
-                                <strong>photos-api</strong>
-
-                                <span>where it's going</span>
-                            </div>
-
-
-                            <div class="claim">
-                                <code>iss</code>
-
-                                <strong>auth.example</strong>
-
-                                <span>who issued it</span>
-                            </div>
-
-
-                            <div class="claim">
-                                <code>exp</code>
-
-                                <strong>2:30 PM</strong>
-
-                                <span>when it expires</span>
-                            </div>
-
-
-                            <div class="claim">
-                                <code>scope</code>
-
-                                <div class="scope-values">
-                                    <strong>photos:read</strong>
-                                    <strong>photos:write</strong>
-                                </div>
-
-                                <span>what it can do</span>
-                            </div>
-
-                        </div>
-
-                    </div>
-
-
-                    <!-- SIGNATURE -->
-
-                    <div class="detail-panel" id="signature-detail">
-
-                        <div class="detail-title">
-                            <span class="detail-label">Signature</span>
-
-                            <p>
-                                The signature helps the API verify that
-                                the token hasn't been changed.
-                            </p>
-                        </div>
-
-                        <div class="signature-example">
-
-                            <span class="signature-check">✓</span>
-
-                            <div>
-                                <strong>Signature valid</strong>
-                                <span>The token matches what was signed.</span>
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <div class="continue-token" id="continue-token">
-
-                    <div class="hand-note">
-                        <span>seen what's inside?</span>
+                    <div class="hand-note token-start-note">
+                        <span>click the token</span>
                         <span class="note-arrow">↓</span>
                     </div>
 
-                    <button class="continue-button" id="continue-button" type="button">
-                        Now let's use it
-                        <span aria-hidden="true">→</span>
+                    <button class="whole-token" id="whole-token" type="button">
+                        <code>
+                    eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ1c2VyXzE4NDIiLCJhdWQiOiJwaG90b3MtYXBpIiwiaXNzIjoiYXV0aC5leGFtcGxlIn0.K4Q9nJ7xP2
+                </code>
                     </button>
 
-                </div>
-            </div> <!-- end of token anatomy -->
 
-
-            <!-- API PLAYGROUND -->
-
-            <div class="api-playground" id="api-playground">
-
-                <div class="hand-note api-note">
-                    <span>now let's use it</span>
-                    <span class="note-arrow">↓</span>
                 </div>
 
 
-                <div class="request-path">
+                <!-- TOKEN PIECES -->
+                <div class="token-anatomy" id="token-anatomy" aria-hidden="true">
 
-                    <!-- APP -->
+                    <div class="hand-note pieces-note">
+                        <span>try each piece</span>
+                        <span class="note-arrow">↓</span>
+                    </div>
 
-                    <div class="endpoint app-endpoint">
+                    <div class="token-pieces">
 
-                        <div class="app-drawing" aria-hidden="true">
-                            <div class="screen"></div>
-                            <div class="computer-base"></div>
-                        </div>
+                        <button class="token-piece header-piece" type="button" data-part="header">
 
-                        <strong>Your app</strong>
-                        <code>GET /photos/42</code>
+                            <code>eyJhbGciOiJSUzI1Ni...</code>
+                            <span>Header</span>
+
+                        </button>
+
+                        <span class="token-dot">.</span>
+
+                        <button class="token-piece payload-piece" type="button" data-part="payload">
+
+                            <code>eyJzdWIiOiJ1c2VyXz...</code>
+                            <span>Payload</span>
+
+                        </button>
+
+                        <span class="token-dot">.</span>
+
+                        <button class="token-piece signature-piece" type="button" data-part="signature">
+
+                            <code>K4Q9nJ7xP2...</code>
+                            <span>Signature</span>
+
+                        </button>
 
                     </div>
 
 
-                    <!-- PATH -->
+                    <!-- DETAILS -->
 
-                    <div class="token-route">
+                    <div class="part-details">
 
-                        <div class="route-line"></div>
 
-                        <div class="travelling-token" id="travelling-token">
-                            token
+                        <!-- HEADER -->
+
+                        <div class="detail-panel" id="header-detail">
+
+                            <div class="detail-title">
+                                <span class="detail-label">Header</span>
+
+                                <p>
+                                    A few instructions for understanding
+                                    how this token was created.
+                                </p>
+                            </div>
+
+                            <div class="header-values">
+
+                                <div class="simple-claim">
+                                    <code>alg</code>
+                                    <strong>RS256</strong>
+                                    <span>the signing algorithm</span>
+                                </div>
+
+                                <div class="simple-claim">
+                                    <code>typ</code>
+                                    <strong>JWT</strong>
+                                    <span>the token type</span>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- PAYLOAD -->
+
+                        <div class="detail-panel payload-detail" id="payload-detail">
+
+                            <div class="detail-title">
+                                <span class="detail-label">Payload</span>
+
+                                <p>
+                                    This is where the claims live.
+                                </p>
+                            </div>
+
+
+                            <div class="claims">
+
+                                <div class="claim">
+                                    <code>sub</code>
+
+                                    <strong>user_1842</strong>
+
+                                    <span>who it's about</span>
+                                </div>
+
+
+                                <div class="claim">
+                                    <code>aud</code>
+
+                                    <strong>photos-api</strong>
+
+                                    <span>where it's going</span>
+                                </div>
+
+
+                                <div class="claim">
+                                    <code>iss</code>
+
+                                    <strong>auth.example</strong>
+
+                                    <span>who issued it</span>
+                                </div>
+
+
+                                <div class="claim">
+                                    <code>exp</code>
+
+                                    <strong>2:30 PM</strong>
+
+                                    <span>when it expires</span>
+                                </div>
+
+
+                                <div class="claim">
+                                    <code>scope</code>
+
+                                    <div class="scope-values">
+                                        <strong>photos:read</strong>
+                                        <strong>photos:write</strong>
+                                    </div>
+
+                                    <span>what it can do</span>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- SIGNATURE -->
+
+                        <div class="detail-panel" id="signature-detail">
+
+                            <div class="detail-title">
+                                <span class="detail-label">Signature</span>
+
+                                <p>
+                                    The signature helps the API verify that
+                                    the token hasn't been changed.
+                                </p>
+                            </div>
+
+                            <div class="signature-example">
+
+                                <span class="signature-check">✓</span>
+
+                                <div>
+                                    <strong>Signature valid</strong>
+                                    <span>The token matches what was signed.</span>
+                                </div>
+
+                            </div>
+
                         </div>
 
                     </div>
 
+                    <div class="continue-token" id="continue-token">
 
-                    <!-- API -->
-
-                    <div class="endpoint api-endpoint">
-
-                        <div class="api-drawing" aria-hidden="true">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>
-
-                        <strong>Photos API</strong>
-
-                        <span class="api-waiting" id="api-status">
-                            waiting...
+                        <span class="hand-note continue-note">
+                            seen what's inside?
                         </span>
 
+                        <button class="continue-button" id="continue-button" type="button">
+                            let's use it <span aria-hidden="true">→</span>
+                        </button>
+
+                    </div>
+                </div> <!-- end of token anatomy -->
+
+
+                <!-- API PLAYGROUND -->
+
+                <div class="api-playground" id="api-playground">
+
+                    <div class="hand-note api-note">
+                        <span>now let's use it</span>
+                        <span class="note-arrow">↓</span>
+                    </div>
+
+
+                    <div class="request-path">
+
+                        <!-- APP -->
+
+                        <div class="endpoint app-endpoint">
+
+                            <div class="app-drawing" aria-hidden="true">
+                                <div class="screen"></div>
+                                <div class="computer-base"></div>
+                            </div>
+
+                            <strong>Your app</strong>
+                            <code>GET /photos/42</code>
+
+                        </div>
+
+
+                        <!-- PATH -->
+
+                        <div class="token-route">
+
+                            <div class="route-line"></div>
+
+                            <div class="travelling-token" id="travelling-token">
+                                token
+                            </div>
+
+                        </div>
+
+
+                        <!-- API -->
+
+                        <div class="endpoint api-endpoint">
+
+                            <div class="api-drawing" aria-hidden="true">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+
+                            <strong>Photos API</strong>
+
+                            <span class="api-waiting" id="api-status">
+                                waiting...
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="send-area">
+
+                        <button class="send-token" id="send-token" type="button">
+                            Send the token
+                            <span>→</span>
+                        </button>
+
+                    </div>
+
+
+                    <!-- CHECKING -->
+
+                    <div class="token-check" id="token-check">
+
+                        <p class="checking-label">checking the token...</p>
+
+                        <div class="check-list">
+
+                            <div class="check-item">
+                                <span>✓</span>
+                                signature
+                            </div>
+
+                            <div class="check-item">
+                                <span>✓</span>
+                                audience
+                            </div>
+
+                            <div class="check-item">
+                                <span>✓</span>
+                                expiration
+                            </div>
+
+                            <div class="check-item">
+                                <span>✓</span>
+                                scope
+                            </div>
+
+                        </div>
+
                     </div>
 
                 </div>
-
-
-                <div class="send-area">
-
-                    <button class="send-token" id="send-token" type="button">
-                        Send the token
-                        <span>→</span>
-                    </button>
-
-                </div>
-
-
-                <!-- CHECKING -->
-
-                <div class="token-check" id="token-check">
-
-                    <p class="checking-label">checking the token...</p>
-
-                    <div class="check-list">
-
-                        <div class="check-item">
-                            <span>✓</span>
-                            signature
-                        </div>
-
-                        <div class="check-item">
-                            <span>✓</span>
-                            audience
-                        </div>
-
-                        <div class="check-item">
-                            <span>✓</span>
-                            expiration
-                        </div>
-
-                        <div class="check-item">
-                            <span>✓</span>
-                            scope
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
 
         </section>
 

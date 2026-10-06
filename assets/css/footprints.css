@@ -17,54 +17,74 @@
    Intro
    -------------------------- */
 
+/* --------------------------
+   Intro
+   -------------------------- */
+
 .impact-header {
-    margin-bottom: 4.5rem;
-}
-
-.impact-header h1 {
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    line-height: 1.1;
-    margin-bottom: 1.5rem;
-}
-
-.impact-header p {
-    color: #555;
-    max-width: 800px;
-    line-height: 1.8;
-}
-
-.impact-header .impact-quote {
     margin-bottom: 3.5rem;
 }
 
-.impact-header .impact-intro {
-    margin-bottom: 0;
+.impact-header h1 {
+    margin: 0 0 .65rem;
+    font-size: clamp(2.6rem, 5vw, 4rem);
+    line-height: 1.08;
+    font-weight: 700;
+    letter-spacing: -.03em;
 }
 
+.impact-intro {
+    max-width: 800px;
+    margin: 0;
+    color: #666;
+    font-size: .95rem;
+    line-height: 1.6;
+}
+
+.impact-quote {
+    margin-top: 2.25rem;
+    max-width: 800px;
+
+    font-family: "Instrument Serif", serif;
+    font-size: 1.25rem;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 1.5;
+
+    color: #555;
+}
 
 /* --------------------------
-   Featured
-   -------------------------- */
-
+Featured -------------------------- */ 
 .featured-impact {
-    margin-bottom: 4.5rem;
+    margin-bottom: 2.75rem;
+    padding: 1.75rem 2rem 2rem;
+    background: #f8f8f8;
+    border-radius: 8px;
 }
 
-.featured-impact h2,
-.impact-archive h2 {
-    font-size: 1.25rem;
-    line-height: 1.3;
-    font-weight: 600;
+.featured-label {
+    display: block;
+    margin-bottom: .2rem;
+
+    color: #777;
+    font-size: .65rem;
+    font-weight: 500;
+    letter-spacing: .1em;
+    text-transform: uppercase;
 }
 
 .featured-impact h2 {
-    margin-bottom: 1.5rem;
+    margin: 0 0 1.25rem;
+    font-size: 1.15rem;
+    line-height: 1.3;
+    font-weight: 600;
 }
 
 .featured-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
+    gap: 1.75rem;
 }
 
 .featured-card {
@@ -74,37 +94,37 @@
 .featured-card img {
     display: block;
     width: 100%;
-    height: 175px;
+    aspect-ratio: 2 / 1;
     object-fit: cover;
-    border-radius: 10px;
-    margin-bottom: 1rem;
+    border-radius: 6px;
+    margin-bottom: .7rem;
 }
 
 .featured-card h3 {
-    font-size: 1rem;
+    margin: 0 0 .25rem;
+    font-size: .88rem;
     line-height: 1.4;
-    margin-bottom: .45rem;
+    font-weight: 600;
 }
 
 .featured-card p {
-    color: #555;
-    font-size: .9rem;
-    line-height: 1.55;
-    margin-bottom: .6rem;
+    margin: 0 0 .45rem;
+    color: #666;
+    font-size: .76rem;
+    line-height: 1.45;
 }
 
 .featured-card span {
-    color: #888;
-    font-size: .8rem;
+    display: block;
+    color: #999;
+    font-size: .7rem;
 }
-
 
 /* --------------------------
    Everything / filters
    -------------------------- */
 
 .impact-archive {
-    border-top: 1px solid #e5e5e5;
     padding-top: 1.75rem;
 }
 
@@ -280,39 +300,26 @@
     }
 }
 
-@media (max-width: 600px) {
-
-    .impact-section {
-        margin-top: 3rem;
-    }
+@media (max-width: 700px) {
 
     .impact-header {
-        margin-bottom: 3.5rem;
+        margin-bottom: 3rem;
     }
 
-    .impact-header .impact-quote {
-        margin-bottom: 2.5rem;
+    .impact-quote br {
+        display: none;
     }
 
-    .featured-grid,
-    .impact-grid {
-        grid-template-columns: 1fr;
+    .featured-impact {
+        padding: 1.5rem;
     }
 
     .featured-grid {
-        gap: 2.5rem;
+        grid-template-columns: 1fr;
+        gap: 2rem;
     }
 
-    .impact-grid {
-        row-gap: 2.5rem;
-    }
-
-    .impact-filters {
-        gap: .4rem;
-    }
-
-    .filter-pill {
-        font-size: .72rem;
-        padding: .45rem .75rem;
+    .featured-card img {
+        aspect-ratio: 16 / 9;
     }
 }

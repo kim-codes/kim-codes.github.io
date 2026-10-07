@@ -4,8 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Helping Developers Get Unstuck · kim.codes</title>
+    <meta name="description"
+        content="A look back at debugging authentication problems with developers, and what those conversations taught me about explaining technical concepts.">
 
-    <title>Helping Developers Get Unstuck | kimcodes</title>
+    <!-- Open Graph -->
+    <meta property="og:title" content="Helping Developers Get Unstuck · kim.codes">
+    <meta property="og:description"
+        content="A look back at debugging authentication problems with developers, and what those conversations taught me about explaining technical concepts.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://kim.codes/stories/dev-support.html">
+    <meta property="og:image" content="https://kim.codes/assets/img/og.png">
+    <meta property="og:site_name" content="kim.codes">
 
     <!-- FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -62,7 +72,8 @@
                 <h2>Debug the implementation.</h2>
 
                 <p>
-                    A common scenario: a developer is trying to update users through the Management API but keeps getting a 400 error
+                    A common scenario: a developer is trying to update users through the Management API but keeps
+                    getting a 400 error
                     The request looked close, but something wasn't right.
                     <br><br>
                     Their GET request worked, but PATCH kept failing. That gave me somewhere to start.
@@ -100,7 +111,8 @@
                         I compared the two requests, checked how the API was being called, and narrowed the problem down
                         to the request itself.
                         <br><br>
-                        There were two issues two issues hiding in the request. The request was using 1) an incorrect endpoint and 2)
+                        There were two issues two issues hiding in the request. The request was using 1) an incorrect
+                        endpoint and 2)
                         the header wasn't being passed correctly. Once both were fixed, the PATCH request worked.
                     </p>
 
@@ -281,47 +293,42 @@
 
         </section>
 
-   <aside class="other-problems">
+        <aside class="other-problems">
 
-    <p class="other-problems-title">
-        A few other problems I helped untangle
-    </p>
+            <p class="other-problems-title">
+                A few other problems I helped untangle
+            </p>
 
-    <div class="problem-links">
+            <div class="problem-links">
 
-        <a href="https://community.auth0.com/t/intermittent-error-unknown-or-invalid-login-ticket/9600/11"
-           target="_blank"
-           rel="noopener noreferrer">
-            Third-party cookies and intermittent authentication failures
-        </a>
+                <a href="https://community.auth0.com/t/intermittent-error-unknown-or-invalid-login-ticket/9600/11"
+                    target="_blank" rel="noopener noreferrer">
+                    Third-party cookies and intermittent authentication failures
+                </a>
 
-        <a href="https://community.auth0.com/t/can-not-reach-to-authentication/10575"
-           target="_blank"
-           rel="noopener noreferrer">
-            Migrating from getSsoData() to checkSession()
-        </a>
+                <a href="https://community.auth0.com/t/can-not-reach-to-authentication/10575" target="_blank"
+                    rel="noopener noreferrer">
+                    Migrating from getSsoData() to checkSession()
+                </a>
 
-        <a href="https://community.auth0.com/t/using-implicit-grant-with-the-auth0-management-api/10473"
-           target="_blank"
-           rel="noopener noreferrer">
-            Calling the Management API securely from an SPA
-        </a>
+                <a href="https://community.auth0.com/t/using-implicit-grant-with-the-auth0-management-api/10473"
+                    target="_blank" rel="noopener noreferrer">
+                    Calling the Management API securely from an SPA
+                </a>
 
-        <a href="https://community.auth0.com/t/using-api-in-react-to-update-delete-create-get-users/10461"
-           target="_blank"
-           rel="noopener noreferrer">
-            Debugging API and CORS issues in React
-        </a>
+                <a href="https://community.auth0.com/t/using-api-in-react-to-update-delete-create-get-users/10461"
+                    target="_blank" rel="noopener noreferrer">
+                    Debugging API and CORS issues in React
+                </a>
 
-        <a href="https://community.auth0.com/t/passwordless-with-code-option-fails-with-cors/12635"
-           target="_blank"
-           rel="noopener noreferrer">
-            Troubleshooting passwordless authentication and CORS
-        </a>
+                <a href="https://community.auth0.com/t/passwordless-with-code-option-fails-with-cors/12635"
+                    target="_blank" rel="noopener noreferrer">
+                    Troubleshooting passwordless authentication and CORS
+                </a>
 
-    </div>
+            </div>
 
-</aside>
+        </aside>
 
         <!-- Historical note -->
         <aside class="story-note">

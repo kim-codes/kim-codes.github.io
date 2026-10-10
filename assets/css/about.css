@@ -195,28 +195,14 @@
 }
 
 .tech-list {
+    max-width: 700px;
     margin: 0;
-
-    color: #777;
-    font-size: .82rem;
+    color: #666;
+    font-size: .95rem;
     font-weight: 400;
-    line-height: 1.9;
+    line-height: 1.7;
 }
 
-.tech-list span {
-    display: inline-block;
-    margin: 0 .4rem;
-
-    color: #bbb8c4;
-}
-
-.tech-list span:nth-of-type(odd) {
-    color: var(--about-blue);
-}
-
-.tech-list span:nth-of-type(even) {
-    color: var(--about-accent);
-}
 
 
 /* =========================================================
@@ -227,20 +213,20 @@
     margin-left: 3rem;
 }
 
-
-/* --------------------------
-   Statement
-   -------------------------- */
+/* Statement */
 
 .work-statement {
-    max-width: 680px;
+    max-width: 780px;
     margin: 0;
-
     color: #222;
     font-size: clamp(1.75rem, 3vw, 2.6rem);
     font-weight: 400;
     line-height: 1.12;
     letter-spacing: -.035em;
+}
+
+.work-statement p {
+    margin: 0 0 .65rem;
 }
 
 .work-accent {
@@ -251,90 +237,93 @@
     color: var(--about-blue);
 }
 
-
-/* --------------------------
-   Work areas
-   -------------------------- */
+/* Staggered work areas */
 
 .work-areas {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 3rem;
-
-    margin-top: 4.5rem;
-    margin-left: -1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 3rem;
 }
 
 .work-area {
-    display: flex;
-    flex-direction: column;
+    display: block;
+    max-width: 440px;
+}
+
+.work-area:nth-child(2) {
+    margin-left: auto;
+}
+
+.work-area:nth-child(3) {
+    margin-left: 3.5rem;
 }
 
 .work-area h3 {
-    margin: 0 0 .5rem;
-
+    margin: 0 0 .55rem;
     color: #222;
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-weight: 600;
-    line-height: 1.35;
+    line-height: 1.3;
+    letter-spacing: -.025em;
 }
 
-.work-area>p {
-    max-width: 190px;
+.work-area-content > p {
+    max-width: 390px;
     margin: 0;
-
-    color: #777;
-    font-size: .84rem;
-    font-weight: 400;
-    line-height: 1.55;
+    color: #666;
+    font-size: .92rem;
+    line-height: 1.65;
 }
 
-
-/* --------------------------
-   Work links
-   -------------------------- */
+/* Links */
 
 .work-area-links {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: .55rem;
-
-    margin-top: 2rem;
+    margin-top: .75rem;
 }
 
 .work-area-links a {
-    color: #555;
-    font-size: .78rem;
-    font-weight: 400;
-    line-height: 1.4;
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    color: #71658f;
+    font-size: .85rem;
+    font-weight: 500;
     text-decoration: none;
-
     transition: color .2s ease;
 }
 
-.work-area-links a:hover {
-    color: #222;
+/* Dusty blue for the second work area */
+
+.work-area:nth-child(2) .work-area-links a {
+    color: #587c9d;
 }
 
-.work-area-links .work-more-link {
-    color: #888;
-    font-size: .74rem;
+/* Hover and keyboard focus */
+
+.work-area-links a:hover,
+.work-area:nth-child(2) .work-area-links a:hover {
+    color: #38334f;
 }
 
-.work-area-links .work-more-link:hover {
-    color: #222;
+.work-area-links a:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 4px;
 }
 
-.work-link-type {
-    margin-bottom: -.15rem;
+/* Hand-drawn SVG arrows */
 
-    color: var(--about-blue);
-    font-size: .62rem;
-    font-weight: 600;
-    line-height: 1;
-    letter-spacing: .08em;
-    text-transform: uppercase;
+.work-arrow {
+    flex-shrink: 0;
+    transition: transform .2s ease;
+}
+
+.work-area-links a:hover .work-arrow {
+    transform: translate(3px, -2px);
 }
 
 
@@ -350,46 +339,65 @@
     display: grid;
     grid-template-columns: 1.6fr .8fr .8fr;
     gap: 2.5rem;
+    align-items: start;
 }
 
 .recognition-item {
     display: flex;
+    flex-direction: column;
     align-items: flex-start;
+    gap: .45rem;
+}
+
+/* CMA awards: keep 5× beside the title */
+
+.recognition-cma {
+    flex-direction: row;
     gap: 1rem;
 }
 
 .recognition-number {
     flex-shrink: 0;
-
     color: var(--about-accent);
+    font-size: .8rem;
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+/* Large 5× */
+
+.recognition-cma .recognition-number {
     font-size: 1.65rem;
     font-weight: 400;
     line-height: 1;
     letter-spacing: -.04em;
 }
 
+/* Microsoft MVP year */
+
 .recognition-item:nth-child(2) .recognition-number {
     color: var(--about-blue);
 }
 
+/* Titles */
+
 .recognition-item h3 {
     margin: 0;
-
     color: #222;
     font-size: .9rem;
     font-weight: 500;
     line-height: 1.4;
 }
 
+/* CMA supporting text */
+
 .recognition-item p {
     max-width: 250px;
     margin: .35rem 0 0;
-
     color: #888;
     font-size: .76rem;
     line-height: 1.55;
 }
-
 
 /* =========================================================
    AROUND THE WEB
@@ -638,40 +646,38 @@
        Work
        -------------------------- */
 
+    /* Work */
+
     .about-work {
         margin-left: 0;
     }
 
     .work-statement {
-        font-size: clamp(1.8rem, 7.5vw, 2.4rem);
+        font-size: clamp(1.6rem, 6vw, 2.1rem);
     }
 
     .work-areas {
-        grid-template-columns: 1fr;
-        gap: 2.75rem;
+        gap: 2rem;
+        margin-top: 3rem;
+    }
 
-        margin-top: 3.25rem;
+    .work-area {
+        max-width: 100%;
+        grid-template-columns: 1.5rem minmax(0, 1fr);
+        gap: .75rem;
+    }
+
+    .work-area:nth-child(2),
+    .work-area:nth-child(3) {
         margin-left: 0;
     }
 
     .work-area h3 {
-        margin-bottom: .6rem;
-        font-size: .9rem;
+        font-size: 1rem;
     }
 
-    /* Keep mobile concise */
-    .work-area>p,
-    .work-link-type,
-    .work-more-link {
-        display: none;
-    }
-
-    .work-area-links {
-        margin-top: 0;
-    }
-
-    .work-area-links a {
-        font-size: .82rem;
+    .work-area-content>p {
+        font-size: .85rem;
     }
 
 

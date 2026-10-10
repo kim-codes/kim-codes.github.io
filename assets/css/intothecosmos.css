@@ -1,0 +1,134 @@
+.cosmos-question {
+    font-family: "Caveat", Georgia, "Times New Roman", serif;
+    font-size: 1.8rem;
+    line-height: 1.35;
+
+}
+
+.kim-illustration {
+    max-height: 200px;
+    margin-top: 2rem;
+}
+
+.cosmos-episodes {
+    margin: 48px 0;
+}
+
+.cosmos-episodes img {
+    display: block;
+    width: 100%;
+    max-height: none;
+    height: auto;
+}
+
+.cosmos-episodes figcaption {
+    margin-top: 8px;
+    text-align: center;
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.02em;
+}
+
+.episode-key {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px 20px;
+    margin-top: 10px;
+    font-size: 11px;
+    color: var(--muted);
+}
+
+.apparently-link {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    text-decoration-color: #bbb;
+    text-underline-offset: 4px;
+}
+
+.apparently-link:hover {
+    text-decoration-color: #222;
+    text-decoration-style: wavy;
+}
+
+@media (max-width: 700px) {
+
+    /* HERO */
+    .story-hero {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .story-hero-image {
+        display: none;
+    }
+
+    /*
+    .story-hero-copy,
+    .story-hero-image {
+        width: 100%;
+    }
+    
+    .story-hero-image {
+        display: flex;
+        justify-content: center;
+    }
+
+    .concept-sketch {
+        width: 100%;
+        max-width: 420px;
+        height: auto;
+    }*/
+
+
+    /* STORY SECTIONS */
+    .story-row {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .story-left,
+    .story-right {
+        width: 100%;
+    }
+
+    .story-left h2 {
+        margin-bottom: 0;
+    }
+
+
+    /* CHALLENGE ILLUSTRATION */
+    .kim-illustration {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .challenge .kim-illustration {
+        max-width: 160px;
+        margin-top: 20px;
+    }
+
+
+    /* EPISODE STAR MAP */
+    .cosmos-episodes {
+        margin: 36px 0;
+    }
+
+    .cosmos-episodes img {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+    }
+
+    .episode-key {
+        gap: 8px 14px;
+        font-size: 10px;
+    }
+
+
+    /* CLOSING */
+    .final-thought br {
+        display: none;
+    }
+}

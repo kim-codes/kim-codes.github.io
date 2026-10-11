@@ -153,6 +153,28 @@
 }
 
 
+/* --------------------------
+   Archive note
+   -------------------------- */
+
+.archive-note {
+    margin: -2.5rem 0 4rem;
+}
+
+.archive-note p {
+    margin: 0;
+    color: #888;
+    font-size: .85rem;
+    line-height: 1.7;
+}
+
+.archive-note strong {
+    color: #666;
+    font-weight: 500;
+}
+
+
+
 /* =========================================================
    MOBILE
    ========================================================= */
@@ -194,5 +216,6 @@
     .reflection-preview {
         font-size: .9rem;
     }
+
 
 }

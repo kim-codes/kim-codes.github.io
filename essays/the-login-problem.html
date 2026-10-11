@@ -48,13 +48,110 @@
         .implementation-essay .section-copy a:hover {
             color: #7655a3;
             text-decoration-color: currentColor;
-                font-weight: 600;
+            font-weight: 600;
         }
 
         .implementation-essay .section-copy a:focus-visible {
             outline: 2px solid #7655a3;
             outline-offset: 4px;
             border-radius: 2px;
+        }
+
+
+        /* Stack Overflow archive excerpt */
+
+        .implementation-essay .archive-excerpt {
+            margin: 2.5rem 0;
+            padding: 1.5rem 1.75rem;
+            background: #f8f8f7;
+            border: 1px solid #e8e8e6;
+            border-radius: 8px;
+        }
+
+
+        /* Stack Overflow archive excerpt */
+
+        .implementation-essay .archive-excerpt {
+            margin: 1.75rem 0;
+            padding: 1rem 1.25rem;
+            background: #fff;
+            border: 1px solid #e3e6e8;
+            border-left: 3px solid #f48024;
+            border-radius: 4px;
+        }
+
+        .archive-excerpt-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 0.75rem;
+            padding-bottom: 0.65rem;
+            border-bottom: 1px solid #e3e6e8;
+        }
+
+        .archive-source {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #3b4045;
+        }
+
+        .so-mark {
+            color: #f48024;
+            font-size: 0.9rem;
+            margin-right: 0.3rem;
+        }
+
+        .archive-date {
+            font-size: 0.7rem;
+            color: #6a737c;
+        }
+
+        .implementation-essay .archive-excerpt blockquote {
+            margin: 1rem 0;
+            padding: 0;
+            border: none;
+            font-size: 0.9rem;
+            font-style: normal;
+            line-height: 1.65;
+            color: #3b4045;
+        }
+
+        .implementation-essay .archive-excerpt a {
+            color: #0074cc;
+            font-size: 0.75rem;
+            font-weight: 500;
+            text-decoration: none;
+        }
+
+        .implementation-essay .archive-excerpt a:hover {
+            color: #0a95ff;
+            text-decoration: underline;
+        }
+
+
+        /* Smaller headings within essay sections */
+
+        .implementation-essay .essay-subsection {
+            margin-top: 3rem;
+        }
+
+        .implementation-essay .essay-subsection h3 {
+            margin: 0 0 1.5rem;
+            font-size: 1.15rem;
+            font-weight: 650;
+            line-height: 1.4;
+            letter-spacing: -0.015em;
+        }
+
+
+        @media (max-width: 600px) {
+            .implementation-essay .archive-excerpt {
+                padding: 0.9rem 1rem;
+            }
+
+            .archive-excerpt-header {
+                flex-wrap: wrap;
+            }
         }
     </style>
 
@@ -170,11 +267,7 @@
         <section class="essay-section">
 
             <div class="section-heading">
-                <h2>Having the harder conversation.</h2>
-
-                <p class="section-thought">
-                    There's often both a technical and human side to a problem.
-                </p>
+                <h2> There's often both a technical and human side to a problem.</h2>
             </div>
 
             <div class="section-copy">
@@ -241,62 +334,90 @@
                     confirmed they'd implemented the branding suggestion.
                 </p>
 
+
+                <!-- STACK OVERFLOW EXCERPT -->
+                <aside class="archive-excerpt">
+
+                    <div class="archive-excerpt-header">
+                        <span class="archive-source">
+                            <span class="so-mark">▰</span> Stack Overflow
+                        </span>
+                        <span class="archive-date">2023 · From the archives</span>
+                    </div>
+
+                    <blockquote><em>
+                            "Probably not the answer you are hoping for, but I would ask
+                            though is there a valid need for it to be a custom page?"</em>
+                    </blockquote>
+
+                    <a href="https://stackoverflow.com/a/77403993" target="_blank" rel="noopener noreferrer">
+                        Read the original exchange ↗
+                    </a>
+
+                </aside>
+
                 <p>
-                    The technical solution was relatively straightforward.
-                    Recognizing that the original request wasn't necessarily
-                    the right approach was the more important part.
+                    Looking back at that answer, I still stand by the recommendation.
+                    But I'd approach the explanation a little differently today.
                 </p>
 
                 <p>
-                    MFA brought its own version of this problem. Developers
-                    understandably wanted returning users to move through
-                    authentication without unnecessary interruptions. But MFA
-                    exists to provide additional assurance, and whether a
-                    user needs another challenge depends on the authentication
-                    context and security policy.
+                    I'd spend less time defending the inconvenience of a redirect and
+                    more time explaining what that redirect is protecting. I'd also be
+                    more specific about the alternatives available, like using MSAL
+                    with a redirect or popup-based authentication flow, rather than
+                    collecting credentials directly in the application.
                 </p>
 
                 <p>
-                    Silent authentication and remembered MFA can be legitimate
-                    approaches, depending on session state, policy, and risk.
-                    The point isn't to eliminate convenience. It's to
-                    understand those constraints before choosing an implementation.
+                    The goal was never to make the developer abandon the experience
+                    they wanted. It was to help them achieve it without taking on
+                    risks they didn't need to.
                 </p>
 
-            </div>
 
-        </section>
+                <!-- MFA AND THE BIGGER PATTERN -->
+                <div class="essay-subsection">
 
+                    <h3>It's not always about the login screen.</h3>
 
-        <!-- ARCHITECTURAL CONSEQUENCES -->
-        <section class="essay-section">
+                    <p>
+                        MFA brought its own version of this problem. Developers
+                        understandably wanted returning users to move through
+                        authentication without unnecessary interruptions.
+                        But MFA exists to provide additional assurance, and whether
+                        a user needs another challenge depends on the authentication
+                        context and security policy.
+                    </p>
 
-            <div class="section-heading">
-                <h2>When decisions are already made.</h2>
-            </div>
+                    <p>
+                        Silent authentication and remembered MFA can be legitimate
+                        approaches, depending on session state, policy, and risk.
+                        The point isn't to eliminate convenience. It's to understand
+                        those constraints before choosing an implementation.
+                    </p>
 
-            <div class="section-copy">
+                    <p>
+                        What made these conversations difficult was that authentication
+                        often entered the discussion after other decisions had
+                        already been made.
+                    </p>
 
-                <p>
-                    What made these conversations difficult was that authentication
-                    often entered the discussion after other decisions had
-                    already been made.
-                </p>
+                    <p>
+                        The design was approved. The user journey was mapped.
+                        Developers were working toward a deadline.
+                    </p>
 
-                <p>
-                    The design was approved. The user journey was mapped.
-                    Developers were working toward a deadline.
-                </p>
+                    <p>
+                        Questioning the login experience at that point could mean
+                        revisiting decisions nobody wanted to reopen.
+                    </p>
 
-                <p>
-                    Questioning the login experience at that point could mean
-                    revisiting decisions nobody wanted to reopen.
-                </p>
+                    <p>
+                        But those decisions were exactly what needed another look.
+                    </p>
 
-                <p>
-                    But those decisions were exactly what needed another look.
-                </p>
-
+                </div>
             </div>
 
         </section>
@@ -357,17 +478,23 @@
             <h2>Knowing when to push back.</h2>
 
             <p>
-                Being helpful isn't measured by how quickly you give
-                someone what they asked for.
+                There's always going to be pressure to ship. Another feature, another integration, another capability.
             </p>
 
             <p>
-                It's measured by whether you've helped them make
-                a better decision.
+                And I understand why developers want straightforward answers. They're trying to solve a problem, meet a
+                deadline, and move on to the next thing.
             </p>
-
             <p>
-                And sometimes that means being willing to disappoint them.
+                But understanding security and user experience is part of building software. . And I think we'd make
+                better decisions if we spent a little more time questioning our approach before jumping into
+                implementation.
+            </p>
+            <p>
+                And as a technical advocate, I've learned that helping someone doesn't always mean giving them the
+                answer they came looking for.
+            <p>
+                Sometimes that means being willing to 'disappoint' them.
             </p>
 
         </section>

@@ -1,0 +1,40 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>https://kim.codes/</loc>
+    </url>
+    <url>
+        <loc>https://kim.codes/constants.html</loc>
+    </url>
+    <url>
+        <loc>https://kim.codes/lab.html</loc>
+    </url>
+    <url>
+        <loc>https://kim.codes/labs/studio.html</loc>
+    </url>
+    <url>
+        <loc>https://kim.codes/labs/jwt.html</loc>
+    </url>
+    <url>
+        <loc>https://kim.codes/labs/dashboard.html</loc>
+    </url>
+    <url>
+        <loc>https://kim.codes/craft.html</loc>
+    </url>
+    <url>
+        <loc>https://kim.codes/stories/dev-support.html</loc>
+    </url>
+    <url>
+        <loc>https://kim.codes/stories/virtual-tour.html</loc>
+    </url>
+    <url>
+        <loc>https://kim.codes/footprints.html</loc>
+    </url>
+    <url>
+        <loc>https://kim.codes/essays/the-login-problem.html</loc>
+    </url>
+    <url>
+        <loc>https://kim.codes/essays/technical-storytelling.html</loc>
+    </url>
+</urlset>

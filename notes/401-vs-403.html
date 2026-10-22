@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>401 vs 403· kim.codes</title>
+    <meta name="description"
+        content="Understanding the difference between HTTP 401 Unauthorized and 403 Forbidden responses.">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="401 vs 403 · kim.codes">
+    <meta property="og:description"
+        content="Understanding the difference between HTTP 401 Unauthorized and 403 Forbidden responses.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kim.codes/notes/401-vs-403.html">
+    <meta property="og:image" content="https://kim.codes/assets/img/og.png">
+    <meta property="og:site_name" content="kim.codes">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- link css -->
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="stylesheet" href="/assets/css/401-403.css">
+
+</head>
+
+<body>
+
+    <header>
+
+        <a href="/" class="logo">
+            <img src="/assets/img/kimcodes-gummy-twist.webp" alt="kimcodes">
+        </a>
+
+        <nav>
+            <ul>
+                <li><a href="/constants.html">Constants</a></li>
+                <li><a href="/craft.html">Craft</a></li>
+                <li><a href="/footprints.html">Footprints</a></li>
+                <li><a href="/reflections.html">Reflections</a></li>
+                <li><a href="/contact.html">Say Hello</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <main class="explainer">
+
+        <!-- INTRO -->
+        <section class="http-intro">
+            <h1>401 vs 403</h1>
+
+            <p class="http-tagline">
+                You bought a ticket to the big game.<br>
+                Here's what can go wrong.
+            </p>
+
+            <p class="http-description">
+                Both mean the API cannot get to the expected resource, but for different reasons.
+                One is about proving who you are. The other is about what you're allowed to do.
+            </p>
+        </section>
+
+
+        <!-- QUICK COMPARISON -->
+        <section class="http-quick-guide" aria-label="Quick comparison">
+
+            <h2>What status code did you get?</h2>
+
+            <div class="quick-guide-items">
+
+                <div class="quick-guide-item">
+                    <span class="quick-code">401</span>
+                    <h3>Prove who you are.</h3>
+                    <p>Your identity couldn't be verified.</p>
+                </div>
+
+                <div class="quick-guide-item">
+                    <span class="quick-code">403</span>
+                    <h3>You're known, but not allowed.</h3>
+                    <p>You don't have permission for this resource.</p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- TECHNICAL NOTE -->
+        <p class="http-footnote">
+            Note: a 403 error doesn't always mean authentication
+            succeeded. Some services return it for security policies or
+            other access restrictions.
+        </p>
+
+
+
+        <!-- TROUBLESHOOTING -->
+        <section class="http-comparison" aria-label="Troubleshooting 401 and 403 errors">
+
+            <!-- 401 -->
+            <article class="http-error">
+
+                <div class="error-heading">
+
+                    <h1>401</h1>
+                    <h2>Stopped at the gate.</h2>
+
+                    <p>
+                        <strong>Unauthorized.</strong> The guard can't verify your ticket.
+                        Maybe it's one for last week's game. Or you tried to use a fale one.
+                        The server can't authenticate your request,
+                        so you never get in.
+                    </p>
+                </div>
+
+                <div class="error-illustration">
+                    <img src="/assets/img/writings/gates-drawing.png" alt="Stadium security entrance with a ticket checkpoint"
+                        loading="lazy">
+                </div>
+
+                <div class="error-checklist">
+                    <h3>Start debugging 403 error</h3>
+
+                    <ul>
+                        <li>
+                            <div>
+                                <strong>Read the response.</strong>
+                                <p>
+                                    Check the response body and the
+                                    <code>WWW-Authenticate</code> header.
+                                </p>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div>
+                                <strong>Is the ticket shown?</strong>
+                                <p>
+                                    Confirm the credential is being sent.
+                                    Check with <code>curl -v</code> for
+                                    empty environment variables or dropped headers.
+                                </p>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div>
+                                <strong>Is it the right ticket?</strong>
+                                <p>
+                                    Check the header name, authentication scheme
+                                    (<code>Bearer</code> vs <code>Basic</code>),
+                                    and stray spaces.
+                                </p>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div>
+                                <strong>Is it still valid?</strong>
+                                <p>
+                                    Look for expired tokens, revoked keys,
+                                    or credentials for the wrong environment.
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+            </article>
+
+
+            <!-- 403 -->
+            <article class="http-error">
+
+                <div class="error-heading">
+                    <h1>403</h1>
+                    <h2>Blocked at the suites.</h2>
+
+                    <p>
+                        <strong>Forbidden</strong>Your ticket scans fine, but it's only good
+                        for your section. The server recognizes you,
+                        but you don't have access to the VIP suites.
+                    </p>
+                </div>
+
+                <div class="error-illustration">
+                    <img src="/assets/img/writings/suites-drawing.png"
+                        alt="Stadium VIP suites entrance with a restricted access sign" loading="lazy">
+                </div>
+
+                <div class="error-checklist">
+                    <h3>Start debugging 401 error</h3>
+
+                    <ol>
+                        <li>
+                            <div>
+                                <strong>Does your ticket work elsewhere?</strong>
+                                <p>
+                                    Try an endpoint you know you can access.
+                                    If it works, investigate authorization
+                                    for this resource.
+                                </p>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div>
+                                <strong>Check your section.</strong>
+                                <p>
+                                    Review the scopes, roles, and permissions
+                                    required for this resource.
+                                </p>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div>
+                                <strong>Check the gates.</strong>
+                                <p>
+                                    Look for IP allowlists, VPN requirements,
+                                    WAF rules, or a missing
+                                    <code>User-Agent</code>.
+                                </p>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div>
+                                <strong>Read the fine print.</strong>
+                                <p>
+                                    Check resource policies, plan limits,
+                                    suspended accounts, and whether you're
+                                    seeing a real 403 or a browser CORS issue.
+                                </p>
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+
+            </article>
+
+        </section>
+
+        <!-- DEBUGGING TOOLKIT -->
+        <section class="http-toolkit">
+
+            <div class="toolkit-heading">
+                <h2>A few tools worth keeping handy</h2>
+            </div>
+
+            <div class="toolkit-grid">
+
+                <div class="toolkit-item">
+                    <div class="toolkit-icon" aria-hidden="true">
+                        <span class="terminal-icon">&gt;_</span>
+                    </div>
+                    <h3><code>curl -i / -v</code></h3>
+                    <h6>See what you're sending and what's coming back.</h6>
+                    <p>Inspect requests, response headers, and connection details.</p>
+                </div>
+
+                <div class="toolkit-item">
+                    <div class="toolkit-icon" aria-hidden="true">
+                        <span class="toolkit-symbol">&#8644;</span>
+                    </div>
+                    <h3>Postman</h3>
+                    <h6>Tweak requests and try again.</h6>
+                    <p>Send, inspect, and modify API requests.</p>
+                </div>
+
+                <div class="toolkit-item">
+                    <div class="toolkit-icon" aria-hidden="true">
+                        <span class="toolkit-symbol">{ }</span>
+                    </div>
+                    <h3>jwt.io</h3>
+                    <h6>Take a peek inside your JWT.</h6>
+                    <p>Decode JWTs and inspect their claims.</p>
+                </div>
+
+                <div class="toolkit-item">
+                    <div class="toolkit-icon" aria-hidden="true">
+                        <span class="toolkit-symbol">&#9635;</span>
+                    </div>
+                    <h3>Network tab</h3>
+                    <h6>See what your browser is really sending.</h6>
+                    <p>See the actual browser request and response.</p>
+                </div>
+
+                <div class="toolkit-item">
+                    <div class="toolkit-icon" aria-hidden="true">
+                        <span class="toolkit-symbol">&#9776;</span>
+                    </div>
+                    <h3>API logs</h3>
+                    <h6>Find out what happened on the server's side.</h6>
+                    <p>Check server-side logs for more detail.</p>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <p>&copy; 2026 Kim Codes</p>
+
+    </footer>
+
+</body>
+
+</html>

@@ -4,12 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>401 vs 403· kim.codes</title>
+    <title>Debugging 401 vs 403· kim.codes</title>
     <meta name="description"
         content="Understanding the difference between HTTP 401 Unauthorized and 403 Forbidden responses.">
 
     <!-- Open Graph -->
-    <meta property="og:title" content="401 vs 403 · kim.codes">
+    <meta property="og:title" content="Debugging 401 vs 403 · kim.codes">
     <meta property="og:description"
         content="Understanding the difference between HTTP 401 Unauthorized and 403 Forbidden responses.">
     <meta property="og:type" content="website">
@@ -54,15 +54,20 @@
         <section class="http-intro">
             <h1>401 vs 403</h1>
 
-            <p class="http-tagline">
-                You bought a ticket to the big game.<br>
-                Here's what can go wrong.
-            </p>
+            <div class="http-tagline-row">
+                <p class="http-tagline">
+                    You bought a ticket to the big game.<br>
+                    Here's what can go wrong.
+                </p>
+
+                <img src="/assets/img/writings/football-ticket.svg" alt="football ticket" class="intro-ticket">
+            </div>
 
             <p class="http-description">
-                Both mean the API cannot get to the expected resource, but for different reasons.
+                Both mean you can't access the resource, but for different reasons.
                 One is about proving who you are. The other is about what you're allowed to do.
             </p>
+
         </section>
 
 
@@ -73,17 +78,17 @@
 
             <div class="quick-guide-items">
 
-                <div class="quick-guide-item">
+                <a href="#error-401" class="quick-guide-item">
                     <span class="quick-code">401</span>
                     <h3>Prove who you are.</h3>
                     <p>Your identity couldn't be verified.</p>
-                </div>
+                </a>
 
-                <div class="quick-guide-item">
+                <a href="#error-403" class="quick-guide-item">
                     <span class="quick-code">403</span>
                     <h3>You're known, but not allowed.</h3>
                     <p>You don't have permission for this resource.</p>
-                </div>
+                </a>
 
             </div>
 
@@ -103,7 +108,7 @@
         <section class="http-comparison" aria-label="Troubleshooting 401 and 403 errors">
 
             <!-- 401 -->
-            <article class="http-error">
+            <article class="http-error" id="error-401">
 
                 <div class="error-heading">
 
@@ -119,12 +124,12 @@
                 </div>
 
                 <div class="error-illustration">
-                    <img src="/assets/img/writings/gates-drawing.png" alt="Stadium security entrance with a ticket checkpoint"
-                        loading="lazy">
+                    <img src="/assets/img/writings/gates-drawing.png"
+                        alt="Stadium security entrance with a ticket checkpoint" loading="lazy">
                 </div>
 
                 <div class="error-checklist">
-                    <h3>Start debugging 403 error</h3>
+                    <h3>Start debugging 401 error</h3>
 
                     <ul>
                         <li>
@@ -175,7 +180,7 @@
 
 
             <!-- 403 -->
-            <article class="http-error">
+            <article class="http-error" id="error-403">
 
                 <div class="error-heading">
                     <h1>403</h1>
@@ -194,7 +199,7 @@
                 </div>
 
                 <div class="error-checklist">
-                    <h3>Start debugging 401 error</h3>
+                    <h3>Start debugging 403 error</h3>
 
                     <ol>
                         <li>
@@ -246,6 +251,8 @@
 
         </section>
 
+        <p class="page-updated">Last updated: October 2026</p>
+
         <!-- DEBUGGING TOOLKIT -->
         <section class="http-toolkit">
 
@@ -260,8 +267,8 @@
                         <span class="terminal-icon">&gt;_</span>
                     </div>
                     <h3><code>curl -i / -v</code></h3>
-                    <h6>See what you're sending and what's coming back.</h6>
-                    <p>Inspect requests, response headers, and connection details.</p>
+                    <p>See what you're sending and what's coming back.</p>
+                    <!--<p>Inspect requests, response headers, and connection details.</p>-->
                 </div>
 
                 <div class="toolkit-item">
@@ -269,17 +276,17 @@
                         <span class="toolkit-symbol">&#8644;</span>
                     </div>
                     <h3>Postman</h3>
-                    <h6>Tweak requests and try again.</h6>
-                    <p>Send, inspect, and modify API requests.</p>
+                    <p>Tweak requests and try again.</p>
+                    <!--<p>Send, inspect, and modify API requests.</p>-->
                 </div>
 
                 <div class="toolkit-item">
                     <div class="toolkit-icon" aria-hidden="true">
                         <span class="toolkit-symbol">{ }</span>
                     </div>
-                    <h3>jwt.io</h3>
-                    <h6>Take a peek inside your JWT.</h6>
-                    <p>Decode JWTs and inspect their claims.</p>
+                    <h3>jwt.io</h3> <!-- jwt.io / Token Peek , update once token peek project is at v3 -->
+                    <p>Take a peek inside your JWT.</p>
+                    <!--<p>Decode JWTs and inspect their claims.</p>-->
                 </div>
 
                 <div class="toolkit-item">
@@ -287,8 +294,8 @@
                         <span class="toolkit-symbol">&#9635;</span>
                     </div>
                     <h3>Network tab</h3>
-                    <h6>See what your browser is really sending.</h6>
-                    <p>See the actual browser request and response.</p>
+                    <p>See what your browser is really sending.</p>
+                    <!--<p>See the actual browser request and response.</p>-->
                 </div>
 
                 <div class="toolkit-item">
@@ -296,13 +303,33 @@
                         <span class="toolkit-symbol">&#9776;</span>
                     </div>
                     <h3>API logs</h3>
-                    <h6>Find out what happened on the server's side.</h6>
-                    <p>Check server-side logs for more detail.</p>
+                    <p>Find out what happened on the server's side.</p>
+                    <!--<p>Check server-side logs for more detail.</p>-->
                 </div>
 
             </div>
 
         </section>
+
+        <p class="related-note">
+            Curious about JWTs?
+            <a href="/labs/jwt.html">Take one apart with me ↗</a>
+        </p>
+
+        <nav class="page-navigation" aria-label="Page navigation">
+
+            <!-- Back -->
+            <a href="craft.html" class="page-nav-link page-nav-back">
+
+                <svg class="page-nav-arrow" viewBox="0 0 70 26" preserveAspectRatio="none" aria-hidden="true">
+                    <path d="M67 13 Q36 12 4 14
+                     M15 5 Q10 10 4 14 Q10 18 16 22" />
+                </svg>
+
+                <span>Back to my reflections</span>
+            </a>
+
+        </nav>
 
     </main>
 

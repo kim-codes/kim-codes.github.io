@@ -34,12 +34,27 @@
     line-height: 1.05;
 }
 
+.http-tagline-row {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 1.5rem;
+}
+
 .http-tagline {
-    margin: 0 0 1.5rem;
+    margin: 0;
     font-size: clamp(1.35rem, 2.6vw, 2rem);
     font-weight: 400;
     line-height: 1.45;
     letter-spacing: -0.025em;
+}
+
+.intro-ticket {
+    display: block;
+    width: 60px;
+    height: auto;
+    flex-shrink: 0;
+    transform: rotate(8deg);
 }
 
 .http-description {
@@ -49,8 +64,6 @@
     font-size: .95rem;
     line-height: 1.85;
 }
-
-
 
 /* =========================================================
    QUICK GUIDE
@@ -80,6 +93,33 @@
 .quick-guide-item {
     padding: 0;
     border: none;
+}
+
+.quick-guide-item {
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.quick-guide-item:hover .quick-code,
+.quick-guide-item:focus-visible .quick-code {
+    text-decoration: underline;
+    text-underline-offset: 6px;
+}
+
+.quick-guide-item:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 8px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
 }
 
 .quick-code {
@@ -117,6 +157,7 @@
 
 .http-error {
     min-width: 0;
+    scroll-margin-top: 2rem;
 }
 
 .http-error+.http-error {
@@ -315,6 +356,31 @@
     line-height: 1.7;
 }
 
+/* =========================================================
+   ENDING
+   ========================================================= */
+
+.related-note {
+    margin: 4rem 0 2.5rem;
+    font-size: .9rem;
+    color: #666;
+}
+
+.related-note a {
+    color: #171717;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+.related-note a:hover {
+    text-decoration-thickness: 2px;
+}
+
+.page-updated {
+    margin: 0 0 2rem;
+    font-size: .75rem;
+    color: #999;
+}
 
 /* =========================================================
    RESPONSIVE
@@ -361,6 +427,14 @@
 
     .http-intro {
         margin-bottom: 3.5rem;
+    }
+
+    .http-tagline-row {
+        gap: 1rem;
+    }
+
+    .intro-ticket {
+        width: 45px;
     }
 
     .http-quick-guide {

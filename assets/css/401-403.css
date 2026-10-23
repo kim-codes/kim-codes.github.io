@@ -1,0 +1,486 @@
+/* =========================================================
+   401 VS 403
+   ========================================================= */
+
+.explainer {
+    width: min(1100px, calc(100% - 48px));
+    margin: 0 auto;
+    padding: 6rem 0 8rem;
+    font-family: 'Inter', sans-serif;
+    color: #171717;
+}
+
+.explainer *,
+.explainer *::before,
+.explainer *::after {
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   INTRO
+   ========================================================= */
+
+.http-intro {
+    max-width: 760px;
+    margin-bottom: 5rem;
+}
+
+.http-intro h1 {
+    margin: 0 0 1.5rem;
+    font-size: clamp(3.5rem, 8vw, 6rem);
+    font-weight: 500;
+    letter-spacing: -0.065em;
+    line-height: 1.05;
+}
+
+.http-tagline-row {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 1.5rem;
+}
+
+.http-tagline {
+    margin: 0;
+    font-size: clamp(1.35rem, 2.6vw, 2rem);
+    font-weight: 400;
+    line-height: 1.45;
+    letter-spacing: -0.025em;
+}
+
+.intro-ticket {
+    display: block;
+    width: 60px;
+    height: auto;
+    flex-shrink: 0;
+    transform: rotate(8deg);
+}
+
+.http-description {
+    max-width: 620px;
+    margin: 0;
+    color: #666;
+    font-size: .95rem;
+    line-height: 1.85;
+}
+
+/* =========================================================
+   QUICK GUIDE
+   ========================================================= */
+
+.http-quick-guide {
+    margin: 0 auto 3rem;
+    text-align: center;
+}
+
+.http-quick-guide h2 {
+    margin: 0 0 2.5rem;
+    font-size: 1.25rem;
+    font-weight: 500;
+    letter-spacing: -.025em;
+    text-transform: none;
+}
+
+.quick-guide-items {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 3rem;
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+.quick-guide-item {
+    padding: 0;
+    border: none;
+}
+
+.quick-guide-item {
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.quick-guide-item:hover .quick-code,
+.quick-guide-item:focus-visible .quick-code {
+    text-decoration: underline;
+    text-underline-offset: 6px;
+}
+
+.quick-guide-item:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 8px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+}
+
+.quick-code {
+    display: block;
+    margin-bottom: 1rem;
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 500;
+    letter-spacing: -.05em;
+}
+
+.quick-guide-item h3 {
+    margin: 0 0 .65rem;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.quick-guide-item p {
+    margin: 0;
+    color: #777;
+    font-size: .85rem;
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   SIDE-BY-SIDE COMPARISON
+   ========================================================= */
+
+.http-comparison {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 4rem;
+}
+
+.http-error {
+    min-width: 0;
+    scroll-margin-top: 2rem;
+}
+
+.http-error+.http-error {
+    padding-left: 4rem;
+}
+
+
+/* Headings */
+
+
+.error-heading h2 {
+    margin: 0 0 1.25rem;
+    font-size: clamp(1.6rem, 3vw, 2.3rem);
+    font-weight: 500;
+    letter-spacing: -.045em;
+    line-height: 1.25;
+}
+
+.error-heading p {
+    max-width: 420px;
+    margin: 0;
+    color: #555;
+    font-size: .92rem;
+    line-height: 1.85;
+}
+
+
+/* Illustrations */
+
+.error-illustration {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 230px;
+    margin: 2.5rem 0 2rem;
+}
+
+.error-illustration img {
+    display: block;
+    width: 100%;
+    max-width: 380px;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+
+/* =========================================================
+   CHECKLISTS
+   ========================================================= */
+
+
+/* Troubleshooting notes */
+
+.error-checklist {
+    padding-top: 1.5rem;
+}
+
+.error-checklist h3 {
+    margin: 0 0 2rem;
+    font-size: 1.05rem;
+    font-weight: 500;
+    letter-spacing: normal;
+    text-transform: none;
+}
+
+.error-checklist ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.error-checklist li {
+    display: block;
+    margin-bottom: 1.75rem;
+}
+
+.error-checklist strong {
+    display: block;
+    margin-bottom: .35rem;
+    font-size: .9rem;
+    font-weight: 600;
+}
+
+.error-checklist li p {
+    margin: 0;
+    color: #666;
+    font-size: .85rem;
+    line-height: 1.8;
+}
+
+.explainer code {
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+    font-size: .9em;
+    overflow-wrap: anywhere;
+}
+
+
+/* =========================================================
+   FOOTNOTE
+   ========================================================= */
+
+.http-footnote {
+    max-width: 780px;
+    margin: 3rem auto 6rem;
+    color: #777;
+    font-size: .82rem;
+    line-height: 1.85;
+}
+
+
+/* =========================================================
+   DEBUGGING TOOLKIT
+   ========================================================= */
+
+.http-toolkit {
+    padding-top: 2.5rem;
+}
+
+.toolkit-heading {
+    margin-bottom: 2.5rem;
+}
+
+.toolkit-heading h2 {
+    margin: 0 0 .75rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+    letter-spacing: -.02em;
+    text-transform: none;
+}
+
+.toolkit-heading p {
+    margin: 0;
+    color: #777;
+    font-size: .85rem;
+    line-height: 1.7;
+}
+
+.toolkit-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.toolkit-item {
+    min-width: 0;
+    padding: 0 1.25rem;
+    text-align: center;
+}
+
+.toolkit-item:first-child {
+    padding-left: 0;
+}
+
+.toolkit-item:last-child {
+    padding-right: 0;
+}
+
+.toolkit-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 65px;
+    margin-bottom: 1rem;
+}
+
+.terminal-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 54px;
+    height: 42px;
+    border: 1.5px solid #222;
+    border-radius: 5px;
+
+    font-family: monospace;
+    font-size: 1.3rem;
+}
+
+.toolkit-symbol {
+    font-size: 2rem;
+    font-weight: 300;
+}
+
+.toolkit-item h3 {
+    margin: 0 0 .65rem;
+    font-size: .83rem;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.toolkit-item p {
+    margin: 0;
+    color: #777;
+    font-size: .78rem;
+    line-height: 1.7;
+}
+
+/* =========================================================
+   ENDING
+   ========================================================= */
+
+.related-note {
+    margin: 4rem 0 2.5rem;
+    font-size: .9rem;
+    color: #666;
+}
+
+.related-note a {
+    color: #171717;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+.related-note a:hover {
+    text-decoration-thickness: 2px;
+}
+
+.page-updated {
+    margin: 0 0 2rem;
+    font-size: .75rem;
+    color: #999;
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .http-comparison {
+        gap: 2rem;
+    }
+
+    .http-error+.http-error {
+        padding-left: 2rem;
+    }
+
+    .http-quick-guide {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .quick-guide-item:first-child {
+        border-left: none;
+        padding-left: 0;
+    }
+
+    .toolkit-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 2rem 0;
+    }
+
+    .toolkit-item {
+        border-left: none !important;
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    .explainer {
+        width: min(100% - 36px, 1100px);
+        padding: 4rem 0 6rem;
+    }
+
+    .http-intro {
+        margin-bottom: 3.5rem;
+    }
+
+    .http-tagline-row {
+        gap: 1rem;
+    }
+
+    .intro-ticket {
+        width: 45px;
+    }
+
+    .http-quick-guide {
+        padding: 1.5rem;
+        margin-bottom: 4rem;
+    }
+
+    .quick-guide-items {
+        gap: 1.5rem;
+    }
+
+    .http-quick-guide h2 {
+        font-size: 1.15rem;
+    }
+
+    .quick-guide-item {
+        padding: 0;
+        border: none;
+    }
+
+    .quick-code {
+        font-size: 2rem;
+    }
+
+    .http-comparison {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+    }
+
+    .http-error+.http-error {
+        border-left: none;
+        border-top: 1px solid #ddd;
+        padding: 4rem 0 0;
+    }
+
+    .error-illustration {
+        height: 200px;
+    }
+
+    .toolkit-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 2.5rem 1rem;
+    }
+
+    .toolkit-item {
+        padding: 0;
+    }
+
+}

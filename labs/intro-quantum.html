@@ -9,9 +9,9 @@
         content="From bits and logic gates to qubits and quantum gates. A developer-friendly exploration of quantum computing.">
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Debugging 401 vs 403 · kim.codes">
+    <meta property="og:title" content="The Curious Case of Quantum · kim.codes">
     <meta property="og:description"
-        content="Understanding the difference between HTTP 401 Unauthorized and 403 Forbidden responses.">
+        content="From bits and logic gates to qubits and quantum gates. A developer-friendly exploration of quantum computing.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://kim.codes/notes/intro-quantum.html">
     <meta property="og:image" content="https://kim.codes/assets/img/og.png">
@@ -53,7 +53,7 @@
             <div class="hero-copy">
                 <h1 id="quantum-title">The Curious Case of Quantum</h1>
                 <p>From bits and logic gates to qubits and quantum gates. An experiment in understanding how quantum
-                    computers process information.</p>
+                    computers process information and building our first quantum circuit.</p>
             </div>
 
             <div class="hero-art" aria-hidden="true">
@@ -65,56 +65,110 @@
 
         </section>
 
+        <section class="quantum-start">
 
-        <nav class="quantum-previews" aria-label="Choose where to begin">
+            <div class="quantum-start-intro">
+                <h2>Where would you like to start?</h2>
+                <p>Get a little context first, or jump into building a quantum circuit.</p>
+            </div>
 
-            <!-- The basics -->
-            <a class="preview-card" href="#basics">
-                <h2>Basics to cover</h2>
+            <nav class="quantum-previews" aria-label="Choose where to begin">
 
-                <ol class="topic-list">
-                    <li>
-                        <span class="topic-num">01</span>
-                        <span>Why quantum computing?</span>
-                        <span class="topic-note">The big picture</span>
-                    </li>
-                    <li>
-                        <span class="topic-num">02</span>
-                        <span>Classical computers</span>
-                        <span class="topic-note">Bits and logic gates</span>
-                    </li>
-                    <li>
-                        <span class="topic-num">03</span>
-                        <span>Qubits and quantum gates</span>
-                        <span class="topic-note">Same idea. Different rules.</span>
-                    </li>
-                </ol>
-            </a>
+                <!-- The basics -->
+                <a class="preview-card" href="#basics">
+                    <h2>Before we build</h2>
 
-            <!-- The circuit -->
-            <a class="preview-card circuit-preview" href="#circuit">
-                <h2>Build a quantum circuit</h2>
+                    <ol class="topic-list">
+                        <li>
+                            <span class="topic-num">01</span>
+                            <span>Mythbusting</span>
+                            <!--<span class="topic-note">The big picture</span>-->
+                        </li>
+                        <li>
+                            <span class="topic-num">02</span>
+                            <span>VS classical computers</span>
+                            <!--<span class="topic-note">Bits and logic gates</span>-->
+                        </li>
+                        <li>
+                            <span class="topic-num">03</span>
+                            <span>Qubits and quantum gates</span>
+                            <!--<span class="topic-note">Same idea. Different rules.</span>-->
+                        </li>
+                    </ol>
+                </a>
 
-                <svg class="circuit-drawing" viewBox="0 0 480 150" role="img"
-                    aria-label="A single qubit starting at zero, passing through a Hadamard gate, then being measured">
+                <!-- The circuit -->
+                <a class="preview-card circuit-preview" href="#circuit">
+                    <h2>Build a quantum circuit</h2>
 
-                    <text x="8" y="81" class="circuit-label">|0⟩</text>
-                    <path d="M62 75 H444" class="circuit-wire" />
+                    <svg class="circuit-drawing" viewBox="0 0 480 150" role="img"
+                        aria-label="A single qubit starting at zero, passing through a Hadamard gate, then being measured">
 
-                    <rect x="150" y="49" width="54" height="52" rx="5" class="circuit-gate" />
-                    <text x="177" y="82" class="circuit-text">H</text>
+                        <text x="8" y="81" class="circuit-label">|0⟩</text>
+                        <path d="M62 75 H444" class="circuit-wire" />
 
-                    <rect x="333" y="49" width="54" height="52" rx="5" class="circuit-gate" />
-                    <path d="M345 85 Q360 58 375 85" class="circuit-meter" />
-                    <path d="M360 81 L374 61" class="circuit-meter" />
+                        <rect x="150" y="49" width="54" height="52" rx="5" class="circuit-gate" />
+                        <text x="177" y="82" class="circuit-text">H</text>
 
-                    <text x="177" y="124" class="circuit-caption">Hadamard</text>
-                    <text x="360" y="124" class="circuit-caption">Measure</text>
-                </svg>
-            </a>
+                        <rect x="333" y="49" width="54" height="52" rx="5" class="circuit-gate" />
+                        <path d="M345 85 Q360 58 375 85" class="circuit-meter" />
+                        <path d="M360 81 L374 61" class="circuit-meter" />
 
-        </nav>
+                        <text x="177" y="124" class="circuit-caption">Hadamard</text>
+                        <text x="360" y="124" class="circuit-caption">Measure</text>
+                    </svg>
+                </a>
 
+            </nav>
+        </section>
+
+        <section class="quantum-basics" id="basics">
+            <div class="basics-intro">
+                <h2>First, Some Context</h2>
+                <h3>Quantum myths</h3>
+
+                <p>
+                    Let's clear up a few common misconceptions about quantum computing.
+                </p>
+            </div>
+
+            <div class="myth-comparison">
+                <div class="myth-card">
+                    <h4>Myth</h4>
+                    <p>
+                        Quantum computers are just more powerful computers.
+                    </p>
+                </div>
+
+                <div class="myth-card reality-card">
+                    <h4>Reality</h4>
+                    <p>
+                        Quantum computers work differently in how they process information compared to classical
+                        computers. They use the principles of quantum mechanics which have advantages for particular
+                        problems. For example, simulating molecular interactions with high precision, or factoring large
+                        numbers for cryptography.
+                        <br><br>
+                        <strong>They are not a replacement for classical computers.</strong>
+                    </p>
+                </div>
+            </div>
+
+            <div class="basics-transition">
+                <p>
+                    There's still a lot to figure out with quantum computing.
+                    The hardware is improving, researchers are experimenting,
+                    and we're a long way from using quantum computers for everyday tasks.
+                </p>
+                <p>
+                    Luckily, we don't need one sitting on our desk to start experimenting.
+                </p>
+
+                Let's take a look at bits and logic gates.
+            </div>
+
+        </section>
+
+        <!-- Transition to build first circuit "But we don't need a fully developed quantum computer to start building our first circuit."  -->
 
         <nav class="page-navigation" aria-label="Page navigation">
 

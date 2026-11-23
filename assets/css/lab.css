@@ -25,7 +25,8 @@
 
  .lab-hero {
      position: relative;
-     padding: 100px 60px 100px 20px;;
+     padding: 100px 60px 100px 20px;
+     ;
  }
 
 
@@ -626,6 +627,68 @@
 
  .token-dot {
      fill: #999;
+ }
+
+ /* =========================================================
+   QUANTUM
+   ========================================================= */
+
+ /* Quantum lab visual */
+
+ .quantum-sketch {
+     width: 100%;
+     max-width: 360px;
+     height: auto;
+     display: block;
+ }
+
+ .quantum-wire {
+     stroke: var(--ink, #191b20);
+     stroke-width: 1.5;
+ }
+
+ .quantum-label {
+     font-family: 'IBM Plex Mono', monospace;
+     font-size: 17px;
+     fill: var(--ink, #191b20);
+ }
+
+ .quantum-gate {
+     fill: #39d6ce;
+     stroke: var(--ink, #191b20);
+     stroke-width: 1.5;
+ }
+
+ .quantum-gate-text {
+     font-family: 'IBM Plex Mono', monospace;
+     font-size: 22px;
+     font-weight: 500;
+     fill: #191b20;
+ }
+
+ .quantum-measure {
+     fill: none;
+     stroke: var(--ink, #191b20);
+     stroke-width: 1.5;
+ }
+
+ .quantum-measure-line {
+     fill: none;
+     stroke: var(--ink, #191b20);
+     stroke-width: 1.5;
+     stroke-linecap: round;
+ }
+
+ .quantum-outcome {
+     font-family: 'IBM Plex Mono', monospace;
+     font-size: 13px;
+     fill: #6e1070;
+ }
+
+ .quantum-guide {
+     stroke: #6e1070;
+     stroke-width: 1;
+     stroke-dasharray: 3 4;
  }
 
  /* tablet rendering */

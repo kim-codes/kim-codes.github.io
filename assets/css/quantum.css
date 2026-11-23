@@ -1,0 +1,980 @@
+:root {
+    --ink: #191b20;
+    --muted: #646b76;
+    --quiet: #8b929c;
+    --line: #e2e3e5;
+    --cyan: #39d6ce;
+    --purple: #6e1070;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: #fff;
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Page layout */
+
+.quantum-page {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 100px clamp(24px, 6.5vw, 100px) 120px;
+}
+
+/* Hero */
+
+.quantum-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.24fr) minmax(0, 1fr);
+    align-items: center;
+    min-height: 360px;
+    position: relative;
+}
+
+.hero-copy {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-copy h1 {
+    font-size: clamp(3rem, 5.5vw, 5.4rem);
+    line-height: 1.07;
+    letter-spacing: -.055em;
+    font-weight: 600;
+    margin: 0 0 32px;
+}
+
+.hero-copy p {
+    max-width: 400px;
+    margin: 0;
+    color: #4c535e;
+    font-size: clamp(1rem, 1.35vw, 1.22rem);
+    line-height: 1.65;
+}
+
+.hero-art {
+    position: relative;
+    z-index: 1;
+    height: 340px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: -60px;
+    margin-right: -40px;
+}
+
+.hero-art picture {
+    display: block;
+    width: 100%;
+}
+
+.wave-art {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* Interactive navigation cards */
+
+.quantum-previews {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+}
+
+.quantum-previews .preview-card {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    padding: 40px 36px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: #fff;
+    color: var(--ink);
+    text-decoration: none;
+    text-transform: none;
+    letter-spacing: normal;
+    cursor: pointer;
+    transition:
+        background-color .2s ease,
+        color .2s ease,
+        border-color .2s ease;
+}
+
+.quantum-previews .preview-card h2 {
+    font-size: clamp(1.3rem, 1.9vw, 1.75rem);
+    font-weight: 500;
+    letter-spacing: -.03em;
+    text-transform: none;
+    margin: 0 0 32px;
+}
+
+/* Topic list */
+
+.quantum-previews .topic-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.quantum-previews .topic-list li {
+    display: grid;
+    grid-template-columns: 42px minmax(0, 1fr) auto;
+    gap: 12px;
+    align-items: center;
+    padding: 13px 0;
+    font-size: .95rem;
+    text-transform: none;
+    letter-spacing: normal;
+}
+
+.quantum-previews .topic-num,
+.quantum-previews .topic-note {
+    color: var(--quiet);
+}
+
+.quantum-previews .topic-note {
+    text-align: right;
+    font-size: .84rem;
+}
+
+/* Circuit illustration */
+
+.circuit-preview {
+    justify-content: flex-start;
+}
+
+.circuit-drawing {
+    display: block;
+    width: 100%;
+    max-width: 490px;
+    margin: auto;
+    overflow: visible;
+}
+
+.quantum-previews .circuit-wire,
+.quantum-previews .circuit-gate,
+.quantum-previews .circuit-meter {
+    stroke: currentColor;
+    stroke-width: 2;
+    fill: none;
+}
+
+.quantum-previews .circuit-text,
+.quantum-previews .circuit-label,
+.quantum-previews .circuit-caption {
+    fill: currentColor;
+    font-family: 'IBM Plex Mono', monospace;
+}
+
+.quantum-previews .circuit-drawing text {
+    text-transform: none;
+    letter-spacing: normal;
+}
+
+.circuit-text {
+    font-size: 22px;
+    text-anchor: middle;
+    font-weight: 500;
+}
+
+.circuit-label {
+    font-size: 20px;
+}
+
+.circuit-caption {
+    font-size: 13px;
+    text-anchor: middle;
+}
+
+/* Hover and keyboard focus */
+
+.quantum-previews .preview-card:hover,
+.quantum-previews .preview-card:focus-visible {
+    background: var(--ink);
+    color: #fff;
+    border-color: var(--ink);
+}
+
+.quantum-previews .preview-card:focus-visible {
+    outline: 2px solid var(--purple);
+    outline-offset: 4px;
+}
+
+.quantum-previews .preview-card:hover .topic-note,
+.quantum-previews .preview-card:focus-visible .topic-note {
+    color: #c5c5c5;
+}
+
+.quantum-previews .preview-card:hover .topic-num,
+.quantum-previews .preview-card:focus-visible .topic-num {
+    color: var(--cyan);
+}
+
+/* Choose where to begin */
+
+.quantum-start {
+    margin-top: 100px;
+}
+
+.quantum-start-intro {
+    margin-bottom: 40px;
+}
+
+.quantum-start-intro h2 {
+    font-size: clamp(1.4rem, 2vw, 1.8rem);
+    font-weight: 500;
+    letter-spacing: -.03em;
+    margin: 0 0 12px;
+}
+
+.quantum-start-intro p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--muted);
+    margin: 0;
+}
+
+/** transition **/
+
+.basics-transition {
+    max-width: 800px;
+    margin-top: 48px;
+    color: var(--muted);
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+.basics-transition p {
+    margin: 0 0 16px;
+}
+
+/* Quantum basics */
+
+.quantum-basics {
+    margin-top: 140px;
+}
+
+.basics-intro h2 {
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    font-weight: 600;
+    letter-spacing: -.035em;
+    line-height: 1.2;
+    margin: 0 0 12px;
+}
+
+.basics-intro h3 {
+    font-size: clamp(1.1rem, 1.7vw, 1.35rem);
+    font-weight: 400;
+    letter-spacing: -.01em;
+    line-height: 1.5;
+    color: var(--muted);
+    margin: 0;
+}
+
+/* Click-to-reveal quantum myths */
+
+.myth-list {
+    display: grid;
+    gap: 72px;
+    max-width: 900px;
+    margin-top: 56px;
+    margin-left: 28px;
+    position: relative;
+}
+
+.myth summary {
+    display: block;
+    list-style: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.myth summary::-webkit-details-marker {
+    display: none;
+}
+
+.myth summary:focus-visible {
+    outline: 2px solid var(--purple);
+    outline-offset: 8px;
+}
+
+/* Handwritten annotation */
+
+.reveal-wrap {
+    position: relative;
+    display: inline-block;
+}
+
+.myth-annotation {
+    position: absolute;
+    left: calc(100% + 20px);
+    width: 120px;
+    color: var(--ink);
+    pointer-events: none;
+    text-align: center;
+}
+
+.myth-annotation>span {
+    display: block;
+    font-family: 'Caveat', cursive;
+    font-size: 1.35rem;
+    line-height: 1;
+    transform: rotate(-5deg);
+}
+
+.myth-annotation svg {
+    display: block;
+    width: 75px;
+    height: 35px;
+    margin: 0 auto;
+}
+
+.myth-annotation path {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.myth-text {
+    display: block;
+    font-size: clamp(1.1rem, 1.7vw, 1.35rem);
+    font-weight: 500;
+    letter-spacing: -.03em;
+    line-height: 1.3;
+    color: var(--ink);
+    text-decoration: line-through;
+    text-decoration-color: transparent;
+    text-decoration-thickness: 2px;
+}
+
+.myth-hint {
+    display: inline-block;
+    margin-top: 14px;
+    font-size: .9rem;
+    color: var(--muted);
+}
+
+.myth-hint strong {
+    color: #008f89;
+    /* too tough to see on white background var(--cyan);*/
+    font-weight: 600;
+}
+
+/* Open state: myth gets crossed out, reality appears */
+
+.myth[open] .myth-text {
+    color: var(--quiet);
+    text-decoration-color: var(--cyan);
+}
+
+.myth[open] .myth-hint {
+    display: none;
+}
+
+.myth-reality {
+    max-width: 640px;
+    padding-top: 20px;
+    margin-left: 24px;
+}
+
+.myth-reality p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+.myth-reality strong {
+    color: var(--ink);
+}
+
+@keyframes reality-in {
+    from {
+        opacity: 0;
+        transform: translateY(-6px);
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* The familiar */
+
+.quantum-familiar {
+    margin-top: 120px;
+}
+
+.quantum-familiar h2 {
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    font-weight: 600;
+    letter-spacing: -.045em;
+    margin: 0 0 8px;
+}
+
+.quantum-familiar h3 {
+    font-size: clamp(1.3rem, 2vw, 1.8rem);
+    font-weight: 500;
+    color: var(--muted);
+    letter-spacing: -.03em;
+    margin: 0 0 40px;
+}
+
+.familiar-layout {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 48px;
+    align-items: center;
+}
+
+.familiar-copy p {
+    color: var(--muted);
+    font-size: 1.05rem;
+    line-height: 1.75;
+    margin: 0 0 22px;
+}
+
+.familiar-copy strong {
+    color: var(--ink);
+}
+
+/* Bits illustration */
+
+.bits-visual {
+    text-align: center;
+    padding: 28px 10px;
+}
+
+.visual-label {
+    display: block;
+    font-size: .8rem;
+    color: var(--muted);
+    margin-bottom: 24px;
+}
+
+.letter-example {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 24px;
+}
+
+.letter {
+    font-size: 3.5rem;
+    font-weight: 600;
+}
+
+.letter-caption,
+.visual-caption {
+    font-size: .8rem;
+    color: var(--quiet);
+}
+
+.bit-sequence {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+}
+
+.bit-sequence span {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: .9rem;
+    padding: 10px 7px;
+    background: #f5f6f6;
+    border-radius: 3px;
+}
+
+.bit-sequence span:nth-child(2),
+.bit-sequence span:last-child {
+    background: #dff8f4;
+}
+
+.visual-caption {
+    margin: 16px 0 0;
+}
+
+/* A little logic */
+
+.logic-section {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 80px;
+    align-items: center;
+    margin: 100px 0;
+}
+
+.logic-demo {
+    text-align: center;
+}
+
+.logic-label {
+    font-size: .9rem;
+    color: var(--muted);
+    margin-bottom: 28px;
+}
+
+.logic-character {
+    font-size: 4.5rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 32px;
+}
+
+.logic-bits {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+}
+
+.logic-bits span,
+.logic-bits button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 42px;
+    border: 0;
+    border-radius: 5px;
+    background: #f3f4f5;
+    color: var(--ink);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 1rem;
+}
+
+.logic-bits button {
+    background: #dcf8f5;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.logic-bits button:hover {
+    background: var(--cyan);
+}
+
+.logic-bits button:focus-visible {
+    outline: 2px solid var(--ink);
+    outline-offset: 3px;
+}
+
+.logic-caption {
+    margin-top: 20px;
+    font-size: .85rem;
+    color: var(--quiet);
+}
+
+.logic-copy h3 {
+    font-size: clamp(1.4rem, 2vw, 1.8rem);
+    font-weight: 500;
+    margin-bottom: 24px;
+}
+
+.logic-copy p {
+    color: var(--muted);
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.logic-copy strong {
+    color: var(--ink);
+}
+
+.logic-interaction {
+    position: relative;
+}
+
+.logic-annotation {
+    position: absolute;
+    top: -55px;
+    right: -45px;
+    width: 140px;
+    text-align: center;
+    pointer-events: none;
+    color: var(--ink);
+}
+
+.logic-annotation span {
+    display: block;
+    font-family: 'Caveat', cursive;
+    font-size: 1.35rem;
+    transform: rotate(-5deg);
+    white-space: nowrap;
+}
+
+.logic-annotation svg {
+    display: block;
+    width: 75px;
+    height: 35px;
+    margin: 0 auto;
+}
+
+.logic-annotation path {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* The unfamiliar */
+
+.quantum-unfamiliar {
+    margin: 120px 0;
+}
+
+.unfamiliar-intro {
+    margin-bottom: 65px;
+}
+
+.unfamiliar-intro h2 {
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 600;
+    letter-spacing: -.04em;
+    color: var(--ink);
+    margin: 0 0 16px;
+}
+
+.unfamiliar-intro h3 {
+    font-size: clamp(1.1rem, 1.7vw, 1.5rem);
+    font-weight: 400;
+    color: var(--muted);
+    margin: 0;
+}
+
+.unfamiliar-content {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.unfamiliar-copy p,
+.unfamiliar-gates p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--muted);
+    margin: 0 0 24px;
+}
+
+.unfamiliar-copy strong,
+.unfamiliar-gates strong {
+    color: var(--ink);
+}
+
+/* Bit vs qubit visual */
+
+.qubit-visual {
+    text-align: center;
+}
+
+.qubit-visual-label {
+    font-size: .9rem;
+    color: var(--muted);
+    margin: 0 0 32px;
+}
+
+.qubit-comparison {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.qubit-example {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.qubit-example-title {
+    font-size: .9rem;
+    color: var(--muted);
+}
+
+.classical-value {
+    height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3.5rem;
+    font-weight: 600;
+    color: var(--ink);
+}
+
+.qubit-wave {
+    display: block;
+    width: 100%;
+    max-width: 160px;
+    height: 75px;
+    overflow: visible;
+}
+
+.qubit-wave path {
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+}
+
+.wave-cyan {
+    stroke: var(--cyan);
+}
+
+.wave-purple {
+    stroke: var(--purple);
+}
+
+.qubit-example-note {
+    font-size: .8rem;
+    color: var(--quiet);
+    text-align: center;
+}
+
+/* Quantum gates */
+
+.unfamiliar-gates {
+    max-width: 720px;
+    margin-top: 80px;
+}
+
+.unfamiliar-gates h3 {
+    font-size: clamp(1.4rem, 2vw, 1.8rem);
+    font-weight: 500;
+    letter-spacing: -.03em;
+    color: var(--ink);
+    margin: 0 0 24px;
+}
+
+.quantum-transition {
+    max-width: 600px;
+    margin: 100px auto 120px;
+    text-align: center;
+}
+
+.transition-note {
+    display: block;
+    font-family: 'Caveat', cursive;
+    font-size: 1.6rem;
+    color: var(--ink);
+    margin-bottom: 12px;
+}
+
+.quantum-transition h3 {
+    font-size: clamp(1.7rem, 3vw, 2.3rem);
+    font-weight: 500;
+    letter-spacing: -.03em;
+    margin: 0 0 22px;
+}
+
+.quantum-transition p {
+    color: var(--muted);
+    line-height: 1.8;
+    margin: 0 0 32px;
+}
+
+.transition-link {
+    display: inline-block;
+    color: var(--ink);
+    text-decoration: none;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: .85rem;
+    border-bottom: 1px solid var(--ink);
+    padding-bottom: 5px;
+}
+
+/* Tablet and smaller screens */
+
+@media (max-width: 820px) {
+    .quantum-page {
+        padding-top: 54px;
+    }
+
+    .quantum-hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+    }
+
+    .hero-copy h1 {
+        margin-bottom: 20px;
+    }
+
+    .hero-art {
+        height: auto;
+        margin: 24px 0 0;
+    }
+
+    .quantum-start {
+        margin-top: 65px;
+    }
+
+    .quantum-start-intro {
+        margin-bottom: 28px;
+    }
+
+    .quantum-previews {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .quantum-previews .preview-card {
+        padding: 30px 24px;
+    }
+
+    .quantum-basics {
+        margin-top: 90px;
+    }
+
+    .quantum-familiar {
+        margin-top: 80px;
+    }
+
+    .familiar-layout {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .logic-section {
+        grid-template-columns: 1fr;
+        gap: 48px;
+        margin: 70px 0;
+    }
+
+    .logic-bits span,
+    .logic-bits button {
+        width: 32px;
+        height: 42px;
+    }
+
+    .logic-annotation {
+        display: none;
+    }
+
+    .quantum-unfamiliar {
+        margin: 80px 0;
+    }
+
+    .unfamiliar-intro {
+        margin-bottom: 40px;
+    }
+
+    .unfamiliar-content {
+        grid-template-columns: 1fr;
+        gap: 45px;
+    }
+
+    .qubit-visual {
+        max-width: 420px;
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .unfamiliar-gates {
+        margin-top: 60px;
+    }
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+    .myth-list {
+        gap: 56px;
+        margin-top: 44px;
+        margin-left: 0;
+    }
+
+    .myth-reality {
+        margin-left: 20px;
+    }
+
+    .myth-annotation {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-copy h1 {
+        font-size: clamp(2.7rem, 11vw, 3.8rem);
+    }
+
+    .quantum-previews .preview-card {
+        padding: 28px 20px;
+    }
+
+    .quantum-previews .preview-card h2 {
+        font-size: 1.4rem;
+        margin-bottom: 24px;
+    }
+
+    .quantum-previews .topic-list li {
+        grid-template-columns: 32px minmax(0, 1fr);
+        gap: 6px 12px;
+    }
+
+    .quantum-previews .topic-note {
+        grid-column: 2;
+        text-align: left;
+        font-size: .8rem;
+    }
+
+    .circuit-drawing {
+        max-width: 100%;
+    }
+
+    .quantum-start-intro h2 {
+        font-size: 1.4rem;
+    }
+
+    .quantum-start-intro p {
+        font-size: .95rem;
+    }
+
+    .quantum-basics {
+        margin-top: 72px;
+    }
+
+    .bits-visual {
+        padding: 24px 12px;
+    }
+
+    .bit-sequence span {
+        padding: 9px 6px;
+        font-size: .8rem;
+    }
+}
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .quantum-previews .preview-card {
+        transition: none;
+    }
+
+    .myth-text,
+    .myth-hint span {
+        transition: none;
+    }
+
+    .myth[open] .myth-reality {
+        /* reduced motion */
+        animation: none;
+    }
+}

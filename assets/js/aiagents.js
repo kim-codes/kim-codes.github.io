@@ -2,9 +2,9 @@ let currentLayerIndex = 0;
 
 const layers = [
     {
-        name: "Surface | AI Agent",
+        name: "At the surface, AI Agent",
         description:
-            "This is the part we see first. The agent takes a goal, reasons through what to do, and decides what should happen next.",
+            "The agent takes a goal, reasons through what to do, and decides what should happen next.",
         adds:
             "Turns a request into a plan of action.",
         without:
@@ -13,39 +13,41 @@ const layers = [
     {
         name: "Agent Runtime",
         description:
-            "An agent needs more than a plan. The runtime manages the steps, tracks progress, and coordinates what happens as the agent works.",
+            "Now we need something to execute. Keepstrack of steps and make sure things get done.",
         adds:
             "A way to organize and execute a multi-step workflow.",
         without:
-            "The model could suggest actions, but there would be no system managing their execution."
+            "There would be no system managing the execution."
     },
+
     {
         name: "LLM",
         description:
-            "The language model helps the agent interpret instructions, work with information, and decide what to do next.",
+            "But how does the agent figure out what to do? That's where the language model comes in. It interprets the request and helps decide what should happen next.",
         adds:
-            "Language understanding and model-driven decisions.",
+            "The ability to understand instructions and make decisions.",
         without:
-            "This kind of language-model-driven agent would lose its reasoning component."
+            "The agent would lose the model that helps it decide what to do."
     },
     {
         name: "MCP",
         description:
-            "The Model Context Protocol provides a standardized way for applications to connect models and agents with external tools and information.",
+            "Now what if the agent needs information or tools outside itself. MCP gives it a standard way to connect to them, without building a different integration for everything.",
         adds:
-            "A common interface for discovering and using external capabilities.",
+            "A common way to connect to external tools and information.",
         without:
-            "The agent could still use tools through other integrations, but not through this standardized interface."
+            "We would need another way to connect those tools. MCP isn't the only option."
     },
     {
         name: "Infrastructure",
         description:
-            "Underneath everything is the environment where the agent and its tools run. Compute, storage, networking, and isolation all help support reliable execution.",
+            "All of this needs somewhere to run. That is where infrastructure comes in. Compute, storage, and networking. Keeps everything working.",
         adds:
-            "The resources and environment needed to run the system.",
+            "The environment and resources to run the agent.",
         without:
-            "The agent would have nowhere to execute its work."
+            "There is nowhere for the agent and its tools to run."
     }
+
 ];
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -70,15 +72,12 @@ document.addEventListener("DOMContentLoaded", () => {
         without.textContent = layer.without;
 
         visualLayers.forEach((element, index) => {
-            element.classList.toggle(
-                "active",
-                index === currentLayerIndex
-            );
+            const isActive = index === currentLayerIndex;
 
-            element.classList.toggle(
-                "uncovered",
-                index < currentLayerIndex
-            );
+            element.classList.toggle("active", isActive);
+            element.classList.toggle("uncovered", index < currentLayerIndex);
+
+            element.setAttribute("aria-pressed", String(isActive));
         });
 
         backButton.hidden = currentLayerIndex === 0;
@@ -87,6 +86,7 @@ document.addEventListener("DOMContentLoaded", () => {
             "dig-complete",
             currentLayerIndex === layers.length - 1
         );
+
     }
 
     digButton.addEventListener("click", () => {
@@ -101,6 +101,25 @@ document.addEventListener("DOMContentLoaded", () => {
             currentLayerIndex--;
             render();
         }
+    });
+
+    // Allow visitors to explore layers directly
+    visualLayers.forEach((element, index) => {
+
+        element.addEventListener("click", () => {
+            currentLayerIndex = index;
+            render();
+        });
+
+        // Keyboard accessibility
+        element.addEventListener("keydown", (event) => {
+            if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                currentLayerIndex = index;
+                render();
+            }
+        });
+
     });
 
     render();

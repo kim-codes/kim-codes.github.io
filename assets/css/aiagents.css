@@ -107,82 +107,29 @@
 
 /* Soft geological colors */
 
+/* Make the geological layers interactive */
 
-/* =========================================================
-   EXCAVATION ILLUSTRATION
-   ========================================================= */
-
-.excavation-visual {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 0;
-}
-
-.excavation-stack {
-    display: block;
-    width: min(100%, 390px);
-    height: auto;
-    overflow: visible;
-}
-
-/* Individual geological layers */
-
+/* All layers retain their individual colors */
 .soil-layer {
-    opacity: 0.25;
-    transition: opacity 350ms ease;
+    opacity: 0.55;
+    cursor: pointer;
+    transition: opacity 250ms ease;
 }
 
-.soil-layer path {
-    stroke: #4c4c4c;
-    stroke-width: 1.5;
-    stroke-linejoin: round;
-    transition: fill 350ms ease;
-}
-
-.soil-layer text {
-    font-family: "Inter", sans-serif;
-    font-size: 15px;
-    font-weight: 600;
-    text-anchor: middle;
-    dominant-baseline: middle;
-    fill: #333;
-}
-
-/* Previously explored layers */
-
+/* Previously explored layers return to normal */
 .soil-layer.uncovered {
-    opacity: 0.8;
+    opacity: 0.55;
 }
 
-/* Current layer */
-
+/* Only the selected layer is emphasized */
 .soil-layer.active {
     opacity: 1;
 }
 
-/* Soft geological colors */
-
-/* Each layer keeps its own color */
-
-.agent-layer path {
-    fill: #a8d8b0;
-}
-
-.runtime-layer path {
-    fill: #b9a0de;
-}
-
-.llm-layer path {
-    fill: #f2c66d;
-}
-
-.mcp-layer path {
-    fill: #eba38b;
-}
-
-.infra-layer path {
-    fill: #8cb9d9;
+/* Hover changes the outline, not the opacity */
+.soil-layer:not(.active):hover path {
+    stroke: #222;
+    stroke-width: 2.5;
 }
 
 
@@ -218,16 +165,18 @@
     display: flex;
     gap: 2.5rem;
     margin-top: 2.5rem;
+    align-items: center;
 }
 
 #dig-button,
 #back-button {
     padding: 0;
     border: none;
-    background: none;
+    background: transparent;
 
-    font-family: "Caveat", cursive;
-    font-size: 1.7rem;
+    font-family: "Inter", sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
     color: #222;
 
     text-decoration: none;
@@ -251,6 +200,28 @@
 #dig-button.dig-complete {
     display: none;
 }
+
+
+.agent-layer path {
+    fill: #a8d8b0;
+}
+
+.runtime-layer path {
+    fill: #b9a0de;
+}
+
+.llm-layer path {
+    fill: #f2c66d;
+}
+
+.mcp-layer path {
+    fill: #eba38b;
+}
+
+.infra-layer path {
+    fill: #8cb9d9;
+}
+
 
 
 /* =========================================================

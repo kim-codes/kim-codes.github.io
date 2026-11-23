@@ -59,117 +59,138 @@
             <p class="intro">
                 AI might feel like a completely new layer of computing.<br>
                 But the foundations that ran the cloud now run the agent era.
+                <br><br>
+                AI agents can plan, use tools, and take action.<br>
+                Let's dig beneath the surface to see what makes it possible.
             </p>
         </section>
 
         <section class="excavation-exhibit">
 
-            <!-- Info cards -->
-            <div class="excavation-cards">
-
-                <div class="excavation-card excavation-intro">
-
-                    <div class="card-heading">
-                        <span class="card-icon">🪏</span>
-                        <h2>The Excavation</h2>
-                    </div>
-
-                    <p>
-                        Start at the surface. Dig beneath the AI agent
-                        to uncover the underlying mechanics.
-                    </p>
-
-                </div>
+            <!-- LEFT: THE EXCAVATION -->
+            <div class="excavation-visual">
 
 
-                <div class="excavation-card status-card">
+                <div class="excavation-visual">
 
-                    <h2>What You've Uncovered</h2>
+                    <svg class="excavation-stack" viewBox="0 0 420 350" xmlns="http://www.w3.org/2000/svg" role="img"
+                        aria-label="Five geological layers representing the foundations of an AI agent">
 
-                    <div class="status-item">
-                        <span class="label">Current Layer</span>
+                        <!-- AI AGENT -->
+                        <g class="soil-layer agent-layer active">
+                            <path d="M55 32
+                     Q65 18 110 22
+                     Q155 14 210 22
+                     Q265 15 310 23
+                     Q355 20 365 37
+                     L380 65
+                     Q385 79 362 80
+                     Q300 86 250 79
+                     Q190 87 135 80
+                     Q90 85 55 79
+                     Q35 75 43 60 Z" />
+                            <text x="210" y="55">AI Agent</text>
+                        </g>
 
-                        <strong id="current-layer">
-                            AI Agent
-                        </strong>
-                    </div>
+                        <!-- AGENT RUNTIME -->
+                        <g class="soil-layer runtime-layer">
+                            <path d="M45 91
+                     Q90 82 140 91
+                     Q205 83 260 91
+                     Q320 84 375 93
+                     L386 122
+                     Q390 138 365 140
+                     Q300 146 245 139
+                     Q180 147 120 140
+                     Q65 145 40 137
+                     Q30 130 45 91 Z" />
+                            <text x="210" y="117">Agent Runtime</text>
+                        </g>
 
-                    <div class="status-item">
-                        <span class="label">Layer Responsibilities</span>
+                        <!-- LLM -->
+                        <g class="soil-layer llm-layer">
+                            <path d="M40 153
+                     Q90 144 145 153
+                     Q210 145 265 153
+                     Q330 145 380 154
+                     L390 183
+                     Q392 200 365 201
+                     Q300 208 245 200
+                     Q175 208 110 201
+                     Q55 205 30 196
+                     Q22 187 40 153 Z" />
+                            <text x="210" y="179">LLM</text>
+                        </g>
 
-                        <strong id="layer-responsibilities">
-                            Turning a goal into action. Deciding what needs to happen next.
-                        </strong>
-                    </div>
+                        <!-- MCP -->
+                        <g class="soil-layer mcp-layer">
+                            <path d="M34 215
+                     Q95 205 150 215
+                     Q210 207 270 215
+                     Q335 207 385 216
+                     L394 245
+                     Q395 262 370 263
+                     Q300 270 240 262
+                     Q170 270 105 263
+                     Q45 268 25 258
+                     Q18 248 34 215 Z" />
+                            <text x="210" y="241">MCP</text>
+                        </g>
 
-                    <div class="status-item">
-                        <span class="label">Layers Remaining</span>
+                        <!-- INFRASTRUCTURE -->
+                        <g class="soil-layer infra-layer">
+                            <path d="M30 277
+                     Q90 268 150 277
+                     Q210 269 275 277
+                     Q340 270 390 278
+                     L399 307
+                     Q402 326 370 328
+                     Q300 335 240 327
+                     Q170 335 100 328
+                     Q42 332 20 321
+                     Q12 309 30 277 Z" />
+                            <text x="210" y="303">Infrastructure</text>
+                        </g>
 
-                        <strong id="layers-remaining">
-                            4
-                        </strong>
-                    </div>
+                    </svg>
 
                 </div>
 
             </div>
 
+            <!-- RIGHT: EXPLANATION -->
+            <div class="excavation-content" aria-live="polite">
 
-            <!-- Interactive landscape -->
-            <section class="dig-landscape">
+                <h2 id="current-layer">At the surface, AI Agent</h2>
 
-                <div class="landscape">
+                <p id="layer-description">
+                    This is the part we see first. The agent takes
+                    a goal, reasons through what to do, and decides
+                    what should happen next.
+                </p>
 
-                    <div class="dig-site">
+                <h3>What it adds</h3>
+                <p id="layer-adds">
+                    Turns a request into a plan of action.
+                </p>
 
-                        <p class="dig-instruction">
-                            <em>Dig to see what's underneath.</em>
-                        </p>
+                <h3>Without it</h3>
+                <p id="layer-without">
+                    There would be no agent coordinating the work
+                    toward a goal.
+                </p>
 
-                        <div class="layer active agent-rock">
+                <div class="dig-controls">
+                    <button id="back-button" type="button" hidden>
+                        Back
+                    </button>
 
-                            <img src="/assets/img/ai-agent-rock.png" alt="" class="agent-rock-img">
-
-                            <span>AI Agent</span>
-
-                        </div>
-
-                        <!-- First layer underneath -->
-                        <div class="layer excavation-layer runtime-layer hidden">
-                            <strong>Agent Runtime</strong>
-                            <span>Coordinates how the agent works</span>
-                        </div>
-
-                        <!-- REMAININ LAYERS -->
-
-                        <div class="layer excavation-layer llm-layer hidden">
-                            <strong>LLM</strong>
-                            <span>Reasons about what happens next</span>
-                        </div>
-
-                        <div class="layer excavation-layer mcp-layer hidden">
-                            <strong>MCP</strong>
-                            <span>Connects the agent to tools and external context</span>
-                        </div>
-
-                        <div class="layer excavation-layer infra-layer hidden">
-                            <strong>Infrastructure</strong>
-                            <span>Provides the environment where the agent runs</span>
-                        </div>
-
-                        <!-- LAYERS DONE -->
-
-                        <!-- DIG CONTROLS -->
-                        <div class="dig-controls">
-                            <button id="back-button" hidden>← Back</button>
-                            <button id="dig-button">Dig deeper ↓</button>
-                        </div>
-
-                    </div>
-
+                    <button id="dig-button" type="button">
+                        Dig deeper
+                    </button>
                 </div>
 
-            </section>
+            </div>
 
         </section>
 

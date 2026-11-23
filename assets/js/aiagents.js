@@ -2,169 +2,106 @@ let currentLayerIndex = 0;
 
 const layers = [
     {
-        id: "agent",
-        name: "SURFACE | AI Agent",
-        selector: ".agent-rock",
-        responsibility:
-            "Turning a goal into action. Deciding what needs to happen next."
+        name: "Surface | AI Agent",
+        description:
+            "This is the part we see first. The agent takes a goal, reasons through what to do, and decides what should happen next.",
+        adds:
+            "Turns a request into a plan of action.",
+        without:
+            "There would be no agent coordinating the work toward a goal."
     },
     {
-        id: "runtime",
         name: "Agent Runtime",
-        selector: ".runtime-layer",
-        responsibility:
-            "Orchestration, planning loops, memory, and tool coordination."
+        description:
+            "An agent needs more than a plan. The runtime manages the steps, tracks progress, and coordinates what happens as the agent works.",
+        adds:
+            "A way to organize and execute a multi-step workflow.",
+        without:
+            "The model could suggest actions, but there would be no system managing their execution."
     },
     {
-        id: "llm",
         name: "LLM",
-        selector: ".llm-layer",
-        responsibility:
-            "Reasoning, language understanding, and generating responses."
+        description:
+            "The language model helps the agent interpret instructions, work with information, and decide what to do next.",
+        adds:
+            "Language understanding and model-driven decisions.",
+        without:
+            "This kind of language-model-driven agent would lose its reasoning component."
     },
     {
-        id: "mcp",
         name: "MCP",
-        selector: ".mcp-layer",
-        responsibility:
-            "Connecting the agent to external tools, data, and context."
+        description:
+            "The Model Context Protocol provides a standardized way for applications to connect models and agents with external tools and information.",
+        adds:
+            "A common interface for discovering and using external capabilities.",
+        without:
+            "The agent could still use tools through other integrations, but not through this standardized interface."
     },
     {
-        id: "infra",
         name: "Infrastructure",
-        selector: ".infra-layer",
-        responsibility:
-            "Providing the environment where the agent can run reliably."
+        description:
+            "Underneath everything is the environment where the agent and its tools run. Compute, storage, networking, and isolation all help support reliable execution.",
+        adds:
+            "The resources and environment needed to run the system.",
+        without:
+            "The agent would have nowhere to execute its work."
     }
 ];
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    const digButton = document.querySelector("#dig-button");
-    const backButton = document.querySelector("#back-button");
-    const instruction = document.querySelector(".dig-instruction");
+    const visualLayers = document.querySelectorAll(".soil-layer");
 
     const currentLayerText = document.querySelector("#current-layer");
-    const layersRemaining = document.querySelector("#layers-remaining");
-    const responsibility = document.querySelector("#layer-responsibilities");
+    const description = document.querySelector("#layer-description");
+    const adds = document.querySelector("#layer-adds");
+    const without = document.querySelector("#layer-without");
 
+    const digButton = document.querySelector("#dig-button");
+    const backButton = document.querySelector("#back-button");
 
-    function renderLayers() {
-
-        layers.forEach((layer, index) => {
-
-            const element = document.querySelector(layer.selector);
-
-            if (!element) return;
-
-            const difference = index - currentLayerIndex;
-
-            // Current layer
-            if (difference === 0) {
-
-                element.classList.remove("hidden");
-
-                element.style.transform =
-                    "translateX(-50%) translateY(0) scale(1)";
-
-                element.style.opacity = "1";
-                element.style.pointerEvents = "auto";
-            }
-
-            // Previously uncovered layers
-            else if (difference < 0) {
-
-                element.classList.remove("hidden");
-
-                const distance = Math.abs(difference) * 80;
-
-                element.style.transform =
-                    `translateX(-50%) translateY(-${distance}px) scale(.86)`;
-
-                element.style.opacity =
-                    Math.max(
-                        0,
-                        0.65 - (Math.abs(difference) * 0.22)
-                    );
-
-                element.style.pointerEvents = "none";
-            }
-
-            // Layers we haven't reached yet
-            else {
-
-                element.classList.remove("hidden");
-
-                element.style.transform =
-                    "translateX(-50%) translateY(70px) scale(.9)";
-
-                element.style.opacity = "0";
-                element.style.pointerEvents = "none";
-            }
-        });
-    }
-
-
-    function updateStatus() {
+    function render() {
 
         const layer = layers[currentLayerIndex];
 
         currentLayerText.textContent = layer.name;
-        responsibility.textContent = layer.responsibility;
+        description.textContent = layer.description;
+        adds.textContent = layer.adds;
+        without.textContent = layer.without;
 
-        layersRemaining.textContent =
-            layers.length - 1 - currentLayerIndex;
+        visualLayers.forEach((element, index) => {
+            element.classList.toggle(
+                "active",
+                index === currentLayerIndex
+            );
 
+            element.classList.toggle(
+                "uncovered",
+                index < currentLayerIndex
+            );
+        });
 
-        // Hide initial instruction after leaving surface
-        if (currentLayerIndex === 0) {
-            instruction.classList.remove("instruction-hidden");
-        } else {
-            instruction.classList.add("instruction-hidden");
-        }
-
-
-        // Back only appears after first dig
         backButton.hidden = currentLayerIndex === 0;
 
-
-        // Hide Dig deeper at the bottom
-        if (currentLayerIndex === layers.length - 1) {
-            digButton.classList.add("dig-complete");
-        } else {
-            digButton.classList.remove("dig-complete");
-        }
+        digButton.classList.toggle(
+            "dig-complete",
+            currentLayerIndex === layers.length - 1
+        );
     }
 
-
     digButton.addEventListener("click", () => {
-
-        if (currentLayerIndex >= layers.length - 1) {
-            return;
+        if (currentLayerIndex < layers.length - 1) {
+            currentLayerIndex++;
+            render();
         }
-
-        currentLayerIndex++;
-
-        renderLayers();
-        updateStatus();
     });
-
 
     backButton.addEventListener("click", () => {
-
-        if (currentLayerIndex <= 0) {
-            return;
+        if (currentLayerIndex > 0) {
+            currentLayerIndex--;
+            render();
         }
-
-        currentLayerIndex--;
-
-        renderLayers();
-        updateStatus();
     });
 
-
-    // Initial state
-    renderLayers();
-    updateStatus();
-
+    render();
 });

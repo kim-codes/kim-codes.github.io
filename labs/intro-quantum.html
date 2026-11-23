@@ -143,7 +143,7 @@
                                 <strong>Reveal the answer</strong>
 
                                 <span class="myth-annotation" aria-hidden="true">
-                                    <span>give it a click!</span>
+                                    <span>click here</span>
                                     <svg viewBox="0 0 120 55">
                                         <path d="M110 5 Q90 55 20 40" />
                                         <path d="M32 31 L20 40 L34 46" />
@@ -259,8 +259,153 @@
             </div>
         </section>
 
+        <section class="logic-section">
+            <div class="logic-demo">
+                <p class="logic-label">Try flipping a bit</p>
 
-        <!-- Transition to build first circuit "But we don't need a fully developed quantum computer to start building our first circuit."  -->
+                <div class="logic-character" id="logic-character">A</div>
+
+                <div class="logic-interaction">
+                    <div class="logic-bits">
+                        <span>0</span>
+                        <span>1</span>
+                        <span>0</span>
+                        <span>0</span>
+                        <span>0</span>
+                        <span>0</span>
+                        <span>0</span>
+                        <button type="button" id="flip-bit" aria-label="Flip the last bit">1</button>
+                    </div>
+
+                    <div class="logic-annotation" aria-hidden="true">
+                        <span>flip it!</span>
+                        <svg viewBox="0 0 120 55">
+                            <path d="M110 5 Q90 55 20 40" />
+                            <path d="M32 31 L20 40 L34 46" />
+                        </svg>
+                    </div>
+                </div>
+
+                <p class="logic-caption">Click the highlighted bit to flip it.</p>
+            </div>
+
+            <div class="logic-copy">
+                <h3>A little logic</h3>
+
+                <p>
+                    Now that we've turned our letter A into bits,
+                    let's do something with them.
+                </p>
+
+                <p>
+                    Remember those <strong>logic gates</strong>?
+                    One of the simplest is the <strong>NOT gate</strong>.
+                    Its job is to flip a bit: a 0 becomes a 1,
+                    and a 1 becomes a 0.
+                </p>
+
+                <p>
+                    Try clicking the highlighted bit in our letter A.
+                    What happens to the letter when you change just one bit?
+                </p>
+            </div>
+        </section>
+
+        <section class="quantum-unfamiliar" id="qubits">
+
+            <div class="unfamiliar-intro">
+                <h2>The unfamiliar</h2>
+                <h3>Meet the qubit</h3>
+            </div>
+
+            <div class="unfamiliar-content">
+
+                <div class="unfamiliar-copy">
+                    <p>
+                        Quantum computers don't use bits. They use <strong>qubits</strong>.
+                        Unlike a bit, a qubit can exist in a superposition of 0 and 1. Think of it as a combination of
+                        the two possible states, rather than a definite 0 or 1.
+                    </p>
+
+                    <p>
+                        When we check the value of a qubit (when we 'measure' it), we still get either a 0 or a 1.
+                        But what is interesting is what we can do with the qubit before we measure it.
+                    </p>
+                </div>
+
+                <div class="qubit-visual">
+                    <p class="qubit-visual-label">A bit vs. a qubit</p>
+
+                    <div class="qubit-comparison">
+                        <div class="qubit-example">
+                            <span class="qubit-example-title">Classical bit</span>
+                            <div class="classical-value">0</div>
+                            <span class="qubit-example-note">Either 0 or 1</span>
+                        </div>
+
+                        <div class="qubit-example">
+                            <span class="qubit-example-title">Qubit</span>
+
+                            <svg class="qubit-wave" viewBox="0 0 160 75" role="img"
+                                aria-label="Decorative overlapping waves representing a quantum concept">
+
+                                <path d="M5 37 C20 37 22 12 40 12
+                               S60 62 80 62
+                               S100 12 120 12
+                               S140 37 155 37" class="wave-cyan" />
+
+                                <path d="M5 37 C20 37 22 62 40 62
+                               S60 12 80 12
+                               S100 62 120 62
+                               S140 37 155 37" class="wave-purple" />
+                            </svg>
+
+                            <span class="qubit-example-note">
+                                Can be in a superposition
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="unfamiliar-gates">
+
+                <p>
+                    Since quantum computers use qubits, we can't use logic gates. We use what we call
+                    <strong>quantum gates</strong> in order to process information.
+                </p>
+
+                <p>
+                    One of these is the <strong>Hadamard gate (H)</strong>.
+                    When applied to a qubit starting in the state |0⟩,
+                    it creates an equal superposition of 0 and 1.
+                </p>
+
+                <p>
+                    If we measure that qubit, there's a 50% chance of getting 0
+                    and a 50% chance of getting 1.
+                </p>
+
+            </div>
+
+            <div class="quantum-transition">
+                <span class="transition-note">And that's the basics.</span>
+
+                <h3>Now, let's put them to work.</h3>
+
+                <p>
+                    And guess what? We don't need a quantum computer to build
+                    our first circuit. We can use a simulator to see how it all works.
+                </p>
+
+                <a href="#first-circuit" class="transition-link">
+                    [ Build your first quantum circuit ]
+                </a>
+            </div>
+
+        </section>
+
 
         <nav class="page-navigation" aria-label="Page navigation">
 
@@ -293,6 +438,23 @@
                 }
             });
         });
+
+        const flipBit = document.getElementById('flip-bit');
+        const character = document.getElementById('logic-character');
+        const annotation = document.querySelector('.logic-annotation');
+
+        flipBit.addEventListener('click', () => {
+            const flipped = flipBit.textContent.trim() === '1';
+
+            flipBit.textContent = flipped ? '0' : '1';
+            character.textContent = flipped ? '@' : 'A';
+
+            // Hide the handwritten note after the first click
+            if (annotation) {
+                annotation.style.display = 'none';
+            }
+        });
+
     </script>
 
 </body>

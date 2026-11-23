@@ -2,7 +2,7 @@
    REFLECTIONS
    ========================================================= */
 
-.reflections {
+.notebook {
     max-width: 850px;
     margin: 4rem auto 7rem;
     padding: 0 1.5rem;
@@ -12,18 +12,18 @@
    Header
    -------------------------- */
 
-.reflections-header {
+.notebook-header {
     margin-bottom: 6rem;
 }
 
-.reflections-header h1 {
+.notebook-header h1 {
     font-size: clamp(2.6rem, 5vw, 4rem);
     font-weight: 600;
     line-height: 1.05;
     letter-spacing: -0.035em;
 }
 
-.reflections-header p {
+.notebook-header p {
     max-width: 540px;
     color: #666;
     font-size: 1.05rem;
@@ -181,16 +181,16 @@
 
 @media (max-width: 700px) {
 
-    .reflections {
+    .notebook {
         margin-top: 3.5rem;
         padding: 0 1.5rem;
     }
 
-    .reflections-header {
+    .notebook-header {
         margin-bottom: 4.5rem;
     }
 
-    .reflections-header h1 {
+    .notebook-header h1 {
         font-size: 2.5rem;
     }
 

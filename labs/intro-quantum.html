@@ -21,6 +21,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500&display=swap" rel="stylesheet">
 
     <!-- link css -->
     <link rel="stylesheet" href="/assets/css/styles.css">
@@ -125,32 +126,72 @@
         <section class="quantum-basics" id="basics">
             <div class="basics-intro">
                 <h2>First, Some Context</h2>
-                <h3>Quantum myths</h3>
-
-                <p>
-                    Let's clear up a few common misconceptions about quantum computing.
-                </p>
+                <h3>How much of what we've heard about quantum computing is true?</h3>
             </div>
 
-            <div class="myth-comparison">
-                <div class="myth-card">
-                    <h4>Myth</h4>
-                    <p>
-                        Quantum computers are just more powerful computers.
-                    </p>
-                </div>
+            <div class="myth-list">
 
-                <div class="myth-card reality-card">
-                    <h4>Reality</h4>
-                    <p>
-                        Quantum computers work differently in how they process information compared to classical
-                        computers. They use the principles of quantum mechanics which have advantages for particular
-                        problems. For example, simulating molecular interactions with high precision, or factoring large
-                        numbers for cryptography.
-                        <br><br>
-                        <strong>They are not a replacement for classical computers.</strong>
-                    </p>
-                </div>
+                <details class="myth">
+                    <summary>
+                        <span class="myth-text">
+                            Quantum computers are just more powerful computers.
+                        </span>
+
+                        <span class="myth-hint">
+                            Myth or Reality?
+                            <span class="reveal-wrap">
+                                <strong>Reveal the answer</strong>
+
+                                <span class="myth-annotation" aria-hidden="true">
+                                    <span>give it a click!</span>
+                                    <svg viewBox="0 0 120 55">
+                                        <path d="M110 5 Q90 55 20 40" />
+                                        <path d="M32 31 L20 40 L34 46" />
+                                    </svg>
+                                </span>
+                            </span>
+                        </span>
+                    </summary>
+                    <div class="myth-reality">
+                        <p>
+                            Quantum computers work differently in how they process information compared to classical
+                            computers. They use the principles of quantum mechanics which have advantages for particular
+                            problems. For example, simulating molecular interactions with high precision, or factoring
+                            large numbers for cryptography.
+                            <br><br>
+                            <strong>They are not a replacement for classical computers.</strong>
+                        </p>
+                    </div>
+                </details>
+
+                <details class="myth">
+                    <summary>
+                        <span class="myth-text">Quantum computers will replace classical computers.</span>
+                        <span class="myth-hint">Myth or Reality? <strong>Reveal the answer</strong></span>
+                    </summary>
+                    <div class="myth-reality">
+                        <p>
+                            As we've discussed, and as we'll see shortly, quantum computers work differently from
+                            classical computers. That difference could help solve certain problems, but it doesn't make
+                            them faster or better at everything. So don't expect them to replace your laptop.
+                        </p>
+                    </div>
+                </details>
+
+                <details class="myth">
+                    <summary>
+                        <span class="myth-text">"I thought you needed special hardware to experiment with quantum
+                            computing."</span>
+                        <span class="myth-hint">Myth or Reality? <strong>Reveal the answer</strong></span>
+                    </summary>
+                    <div class="myth-reality">
+                        <p>
+                            You can build and run quantum circuits on a regular computer using a simulator. And that's
+                            exactly what we're going to do!
+                        </p>
+                    </div>
+                </details>
+
             </div>
 
             <div class="basics-transition">
@@ -167,6 +208,57 @@
             </div>
 
         </section>
+
+
+        <section class="quantum-familiar" id="classical">
+            <h2>The familiar</h2>
+            <h3>How do computers process information?</h3>
+
+            <div class="familiar-layout">
+                <div class="familiar-copy">
+                    <p>
+                        Everything your computer does, from displaying a photo
+                        to running a game, behind the scenes it's all 1s and 0s.
+                    </p>
+
+                    <p>
+                        We call those 1s and 0s <strong>bits</strong>. Each bit is either a
+                        0 or 1, and computers combine billions of them
+                        to represent information.
+                    </p>
+
+                    <p>
+                        In order for your computer to work, they need to use
+                        <strong>logic gates</strong> to perform actions on those bits. Logic gates are simple operations
+                        that follow rules, like flipping a 0 to a 1.
+                    </p>
+                </div>
+
+                <div class="bits-visual">
+                    <span class="visual-label">The letter "A" represented as bits</span>
+
+                    <div class="letter-example">
+                        <span class="letter">A</span>
+                    </div>
+
+                    <div class="bit-sequence" aria-label="01000001">
+                        <span>0</span>
+                        <span>1</span>
+                        <span>0</span>
+                        <span>0</span>
+                        <span>0</span>
+                        <span>0</span>
+                        <span>0</span>
+                        <span>1</span>
+                    </div>
+
+                    <p class="visual-caption">
+                        "A" is 01000001 in 8-bit ASCII
+                    </p>
+                </div>
+            </div>
+        </section>
+
 
         <!-- Transition to build first circuit "But we don't need a fully developed quantum computer to start building our first circuit."  -->
 
@@ -193,5 +285,16 @@
         <p>&copy; 2026 Kim Codes</p>
 
     </footer>
+    <script>
+        document.querySelectorAll('.myth').forEach(myth => {
+            myth.addEventListener('toggle', () => {
+                if (myth.open) {
+                    document.querySelector('.myth-annotation')?.remove();
+                }
+            });
+        });
+    </script>
 
 </body>
+
+</html>

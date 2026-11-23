@@ -36,7 +36,6 @@ body {
 .quantum-hero {
     display: grid;
     grid-template-columns: minmax(0, 1.24fr) minmax(0, 1fr);
-    gap: 0;
     align-items: center;
     min-height: 360px;
     position: relative;
@@ -113,7 +112,7 @@ body {
         border-color .2s ease;
 }
 
-.quantum-previews .preview-card h3 {
+.quantum-previews .preview-card h2 {
     font-size: clamp(1.3rem, 1.9vw, 1.75rem);
     font-weight: 500;
     letter-spacing: -.03em;
@@ -268,62 +267,245 @@ body {
 }
 
 .basics-intro h2 {
-    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
     font-weight: 600;
-    letter-spacing: -.045em;
-    line-height: 1.15;
-    margin: 0 0 8px;
+    letter-spacing: -.035em;
+    line-height: 1.2;
+    margin: 0 0 12px;
 }
 
 .basics-intro h3 {
-    font-size: clamp(1.6rem, 2.5vw, 2.5rem);
-    font-weight: 500;
-    letter-spacing: -.03em;
+    font-size: clamp(1.1rem, 1.7vw, 1.35rem);
+    font-weight: 400;
+    letter-spacing: -.01em;
+    line-height: 1.5;
     color: var(--muted);
     margin: 0;
 }
 
-.basics-intro p {
+/* Click-to-reveal quantum myths */
+
+.myth-list {
+    display: grid;
+    gap: 72px;
     max-width: 900px;
-    margin: 36px 0 0;
+    margin-top: 56px;
+    margin-left: 28px;
+    position: relative;
+}
+
+.myth summary {
+    display: block;
+    list-style: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.myth summary::-webkit-details-marker {
+    display: none;
+}
+
+.myth summary:focus-visible {
+    outline: 2px solid var(--purple);
+    outline-offset: 8px;
+}
+
+/* Handwritten annotation */
+
+.reveal-wrap {
+    position: relative;
+    display: inline-block;
+}
+
+.myth-annotation {
+    position: absolute;
+    left: calc(100% + 20px);
+    width: 120px;
+    color: var(--ink);
+    pointer-events: none;
+    text-align: center;
+}
+
+.myth-annotation>span {
+    display: block;
+    font-family: 'Caveat', cursive;
+    font-size: 1.35rem;
+    line-height: 1;
+    transform: rotate(-5deg);
+}
+
+.myth-annotation svg {
+    display: block;
+    width: 75px;
+    height: 35px;
+    margin: 0 auto;
+}
+
+.myth-annotation path {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.myth-text {
+    display: block;
+    font-size: clamp(1.1rem, 1.7vw, 1.35rem);
+    font-weight: 500;
+    letter-spacing: -.03em;
+    line-height: 1.3;
+    color: var(--ink);
+    text-decoration: line-through;
+    text-decoration-color: transparent;
+    text-decoration-thickness: 2px;
+}
+
+.myth-hint {
+    display: inline-block;
+    margin-top: 14px;
+    font-size: .9rem;
     color: var(--muted);
-    font-size: clamp(1rem, 1.35vw, 1.2rem);
+}
+
+.myth-hint strong {
+    color: #008f89; /* too tough to see on white background var(--cyan);*/
+    font-weight: 600;
+}
+
+/* Open state: myth gets crossed out, reality appears */
+
+.myth[open] .myth-text {
+    color: var(--quiet);
+    text-decoration-color: var(--cyan);
+}
+
+.myth[open] .myth-hint {
+    display: none;
+}
+
+.myth-reality {
+    max-width: 640px;
+    padding-top: 20px;
+    margin-left: 24px;
+}
+
+.myth-reality p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 1.05rem;
     line-height: 1.7;
 }
 
-/* Myth vs Reality */
-
-.myth-comparison {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 28px;
-    margin-top: 60px;
+.myth-reality strong {
+    color: var(--ink);
 }
 
-.myth-card {
-    border: 1px solid var(--line);
-    border-radius: 12px;
-    padding: 42px 40px;
-    min-height: 280px;
+@keyframes reality-in {
+    from {
+        opacity: 0;
+        transform: translateY(-6px);
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+    }
 }
 
-.myth-card h4 {
-    font-size: clamp(1.6rem, 2.5vw, 2.5rem);
+/* The familiar */
+
+.quantum-familiar {
+    margin-top: 120px;
+}
+
+.quantum-familiar h2 {
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
     font-weight: 600;
-    letter-spacing: -.035em;
-    margin: 0 0 24px;
+    letter-spacing: -.045em;
+    margin: 0 0 8px;
 }
 
-.myth-card p {
+.quantum-familiar h3 {
+    font-size: clamp(1.3rem, 2vw, 1.8rem);
+    font-weight: 500;
     color: var(--muted);
-    font-size: clamp(1rem, 1.3vw, 1.15rem);
-    line-height: 1.65;
-    margin: 0;
+    letter-spacing: -.03em;
+    margin: 0 0 40px;
 }
 
-.reality-card {
-    background: #effbf9;
-    border-color: #b4e6e1;
+.familiar-layout {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 48px;
+    align-items: center;
+}
+
+.familiar-copy p {
+    color: var(--muted);
+    font-size: 1.05rem;
+    line-height: 1.75;
+    margin: 0 0 22px;
+}
+
+.familiar-copy strong {
+    color: var(--ink);
+}
+
+/* Bits illustration */
+
+.bits-visual {
+    text-align: center;
+    padding: 28px 10px;
+}
+
+.visual-label {
+    display: block;
+    font-size: .8rem;
+    color: var(--muted);
+    margin-bottom: 24px;
+}
+
+.letter-example {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 24px;
+}
+
+.letter {
+    font-size: 3.5rem;
+    font-weight: 600;
+}
+
+.letter-caption,
+.visual-caption {
+    font-size: .8rem;
+    color: var(--quiet);
+}
+
+.bit-sequence {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+}
+
+.bit-sequence span {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: .9rem;
+    padding: 10px 7px;
+    background: #f5f6f6;
+    border-radius: 3px;
+}
+
+.bit-sequence span:nth-child(2),
+.bit-sequence span:last-child {
+    background: #dff8f4;
+}
+
+.visual-caption {
+    margin: 16px 0 0;
 }
 
 /* Tablet and smaller screens */
@@ -347,16 +529,6 @@ body {
         margin: 24px 0 0;
     }
 
-    .quantum-previews {
-        grid-template-columns: 1fr;
-        gap: 24px;
-        margin-top: 48px;
-    }
-
-    .quantum-previews .preview-card {
-        padding: 30px 24px;
-    }
-
     .quantum-start {
         margin-top: 65px;
     }
@@ -368,45 +540,54 @@ body {
     .quantum-previews {
         grid-template-columns: 1fr;
         gap: 20px;
-        margin-top: 0;
     }
 
-    /** basics **/
+    .quantum-previews .preview-card {
+        padding: 30px 24px;
+    }
 
     .quantum-basics {
         margin-top: 90px;
     }
 
-    .myth-comparison {
+    .quantum-familiar {
+        margin-top: 80px;
+    }
+
+    .familiar-layout {
         grid-template-columns: 1fr;
-        gap: 20px;
-        margin-top: 40px;
+        gap: 24px;
     }
-
-    .myth-card {
-        min-height: auto;
-        padding: 32px 28px;
-    }
-
 }
 
 /* Mobile */
+
+@media (max-width: 600px) {
+    .myth-list {
+        gap: 56px;
+        margin-top: 44px;
+        margin-left: 0;
+    }
+
+    .myth-reality {
+        margin-left: 20px;
+    }
+
+    .myth-annotation {
+        display: none;
+    }
+}
 
 @media (max-width: 480px) {
     .hero-copy h1 {
         font-size: clamp(2.7rem, 11vw, 3.8rem);
     }
 
-    .quantum-previews {
-        gap: 20px;
-        margin-top: 36px;
-    }
-
     .quantum-previews .preview-card {
         padding: 28px 20px;
     }
 
-    .quantum-previews .preview-card h3 {
+    .quantum-previews .preview-card h2 {
         font-size: 1.4rem;
         margin-bottom: 24px;
     }
@@ -427,29 +608,24 @@ body {
     }
 
     .quantum-start-intro h2 {
-        font-size: 1.6rem;
+        font-size: 1.4rem;
     }
 
     .quantum-start-intro p {
         font-size: .95rem;
     }
 
-    /** basics **/
-
     .quantum-basics {
         margin-top: 72px;
     }
 
-    .basics-intro p {
-        margin-top: 24px;
+    .bits-visual {
+        padding: 24px 12px;
     }
 
-    .myth-card {
-        padding: 28px 24px;
-    }
-
-    .myth-card h4 {
-        margin-bottom: 16px;
+    .bit-sequence span {
+        padding: 9px 6px;
+        font-size: .8rem;
     }
 }
 
@@ -462,5 +638,15 @@ body {
 
     .quantum-previews .preview-card {
         transition: none;
+    }
+
+    .myth-text,
+    .myth-hint span {
+        transition: none;
+    }
+
+    .myth[open] .myth-reality {
+        /* reduced motion */
+        animation: none;
     }
 }

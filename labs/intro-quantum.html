@@ -410,14 +410,14 @@
         <nav class="page-navigation" aria-label="Page navigation">
 
             <!-- Back -->
-            <a href="/reflections.html" class="page-nav-link page-nav-back">
+            <a href="/lab.html" class="page-nav-link page-nav-back">
 
                 <svg class="page-nav-arrow" viewBox="0 0 70 26" preserveAspectRatio="none" aria-hidden="true">
                     <path d="M67 13 Q36 12 4 14
                      M15 5 Q10 10 4 14 Q10 18 16 22" />
                 </svg>
 
-                <span>Back to my reflections</span>
+                <span>Back to the idea lab</span>
             </a>
 
         </nav>
@@ -430,32 +430,7 @@
         <p>&copy; 2026 Kim Codes</p>
 
     </footer>
-    <script>
-        document.querySelectorAll('.myth').forEach(myth => {
-            myth.addEventListener('toggle', () => {
-                if (myth.open) {
-                    document.querySelector('.myth-annotation')?.remove();
-                }
-            });
-        });
-
-        const flipBit = document.getElementById('flip-bit');
-        const character = document.getElementById('logic-character');
-        const annotation = document.querySelector('.logic-annotation');
-
-        flipBit.addEventListener('click', () => {
-            const flipped = flipBit.textContent.trim() === '1';
-
-            flipBit.textContent = flipped ? '0' : '1';
-            character.textContent = flipped ? '@' : 'A';
-
-            // Hide the handwritten note after the first click
-            if (annotation) {
-                annotation.style.display = 'none';
-            }
-        });
-
-    </script>
+    <script src="/assets/js/intro-quantum.js"></script>
 
 </body>
 

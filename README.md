@@ -35,7 +35,7 @@ kim.codes/
 ├── lab.html
 ├── stories.html
 ├── footprints.html
-├── reflections.html
+├── notebook.html
 ├── contact.html
 ├── robots.txt
 ├── sitemap.xml
